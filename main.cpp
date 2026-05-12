@@ -54,27 +54,28 @@ int main() {
     };
 
     CWGameIterator* iter = nullptr;
-    for (size_t i = 0; i < events.size(); ++i) {
-        // If this is the first event, append it and then initialize the iterator.
-        if (i == 0) {
-            cw_game_event_append(game, events[i].inning, events[i].team, (char*)events[i].batter, (char*)"", (char*)"", (char*)events[i].text);
+    for (auto & event : events) {
+        cw_game_event_append(game, event.inning, event.team, const_cast<char *>(event.batter), (char*)"", (char*)"", const_cast<char *>(event.text));
+
+        // Real-time iterator advancement on a growing game requires re-processing from 
+        // the start to correctly handle side changes between events. This is O(N^2) 
+        // but ensures the game state is always accurate as events are added.
+        if (iter == nullptr) {
             iter = cw_gameiter_create(game);
-        }
-        
-        // To allow cw_gameiter_next to naturally advance to the next event without manual parsing 
-        // logic, we append the NEXT event (if any) before calling next for the CURRENT event.
-        if (i + 1 < events.size()) {
-            const auto& next_e = events[i+1];
-            cw_game_event_append(game, next_e.inning, next_e.team, (char*)next_e.batter, (char*)"", (char*)"", (char*)next_e.text);
+        } else {
+            cw_gameiter_reset(iter);
         }
 
-        // Call the iterator's next function to process the current event.
-        // This will process gameiter->event and then move gameiter->event to the next event (if it exists).
-        cw_gameiter_next(iter);
+        // Process all events up to the one just added.
+        while (iter && iter->event != nullptr) {
+            cw_gameiter_next(iter);
+        }
 
-        std::cout << "Processed event: " << events[i].batter << " - " << events[i].text 
-                  << " (State: Out=" << iter->state->outs 
-                  << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
+        if (iter) {
+            std::cout << "Processed event: " << event.batter << " - " << event.text
+                      << " (State: Out=" << iter->state->outs
+                      << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
+        }
     }
 
     // 5. After processing all the events, write the game to a Retrosheet event file.
@@ -88,10 +89,14 @@ int main() {
     }
 
     // Cleanup
-    cw_gameiter_cleanup(iter);
-    free(iter);
-    cw_game_cleanup(game);
-    free(game);
+    if (iter) {
+        cw_gameiter_cleanup(iter);
+        free(iter);
+    }
+    if (game) {
+        cw_game_cleanup(game);
+        free(game);
+    }
 
     return 0;
 }
