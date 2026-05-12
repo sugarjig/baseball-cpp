@@ -3,4 +3,7 @@ project(baseball_cpp)
 
 set(CMAKE_CXX_STANDARD 26)
 
+add_subdirectory(vendor)
+
 add_executable(baseball_cpp main.cpp)
+target_link_libraries(baseball_cpp PRIVATE chadwick)

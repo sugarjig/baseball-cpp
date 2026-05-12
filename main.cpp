@@ -1,18 +1,33 @@
 #include <iostream>
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+extern "C" {
+#include "chadwick.h"
+}
 
 int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
+    std::cout << "Baseball C++ Application starting...\n";
 
-    const auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    // Initialize a Chadwick game object
+    CWGame *game = cw_game_create((char*)"TEST01");
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+    if (game) {
+        std::cout << "Successfully initialized Chadwick library.\n";
+        std::cout << "Game ID: " << game->game_id << "\n";
+
+        // Add some info
+        cw_game_info_append(game, (char*)"vvis", (char*)"NYA");
+        cw_game_info_append(game, (char*)"vhome", (char*)"BOS");
+
+        std::cout << "Visitor: " << cw_game_info_lookup(game, (char*)"vvis") << "\n";
+        std::cout << "Home: " << cw_game_info_lookup(game, (char*)"vhome") << "\n";
+
+        // Cleanup
+        cw_game_cleanup(game);
+        free(game);
+    } else {
+        std::cerr << "Failed to create Chadwick game object.\n";
+        return 1;
     }
 
     return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
