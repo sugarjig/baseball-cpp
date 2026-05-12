@@ -53,29 +53,26 @@ int main() {
         {1, 1, "HOME04", "K"}
     };
 
-    CWGameIterator* iter = nullptr;
+    CWGameIterator* iter = cw_gameiter_create(game);;
     for (auto & event : events) {
+        std::cout << "Before: "
+                  << " (State: Out=" << iter->state->outs
+                  << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
+
         cw_game_event_append(game, event.inning, event.team, const_cast<char *>(event.batter), (char*)"", (char*)"", const_cast<char *>(event.text));
 
-        // Real-time iterator advancement on a growing game requires re-processing from 
-        // the start to correctly handle side changes between events. This is O(N^2) 
-        // but ensures the game state is always accurate as events are added.
-        if (iter == nullptr) {
-            iter = cw_gameiter_create(game);
-        } else {
-            cw_gameiter_reset(iter);
-        }
+        cw_gameiter_reset(iter);
 
         // Process all events up to the one just added.
-        while (iter && iter->event != nullptr) {
+        while (iter->event != nullptr) {
             cw_gameiter_next(iter);
         }
 
-        if (iter) {
-            std::cout << "Processed event: " << event.batter << " - " << event.text
-                      << " (State: Out=" << iter->state->outs
-                      << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
-        }
+        std::cout << "Processed event: " << event.batter << " - " << event.text << "\n";
+
+        std::cout << "After: "
+                  << " (State: Out=" << iter->state->outs
+                  << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
     }
 
     // 5. After processing all the events, write the game to a Retrosheet event file.
@@ -89,14 +86,10 @@ int main() {
     }
 
     // Cleanup
-    if (iter) {
-        cw_gameiter_cleanup(iter);
-        free(iter);
-    }
-    if (game) {
-        cw_game_cleanup(game);
-        free(game);
-    }
+    cw_gameiter_cleanup(iter);
+    free(iter);
+    cw_game_cleanup(game);
+    free(game);
 
     return 0;
 }
