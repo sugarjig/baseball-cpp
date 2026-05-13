@@ -28,7 +28,7 @@ public:
     void AddComment(const char* comment);
     GameState GetGameState() const;
 
-    CWGame* getCWGame() const { return game; }
+    explicit operator bool() const { return game != nullptr; }
 
 private:
     CWGame* game;

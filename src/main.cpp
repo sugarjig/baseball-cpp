@@ -13,7 +13,7 @@ int main() {
     auto* simulator = new Simulator(eventSource, observer);
 
     Game game("BAL202503310", "2025/03/31");
-    if (!game.getCWGame()) {
+    if (!game) {
         std::cerr << "Failed to create game\n";
         return 1;
     }
