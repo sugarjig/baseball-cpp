@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 #include "Simulator.h"
 #include "StaticEventSource.h"
 #include "SimulatorObserver.h"
@@ -49,7 +50,12 @@ int main() {
     if (outfile) {
         cw_game_write(game, outfile);
         fclose(outfile);
-        std::cout << "Game written to game.evn\n";
+        char cwd[1024];
+        if (getcwd(cwd, sizeof(cwd)) != nullptr) {
+            std::cout << "Game written to " << cwd << "/game.evn\n";
+        } else {
+            std::cout << "Game written to game.evn\n";
+        }
     } else {
         std::cerr << "Failed to open game.evn for writing\n";
     }

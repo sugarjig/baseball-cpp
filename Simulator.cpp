@@ -20,7 +20,11 @@ void Simulator::SimulateGame(CWGame* game) {
         switch (record->type) {
             case RecordType::Play: {
                 const auto& play = std::get<PlayInfo>(record->data);
-                cw_game_event_append(game, play.inning, play.team, const_cast<char *>(play.batter.c_str()), (char*)"", (char*)"", const_cast<char *>(play.text.c_str()));
+                cw_game_event_append(game, play.inning, play.team, 
+                                     const_cast<char *>(play.batter.c_str()), 
+                                     const_cast<char *>(play.pitchCount.c_str()), 
+                                     const_cast<char *>(play.pitchSequence.c_str()), 
+                                     const_cast<char *>(play.text.c_str()));
                 if (observer) observer->OnEvent(play);
                 break;
             }

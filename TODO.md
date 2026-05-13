@@ -6,3 +6,4 @@
 - [ ] Add Junie guidelines
 - [ ] Ask Junie for a code review
 - [ ] Organize files better
+- [ ] Include Retrosheet documentation as context

@@ -10,6 +10,8 @@ struct PlayInfo {
     int inning;
     int team;
     std::string batter;
+    std::string pitchCount;
+    std::string pitchSequence;
     std::string text;
 };
 
