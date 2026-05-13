@@ -2,8 +2,8 @@
 // Created by Samuel Jones on 5/12/26.
 //
 
-#ifndef BASEBALL_CPP_SIMULATOR_H
-#define BASEBALL_CPP_SIMULATOR_H
+#ifndef BASEBALL_CPP_SIMULATOR_HPP
+#define BASEBALL_CPP_SIMULATOR_HPP
 
 #include <cstdio>
 
@@ -26,4 +26,4 @@ public:
 };
 
 
-#endif //BASEBALL_CPP_SIMULATOR_H
+#endif //BASEBALL_CPP_SIMULATOR_HPP

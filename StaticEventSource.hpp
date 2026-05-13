@@ -1,7 +1,7 @@
-#ifndef BASEBALL_CPP_STATICEVENTSOURCE_H
-#define BASEBALL_CPP_STATICEVENTSOURCE_H
+#ifndef BASEBALL_CPP_STATICEVENTSOURCE_HPP
+#define BASEBALL_CPP_STATICEVENTSOURCE_HPP
 
-#include "EventSource.h"
+#include "EventSource.hpp"
 #include <vector>
 
 class StaticEventSource : public EventSource {
@@ -14,4 +14,4 @@ private:
     size_t currentIndex;
 };
 
-#endif //BASEBALL_CPP_STATICEVENTSOURCE_H
+#endif //BASEBALL_CPP_STATICEVENTSOURCE_HPP

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <unistd.h>
-#include "Simulator.h"
-#include "StaticEventSource.h"
-#include "SimulatorObserver.h"
+#include "Simulator.hpp"
+#include "StaticEventSource.hpp"
+#include "SimulatorObserver.hpp"
 
 int main() {
     std::cout << "Starting Chadwick example...\n";

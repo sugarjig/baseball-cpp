@@ -1,4 +1,4 @@
-#include "StaticEventSource.h"
+#include "StaticEventSource.hpp"
 
 StaticEventSource::StaticEventSource() : currentIndex(0) {
     records = {

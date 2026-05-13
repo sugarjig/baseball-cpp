@@ -1,8 +1,8 @@
-#ifndef BASEBALL_CPP_SIMULATOROBSERVER_H
-#define BASEBALL_CPP_SIMULATOROBSERVER_H
+#ifndef BASEBALL_CPP_SIMULATOROBSERVER_HPP
+#define BASEBALL_CPP_SIMULATOROBSERVER_HPP
 
 #include <iostream>
-#include "EventSource.h"
+#include "EventSource.hpp"
 extern "C" {
 #include "chadwick.h"
 }
@@ -40,4 +40,4 @@ public:
     }
 };
 
-#endif //BASEBALL_CPP_SIMULATOROBSERVER_H
+#endif //BASEBALL_CPP_SIMULATOROBSERVER_HPP

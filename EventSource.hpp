@@ -1,5 +1,5 @@
-#ifndef BASEBALL_CPP_EVENTSOURCE_H
-#define BASEBALL_CPP_EVENTSOURCE_H
+#ifndef BASEBALL_CPP_EVENTSOURCE_HPP
+#define BASEBALL_CPP_EVENTSOURCE_HPP
 
 #include <string>
 #include <vector>
@@ -36,4 +36,4 @@ public:
     virtual std::optional<Record> Next() = 0;
 };
 
-#endif //BASEBALL_CPP_EVENTSOURCE_H
+#endif //BASEBALL_CPP_EVENTSOURCE_HPP

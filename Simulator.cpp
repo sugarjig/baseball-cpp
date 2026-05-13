@@ -2,9 +2,9 @@
 // Created by Samuel Jones on 5/12/26.
 //
 
-#include "Simulator.h"
-#include "EventSource.h"
-#include "SimulatorObserver.h"
+#include "Simulator.hpp"
+#include "EventSource.hpp"
+#include "SimulatorObserver.hpp"
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer) : eventSource(eventSource), observer(observer) {
 }
