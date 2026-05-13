@@ -49,6 +49,7 @@ void Simulator::SimulateGame() {
     while (auto event = eventSource->Next()) {
         std::cout << "Before: "
                   << " (State: Out=" << iter->state->outs
+                  << ", Inning=" << iter->state->inning
                   << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
 
         cw_game_event_append(game, event->inning, event->team, const_cast<char *>(event->batter.c_str()), (char*)"", (char*)"", const_cast<char *>(event->text.c_str()));
@@ -64,6 +65,7 @@ void Simulator::SimulateGame() {
 
         std::cout << "After: "
                   << " (State: Out=" << iter->state->outs
+                  << ", Inning=" << iter->state->inning
                   << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n\n";
     }
 
