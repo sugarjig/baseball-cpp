@@ -7,12 +7,9 @@
 
 #include <cstdio>
 
-extern "C" {
-#include "chadwick.h"
-}
-
 class EventSource;
 class SimulatorObserver;
+class Game;
 
 class Simulator {
     EventSource* eventSource;
@@ -22,7 +19,7 @@ public:
 
     ~Simulator();
 
-    void SimulateGame(CWGame* game);
+    void SimulateGame(Game& game);
 };
 
 

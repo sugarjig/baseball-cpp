@@ -5,14 +5,20 @@
 #include "Simulator.hpp"
 #include "EventSource.hpp"
 #include "SimulatorObserver.hpp"
+#include "Game.hpp"
+
+extern "C" {
+#include "chadwick.h"
+}
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer) : eventSource(eventSource), observer(observer) {
 }
 
 Simulator::~Simulator() = default;
 
-void Simulator::SimulateGame(CWGame* game) {
-    CWGameIterator* iter = cw_gameiter_create(game);
+void Simulator::SimulateGame(Game& game) {
+    CWGame* cwGame = game.getCWGame();
+    CWGameIterator* iter = cw_gameiter_create(cwGame);
 
     while (auto record = eventSource->Next()) {
         if (observer) observer->OnPreEvent(iter->state);
@@ -20,7 +26,7 @@ void Simulator::SimulateGame(CWGame* game) {
         switch (record->type) {
             case RecordType::Play: {
                 const auto& play = std::get<PlayInfo>(record->data);
-                cw_game_event_append(game, play.inning, play.team, 
+                cw_game_event_append(cwGame, play.inning, play.team, 
                                      const_cast<char *>(play.batter.c_str()), 
                                      const_cast<char *>(play.pitchCount.c_str()), 
                                      const_cast<char *>(play.pitchSequence.c_str()), 
@@ -30,13 +36,13 @@ void Simulator::SimulateGame(CWGame* game) {
             }
             case RecordType::Substitution: {
                 const auto& sub = std::get<SubstitutionInfo>(record->data);
-                cw_game_substitute_append(game, const_cast<char *>(sub.playerID.c_str()), const_cast<char *>(sub.name.c_str()), sub.team, sub.slot, sub.pos);
+                cw_game_substitute_append(cwGame, const_cast<char *>(sub.playerID.c_str()), const_cast<char *>(sub.name.c_str()), sub.team, sub.slot, sub.pos);
                 if (observer) observer->OnSubstitution(sub);
                 break;
             }
             case RecordType::Comment: {
                 const auto& comment = std::get<std::string>(record->data);
-                cw_game_comment_append(game, const_cast<char *>(comment.c_str()));
+                cw_game_comment_append(cwGame, const_cast<char *>(comment.c_str()));
                 if (observer) observer->OnComment(comment);
                 break;
             }

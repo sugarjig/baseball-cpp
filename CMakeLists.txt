@@ -8,6 +8,7 @@ add_subdirectory(lib)
 add_executable(baseball_cpp
         src/main.cpp
         src/Simulator.cpp
+        src/Game.cpp
         src/StaticEventSource.cpp
         include/Simulator.hpp
         include/SimulatorObserver.hpp
