@@ -25,7 +25,7 @@ struct SubstitutionInfo {
 struct StarterInfo {
     std::string id;
     std::string name;
-    int isHome;
+    bool isHome;
     int battingOrder;
     int position;
 };

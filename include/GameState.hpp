@@ -6,12 +6,13 @@ typedef struct cw_game_state CWGameState;
 
 class GameState {
 public:
-    explicit GameState(CWGameState* state);
     int GetInning() const;
     int GetBattingTeam() const;
     int GetOuts() const;
     int GetScore(int team) const;
 private:
+    friend class Game;
+    explicit GameState(CWGameState* state);
     CWGameState* state;
 };
 

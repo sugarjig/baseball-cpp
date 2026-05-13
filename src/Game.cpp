@@ -6,10 +6,10 @@ extern "C" {
 #include "chadwick.h"
 }
 
-Game::Game(const char* gameId, const char* date) {
-    game = cw_game_create(const_cast<char*>(gameId));
+Game::Game(std::string_view gameId, std::string_view date) {
+    game = cw_game_create(const_cast<char*>(std::string(gameId).c_str()));
     if (game) {
-        cw_game_info_append(game, const_cast<char*>("date"), const_cast<char*>(date));
+        cw_game_info_append(game, const_cast<char*>("date"), const_cast<char*>(std::string(date).c_str()));
         iter = cw_gameiter_create(game);
     } else {
         iter = nullptr;
@@ -27,8 +27,8 @@ Game::~Game() {
     }
 }
 
-void Game::AddInfo(const char* key, const char* value) {
-    cw_game_info_append(game, const_cast<char*>(key), const_cast<char*>(value));
+void Game::AddInfo(std::string_view key, std::string_view value) {
+    cw_game_info_append(game, const_cast<char*>(std::string(key).c_str()), const_cast<char*>(std::string(value).c_str()));
 }
 
 void Game::AddStarter(const StarterInfo& starter) {
@@ -38,8 +38,12 @@ void Game::AddStarter(const StarterInfo& starter) {
                            starter.isHome, starter.battingOrder, starter.position);
 }
 
-void Game::Write(FILE* file) {
+bool Game::Write(const std::filesystem::path& path) {
+    FILE* file = fopen(path.string().c_str(), "w");
+    if (!file) return false;
     cw_game_write(game, file);
+    fclose(file);
+    return true;
 }
 
 void Game::UpdateState() {
@@ -66,8 +70,8 @@ void Game::AddSubstitution(const SubstitutionInfo& sub) {
                               sub.team, sub.slot, sub.pos);
 }
 
-void Game::AddComment(const char* comment) {
-    cw_game_comment_append(game, const_cast<char*>(comment));
+void Game::AddComment(std::string_view comment) {
+    cw_game_comment_append(game, const_cast<char*>(std::string(comment).c_str()));
 }
 
 GameState Game::GetGameState() const {

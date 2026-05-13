@@ -1,7 +1,8 @@
 #ifndef BASEBALL_CPP_GAME_HPP
 #define BASEBALL_CPP_GAME_HPP
 
-#include <cstdio>
+#include <string_view>
+#include <filesystem>
 #include "GameState.hpp"
 #include "Records.hpp"
 
@@ -12,21 +13,21 @@ typedef struct cw_gameiter_struct CWGameIterator;
 
 class Game {
 public:
-    explicit Game(const char* gameId, const char* date);
+    explicit Game(std::string_view gameId, std::string_view date);
     ~Game();
 
     // Disable copying
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
 
-    void AddInfo(const char* key, const char* value);
+    void AddInfo(std::string_view key, std::string_view value);
     void AddStarter(const StarterInfo& starter);
-    void Write(FILE* file);
+    bool Write(const std::filesystem::path& path);
 
     void UpdateState();
     void AddEvent(const PlayInfo& play);
     void AddSubstitution(const SubstitutionInfo& sub);
-    void AddComment(const char* comment);
+    void AddComment(std::string_view comment);
     GameState GetGameState() const;
 
     explicit operator bool() const { return game != nullptr; }

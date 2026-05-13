@@ -5,8 +5,6 @@
 #ifndef BASEBALL_CPP_SIMULATOR_HPP
 #define BASEBALL_CPP_SIMULATOR_HPP
 
-#include <cstdio>
-
 class EventSource;
 class SimulatorObserver;
 class Game;
