@@ -2,13 +2,12 @@
 #define BASEBALL_CPP_GAME_HPP
 
 #include <cstdio>
+#include "GameState.hpp"
 
 struct cw_game_struct;
 typedef struct cw_game_struct CWGame;
 struct cw_gameiter_struct;
 typedef struct cw_gameiter_struct CWGameIterator;
-struct cw_game_state;
-typedef struct cw_game_state CWGameState;
 
 class Game {
 public:
@@ -27,7 +26,7 @@ public:
     void AddEvent(int inning, int team, const char* batter, const char* pitchCount, const char* pitchSequence, const char* text);
     void AddSubstitution(const char* playerID, const char* name, int team, int slot, int pos);
     void AddComment(const char* comment);
-    CWGameState* GetState() const;
+    GameState GetGameState() const;
 
     CWGame* getCWGame() const { return game; }
 

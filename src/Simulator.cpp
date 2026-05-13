@@ -14,7 +14,7 @@ Simulator::~Simulator() = default;
 
 void Simulator::SimulateGame(Game& game) {
     while (auto record = eventSource->Next()) {
-        if (observer) observer->OnPreEvent(game.GetState());
+        if (observer) observer->OnPreEvent(game.GetGameState());
 
         switch (record->type) {
             case RecordType::Play: {
@@ -43,6 +43,6 @@ void Simulator::SimulateGame(Game& game) {
 
         game.UpdateState();
 
-        if (observer) observer->OnPostEvent(game.GetState());
+        if (observer) observer->OnPostEvent(game.GetGameState());
     }
 }

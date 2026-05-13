@@ -64,6 +64,6 @@ void Game::AddComment(const char* comment) {
     cw_game_comment_append(game, const_cast<char*>(comment));
 }
 
-CWGameState* Game::GetState() const {
-    return iter ? iter->state : nullptr;
+GameState Game::GetGameState() const {
+    return GameState(iter ? iter->state : nullptr);
 }

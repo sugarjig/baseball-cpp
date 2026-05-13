@@ -3,20 +3,18 @@
 
 #include <iostream>
 #include "EventSource.hpp"
-extern "C" {
-#include "chadwick.h"
-}
+#include "GameState.hpp"
 
 class SimulatorObserver {
 public:
     virtual ~SimulatorObserver() = default;
 
-    virtual void OnPreEvent(CWGameState* state) {
+    virtual void OnPreEvent(const GameState& state) {
         std::cout << "Before: "
-                  << " (State: Out=" << state->outs
-                  << ", Inning=" << state->inning
-                  << ", Batting team=" << state->batting_team
-                  << ", Score=" << state->score[0] << "-" << state->score[1] << ")\n";
+                  << " (State: Out=" << state.GetOuts()
+                  << ", Inning=" << state.GetInning()
+                  << ", Batting team=" << state.GetBattingTeam()
+                  << ", Score=" << state.GetScore(0) << "-" << state.GetScore(1) << ")\n";
     }
 
     virtual void OnEvent(const PlayInfo& event) {
@@ -31,12 +29,12 @@ public:
         std::cout << "Comment: " << comment << "\n";
     }
 
-    virtual void OnPostEvent(CWGameState* state) {
+    virtual void OnPostEvent(const GameState& state) {
         std::cout << "After: "
-                  << " (State: Out=" << state->outs
-                  << ", Inning=" << state->inning
-                  << ", Batting team=" << state->batting_team
-                  << ", Score=" << state->score[0] << "-" << state->score[1] << ")\n\n";
+                  << " (State: Out=" << state.GetOuts()
+                  << ", Inning=" << state.GetInning()
+                  << ", Batting team=" << state.GetBattingTeam()
+                  << ", Score=" << state.GetScore(0) << "-" << state.GetScore(1) << ")\n\n";
     }
 };
 

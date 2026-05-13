@@ -9,6 +9,7 @@ add_executable(baseball_cpp
         src/main.cpp
         src/Simulator.cpp
         src/Game.cpp
+        src/GameState.cpp
         src/StaticEventSource.cpp
         include/Simulator.hpp
         include/SimulatorObserver.hpp
