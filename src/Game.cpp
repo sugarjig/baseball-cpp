@@ -31,8 +31,11 @@ void Game::AddInfo(const char* key, const char* value) {
     cw_game_info_append(game, const_cast<char*>(key), const_cast<char*>(value));
 }
 
-void Game::AddStarter(const char* id, const char* name, int isHome, int battingOrder, int position) {
-    cw_game_starter_append(game, const_cast<char*>(id), const_cast<char*>(name), isHome, battingOrder, position);
+void Game::AddStarter(const StarterInfo& starter) {
+    cw_game_starter_append(game, 
+                           const_cast<char*>(starter.id.c_str()), 
+                           const_cast<char*>(starter.name.c_str()), 
+                           starter.isHome, starter.battingOrder, starter.position);
 }
 
 void Game::Write(FILE* file) {
@@ -48,16 +51,19 @@ void Game::UpdateState() {
     }
 }
 
-void Game::AddEvent(int inning, int team, const char* batter, const char* pitchCount, const char* pitchSequence, const char* text) {
-    cw_game_event_append(game, inning, team,
-                         const_cast<char*>(batter),
-                         const_cast<char*>(pitchCount),
-                         const_cast<char*>(pitchSequence),
-                         const_cast<char*>(text));
+void Game::AddEvent(const PlayInfo& play) {
+    cw_game_event_append(game, play.inning, play.team,
+                         const_cast<char*>(play.batter.c_str()),
+                         const_cast<char*>(play.pitchCount.c_str()),
+                         const_cast<char*>(play.pitchSequence.c_str()),
+                         const_cast<char*>(play.text.c_str()));
 }
 
-void Game::AddSubstitution(const char* playerID, const char* name, int team, int slot, int pos) {
-    cw_game_substitute_append(game, const_cast<char*>(playerID), const_cast<char*>(name), team, slot, pos);
+void Game::AddSubstitution(const SubstitutionInfo& sub) {
+    cw_game_substitute_append(game, 
+                              const_cast<char*>(sub.playerID.c_str()), 
+                              const_cast<char*>(sub.name.c_str()), 
+                              sub.team, sub.slot, sub.pos);
 }
 
 void Game::AddComment(const char* comment) {

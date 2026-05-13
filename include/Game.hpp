@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include "GameState.hpp"
+#include "Records.hpp"
 
 struct cw_game_struct;
 typedef struct cw_game_struct CWGame;
@@ -19,12 +20,12 @@ public:
     Game& operator=(const Game&) = delete;
 
     void AddInfo(const char* key, const char* value);
-    void AddStarter(const char* id, const char* name, int isHome, int battingOrder, int position);
+    void AddStarter(const StarterInfo& starter);
     void Write(FILE* file);
 
     void UpdateState();
-    void AddEvent(int inning, int team, const char* batter, const char* pitchCount, const char* pitchSequence, const char* text);
-    void AddSubstitution(const char* playerID, const char* name, int team, int slot, int pos);
+    void AddEvent(const PlayInfo& play);
+    void AddSubstitution(const SubstitutionInfo& sub);
     void AddComment(const char* comment);
     GameState GetGameState() const;
 

@@ -5,29 +5,11 @@
 #include <vector>
 #include <optional>
 #include <variant>
-
-struct PlayInfo {
-    int inning;
-    int team;
-    std::string batter;
-    std::string pitchCount;
-    std::string pitchSequence;
-    std::string text;
-};
-
-struct SubstitutionInfo {
-    std::string playerID;
-    std::string name;
-    int team;
-    int slot;
-    int pos;
-};
-
-enum class RecordType { Play, Substitution, Comment };
+#include "Records.hpp"
 
 struct Record {
     RecordType type;
-    std::variant<PlayInfo, SubstitutionInfo, std::string> data;
+    std::variant<PlayInfo, SubstitutionInfo, std::string, StarterInfo> data;
 };
 
 class EventSource {

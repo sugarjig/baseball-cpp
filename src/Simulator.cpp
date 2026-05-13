@@ -19,17 +19,13 @@ void Simulator::SimulateGame(Game& game) {
         switch (record->type) {
             case RecordType::Play: {
                 const auto& play = std::get<PlayInfo>(record->data);
-                game.AddEvent(play.inning, play.team, 
-                              play.batter.c_str(), 
-                              play.pitchCount.c_str(), 
-                              play.pitchSequence.c_str(), 
-                              play.text.c_str());
+                game.AddEvent(play);
                 if (observer) observer->OnEvent(play);
                 break;
             }
             case RecordType::Substitution: {
                 const auto& sub = std::get<SubstitutionInfo>(record->data);
-                game.AddSubstitution(sub.playerID.c_str(), sub.name.c_str(), sub.team, sub.slot, sub.pos);
+                game.AddSubstitution(sub);
                 if (observer) observer->OnSubstitution(sub);
                 break;
             }
@@ -39,6 +35,7 @@ void Simulator::SimulateGame(Game& game) {
                 if (observer) observer->OnComment(comment);
                 break;
             }
+            default: break;
         }
 
         game.UpdateState();

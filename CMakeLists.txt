@@ -15,6 +15,7 @@ add_executable(baseball_cpp
         include/SimulatorObserver.hpp
         include/StaticEventSource.hpp
         include/EventSource.hpp
+        include/Records.hpp
 )
 target_include_directories(baseball_cpp PRIVATE include)
 target_link_libraries(baseball_cpp PRIVATE chadwick)

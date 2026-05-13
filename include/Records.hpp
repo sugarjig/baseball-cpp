@@ -1,0 +1,33 @@
+#ifndef BASEBALL_CPP_RECORDS_HPP
+#define BASEBALL_CPP_RECORDS_HPP
+
+#include <string>
+
+enum class RecordType { Play, Substitution, Comment, Starter };
+
+struct PlayInfo {
+    int inning;
+    int team;
+    std::string batter;
+    std::string pitchCount;
+    std::string pitchSequence;
+    std::string text;
+};
+
+struct SubstitutionInfo {
+    std::string playerID;
+    std::string name;
+    int team;
+    int slot;
+    int pos;
+};
+
+struct StarterInfo {
+    std::string id;
+    std::string name;
+    int isHome;
+    int battingOrder;
+    int position;
+};
+
+#endif //BASEBALL_CPP_RECORDS_HPP
