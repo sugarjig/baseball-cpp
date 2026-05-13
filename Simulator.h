@@ -12,14 +12,16 @@ extern "C" {
 }
 
 class EventSource;
+class SimulatorObserver;
 
 class Simulator {
 private:
     CWGame* game;
     CWGameIterator* iter;
     EventSource* eventSource;
+    SimulatorObserver* observer;
 public:
-    Simulator(EventSource* eventSource);
+    Simulator(EventSource* eventSource, SimulatorObserver* observer = nullptr);
 
     ~Simulator();
 

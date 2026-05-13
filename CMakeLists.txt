@@ -8,6 +8,7 @@ add_subdirectory(vendor)
 add_executable(baseball_cpp main.cpp
         Simulator.cpp
         Simulator.h
+        SimulatorObserver.h
         StaticEventSource.cpp
         StaticEventSource.h
         EventSource.h

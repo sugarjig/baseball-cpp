@@ -1,16 +1,19 @@
 #include <iostream>
 #include "Simulator.h"
 #include "StaticEventSource.h"
+#include "SimulatorObserver.h"
 
 int main() {
     std::cout << "Starting Chadwick example...\n";
 
     auto* eventSource = new StaticEventSource();
-    auto* simulator = new Simulator(eventSource);
+    auto* observer = new SimulatorObserver();
+    auto* simulator = new Simulator(eventSource, observer);
 
     simulator->SimulateGame();
 
     delete simulator;
+    delete observer;
     delete eventSource;
 
     return 0;
