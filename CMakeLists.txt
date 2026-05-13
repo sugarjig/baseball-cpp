@@ -8,5 +8,7 @@ add_subdirectory(vendor)
 add_executable(baseball_cpp main.cpp
         Simulator.cpp
         Simulator.h
+        EventSource.cpp
+        EventSource.h
 )
 target_link_libraries(baseball_cpp PRIVATE chadwick)

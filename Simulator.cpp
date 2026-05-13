@@ -3,11 +3,12 @@
 //
 
 #include "Simulator.h"
+#include "EventSource.h"
 
 #include <iostream>
 #include <vector>
 
-Simulator::Simulator() {
+Simulator::Simulator(EventSource* eventSource) : eventSource(eventSource) {
     game = cw_game_create((char*)"TEST01");
     if (!game) {
         std::cerr << "Failed to create game\n";
@@ -46,29 +47,12 @@ void Simulator::SimulateGame() {
     }
 
     // 3 & 4. Append events and advance iterator.
-    struct EventInfo {
-        int inning;
-        int team;
-        const char* batter;
-        const char* text;
-    };
-
-    std::vector<EventInfo> events = {
-        {1, 0, "AWAY01", "K"},
-        {1, 0, "AWAY02", "K"},
-        {1, 0, "AWAY03", "K"},
-        {1, 1, "HOME01", "HR"},
-        {1, 1, "HOME02", "K"},
-        {1, 1, "HOME03", "K"},
-        {1, 1, "HOME04", "K"}
-    };
-
-    for (auto & event : events) {
+    while (auto event = eventSource->Next()) {
         std::cout << "Before: "
                   << " (State: Out=" << iter->state->outs
                   << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
 
-        cw_game_event_append(game, event.inning, event.team, const_cast<char *>(event.batter), (char*)"", (char*)"", const_cast<char *>(event.text));
+        cw_game_event_append(game, event->inning, event->team, const_cast<char *>(event->batter.c_str()), (char*)"", (char*)"", const_cast<char *>(event->text.c_str()));
 
         cw_gameiter_reset(iter);
 
@@ -77,11 +61,11 @@ void Simulator::SimulateGame() {
             cw_gameiter_next(iter);
         }
 
-        std::cout << "Processed event: " << event.batter << " - " << event.text << "\n";
+        std::cout << "Processed event: " << event->batter << " - " << event->text << "\n";
 
         std::cout << "After: "
                   << " (State: Out=" << iter->state->outs
-                  << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
+                  << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n\n";
     }
 
     // 5. After processing all the events, write the game to a Retrosheet event file.

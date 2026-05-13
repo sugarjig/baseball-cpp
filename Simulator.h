@@ -11,12 +11,15 @@ extern "C" {
 #include "chadwick.h"
 }
 
+class EventSource;
+
 class Simulator {
 private:
     CWGame* game;
     CWGameIterator* iter;
+    EventSource* eventSource;
 public:
-    Simulator();
+    Simulator(EventSource* eventSource);
 
     ~Simulator();
 
