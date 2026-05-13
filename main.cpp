@@ -10,7 +10,7 @@ int main() {
     auto* observer = new SimulatorObserver();
     auto* simulator = new Simulator(eventSource, observer);
 
-    simulator->SimulateGame();
+    simulator->SimulateGame((char*)"TEST01");
 
     delete simulator;
     delete observer;

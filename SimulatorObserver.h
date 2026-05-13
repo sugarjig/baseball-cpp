@@ -11,22 +11,22 @@ class SimulatorObserver {
 public:
     virtual ~SimulatorObserver() = default;
 
-    virtual void OnPreEvent(CWGameIterator* iter, const EventInfo& event) {
+    virtual void OnPreEvent(CWGameState* state) {
         std::cout << "Before: "
-                  << " (State: Out=" << iter->state->outs
-                  << ", Inning=" << iter->state->inning
-                  << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n";
+                  << " (State: Out=" << state->outs
+                  << ", Inning=" << state->inning
+                  << ", Score=" << state->score[0] << "-" << state->score[1] << ")\n";
     }
 
     virtual void OnEvent(const EventInfo& event) {
         std::cout << "Processed event: " << event.batter << " - " << event.text << "\n";
     }
 
-    virtual void OnPostEvent(CWGameIterator* iter, const EventInfo& event) {
+    virtual void OnPostEvent(CWGameState* state) {
         std::cout << "After: "
-                  << " (State: Out=" << iter->state->outs
-                  << ", Inning=" << iter->state->inning
-                  << ", Score=" << iter->state->score[0] << "-" << iter->state->score[1] << ")\n\n";
+                  << " (State: Out=" << state->outs
+                  << ", Inning=" << state->inning
+                  << ", Score=" << state->score[0] << "-" << state->score[1] << ")\n\n";
     }
 };
 

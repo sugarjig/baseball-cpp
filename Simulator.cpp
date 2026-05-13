@@ -10,7 +10,12 @@
 #include <vector>
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer) : eventSource(eventSource), observer(observer) {
-    game = cw_game_create((char*)"TEST01");
+}
+
+Simulator::~Simulator() = default;
+
+void Simulator::SimulateGame(char* game_id) {
+    CWGame* game = cw_game_create(game_id);
     if (!game) {
         std::cerr << "Failed to create game\n";
         return;
@@ -35,22 +40,14 @@ Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer) : ev
         cw_game_starter_append(game, id, name, 1, i, i);
     }
 
-    iter = cw_gameiter_create(game);
-}
+    CWGameIterator* iter = cw_gameiter_create(game);
 
-Simulator::~Simulator() {
-    cw_gameiter_cleanup(iter);
-    free(iter);
-    cw_game_cleanup(game);
-    free(game);
-}
-
-void Simulator::SimulateGame() {
-    // 3 & 4. Append events and advance iterator.
     while (auto event = eventSource->Next()) {
-        if (observer) observer->OnPreEvent(iter, *event);
+        if (observer) observer->OnPreEvent(iter->state);
 
         cw_game_event_append(game, event->inning, event->team, const_cast<char *>(event->batter.c_str()), (char*)"", (char*)"", const_cast<char *>(event->text.c_str()));
+
+        if (observer) observer->OnEvent(*event);
 
         cw_gameiter_reset(iter);
 
@@ -59,9 +56,7 @@ void Simulator::SimulateGame() {
             cw_gameiter_next(iter);
         }
 
-        if (observer) observer->OnEvent(*event);
-
-        if (observer) observer->OnPostEvent(iter, *event);
+        if (observer) observer->OnPostEvent(iter->state);
     }
 
     // 5. After processing all the events, write the game to a Retrosheet event file.
@@ -73,4 +68,9 @@ void Simulator::SimulateGame() {
     } else {
         std::cerr << "Failed to open game.evn for writing\n";
     }
+
+    cw_gameiter_cleanup(iter);
+    free(iter);
+    cw_game_cleanup(game);
+    free(game);
 }

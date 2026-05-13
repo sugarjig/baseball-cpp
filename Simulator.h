@@ -5,19 +5,10 @@
 #ifndef BASEBALL_CPP_SIMULATOR_H
 #define BASEBALL_CPP_SIMULATOR_H
 
-#include <cstdio>
-
-extern "C" {
-#include "chadwick.h"
-}
-
 class EventSource;
 class SimulatorObserver;
 
 class Simulator {
-private:
-    CWGame* game;
-    CWGameIterator* iter;
     EventSource* eventSource;
     SimulatorObserver* observer;
 public:
@@ -25,7 +16,7 @@ public:
 
     ~Simulator();
 
-    void SimulateGame();
+    void SimulateGame(char* game_id);
 };
 
 
