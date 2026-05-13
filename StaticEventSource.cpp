@@ -1,6 +1,6 @@
-#include "EventSource.h"
+#include "StaticEventSource.h"
 
-EventSource::EventSource() : currentIndex(0) {
+StaticEventSource::StaticEventSource() : currentIndex(0) {
     events = {
         {1, 0, "AWAY01", "K"},
         {1, 0, "AWAY02", "K"},
@@ -12,7 +12,7 @@ EventSource::EventSource() : currentIndex(0) {
     };
 }
 
-std::optional<EventInfo> EventSource::Next() {
+std::optional<EventInfo> StaticEventSource::Next() {
     if (currentIndex < events.size()) {
         return events[currentIndex++];
     }

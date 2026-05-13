@@ -14,12 +14,8 @@ struct EventInfo {
 
 class EventSource {
 public:
-    EventSource();
-    std::optional<EventInfo> Next();
-
-private:
-    std::vector<EventInfo> events;
-    size_t currentIndex;
+    virtual ~EventSource() = default;
+    virtual std::optional<EventInfo> Next() = 0;
 };
 
 #endif //BASEBALL_CPP_EVENTSOURCE_H

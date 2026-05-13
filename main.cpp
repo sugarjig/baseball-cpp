@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Simulator.h"
-#include "EventSource.h"
+#include "StaticEventSource.h"
 
 int main() {
     std::cout << "Starting Chadwick example...\n";
 
-    auto* eventSource = new EventSource();
+    auto* eventSource = new StaticEventSource();
     auto* simulator = new Simulator(eventSource);
 
     simulator->SimulateGame();
