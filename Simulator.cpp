@@ -31,11 +31,13 @@ void Simulator::SimulateGame(CWGame* game) {
             case RecordType::Substitution: {
                 const auto& sub = std::get<SubstitutionInfo>(record->data);
                 cw_game_substitute_append(game, const_cast<char *>(sub.playerID.c_str()), const_cast<char *>(sub.name.c_str()), sub.team, sub.slot, sub.pos);
+                if (observer) observer->OnSubstitution(sub);
                 break;
             }
             case RecordType::Comment: {
                 const auto& comment = std::get<std::string>(record->data);
                 cw_game_comment_append(game, const_cast<char *>(comment.c_str()));
+                if (observer) observer->OnComment(comment);
                 break;
             }
         }

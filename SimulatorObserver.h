@@ -15,17 +15,27 @@ public:
         std::cout << "Before: "
                   << " (State: Out=" << state->outs
                   << ", Inning=" << state->inning
+                  << ", Batting team=" << state->batting_team
                   << ", Score=" << state->score[0] << "-" << state->score[1] << ")\n";
     }
 
     virtual void OnEvent(const PlayInfo& event) {
-        std::cout << "Processed event: " << event.batter << " - " << event.text << "\n";
+        std::cout << "Play: " << event.batter << " - " << event.text << "\n";
+    }
+
+    virtual void OnSubstitution(const SubstitutionInfo& sub) {
+        std::cout << "Substitution: " << sub.name << " (" << sub.playerID << ") at pos " << sub.pos << "\n";
+    }
+
+    virtual void OnComment(const std::string& comment) {
+        std::cout << "Comment: " << comment << "\n";
     }
 
     virtual void OnPostEvent(CWGameState* state) {
         std::cout << "After: "
                   << " (State: Out=" << state->outs
                   << ", Inning=" << state->inning
+                  << ", Batting team=" << state->batting_team
                   << ", Score=" << state->score[0] << "-" << state->score[1] << ")\n\n";
     }
 };
