@@ -12,45 +12,42 @@ int main() {
     auto* observer = new SimulatorObserver();
     auto* simulator = new Simulator(eventSource, observer);
 
-    Game game("BAL202503310");
-    CWGame* cwGame = game.getCWGame();
-    if (!cwGame) {
+    Game game("BAL202503310", "2025/03/31");
+    if (!game.getCWGame()) {
         std::cerr << "Failed to create game\n";
         return 1;
     }
 
-    // date record must be set before iterator is created
-    cw_game_info_append(cwGame, (char*)"date", (char*)"2025/03/31");
-    cw_game_info_append(cwGame, (char*)"hometeam", (char*)"BAL");
-    cw_game_info_append(cwGame, (char*)"visteam", (char*)"BOS");
+    game.AddInfo("hometeam", "BAL");
+    game.AddInfo("visteam", "BOS");
 
     // Starter records
-    cw_game_starter_append(cwGame, (char*)"duraj001", (char*)"Jarren Duran", 0, 1, 7);
-    cw_game_starter_append(cwGame, (char*)"dever001", (char*)"Rafael Devers", 0, 2, 10);
-    cw_game_starter_append(cwGame, (char*)"brega001", (char*)"Alex Bregman", 0, 3, 5);
-    cw_game_starter_append(cwGame, (char*)"refsr001", (char*)"Rob Refsnyder", 0, 4, 9);
-    cw_game_starter_append(cwGame, (char*)"stort001", (char*)"Trevor Story", 0, 5, 6);
-    cw_game_starter_append(cwGame, (char*)"campk002", (char*)"Kristian Campbell", 0, 6, 4);
-    cw_game_starter_append(cwGame, (char*)"gonzr003", (char*)"Romy Gonzalez", 0, 7, 3);
-    cw_game_starter_append(cwGame, (char*)"wongc001", (char*)"Connor Wong", 0, 8, 2);
-    cw_game_starter_append(cwGame, (char*)"rafac001", (char*)"Ceddanne Rafaela", 0, 9, 8);
-    cw_game_starter_append(cwGame, (char*)"newcs001", (char*)"Sean Newcomb", 0, 0, 1);
-    cw_game_starter_append(cwGame, (char*)"westj002", (char*)"Jordan Westburg", 1, 1, 4);
-    cw_game_starter_append(cwGame, (char*)"rutsa001", (char*)"Adley Rutschman", 1, 2, 2);
-    cw_game_starter_append(cwGame, (char*)"oneit001", (char*)"Tyler O'Neill", 1, 3, 7);
-    cw_game_starter_append(cwGame, (char*)"mounr001", (char*)"Ryan Mountcastle", 1, 4, 3);
-    cw_game_starter_append(cwGame, (char*)"kjerh001", (char*)"Heston Kjerstad", 1, 5, 10);
-    cw_game_starter_append(cwGame, (char*)"laurr001", (char*)"Ramon Laureano", 1, 6, 9);
-    cw_game_starter_append(cwGame, (char*)"mullc002", (char*)"Cedric Mullins", 1, 7, 8);
-    cw_game_starter_append(cwGame, (char*)"uriar001", (char*)"Ramon Urias", 1, 8, 5);
-    cw_game_starter_append(cwGame, (char*)"hollj003", (char*)"Jackson Holliday", 1, 9, 6);
-    cw_game_starter_append(cwGame, (char*)"povic001", (char*)"Cade Povich", 1, 0, 1);
+    game.AddStarter("duraj001", "Jarren Duran", 0, 1, 7);
+    game.AddStarter("dever001", "Rafael Devers", 0, 2, 10);
+    game.AddStarter("brega001", "Alex Bregman", 0, 3, 5);
+    game.AddStarter("refsr001", "Rob Refsnyder", 0, 4, 9);
+    game.AddStarter("stort001", "Trevor Story", 0, 5, 6);
+    game.AddStarter("campk002", "Kristian Campbell", 0, 6, 4);
+    game.AddStarter("gonzr003", "Romy Gonzalez", 0, 7, 3);
+    game.AddStarter("wongc001", "Connor Wong", 0, 8, 2);
+    game.AddStarter("rafac001", "Ceddanne Rafaela", 0, 9, 8);
+    game.AddStarter("newcs001", "Sean Newcomb", 0, 0, 1);
+    game.AddStarter("westj002", "Jordan Westburg", 1, 1, 4);
+    game.AddStarter("rutsa001", "Adley Rutschman", 1, 2, 2);
+    game.AddStarter("oneit001", "Tyler O'Neill", 1, 3, 7);
+    game.AddStarter("mounr001", "Ryan Mountcastle", 1, 4, 3);
+    game.AddStarter("kjerh001", "Heston Kjerstad", 1, 5, 10);
+    game.AddStarter("laurr001", "Ramon Laureano", 1, 6, 9);
+    game.AddStarter("mullc002", "Cedric Mullins", 1, 7, 8);
+    game.AddStarter("uriar001", "Ramon Urias", 1, 8, 5);
+    game.AddStarter("hollj003", "Jackson Holliday", 1, 9, 6);
+    game.AddStarter("povic001", "Cade Povich", 1, 0, 1);
 
     simulator->SimulateGame(game);
 
     FILE* outfile = fopen("game.evn", "w");
     if (outfile) {
-        cw_game_write(cwGame, outfile);
+        cw_game_write(game.getCWGame(), outfile);
         fclose(outfile);
         char cwd[1024];
         if (getcwd(cwd, sizeof(cwd)) != nullptr) {
