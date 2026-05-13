@@ -47,7 +47,7 @@ int main() {
 
     FILE* outfile = fopen("game.evn", "w");
     if (outfile) {
-        cw_game_write(game.getCWGame(), outfile);
+        game.Write(outfile);
         fclose(outfile);
         char cwd[1024];
         if (getcwd(cwd, sizeof(cwd)) != nullptr) {

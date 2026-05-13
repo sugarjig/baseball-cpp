@@ -1,8 +1,14 @@
 #ifndef BASEBALL_CPP_GAME_HPP
 #define BASEBALL_CPP_GAME_HPP
 
+#include <cstdio>
+
 struct cw_game_struct;
 typedef struct cw_game_struct CWGame;
+struct cw_gameiter_struct;
+typedef struct cw_gameiter_struct CWGameIterator;
+struct cw_game_state;
+typedef struct cw_game_state CWGameState;
 
 class Game {
 public:
@@ -15,11 +21,19 @@ public:
 
     void AddInfo(const char* key, const char* value);
     void AddStarter(const char* id, const char* name, int isHome, int battingOrder, int position);
+    void Write(FILE* file);
+
+    void UpdateState();
+    void AddEvent(int inning, int team, const char* batter, const char* pitchCount, const char* pitchSequence, const char* text);
+    void AddSubstitution(const char* playerID, const char* name, int team, int slot, int pos);
+    void AddComment(const char* comment);
+    CWGameState* GetState() const;
 
     CWGame* getCWGame() const { return game; }
 
 private:
     CWGame* game;
+    CWGameIterator* iter;
 };
 
 #endif //BASEBALL_CPP_GAME_HPP

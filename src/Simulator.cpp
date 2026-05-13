@@ -7,57 +7,42 @@
 #include "SimulatorObserver.hpp"
 #include "Game.hpp"
 
-extern "C" {
-#include "chadwick.h"
-}
-
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer) : eventSource(eventSource), observer(observer) {
 }
 
 Simulator::~Simulator() = default;
 
 void Simulator::SimulateGame(Game& game) {
-    CWGame* cwGame = game.getCWGame();
-    CWGameIterator* iter = cw_gameiter_create(cwGame);
-
     while (auto record = eventSource->Next()) {
-        if (observer) observer->OnPreEvent(iter->state);
+        if (observer) observer->OnPreEvent(game.GetState());
 
         switch (record->type) {
             case RecordType::Play: {
                 const auto& play = std::get<PlayInfo>(record->data);
-                cw_game_event_append(cwGame, play.inning, play.team, 
-                                     const_cast<char *>(play.batter.c_str()), 
-                                     const_cast<char *>(play.pitchCount.c_str()), 
-                                     const_cast<char *>(play.pitchSequence.c_str()), 
-                                     const_cast<char *>(play.text.c_str()));
+                game.AddEvent(play.inning, play.team, 
+                              play.batter.c_str(), 
+                              play.pitchCount.c_str(), 
+                              play.pitchSequence.c_str(), 
+                              play.text.c_str());
                 if (observer) observer->OnEvent(play);
                 break;
             }
             case RecordType::Substitution: {
                 const auto& sub = std::get<SubstitutionInfo>(record->data);
-                cw_game_substitute_append(cwGame, const_cast<char *>(sub.playerID.c_str()), const_cast<char *>(sub.name.c_str()), sub.team, sub.slot, sub.pos);
+                game.AddSubstitution(sub.playerID.c_str(), sub.name.c_str(), sub.team, sub.slot, sub.pos);
                 if (observer) observer->OnSubstitution(sub);
                 break;
             }
             case RecordType::Comment: {
                 const auto& comment = std::get<std::string>(record->data);
-                cw_game_comment_append(cwGame, const_cast<char *>(comment.c_str()));
+                game.AddComment(comment.c_str());
                 if (observer) observer->OnComment(comment);
                 break;
             }
         }
 
-        cw_gameiter_reset(iter);
+        game.UpdateState();
 
-        // Process all events up to the one just added.
-        while (iter->event != nullptr) {
-            cw_gameiter_next(iter);
-        }
-
-        if (observer) observer->OnPostEvent(iter->state);
+        if (observer) observer->OnPostEvent(game.GetState());
     }
-
-    cw_gameiter_cleanup(iter);
-    free(iter);
 }
