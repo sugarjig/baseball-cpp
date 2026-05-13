@@ -28,13 +28,14 @@ public:
     void AddEvent(const PlayInfo& play);
     void AddSubstitution(const SubstitutionInfo& sub);
     void AddComment(std::string_view comment);
-    GameState GetGameState() const;
+    const GameState& GetGameState() const;
 
     explicit operator bool() const { return game != nullptr; }
 
 private:
     CWGame* game;
     CWGameIterator* iter;
+    GameState gameState;
 };
 
 #endif //BASEBALL_CPP_GAME_HPP

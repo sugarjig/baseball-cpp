@@ -6,6 +6,7 @@ typedef struct cw_game_state CWGameState;
 
 class GameState {
 public:
+    GameState() : state(nullptr) {}
     int GetInning() const;
     int GetBattingTeam() const;
     int GetOuts() const;

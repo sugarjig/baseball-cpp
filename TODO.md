@@ -7,4 +7,4 @@
 - [ ] Ask Junie for a code review
 - [ ] Include Retrosheet documentation as context
 - [ ] Add static analysis tools
-- [ ] Only instantiate GameState once per game
+- [x] Only instantiate GameState once per game

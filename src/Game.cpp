@@ -14,6 +14,7 @@ Game::Game(std::string_view gameId, std::string_view date) {
     } else {
         iter = nullptr;
     }
+    gameState.state = iter ? iter->state : nullptr;
 }
 
 Game::~Game() {
@@ -74,6 +75,6 @@ void Game::AddComment(std::string_view comment) {
     cw_game_comment_append(game, const_cast<char*>(std::string(comment).c_str()));
 }
 
-GameState Game::GetGameState() const {
-    return GameState(iter ? iter->state : nullptr);
+const GameState& Game::GetGameState() const {
+    return gameState;
 }
