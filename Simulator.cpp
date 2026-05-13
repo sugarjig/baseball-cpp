@@ -17,18 +17,6 @@ Simulator::Simulator(EventSource* eventSource) : eventSource(eventSource) {
 
     // date record must be set before iterator is created
     cw_game_info_append(game, (char*)"date", (char*)"2026/05/12");
-
-    iter = cw_gameiter_create(game);
-}
-
-Simulator::~Simulator() {
-    cw_gameiter_cleanup(iter);
-    free(iter);
-    cw_game_cleanup(game);
-    free(game);
-}
-
-void Simulator::SimulateGame() {
     cw_game_info_append(game, (char*)"hometeam", (char*)"BOS");
     cw_game_info_append(game, (char*)"visteam", (char*)"NYA");
 
@@ -46,6 +34,17 @@ void Simulator::SimulateGame() {
         cw_game_starter_append(game, id, name, 1, i, i);
     }
 
+    iter = cw_gameiter_create(game);
+}
+
+Simulator::~Simulator() {
+    cw_gameiter_cleanup(iter);
+    free(iter);
+    cw_game_cleanup(game);
+    free(game);
+}
+
+void Simulator::SimulateGame() {
     // 3 & 4. Append events and advance iterator.
     while (auto event = eventSource->Next()) {
         std::cout << "Before: "
