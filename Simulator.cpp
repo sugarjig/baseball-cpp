@@ -14,12 +14,27 @@ Simulator::~Simulator() = default;
 void Simulator::SimulateGame(CWGame* game) {
     CWGameIterator* iter = cw_gameiter_create(game);
 
-    while (auto event = eventSource->Next()) {
+    while (auto record = eventSource->Next()) {
         if (observer) observer->OnPreEvent(iter->state);
 
-        cw_game_event_append(game, event->inning, event->team, const_cast<char *>(event->batter.c_str()), (char*)"", (char*)"", const_cast<char *>(event->text.c_str()));
-
-        if (observer) observer->OnEvent(*event);
+        switch (record->type) {
+            case RecordType::Play: {
+                const auto& play = std::get<PlayInfo>(record->data);
+                cw_game_event_append(game, play.inning, play.team, const_cast<char *>(play.batter.c_str()), (char*)"", (char*)"", const_cast<char *>(play.text.c_str()));
+                if (observer) observer->OnEvent(play);
+                break;
+            }
+            case RecordType::Substitution: {
+                const auto& sub = std::get<SubstitutionInfo>(record->data);
+                cw_game_substitute_append(game, const_cast<char *>(sub.playerID.c_str()), const_cast<char *>(sub.name.c_str()), sub.team, sub.slot, sub.pos);
+                break;
+            }
+            case RecordType::Comment: {
+                const auto& comment = std::get<std::string>(record->data);
+                cw_game_comment_append(game, const_cast<char *>(comment.c_str()));
+                break;
+            }
+        }
 
         cw_gameiter_reset(iter);
 

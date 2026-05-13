@@ -7,10 +7,10 @@
 class StaticEventSource : public EventSource {
 public:
     StaticEventSource();
-    std::optional<EventInfo> Next() override;
+    std::optional<Record> Next() override;
 
 private:
-    std::vector<EventInfo> events;
+    std::vector<Record> records;
     size_t currentIndex;
 };
 

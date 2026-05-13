@@ -18,7 +18,7 @@ public:
                   << ", Score=" << state->score[0] << "-" << state->score[1] << ")\n";
     }
 
-    virtual void OnEvent(const EventInfo& event) {
+    virtual void OnEvent(const PlayInfo& event) {
         std::cout << "Processed event: " << event.batter << " - " << event.text << "\n";
     }
 
