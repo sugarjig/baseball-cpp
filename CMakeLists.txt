@@ -3,14 +3,16 @@ project(baseball_cpp)
 
 set(CMAKE_CXX_STANDARD 26)
 
-add_subdirectory(vendor)
+add_subdirectory(lib)
 
-add_executable(baseball_cpp main.cpp
-        Simulator.cpp
-        Simulator.hpp
-        SimulatorObserver.hpp
-        StaticEventSource.cpp
-        StaticEventSource.hpp
-        EventSource.hpp
+add_executable(baseball_cpp
+        src/main.cpp
+        src/Simulator.cpp
+        src/StaticEventSource.cpp
+        include/Simulator.hpp
+        include/SimulatorObserver.hpp
+        include/StaticEventSource.hpp
+        include/EventSource.hpp
 )
+target_include_directories(baseball_cpp PRIVATE include)
 target_link_libraries(baseball_cpp PRIVATE chadwick)
