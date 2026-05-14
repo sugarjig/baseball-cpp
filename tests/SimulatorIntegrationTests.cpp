@@ -69,6 +69,7 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     std::vector<InfoRecord> infoRecords;
     std::vector<StarterInfo> starters;
     std::vector<Record> events;
+    std::vector<DataRecord> dataRecords;
 
     while (std::getline(inputFile, line)) {
         if (line.empty()) continue;
@@ -109,6 +110,10 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
             events.push_back({RecordType::Substitution, sub});
         } else if (type == "com") {
             events.push_back({RecordType::Comment, fields[1]});
+        } else if (type == "data") {
+            DataRecord data;
+            data.fields = std::vector<std::string>(fields.begin() + 1, fields.end());
+            dataRecords.push_back(data);
         }
     }
     inputFile.close();
@@ -120,6 +125,10 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     StaticEventSource eventSource(events);
     Simulator simulator(&eventSource);
     simulator.SimulateGame(game);
+
+    for (const auto& data : dataRecords) {
+        game.AddData(data);
+    }
 
     ASSERT_TRUE(game.Write(outputPath));
 

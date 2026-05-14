@@ -18,6 +18,7 @@ public:
     virtual void AddEvent(const PlayInfo& play) = 0;
     virtual void AddSubstitution(const SubstitutionInfo& sub) = 0;
     virtual void AddComment(std::string_view comment) = 0;
+    virtual void AddData(const DataRecord& data) = 0;
     virtual void UpdateState() = 0;
     virtual const GameState& GetGameState() const = 0;
 };
@@ -39,6 +40,7 @@ public:
     void AddEvent(const PlayInfo& play) override;
     void AddSubstitution(const SubstitutionInfo& sub) override;
     void AddComment(std::string_view comment) override;
+    void AddData(const DataRecord& data) override;
     const GameState& GetGameState() const override;
 
     explicit operator bool() const { return game != nullptr; }

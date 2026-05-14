@@ -29,6 +29,7 @@ public:
     MOCK_METHOD(void, AddEvent, (const PlayInfo& play), (override));
     MOCK_METHOD(void, AddSubstitution, (const SubstitutionInfo& sub), (override));
     MOCK_METHOD(void, AddComment, (std::string_view comment), (override));
+    MOCK_METHOD(void, AddData, (const DataRecord& data), (override));
     MOCK_METHOD(void, UpdateState, (), (override));
     MOCK_METHOD(const GameState&, GetGameState, (), (const, override));
 };

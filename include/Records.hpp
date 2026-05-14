@@ -2,12 +2,17 @@
 #define BASEBALL_CPP_RECORDS_HPP
 
 #include <string>
+#include <vector>
 
 enum class RecordType { Play, Substitution, Comment, Starter };
 
 struct InfoRecord {
     std::string key;
     std::string value;
+};
+
+struct DataRecord {
+    std::vector<std::string> fields;
 };
 
 struct PlayInfo {

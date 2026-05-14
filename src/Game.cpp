@@ -75,6 +75,15 @@ void Game::AddComment(std::string_view comment) {
     cw_game_comment_append(game, const_cast<char*>(std::string(comment).c_str()));
 }
 
+void Game::AddData(const DataRecord& data) {
+    std::vector<char*> c_fields;
+    c_fields.reserve(data.fields.size());
+    for (const auto& field : data.fields) {
+        c_fields.push_back(const_cast<char*>(field.c_str()));
+    }
+    cw_game_data_append(game, static_cast<int>(c_fields.size()), c_fields.data());
+}
+
 const GameState& Game::GetGameState() const {
     return gameState;
 }
