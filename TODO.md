@@ -1,10 +1,9 @@
 # TODO
 
-- [ ] Add unit tests
 - [ ] Add integration tests
 - [ ] Add a random event source
-- [ ] Add Junie guidelines
+- [x] Add Junie guidelines
 - [ ] Ask Junie for a code review
 - [ ] Include Retrosheet documentation as context
 - [ ] Add static analysis tools
-- [x] Only instantiate GameState once per game
+- [ ] Use vcpkg to manage dependencies
