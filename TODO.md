@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Add integration tests
+- [x] Add integration tests
 - [ ] Add a random event source
 - [x] Add Junie guidelines
 - [ ] Ask Junie for a code review

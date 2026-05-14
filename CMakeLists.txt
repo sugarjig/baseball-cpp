@@ -35,7 +35,9 @@ enable_testing()
 
 add_executable(baseball_tests
         tests/SimulatorTests.cpp
+        tests/SimulatorIntegrationTests.cpp
 )
+target_compile_definitions(baseball_tests PRIVATE PROJECT_ROOT="${CMAKE_CURRENT_SOURCE_DIR}")
 target_link_libraries(baseball_tests
     PRIVATE
     baseball_lib

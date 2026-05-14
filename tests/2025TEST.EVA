@@ -1,0 +1,179 @@
+id,BAL202503310
+version,2
+info,visteam,BOS
+info,hometeam,BAL
+info,site,BAL12
+info,date,2025/03/31
+info,number,0
+info,gametype,regular
+info,starttime,2:35PM
+info,daynight,day
+info,innings,9
+info,tiebreaker,2
+info,usedh,true
+info,umphome,guccc901
+info,ump1b,rackd901
+info,ump2b,mosce901
+info,ump3b,hanat901
+info,umplf,(none)
+info,umprf,(none)
+info,inputtime,2025/04/16 05:50:24
+info,howscored,unknown
+info,pitches,pitches
+info,oscorer,lee-j701
+info,temp,82
+info,winddir,tocf
+info,windspeed,6
+info,fieldcond,unknown
+info,precip,none
+info,sky,cloudy
+info,timeofgame,163
+info,attendance,45002
+info,wp,domis001
+info,lp,newcs001
+info,save,
+start,duraj001,"Jarren Duran",0,1,7
+start,dever001,"Rafael Devers",0,2,10
+start,brega001,"Alex Bregman",0,3,5
+start,refsr001,"Rob Refsnyder",0,4,9
+start,stort001,"Trevor Story",0,5,6
+start,campk002,"Kristian Campbell",0,6,4
+start,gonzr003,"Romy Gonzalez",0,7,3
+start,wongc001,"Connor Wong",0,8,2
+start,rafac001,"Ceddanne Rafaela",0,9,8
+start,newcs001,"Sean Newcomb",0,0,1
+start,westj002,"Jordan Westburg",1,1,4
+start,rutsa001,"Adley Rutschman",1,2,2
+start,oneit001,"Tyler O'Neill",1,3,7
+start,mounr001,"Ryan Mountcastle",1,4,3
+start,kjerh001,"Heston Kjerstad",1,5,10
+start,laurr001,"Ramon Laureano",1,6,9
+start,mullc002,"Cedric Mullins",1,7,8
+start,uriar001,"Ramon Urias",1,8,5
+start,hollj003,"Jackson Holliday",1,9,6
+start,povic001,"Cade Povich",1,0,1
+play,1,0,duraj001,10,BX,7/F7D
+play,1,0,dever001,32,BBFSFF.BFB,W
+play,1,0,brega001,10,B.X,S7/L78D+.1-2
+play,1,0,refsr001,22,CFBBT,K
+play,1,0,stort001,02,CFS,K
+play,1,1,westj002,22,CBFBX,S8/G6M
+play,1,1,rutsa001,11,CBX,S7/L7S.1-2
+play,1,1,oneit001,22,CF*BB>X,S7/G56.2-H;1-2
+play,1,1,mounr001,01,*SX,S7/L7LS.2-H;1-3(E7);B-2
+play,1,1,kjerh001,12,SBSC,K
+play,1,1,laurr001,12,BFCS,K
+play,1,1,mullc002,20,BBX,D8/L8D.3-H;2-H
+play,1,1,uriar001,12,CFBS,K
+play,2,0,campk002,32,CBBBCB,W
+play,2,0,gonzr003,01,S1X,S7/G56.1-2
+play,2,0,wongc001,22,CBCBC,K
+play,2,0,rafac001,02,SSS,K
+play,2,0,duraj001,10,BX,T8/F78XD+.2-H;1-H
+play,2,0,dever001,22,FBFBT,K
+play,2,1,hollj003,00,X,S8/G6+
+play,2,1,westj002,11,CB>B,CS2(24)
+com,"$Orioles challenged (tag play), call on the field was upheld."
+play,2,1,westj002,31,CB>B.BB,W
+play,2,1,rutsa001,11,CBX,46(1)3/GDP/G4
+play,3,0,brega001,32,CBBFBC,K
+play,3,0,refsr001,12,BC.SFX,S7/L78
+play,3,0,stort001,22,FBB1FX,S9/L9LS.1-3;B-2(E9/TH)
+play,3,0,campk002,12,FFF*BX,43/G4MD.3-H;2-3
+play,3,0,gonzr003,22,FBBCFF.C,K
+play,3,1,oneit001,01,CX,S9/F9LS
+play,3,1,mounr001,32,BBBCSB,W.1-2
+play,3,1,kjerh001,12,BC*SFC,K
+play,3,1,laurr001,10,BX,64(1)3/GDP/G6
+play,4,0,wongc001,31,BBFBX,13/G15
+play,4,0,rafac001,02,FSX,53/G5S
+play,4,0,duraj001,32,CBF.BBFX,43/G34D
+play,4,1,mullc002,00,X,4/P4D
+play,4,1,uriar001,22,CS.FBBFX,S67/G56
+play,4,1,hollj003,10,BX,16(1)3/GDP/G1S
+play,5,0,dever001,32,BFFFBBC,K
+play,5,0,brega001,00,,NP
+sub,bowmm001,"Matt Bowman",1,0,1
+play,5,0,brega001,01,.CX,8/F8
+play,5,0,refsr001,01,SX,S7/G56
+play,5,0,stort001,01,F>B,SB2
+play,5,0,stort001,22,F>B.F.BS,K
+play,5,1,westj002,00,,NP
+sub,whitg002,"Garrett Whitlock",0,0,1
+play,5,1,westj002,12,.BCCX,53/G56
+play,5,1,rutsa001,22,BCBC.*S,K
+play,5,1,oneit001,10,BX,D8/L89XD+
+play,5,1,mounr001,11,BCX,9/F9D
+play,6,0,campk002,00,,NP
+sub,domis001,"Seranthony Dominguez",1,0,1
+play,6,0,campk002,22,.CBS.BC,K
+play,6,0,gonzr003,32,FBSBFBFX,9/F89
+play,6,0,wongc001,11,SBX,4/L4D
+play,6,1,kjerh001,11,CBX,5/P56D
+play,6,1,laurr001,00,,NP
+sub,carld002,"Dylan Carlson",1,6,11
+play,6,1,carld002,22,.CBC.BFS,K
+play,6,1,mullc002,00,X,31/G34
+play,7,0,rafac001,00,,NP
+sub,carld002,"Dylan Carlson",1,6,9
+play,7,0,rafac001,00,.,NP
+sub,akink001,"Keegan Akin",1,0,1
+play,7,0,rafac001,01,..CX,9/F9LD
+play,7,0,duraj001,02,CS.S,K
+play,7,0,dever001,22,SFBFBFF.S,K
+play,7,1,uriar001,00,,NP
+sub,weisg001,"Greg Weissert",0,0,1
+play,7,1,uriar001,11,.BCX,S7/L7LS
+play,7,1,hollj003,32,S*BBBCC,K
+play,7,1,westj002,01,CX,9/L9D
+play,7,1,rutsa001,20,BBX,9/F9LS
+play,8,0,brega001,00,,NP
+sub,canoy001,"Yennier Cano",1,0,1
+play,8,0,brega001,11,.BCX,63/G6
+play,8,0,refsr001,00,,NP
+sub,abrew002,"Wilyer Abreu",0,4,11
+play,8,0,abrew002,01,.CX,13/G4MS
+play,8,0,stort001,12,CS.B*S,K
+play,8,1,oneit001,00,,NP
+sub,abrew002,"Wilyer Abreu",0,4,9
+play,8,1,oneit001,00,.,NP
+sub,slatj002,"Justin Slaten",0,0,1
+play,8,1,oneit001,01,..FX,S9/F89
+play,8,1,mounr001,00,X,S5/G6.1-3(E5/TH);B-2
+play,8,1,kjerh001,10,BX,S7/L7S.3-H;2-3
+play,8,1,carld002,00,,NP
+sub,matej003,"Jorge Mateo",1,5,12
+play,8,1,carld002,20,.BB>B,SB2
+play,8,1,carld002,30,.BB>B.*B,W
+play,8,1,mullc002,00,,NP
+sub,crisc002,"Cooper Criswell",0,0,1
+play,8,1,mullc002,10,.BX,S18/G4M.3-H;2-H;1-2
+play,8,1,uriar001,01,CX,54(1)/FO/G6.2-3;B-1
+com,"$Umpire reviewed (play at 1st), call on the field was overturned."
+play,8,1,hollj003,00,X,S7/L7S.3-H;1-2
+play,8,1,westj002,00,X,4(1)/FO/G4M.2-3;B-1
+play,8,1,rutsa001,21,B1BFX,4/L34D
+play,9,0,campk002,00,.,NP
+sub,bautf001,"Felix Bautista",1,0,1
+play,9,0,campk002,32,..BFBS.B*B,W
+play,9,0,gonzr003,00,B,WP.1-2
+play,9,0,gonzr003,10,B.X,D7/L7LD+.2-H
+play,9,0,wongc001,00,X,63/G6
+play,9,0,rafac001,00,,NP
+sub,casat001,"Triston Casas",0,9,11
+play,9,0,casat001,32,.BFS.*BFBX,31/G3.2-3
+play,9,0,duraj001,10,BX,S7/L78D+.3-H
+play,9,0,dever001,10,B>B,DI.1-2
+play,9,0,dever001,32,B>B.BCFB,W
+play,9,0,brega001,10,BX,5/P15
+data,er,weisg001,0
+data,er,whitg002,0
+data,er,slatj002,4
+data,er,crisc002,0
+data,er,newcs001,4
+data,er,akink001,0
+data,er,povic001,3
+data,er,bowmm001,0
+data,er,domis001,0
+data,er,bautf001,2
+data,er,canoy001,0
