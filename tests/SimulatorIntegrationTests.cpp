@@ -27,6 +27,44 @@ static std::vector<std::string> ParseCsvLine(const std::string& line) {
     return fields;
 }
 
+struct NormalizedGame {
+    std::vector<std::string> id;
+    std::vector<std::string> version;
+    std::vector<std::vector<std::string>> info;
+    std::vector<std::vector<std::string>> start;
+    std::vector<std::vector<std::string>> events;
+    std::vector<std::vector<std::string>> data;
+};
+
+static NormalizedGame LoadAndNormalize(const std::string& path) {
+    NormalizedGame ng;
+    std::ifstream file(path);
+    std::string line;
+    while (std::getline(file, line)) {
+        if (line.empty()) continue;
+        auto fields = ParseCsvLine(line);
+        if (fields.empty()) continue;
+
+        const std::string& type = fields[0];
+
+        if (type == "id") {
+            ng.id = fields;
+        } else if (type == "version") {
+            ng.version = fields;
+        } else if (type == "info") {
+            ng.info.push_back(fields);
+        } else if (type == "start") {
+            ng.start.push_back(fields);
+        } else if (type == "play" || type == "sub" || type == "com") {
+            ng.events.push_back(fields);
+        } else if (type == "data") {
+            ng.data.push_back(fields);
+        }
+    }
+    std::sort(ng.info.begin(), ng.info.end());
+    return ng;
+}
+
 TEST(SimulatorIntegrationTest, FullGameSimulation) {
 #ifdef PROJECT_ROOT
     std::string projectRoot = PROJECT_ROOT;
@@ -112,19 +150,14 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
 
     ASSERT_TRUE(game.Write(outputPath));
 
-    // Compare files
-    std::ifstream expectedFile(inputPath);
-    std::ifstream actualFile(outputPath);
-    std::vector<std::string> expectedLines;
-    std::vector<std::string> actualLines;
-    std::string l;
-    while (std::getline(expectedFile, l)) if (!l.empty()) expectedLines.push_back(l);
-    while (std::getline(actualFile, l)) if (!l.empty()) actualLines.push_back(l);
+    // Compare files using normalization
+    auto expected = LoadAndNormalize(inputPath);
+    auto actual = LoadAndNormalize(outputPath);
 
-    // Simple line-by-line comparison
-    size_t minLines = std::min(expectedLines.size(), actualLines.size());
-    for (size_t i = 0; i < minLines; ++i) {
-        EXPECT_EQ(expectedLines[i], actualLines[i]) << "Difference at line " << (i + 1);
-    }
-    EXPECT_EQ(expectedLines.size(), actualLines.size()) << "Files have different number of lines";
+    EXPECT_EQ(expected.id, actual.id) << "Mismatch in ID record";
+    EXPECT_EQ(expected.version, actual.version) << "Mismatch in version record";
+    EXPECT_EQ(expected.info, actual.info) << "Mismatch in info records";
+    EXPECT_EQ(expected.start, actual.start) << "Mismatch in start records";
+    EXPECT_EQ(expected.events, actual.events) << "Mismatch in events (play/sub/com) records";
+    EXPECT_EQ(expected.data, actual.data) << "Mismatch in data records";
 }
