@@ -17,21 +17,23 @@ public:
     virtual void AddEvent(const PlayInfo& play) = 0;
     virtual void AddSubstitution(const SubstitutionInfo& sub) = 0;
     virtual void AddComment(std::string_view comment) = 0;
+    virtual void AddInfo(std::string_view key, std::string_view value) = 0;
+    virtual void AddStarter(const StarterInfo& starter) = 0;
     virtual void UpdateState() = 0;
     virtual const GameState& GetGameState() const = 0;
 };
 
 class Game : public IGame {
 public:
-    explicit Game(std::string_view gameId, std::string_view date);
+    explicit Game(std::string_view gameId, std::string_view date, std::string_view version);
     ~Game() override;
 
     // Disable copying
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
 
-    void AddInfo(std::string_view key, std::string_view value);
-    void AddStarter(const StarterInfo& starter);
+    void AddInfo(std::string_view key, std::string_view value) override;
+    void AddStarter(const StarterInfo& starter) override;
     bool Write(const std::filesystem::path& path);
 
     void UpdateState() override;

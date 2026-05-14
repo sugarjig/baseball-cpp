@@ -129,7 +129,7 @@ int main() {
     SimulatorObserver observer;
     Simulator simulator(&eventSource, &observer);
 
-    Game game("BAL202503310", "2025/03/31");
+    Game game("BAL202503310", "2025/03/31", "2");
     if (!game) {
         std::cerr << "Failed to create game\n";
         return 1;

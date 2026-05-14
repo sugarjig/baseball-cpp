@@ -42,6 +42,7 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     std::string line;
     std::string gameId;
     std::string date;
+    std::string version;
     std::vector<std::pair<std::string, std::string>> infoRecords;
     std::vector<StarterInfo> starters;
     std::vector<Record> events;
@@ -54,6 +55,8 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
         const std::string& type = fields[0];
         if (type == "id") {
             gameId = fields[1];
+        } else if (type == "version") {
+            version = fields[1];
         } else if (type == "info") {
             infoRecords.push_back({fields[1], fields[2]});
             if (fields[1] == "date") {
@@ -93,7 +96,7 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     ASSERT_FALSE(gameId.empty()) << "Game ID not found in input file";
     ASSERT_FALSE(date.empty()) << "Date not found in input file";
 
-    Game game(gameId, date);
+    Game game(gameId, date, version);
     for (const auto& info : infoRecords) {
         if (info.first != "date") {
             game.AddInfo(info.first, info.second);

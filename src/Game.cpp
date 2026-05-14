@@ -6,9 +6,10 @@ extern "C" {
 #include "chadwick.h"
 }
 
-Game::Game(std::string_view gameId, std::string_view date) {
+Game::Game(std::string_view gameId, std::string_view date, std::string_view version) {
     game = cw_game_create(const_cast<char*>(std::string(gameId).c_str()));
     if (game) {
+        cw_game_set_version(game, const_cast<char*>(std::string(version).c_str()));
         cw_game_info_append(game, const_cast<char*>("date"), const_cast<char*>(std::string(date).c_str()));
         iter = cw_gameiter_create(game);
     } else {
