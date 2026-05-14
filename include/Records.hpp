@@ -5,6 +5,11 @@
 
 enum class RecordType { Play, Substitution, Comment, Starter };
 
+struct InfoRecord {
+    std::string key;
+    std::string value;
+};
+
 struct PlayInfo {
     int inning;
     int team;

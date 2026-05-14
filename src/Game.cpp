@@ -6,11 +6,13 @@ extern "C" {
 #include "chadwick.h"
 }
 
-Game::Game(std::string_view gameId, std::string_view date, std::string_view version) {
+Game::Game(std::string_view gameId, std::string_view version, const std::vector<InfoRecord>& infoRecords) {
     game = cw_game_create(const_cast<char*>(std::string(gameId).c_str()));
     if (game) {
         cw_game_set_version(game, const_cast<char*>(std::string(version).c_str()));
-        cw_game_info_append(game, const_cast<char*>("date"), const_cast<char*>(std::string(date).c_str()));
+        for (const auto& info : infoRecords) {
+            cw_game_info_append(game, const_cast<char*>(std::string(info.key).c_str()), const_cast<char*>(std::string(info.value).c_str()));
+        }
         iter = cw_gameiter_create(game);
     } else {
         iter = nullptr;
@@ -29,9 +31,6 @@ Game::~Game() {
     }
 }
 
-void Game::AddInfo(std::string_view key, std::string_view value) {
-    cw_game_info_append(game, const_cast<char*>(std::string(key).c_str()), const_cast<char*>(std::string(value).c_str()));
-}
 
 void Game::AddStarter(const StarterInfo& starter) {
     cw_game_starter_append(game, 

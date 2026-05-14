@@ -129,14 +129,16 @@ int main() {
     SimulatorObserver observer;
     Simulator simulator(&eventSource, &observer);
 
-    Game game("BAL202503310", "2025/03/31", "2");
+    std::vector<InfoRecord> infoRecords = {
+        {"date", "2025/03/31"},
+        {"hometeam", "BAL"},
+        {"visteam", "BOS"}
+    };
+    Game game("BAL202503310", "2", infoRecords);
     if (!game) {
         std::cerr << "Failed to create game\n";
         return 1;
     }
-
-    game.AddInfo("hometeam", "BAL");
-    game.AddInfo("visteam", "BOS");
 
     // Starter records
     game.AddStarter({"duraj001", "Jarren Duran", false, 1, 7});
