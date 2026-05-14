@@ -7,7 +7,7 @@
 
 class EventSource;
 class SimulatorObserver;
-class Game;
+class IGame;
 
 class Simulator {
     EventSource* eventSource;
@@ -17,7 +17,7 @@ public:
 
     ~Simulator();
 
-    void SimulateGame(Game& game);
+    void SimulateGame(IGame& game);
 };
 
 

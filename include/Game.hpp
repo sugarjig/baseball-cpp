@@ -11,10 +11,20 @@ typedef struct cw_game_struct CWGame;
 struct cw_gameiter_struct;
 typedef struct cw_gameiter_struct CWGameIterator;
 
-class Game {
+class IGame {
+public:
+    virtual ~IGame() = default;
+    virtual void AddEvent(const PlayInfo& play) = 0;
+    virtual void AddSubstitution(const SubstitutionInfo& sub) = 0;
+    virtual void AddComment(std::string_view comment) = 0;
+    virtual void UpdateState() = 0;
+    virtual const GameState& GetGameState() const = 0;
+};
+
+class Game : public IGame {
 public:
     explicit Game(std::string_view gameId, std::string_view date);
-    ~Game();
+    ~Game() override;
 
     // Disable copying
     Game(const Game&) = delete;
@@ -24,11 +34,11 @@ public:
     void AddStarter(const StarterInfo& starter);
     bool Write(const std::filesystem::path& path);
 
-    void UpdateState();
-    void AddEvent(const PlayInfo& play);
-    void AddSubstitution(const SubstitutionInfo& sub);
-    void AddComment(std::string_view comment);
-    const GameState& GetGameState() const;
+    void UpdateState() override;
+    void AddEvent(const PlayInfo& play) override;
+    void AddSubstitution(const SubstitutionInfo& sub) override;
+    void AddComment(std::string_view comment) override;
+    const GameState& GetGameState() const override;
 
     explicit operator bool() const { return game != nullptr; }
 
