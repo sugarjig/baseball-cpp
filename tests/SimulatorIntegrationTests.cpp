@@ -27,46 +27,28 @@ static std::vector<std::string> ParseCsvLine(const std::string& line) {
     return fields;
 }
 
-struct NormalizedGame {
-    std::vector<std::string> id;
-    std::vector<std::string> version;
-    std::vector<std::vector<std::string>> info;
-    std::vector<std::vector<std::string>> start;
-    std::vector<std::vector<std::string>> events;
-    std::vector<std::vector<std::string>> data;
-    std::vector<std::vector<std::string>> unhandled;
-};
-
-static NormalizedGame LoadAndNormalize(const std::string& path) {
-    NormalizedGame ng;
+static std::vector<std::string> LoadAndNormalize(const std::string& path) {
+    std::vector<std::string> lines;
     std::ifstream file(path);
     std::string line;
     while (std::getline(file, line)) {
         if (line.empty()) continue;
-        auto fields = ParseCsvLine(line);
-        if (fields.empty()) continue;
 
-        const std::string& type = fields[0];
-
-        if (type == "id") {
-            ng.id = fields;
-        } else if (type == "version") {
-            ng.version = fields;
-        } else if (type == "info") {
-            ng.info.push_back(fields);
-        } else if (type == "start") {
-            ng.start.push_back(fields);
-        } else if (type == "play" || type == "sub" || type == "com" ||
-                   type == "badj" || type == "padj" || type == "ladj" || type == "radj") {
-            ng.events.push_back(fields);
-        } else if (type == "data") {
-            ng.data.push_back(fields);
+        if (line.starts_with("info,")) {
+            auto fields = ParseCsvLine(line);
+            std::string normalized;
+            for (size_t i = 0; i < fields.size(); ++i) {
+                normalized += fields[i];
+                if (i < fields.size() - 1) {
+                    normalized += ",";
+                }
+            }
+            lines.push_back(normalized);
         } else {
-            ng.unhandled.push_back(fields);
+            lines.push_back(line);
         }
     }
-    std::sort(ng.info.begin(), ng.info.end());
-    return ng;
+    return lines;
 }
 
 TEST(SimulatorIntegrationTest, FullGameSimulation) {
@@ -145,11 +127,5 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     auto expected = LoadAndNormalize(inputPath);
     auto actual = LoadAndNormalize(outputPath);
 
-    EXPECT_EQ(expected.id, actual.id) << "Mismatch in ID record";
-    EXPECT_EQ(expected.version, actual.version) << "Mismatch in version record";
-    EXPECT_EQ(expected.info, actual.info) << "Mismatch in info records";
-    EXPECT_EQ(expected.start, actual.start) << "Mismatch in start records";
-    EXPECT_EQ(expected.events, actual.events) << "Mismatch in events (play/sub/com) records";
-    EXPECT_EQ(expected.data, actual.data) << "Mismatch in data records";
-    EXPECT_EQ(expected.unhandled, actual.unhandled) << "Mismatch in unhandled records";
+    EXPECT_EQ(expected, actual);
 }
