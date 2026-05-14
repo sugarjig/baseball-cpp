@@ -133,10 +133,7 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
 
     ASSERT_FALSE(gameId.empty()) << "Game ID not found in input file";
 
-    Game game(gameId, version, infoRecords);
-    for (const auto& starter : starters) {
-        game.AddStarter(starter);
-    }
+    Game game(gameId, version, infoRecords, starters);
 
     StaticEventSource eventSource(events);
     Simulator simulator(&eventSource);
