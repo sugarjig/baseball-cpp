@@ -34,6 +34,7 @@ struct NormalizedGame {
     std::vector<std::vector<std::string>> start;
     std::vector<std::vector<std::string>> events;
     std::vector<std::vector<std::string>> data;
+    std::vector<std::vector<std::string>> unhandled;
 };
 
 static NormalizedGame LoadAndNormalize(const std::string& path) {
@@ -55,10 +56,13 @@ static NormalizedGame LoadAndNormalize(const std::string& path) {
             ng.info.push_back(fields);
         } else if (type == "start") {
             ng.start.push_back(fields);
-        } else if (type == "play" || type == "sub" || type == "com") {
+        } else if (type == "play" || type == "sub" || type == "com" ||
+                   type == "badj" || type == "padj" || type == "ladj" || type == "radj") {
             ng.events.push_back(fields);
         } else if (type == "data") {
             ng.data.push_back(fields);
+        } else {
+            ng.unhandled.push_back(fields);
         }
     }
     std::sort(ng.info.begin(), ng.info.end());
@@ -160,4 +164,5 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     EXPECT_EQ(expected.start, actual.start) << "Mismatch in start records";
     EXPECT_EQ(expected.events, actual.events) << "Mismatch in events (play/sub/com) records";
     EXPECT_EQ(expected.data, actual.data) << "Mismatch in data records";
+    EXPECT_EQ(expected.unhandled, actual.unhandled) << "Mismatch in unhandled records";
 }
