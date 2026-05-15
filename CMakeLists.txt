@@ -8,9 +8,11 @@ add_subdirectory(lib)
 add_library(baseball_lib STATIC
         src/Simulator.cpp
         src/Game.cpp
+        src/Scorebook.cpp
         src/GameState.cpp
         src/StaticEventSource.cpp
         include/Simulator.hpp
+        include/Scorebook.hpp
         include/SimulatorObserver.hpp
         include/StaticEventSource.hpp
         include/EventSource.hpp

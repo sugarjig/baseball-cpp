@@ -6,6 +6,7 @@
 #include "Simulator.hpp"
 #include "StaticEventSource.hpp"
 #include "Game.hpp"
+#include "Scorebook.hpp"
 
 // Simple CSV parser for Retrosheet records
 static std::vector<std::string> ParseCsvLine(const std::string& line) {
@@ -57,7 +58,7 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
 #else
     std::string projectRoot = ".";
 #endif
-    std::string inputPath = projectRoot + "/tests/2025TEST.EVA";
+    std::string inputPath = projectRoot + "/tests/2025BAL.EVA";
     std::string outputPath = "output.EVA";
 
     std::ifstream inputFile(inputPath);
@@ -71,6 +72,21 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     std::vector<Record> events;
     std::vector<DataRecord> dataRecords;
 
+    Scorebook scorebook;
+
+    auto processGame = [&]() {
+        if (gameId.empty()) return;
+        Game game(gameId, version, infoRecords, starters);
+        StaticEventSource eventSource(events);
+        Simulator simulator(&eventSource);
+        simulator.SimulateGame(game);
+
+        for (const auto& data : dataRecords) {
+            game.AddData(data);
+        }
+        scorebook.AddGame(std::move(game));
+    };
+
     while (std::getline(inputFile, line)) {
         if (line.empty()) continue;
         auto fields = ParseCsvLine(line);
@@ -78,7 +94,13 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
 
         const std::string& type = fields[0];
         if (type == "id") {
+            processGame();
             gameId = fields[1];
+            version.clear();
+            infoRecords.clear();
+            starters.clear();
+            events.clear();
+            dataRecords.clear();
         } else if (type == "version") {
             version = fields[1];
         } else if (type == "info") {
@@ -116,21 +138,10 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
             dataRecords.push_back(data);
         }
     }
+    processGame();
     inputFile.close();
 
-    ASSERT_FALSE(gameId.empty()) << "Game ID not found in input file";
-
-    Game game(gameId, version, infoRecords, starters);
-
-    StaticEventSource eventSource(events);
-    Simulator simulator(&eventSource);
-    simulator.SimulateGame(game);
-
-    for (const auto& data : dataRecords) {
-        game.AddData(data);
-    }
-
-    ASSERT_TRUE(game.Write(outputPath));
+    ASSERT_TRUE(scorebook.Write(outputPath));
 
     // Compare files using normalization
     auto expected = LoadAndNormalize(inputPath);

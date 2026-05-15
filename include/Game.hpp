@@ -34,6 +34,10 @@ public:
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
 
+    // Support move semantics
+    Game(Game&& other) noexcept;
+    Game& operator=(Game&& other) noexcept;
+
     bool Write(const std::filesystem::path& path);
 
     void UpdateState() override;
@@ -46,6 +50,7 @@ public:
     explicit operator bool() const { return game != nullptr; }
 
 private:
+    friend class Scorebook;
     CWGame* game;
     CWGameIterator* iter;
     GameState gameState;

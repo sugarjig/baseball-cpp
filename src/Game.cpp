@@ -39,6 +39,32 @@ Game::~Game() {
     }
 }
 
+Game::Game(Game&& other) noexcept : game(other.game), iter(other.iter), gameState(other.gameState) {
+    other.game = nullptr;
+    other.iter = nullptr;
+    other.gameState.state = nullptr;
+}
+
+Game& Game::operator=(Game&& other) noexcept {
+    if (this != &other) {
+        if (iter) {
+            cw_gameiter_cleanup(iter);
+            free(iter);
+        }
+        if (game) {
+            cw_game_cleanup(game);
+            free(game);
+        }
+        game = other.game;
+        iter = other.iter;
+        gameState = other.gameState;
+        other.game = nullptr;
+        other.iter = nullptr;
+        other.gameState.state = nullptr;
+    }
+    return *this;
+}
+
 bool Game::Write(const std::filesystem::path& path) {
     FILE* file = fopen(path.string().c_str(), "w");
     if (!file) return false;
