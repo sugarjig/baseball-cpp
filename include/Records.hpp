@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-enum class RecordType { Play, Substitution, Comment, Starter, RunnerAdjustment };
+enum class RecordType { Play, Substitution, Comment, Starter, RunnerAdjustment, BatterAdjustment };
 
 struct InfoRecord {
     std::string key;
@@ -43,6 +43,11 @@ struct StarterInfo {
 struct RunnerAdjustmentInfo {
     std::string playerID;
     int base;
+};
+
+struct BatterAdjustmentInfo {
+    std::string playerID;
+    char hand;
 };
 
 #endif //BASEBALL_CPP_RECORDS_HPP

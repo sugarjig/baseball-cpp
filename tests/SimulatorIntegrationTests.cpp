@@ -137,6 +137,11 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
             radj.playerID = fields[1];
             radj.base = std::stoi(fields[2]);
             events.push_back({RecordType::RunnerAdjustment, radj});
+        } else if (type == "badj") {
+            BatterAdjustmentInfo badj;
+            badj.playerID = fields[1];
+            badj.hand = fields[2][0];
+            events.push_back({RecordType::BatterAdjustment, badj});
         } else if (type == "data") {
             DataRecord data;
             data.fields = std::vector<std::string>(fields.begin() + 1, fields.end());

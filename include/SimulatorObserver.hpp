@@ -33,6 +33,10 @@ public:
         std::cout << "Runner Adjustment: " << radj.playerID << " to base " << radj.base << "\n";
     }
 
+    virtual void OnBatterAdjustment(const BatterAdjustmentInfo& badj) {
+        std::cout << "Batter Adjustment: " << badj.playerID << " to hand " << badj.hand << "\n";
+    }
+
     virtual void OnPostEvent(const GameState& state) {
         std::cout << "After: "
                   << " (State: Out=" << state.GetOuts()

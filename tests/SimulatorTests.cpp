@@ -22,6 +22,7 @@ public:
     MOCK_METHOD(void, OnSubstitution, (const SubstitutionInfo& sub), (override));
     MOCK_METHOD(void, OnComment, (const std::string& comment), (override));
     MOCK_METHOD(void, OnRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
+    MOCK_METHOD(void, OnBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
     MOCK_METHOD(void, OnPostEvent, (const GameState& state), (override));
 };
 
@@ -32,6 +33,7 @@ public:
     MOCK_METHOD(void, AddComment, (std::string_view comment), (override));
     MOCK_METHOD(void, AddData, (const DataRecord& data), (override));
     MOCK_METHOD(void, AddRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
+    MOCK_METHOD(void, AddBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
     MOCK_METHOD(void, UpdateState, (), (override));
     MOCK_METHOD(const GameState&, GetGameState, (), (const, override));
 };
@@ -150,13 +152,32 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     record.type = RecordType::RunnerAdjustment;
     record.data = radj;
 
+    simulator.SimulateGame(mockGame);
+}
+
+TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
+    MockEventSource mockSource;
+    MockSimulatorObserver mockObserver;
+    MockGame mockGame;
+    Simulator simulator(&mockSource, &mockObserver);
+    
+    GameState dummyState;
+
+    BatterAdjustmentInfo badj;
+    badj.playerID = "testp001";
+    badj.hand = 'R';
+
+    Record record;
+    record.type = RecordType::BatterAdjustment;
+    record.data = badj;
+
     {
         InSequence seq;
         EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddRunnerAdjustment(_)).Times(1);
-        EXPECT_CALL(mockObserver, OnRunnerAdjustment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddBatterAdjustment(_)).Times(1);
+        EXPECT_CALL(mockObserver, OnBatterAdjustment(_)).Times(1);
         EXPECT_CALL(mockGame, UpdateState()).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
