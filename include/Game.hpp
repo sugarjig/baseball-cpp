@@ -19,6 +19,7 @@ public:
     virtual void AddSubstitution(const SubstitutionInfo& sub) = 0;
     virtual void AddComment(std::string_view comment) = 0;
     virtual void AddData(const DataRecord& data) = 0;
+    virtual void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) = 0;
     virtual void UpdateState() = 0;
     virtual const GameState& GetGameState() const = 0;
 };
@@ -45,6 +46,7 @@ public:
     void AddSubstitution(const SubstitutionInfo& sub) override;
     void AddComment(std::string_view comment) override;
     void AddData(const DataRecord& data) override;
+    void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) override;
     const GameState& GetGameState() const override;
 
     explicit operator bool() const { return game != nullptr; }
@@ -54,6 +56,9 @@ private:
     CWGame* game;
     CWGameIterator* iter;
     GameState gameState;
+
+    std::string pendingAutoRunner;
+    int pendingAutoBase = 0;
 };
 
 #endif //BASEBALL_CPP_GAME_HPP

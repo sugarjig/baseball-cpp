@@ -35,6 +35,12 @@ void Simulator::SimulateGame(IGame& game) {
                 if (observer) observer->OnComment(comment);
                 break;
             }
+            case RecordType::RunnerAdjustment: {
+                const auto& radj = std::get<RunnerAdjustmentInfo>(record->data);
+                game.AddRunnerAdjustment(radj);
+                if (observer) observer->OnRunnerAdjustment(radj);
+                break;
+            }
             default: break;
         }
 

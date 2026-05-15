@@ -1,6 +1,7 @@
 #include "Game.hpp"
 #include <cstdlib>
 #include <cstdio>
+#include <cstring>
 
 extern "C" {
 #include "chadwick.h"
@@ -39,10 +40,13 @@ Game::~Game() {
     }
 }
 
-Game::Game(Game&& other) noexcept : game(other.game), iter(other.iter), gameState(other.gameState) {
+Game::Game(Game&& other) noexcept 
+    : game(other.game), iter(other.iter), gameState(other.gameState), 
+      pendingAutoRunner(std::move(other.pendingAutoRunner)), pendingAutoBase(other.pendingAutoBase) {
     other.game = nullptr;
     other.iter = nullptr;
     other.gameState.state = nullptr;
+    other.pendingAutoBase = 0;
 }
 
 Game& Game::operator=(Game&& other) noexcept {
@@ -58,9 +62,12 @@ Game& Game::operator=(Game&& other) noexcept {
         game = other.game;
         iter = other.iter;
         gameState = other.gameState;
+        pendingAutoRunner = std::move(other.pendingAutoRunner);
+        pendingAutoBase = other.pendingAutoBase;
         other.game = nullptr;
         other.iter = nullptr;
         other.gameState.state = nullptr;
+        other.pendingAutoBase = 0;
     }
     return *this;
 }
@@ -88,6 +95,15 @@ void Game::AddEvent(const PlayInfo& play) {
                          const_cast<char*>(play.pitchCount.c_str()),
                          const_cast<char*>(play.pitchSequence.c_str()),
                          const_cast<char*>(play.text.c_str()));
+
+    if (pendingAutoBase != 0 && game->last_event) {
+        game->last_event->auto_base = pendingAutoBase;
+        game->last_event->auto_runner_id = static_cast<char*>(malloc(pendingAutoRunner.length() + 1));
+        strcpy(game->last_event->auto_runner_id, pendingAutoRunner.c_str());
+
+        pendingAutoBase = 0;
+        pendingAutoRunner.clear();
+    }
 }
 
 void Game::AddSubstitution(const SubstitutionInfo& sub) {
@@ -108,6 +124,11 @@ void Game::AddData(const DataRecord& data) {
         c_fields.push_back(const_cast<char*>(field.c_str()));
     }
     cw_game_data_append(game, static_cast<int>(c_fields.size()), c_fields.data());
+}
+
+void Game::AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
+    pendingAutoRunner = radj.playerID;
+    pendingAutoBase = radj.base;
 }
 
 const GameState& Game::GetGameState() const {
