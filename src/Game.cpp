@@ -90,7 +90,28 @@ void Game::UpdateState() {
     if (iter) {
         cw_gameiter_reset(iter);
         while (iter->event != nullptr) {
+            CWEvent* currentEvent = iter->event;
+
+            // Save "suspended" comments that Chadwick's cw_gameiter_process_comments might mangle with strtok
+            // May be able to remove in versions of Chadwick higher than 0.10.0
+            struct SavedComment {
+                CWComment* comment;
+                std::string originalText;
+            };
+            std::vector<SavedComment> saved;
+
+            for (CWComment* c = currentEvent->first_comment; c != nullptr; c = c->next) {
+                if (c->text && strncmp(c->text, "suspended,", 10) == 0) {
+                    saved.push_back({c, c->text});
+                }
+            }
+
             cw_gameiter_next(iter);
+
+            // Restore any mangled comments
+            for (auto& s : saved) {
+                strcpy(s.comment->text, s.originalText.c_str());
+            }
         }
     }
 }

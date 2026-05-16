@@ -12,4 +12,5 @@
 - [ ] Audit C++ usage
 - [ ] Use cw_game_data_set_er to set data records
 - [ ] Organize all Chadwick wrappers (namespace?)
-- [ ] Add to AGENTS.md: encapsulate all Chadwick usage in wrappers
+- [x] Add to AGENTS.md: encapsulate all Chadwick usage in wrappers
+- [x] Add to AGENTS.md: never modify vendored library source code

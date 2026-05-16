@@ -17,6 +17,8 @@ The project wraps the Chadwick C library. Key integration points:
 - Chadwick headers are included via `extern "C"`.
 - `Game` class manages the lifecycle of `CWGame` and `CWGameIterator` using RAII (manual cleanup in destructor).
 - Raw pointers from Chadwick are generally kept private within wrapper classes.
+- **Encapsulate all Chadwick usage in wrappers**: Avoid exposing Chadwick's internal structures directly.
+- **Never modify vendored library source code**: If a bug is found in Chadwick, implement a workaround in the C++ wrapper instead of patching the C library.
 
 ## Development Standards
 
