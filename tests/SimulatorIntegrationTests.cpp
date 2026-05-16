@@ -154,6 +154,11 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             badj.playerID = fields[1];
             badj.hand = fields[2][0];
             events.push_back({RecordType::BatterAdjustment, badj});
+        } else if (type == "padj") {
+            PitcherAdjustmentInfo padj;
+            padj.playerID = fields[1];
+            padj.hand = fields[2][0];
+            events.push_back({RecordType::PitcherAdjustment, padj});
         } else if (type == "data") {
             DataRecord data;
             data.fields = std::vector<std::string>(fields.begin() + 1, fields.end());

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-enum class RecordType { Play, Substitution, Comment, Starter, RunnerAdjustment, BatterAdjustment };
+enum class RecordType { Play, Substitution, Comment, Starter, RunnerAdjustment, BatterAdjustment, PitcherAdjustment };
 
 struct InfoRecord {
     std::string key;
@@ -46,6 +46,11 @@ struct RunnerAdjustmentInfo {
 };
 
 struct BatterAdjustmentInfo {
+    std::string playerID;
+    char hand;
+};
+
+struct PitcherAdjustmentInfo {
     std::string playerID;
     char hand;
 };

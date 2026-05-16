@@ -23,6 +23,7 @@ public:
     MOCK_METHOD(void, OnComment, (const std::string& comment), (override));
     MOCK_METHOD(void, OnRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
     MOCK_METHOD(void, OnBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
+    MOCK_METHOD(void, OnPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
     MOCK_METHOD(void, OnPostEvent, (const GameState& state), (override));
 };
 
@@ -34,6 +35,7 @@ public:
     MOCK_METHOD(void, AddData, (const DataRecord& data), (override));
     MOCK_METHOD(void, AddRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
     MOCK_METHOD(void, AddBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
+    MOCK_METHOD(void, AddPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
     MOCK_METHOD(void, UpdateState, (), (override));
     MOCK_METHOD(const GameState&, GetGameState, (), (const, override));
 };

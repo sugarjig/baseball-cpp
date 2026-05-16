@@ -47,6 +47,12 @@ void Simulator::SimulateGame(IGame& game) {
                 if (observer) observer->OnBatterAdjustment(badj);
                 break;
             }
+            case RecordType::PitcherAdjustment: {
+                const auto& padj = std::get<PitcherAdjustmentInfo>(record->data);
+                game.AddPitcherAdjustment(padj);
+                if (observer) observer->OnPitcherAdjustment(padj);
+                break;
+            }
             default: break;
         }
 

@@ -9,7 +9,7 @@
 
 struct Record {
     RecordType type;
-    std::variant<PlayInfo, SubstitutionInfo, std::string, StarterInfo, RunnerAdjustmentInfo, BatterAdjustmentInfo> data;
+    std::variant<PlayInfo, SubstitutionInfo, std::string, StarterInfo, RunnerAdjustmentInfo, BatterAdjustmentInfo, PitcherAdjustmentInfo> data;
 };
 
 class EventSource {

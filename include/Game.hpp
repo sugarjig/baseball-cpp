@@ -21,6 +21,7 @@ public:
     virtual void AddData(const DataRecord& data) = 0;
     virtual void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) = 0;
     virtual void AddBatterAdjustment(const BatterAdjustmentInfo& badj) = 0;
+    virtual void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) = 0;
     virtual void UpdateState() = 0;
     virtual const GameState& GetGameState() const = 0;
 };
@@ -49,6 +50,7 @@ public:
     void AddData(const DataRecord& data) override;
     void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) override;
     void AddBatterAdjustment(const BatterAdjustmentInfo& badj) override;
+    void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) override;
     const GameState& GetGameState() const override;
 
     explicit operator bool() const { return game != nullptr; }
@@ -64,6 +66,9 @@ private:
 
     std::string pendingBatterAdjustmentPlayerID;
     char pendingBatterAdjustmentHand = ' ';
+
+    std::string pendingPitcherAdjustmentPlayerID;
+    char pendingPitcherAdjustmentHand = ' ';
 };
 
 #endif //BASEBALL_CPP_GAME_HPP

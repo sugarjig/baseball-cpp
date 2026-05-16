@@ -44,12 +44,15 @@ Game::Game(Game&& other) noexcept
     : game(other.game), iter(other.iter), gameState(other.gameState), 
       pendingAutoRunner(std::move(other.pendingAutoRunner)), pendingAutoBase(other.pendingAutoBase),
       pendingBatterAdjustmentPlayerID(std::move(other.pendingBatterAdjustmentPlayerID)),
-      pendingBatterAdjustmentHand(other.pendingBatterAdjustmentHand) {
+      pendingBatterAdjustmentHand(other.pendingBatterAdjustmentHand),
+      pendingPitcherAdjustmentPlayerID(std::move(other.pendingPitcherAdjustmentPlayerID)),
+      pendingPitcherAdjustmentHand(other.pendingPitcherAdjustmentHand) {
     other.game = nullptr;
     other.iter = nullptr;
     other.gameState.state = nullptr;
     other.pendingAutoBase = 0;
     other.pendingBatterAdjustmentHand = ' ';
+    other.pendingPitcherAdjustmentHand = ' ';
 }
 
 Game& Game::operator=(Game&& other) noexcept {
@@ -69,11 +72,14 @@ Game& Game::operator=(Game&& other) noexcept {
         pendingAutoBase = other.pendingAutoBase;
         pendingBatterAdjustmentPlayerID = std::move(other.pendingBatterAdjustmentPlayerID);
         pendingBatterAdjustmentHand = other.pendingBatterAdjustmentHand;
+        pendingPitcherAdjustmentPlayerID = std::move(other.pendingPitcherAdjustmentPlayerID);
+        pendingPitcherAdjustmentHand = other.pendingPitcherAdjustmentHand;
         other.game = nullptr;
         other.iter = nullptr;
         other.gameState.state = nullptr;
         other.pendingAutoBase = 0;
         other.pendingBatterAdjustmentHand = ' ';
+        other.pendingPitcherAdjustmentHand = ' ';
     }
     return *this;
 }
@@ -140,6 +146,15 @@ void Game::AddEvent(const PlayInfo& play) {
             pendingBatterAdjustmentHand = ' ';
             pendingBatterAdjustmentPlayerID.clear();
         }
+
+        if (pendingPitcherAdjustmentHand != ' ') {
+            game->last_event->pitcher_hand = pendingPitcherAdjustmentHand;
+            game->last_event->pitcher_hand_id = static_cast<char*>(malloc(pendingPitcherAdjustmentPlayerID.length() + 1));
+            strcpy(game->last_event->pitcher_hand_id, pendingPitcherAdjustmentPlayerID.c_str());
+
+            pendingPitcherAdjustmentHand = ' ';
+            pendingPitcherAdjustmentPlayerID.clear();
+        }
     }
 }
 
@@ -171,6 +186,11 @@ void Game::AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
 void Game::AddBatterAdjustment(const BatterAdjustmentInfo& badj) {
     pendingBatterAdjustmentPlayerID = badj.playerID;
     pendingBatterAdjustmentHand = badj.hand;
+}
+
+void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
+    pendingPitcherAdjustmentPlayerID = padj.playerID;
+    pendingPitcherAdjustmentHand = padj.hand;
 }
 
 const GameState& Game::GetGameState() const {
