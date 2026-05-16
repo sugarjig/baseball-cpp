@@ -33,6 +33,9 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+add_executable(normalize_retrosheet tools/normalize_retrosheet.cpp)
+target_link_libraries(normalize_retrosheet PRIVATE chadwick)
+
 enable_testing()
 
 add_executable(baseball_tests
