@@ -3,10 +3,39 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <filesystem>
 #include "Simulator.hpp"
 #include "StaticEventSource.hpp"
 #include "Game.hpp"
 #include "Scorebook.hpp"
+
+namespace fs = std::filesystem;
+
+static std::vector<std::string> GetFixtureFiles() {
+#ifdef PROJECT_ROOT
+    fs::path fixturesDir = fs::path(PROJECT_ROOT) / "tests" / "fixtures";
+#else
+    fs::path fixturesDir = fs::path(".") / "tests" / "fixtures";
+#endif
+    std::vector<std::string> files;
+
+    if (!fs::exists(fixturesDir)) {
+        return files;
+    }
+
+    for (const auto& entry : fs::directory_iterator(fixturesDir)) {
+        if (entry.is_regular_file()) {
+            std::string ext = entry.path().extension().string();
+            std::transform(ext.begin(), ext.end(), ext.begin(), ::toupper);
+
+            if (ext == ".EVA" || ext == ".EVN" || ext == ".EVE") {
+                files.push_back(entry.path().string());
+            }
+        }
+    }
+    std::sort(files.begin(), files.end());
+    return files;
+}
 
 // Simple CSV parser for Retrosheet records
 static std::vector<std::string> ParseCsvLine(const std::string& line) {
@@ -28,38 +57,22 @@ static std::vector<std::string> ParseCsvLine(const std::string& line) {
     return fields;
 }
 
-static std::vector<std::string> LoadAndNormalize(const std::string& path) {
+static std::vector<std::string> ReadFileLines(const std::string& path) {
     std::vector<std::string> lines;
     std::ifstream file(path);
     std::string line;
     while (std::getline(file, line)) {
-        if (line.empty()) continue;
-
-        if (line.starts_with("info,")) {
-            auto fields = ParseCsvLine(line);
-            std::string normalized;
-            for (size_t i = 0; i < fields.size(); ++i) {
-                normalized += fields[i];
-                if (i < fields.size() - 1) {
-                    normalized += ",";
-                }
-            }
-            lines.push_back(normalized);
-        } else {
-            lines.push_back(line);
-        }
+        lines.push_back(line);
     }
     return lines;
 }
 
-TEST(SimulatorIntegrationTest, FullGameSimulation) {
-#ifdef PROJECT_ROOT
-    std::string projectRoot = PROJECT_ROOT;
-#else
-    std::string projectRoot = ".";
-#endif
-    std::string inputPath = projectRoot + "/tests/2025BAL.EVA";
-    std::string outputPath = "output.EVA";
+class SimulatorIntegrationTest : public testing::TestWithParam<std::string> {};
+
+TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
+    std::string inputPath = GetParam();
+    fs::path p(inputPath);
+    std::string outputPath = "output_" + p.filename().string();
 
     std::ifstream inputFile(inputPath);
     ASSERT_TRUE(inputFile.is_open()) << "Could not open input file: " << inputPath;
@@ -88,7 +101,6 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
     };
 
     while (std::getline(inputFile, line)) {
-        if (line.empty()) continue;
         auto fields = ParseCsvLine(line);
         if (fields.empty()) continue;
 
@@ -153,9 +165,15 @@ TEST(SimulatorIntegrationTest, FullGameSimulation) {
 
     ASSERT_TRUE(scorebook.Write(outputPath));
 
-    // Compare files using normalization
-    auto expected = LoadAndNormalize(inputPath);
-    auto actual = LoadAndNormalize(outputPath);
+    // Compare files exactly
+    auto expected = ReadFileLines(inputPath);
+    auto actual = ReadFileLines(outputPath);
 
     EXPECT_EQ(expected, actual);
 }
+
+INSTANTIATE_TEST_SUITE_P(
+    FixtureTests,
+    SimulatorIntegrationTest,
+    testing::ValuesIn(GetFixtureFiles())
+);
