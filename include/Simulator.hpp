@@ -15,9 +15,9 @@ class Simulator {
     SimulatorObserver* observer;
 
 public:
-    Simulator(EventSource* eventSource, SimulatorObserver* observer = nullptr);
+    explicit Simulator(EventSource* eventSource, SimulatorObserver* observer = nullptr);
 
-    ~Simulator();
+    ~Simulator() = default;
 
     void SimulateGame(IGame& game);
 };

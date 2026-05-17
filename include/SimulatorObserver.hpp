@@ -21,21 +21,21 @@ public:
     }
 
     virtual void OnSubstitution(const SubstitutionInfo& sub) {
-        std::cout << "Substitution: " << sub.name << " (" << sub.playerID << ") at pos " << sub.pos << "\n";
+        std::cout << "Substitution: " << sub.name << " (" << sub.playerId << ") at pos " << sub.pos << "\n";
     }
 
     virtual void OnComment(const std::string& comment) { std::cout << "Comment: " << comment << "\n"; }
 
     virtual void OnRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
-        std::cout << "Runner Adjustment: " << radj.playerID << " to base " << radj.base << "\n";
+        std::cout << "Runner Adjustment: " << radj.playerId << " to base " << radj.base << "\n";
     }
 
     virtual void OnBatterAdjustment(const BatterAdjustmentInfo& badj) {
-        std::cout << "Batter Adjustment: " << badj.playerID << " to hand " << badj.hand << "\n";
+        std::cout << "Batter Adjustment: " << badj.playerId << " to hand " << badj.hand << "\n";
     }
 
     virtual void OnPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
-        std::cout << "Pitcher Adjustment: " << padj.playerID << " to hand " << padj.hand << "\n";
+        std::cout << "Pitcher Adjustment: " << padj.playerId << " to hand " << padj.hand << "\n";
     }
 
     virtual void OnPostEvent(const IGameState& state) {

@@ -11,15 +11,14 @@ namespace chadwick {
 
 Game::Game(std::string_view gameId, std::string_view version, const std::vector<InfoRecord>& infoRecords,
            const std::vector<StarterInfo>& starters) {
-    game = cw_game_create(const_cast<char*>(std::string(gameId).c_str()));
+    game = cw_game_create(std::string(gameId).data());
     if (game) {
-        cw_game_set_version(game, const_cast<char*>(std::string(version).c_str()));
+        cw_game_set_version(game, std::string(version).data());
         for (const auto& info : infoRecords) {
-            cw_game_info_append(game, const_cast<char*>(std::string(info.key).c_str()),
-                                const_cast<char*>(std::string(info.value).c_str()));
+            cw_game_info_append(game, std::string(info.key).data(), std::string(info.value).data());
         }
         for (const auto& starter : starters) {
-            cw_game_starter_append(game, const_cast<char*>(starter.id.c_str()), const_cast<char*>(starter.name.c_str()),
+            cw_game_starter_append(game, std::string(starter.id).data(), std::string(starter.name).data(),
                                    starter.isHome, starter.battingOrder, starter.position);
         }
         iter = cw_gameiter_create(game);
@@ -43,9 +42,9 @@ Game::~Game() {
 Game::Game(Game&& other) noexcept
     : game(other.game), iter(other.iter), gameState(other.gameState),
       pendingAutoRunner(std::move(other.pendingAutoRunner)), pendingAutoBase(other.pendingAutoBase),
-      pendingBatterAdjustmentPlayerID(std::move(other.pendingBatterAdjustmentPlayerID)),
+      pendingBatterAdjustmentPlayerId(std::move(other.pendingBatterAdjustmentPlayerId)),
       pendingBatterAdjustmentHand(other.pendingBatterAdjustmentHand),
-      pendingPitcherAdjustmentPlayerID(std::move(other.pendingPitcherAdjustmentPlayerID)),
+      pendingPitcherAdjustmentPlayerId(std::move(other.pendingPitcherAdjustmentPlayerId)),
       pendingPitcherAdjustmentHand(other.pendingPitcherAdjustmentHand) {
     other.game = nullptr;
     other.iter = nullptr;
@@ -70,9 +69,9 @@ Game& Game::operator=(Game&& other) noexcept {
         gameState = other.gameState;
         pendingAutoRunner = std::move(other.pendingAutoRunner);
         pendingAutoBase = other.pendingAutoBase;
-        pendingBatterAdjustmentPlayerID = std::move(other.pendingBatterAdjustmentPlayerID);
+        pendingBatterAdjustmentPlayerId = std::move(other.pendingBatterAdjustmentPlayerId);
         pendingBatterAdjustmentHand = other.pendingBatterAdjustmentHand;
-        pendingPitcherAdjustmentPlayerID = std::move(other.pendingPitcherAdjustmentPlayerID);
+        pendingPitcherAdjustmentPlayerId = std::move(other.pendingPitcherAdjustmentPlayerId);
         pendingPitcherAdjustmentHand = other.pendingPitcherAdjustmentHand;
         other.game = nullptr;
         other.iter = nullptr;
@@ -86,8 +85,9 @@ Game& Game::operator=(Game&& other) noexcept {
 
 bool Game::Write(const std::filesystem::path& path) {
     FILE* file = fopen(path.string().c_str(), "w");
-    if (!file)
+    if (!file) {
         return false;
+    }
     cw_game_write(game, file);
     fclose(file);
     return true;
@@ -124,9 +124,9 @@ void Game::UpdateState() {
 }
 
 void Game::AddEvent(const PlayInfo& play) {
-    cw_game_event_append(game, play.inning, play.team, const_cast<char*>(play.batter.c_str()),
-                         const_cast<char*>(play.pitchCount.c_str()), const_cast<char*>(play.pitchSequence.c_str()),
-                         const_cast<char*>(play.text.c_str()));
+    cw_game_event_append(game, play.inning, play.team, std::string(play.batter).data(),
+                         std::string(play.pitchCount).data(), std::string(play.pitchSequence).data(),
+                         std::string(play.text).data());
 
     if (game->last_event) {
         if (pendingAutoBase != 0) {
@@ -139,55 +139,54 @@ void Game::AddEvent(const PlayInfo& play) {
         }
 
         if (pendingBatterAdjustmentHand != ' ') {
-            if (pendingBatterAdjustmentPlayerID == play.batter) {
+            if (pendingBatterAdjustmentPlayerId == play.batter) {
                 game->last_event->batter_hand = pendingBatterAdjustmentHand;
             }
             pendingBatterAdjustmentHand = ' ';
-            pendingBatterAdjustmentPlayerID.clear();
+            pendingBatterAdjustmentPlayerId.clear();
         }
 
         if (pendingPitcherAdjustmentHand != ' ') {
             game->last_event->pitcher_hand = pendingPitcherAdjustmentHand;
             game->last_event->pitcher_hand_id =
-                static_cast<char*>(malloc(pendingPitcherAdjustmentPlayerID.length() + 1));
-            strcpy(game->last_event->pitcher_hand_id, pendingPitcherAdjustmentPlayerID.c_str());
+                static_cast<char*>(malloc(pendingPitcherAdjustmentPlayerId.length() + 1));
+            strcpy(game->last_event->pitcher_hand_id, pendingPitcherAdjustmentPlayerId.c_str());
 
             pendingPitcherAdjustmentHand = ' ';
-            pendingPitcherAdjustmentPlayerID.clear();
+            pendingPitcherAdjustmentPlayerId.clear();
         }
     }
 }
 
 void Game::AddSubstitution(const SubstitutionInfo& sub) {
-    cw_game_substitute_append(game, const_cast<char*>(sub.playerID.c_str()), const_cast<char*>(sub.name.c_str()),
-                              sub.team, sub.slot, sub.pos);
+    cw_game_substitute_append(game, std::string(sub.playerId).data(), std::string(sub.name).data(), sub.team, sub.slot,
+                              sub.pos);
 }
 
-void Game::AddComment(std::string_view comment) {
-    cw_game_comment_append(game, const_cast<char*>(std::string(comment).c_str()));
-}
+void Game::AddComment(std::string_view comment) { cw_game_comment_append(game, std::string(comment).data()); }
 
 void Game::AddData(const DataRecord& data) {
+    std::vector<std::string> copies(data.fields.begin(), data.fields.end());
     std::vector<char*> c_fields;
-    c_fields.reserve(data.fields.size());
-    for (const auto& field : data.fields) {
-        c_fields.push_back(const_cast<char*>(field.c_str()));
+    c_fields.reserve(copies.size());
+    for (auto& field : copies) {
+        c_fields.push_back(field.data());
     }
     cw_game_data_append(game, static_cast<int>(c_fields.size()), c_fields.data());
 }
 
 void Game::AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
-    pendingAutoRunner = radj.playerID;
+    pendingAutoRunner = radj.playerId;
     pendingAutoBase = radj.base;
 }
 
 void Game::AddBatterAdjustment(const BatterAdjustmentInfo& badj) {
-    pendingBatterAdjustmentPlayerID = badj.playerID;
+    pendingBatterAdjustmentPlayerId = badj.playerId;
     pendingBatterAdjustmentHand = badj.hand;
 }
 
 void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
-    pendingPitcherAdjustmentPlayerID = padj.playerID;
+    pendingPitcherAdjustmentPlayerId = padj.playerId;
     pendingPitcherAdjustmentHand = padj.hand;
 }
 

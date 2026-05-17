@@ -52,10 +52,10 @@ private:
     std::string pendingAutoRunner;
     int pendingAutoBase = 0;
 
-    std::string pendingBatterAdjustmentPlayerID;
+    std::string pendingBatterAdjustmentPlayerId;
     char pendingBatterAdjustmentHand = ' ';
 
-    std::string pendingPitcherAdjustmentPlayerID;
+    std::string pendingPitcherAdjustmentPlayerId;
     char pendingPitcherAdjustmentHand = ' ';
 };
 

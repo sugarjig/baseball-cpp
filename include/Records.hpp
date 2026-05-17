@@ -25,7 +25,7 @@ struct PlayInfo {
 };
 
 struct SubstitutionInfo {
-    std::string playerID;
+    std::string playerId;
     std::string name;
     int team;
     int slot;
@@ -41,17 +41,17 @@ struct StarterInfo {
 };
 
 struct RunnerAdjustmentInfo {
-    std::string playerID;
+    std::string playerId;
     int base;
 };
 
 struct BatterAdjustmentInfo {
-    std::string playerID;
+    std::string playerId;
     char hand;
 };
 
 struct PitcherAdjustmentInfo {
-    std::string playerID;
+    std::string playerId;
     char hand;
 };
 

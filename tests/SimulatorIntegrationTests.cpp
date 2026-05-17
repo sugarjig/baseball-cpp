@@ -42,8 +42,7 @@ static std::vector<std::string> ParseCsvLine(const std::string& line) {
     std::vector<std::string> fields;
     std::string currentField;
     bool inQuotes = false;
-    for (size_t i = 0; i < line.length(); ++i) {
-        char c = line[i];
+    for (char c : line) {
         if (c == '"') {
             inQuotes = !inQuotes;
         } else if (c == ',' && !inQuotes) {
@@ -100,8 +99,9 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
     chadwick::Scorebook scorebook;
 
     auto processGame = [&]() {
-        if (gameId.empty())
+        if (gameId.empty()) {
             return;
+        }
         chadwick::Game game(gameId, version, infoRecords, starters);
         StaticEventSource eventSource(events);
         Simulator simulator(&eventSource);
@@ -115,8 +115,9 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
 
     while (std::getline(inputFile, line)) {
         auto fields = ParseCsvLine(line);
-        if (fields.empty())
+        if (fields.empty()) {
             continue;
+        }
 
         const std::string& type = fields[0];
         if (type == "id") {
@@ -150,7 +151,7 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             events.push_back({RecordType::Play, play});
         } else if (type == "sub") {
             SubstitutionInfo sub;
-            sub.playerID = fields[1];
+            sub.playerId = fields[1];
             sub.name = fields[2];
             sub.team = std::stoi(fields[3]);
             sub.slot = std::stoi(fields[4]);
@@ -160,17 +161,17 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             events.push_back({RecordType::Comment, fields[1]});
         } else if (type == "radj") {
             RunnerAdjustmentInfo radj;
-            radj.playerID = fields[1];
+            radj.playerId = fields[1];
             radj.base = std::stoi(fields[2]);
             events.push_back({RecordType::RunnerAdjustment, radj});
         } else if (type == "badj") {
             BatterAdjustmentInfo badj;
-            badj.playerID = fields[1];
+            badj.playerId = fields[1];
             badj.hand = fields[2][0];
             events.push_back({RecordType::BatterAdjustment, badj});
         } else if (type == "padj") {
             PitcherAdjustmentInfo padj;
-            padj.playerID = fields[1];
+            padj.playerId = fields[1];
             padj.hand = fields[2][0];
             events.push_back({RecordType::PitcherAdjustment, padj});
         } else if (type == "data") {
