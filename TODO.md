@@ -14,3 +14,6 @@
 - [ ] Organize all Chadwick wrappers (namespace?)
 - [x] Add to AGENTS.md: encapsulate all Chadwick usage in wrappers
 - [x] Add to AGENTS.md: never modify vendored library source code
+- [ ] Documentation strings
+- [ ] More unit test coverage
+- [ ] Use [diffing library](https://github.com/sisong/HDiffPatch) in integration test
