@@ -13,6 +13,7 @@ class IGameState;
 class Simulator {
     EventSource* eventSource;
     SimulatorObserver* observer;
+
 public:
     Simulator(EventSource* eventSource, SimulatorObserver* observer = nullptr);
 
@@ -21,5 +22,4 @@ public:
     void SimulateGame(IGame& game);
 };
 
-
-#endif //BASEBALL_CPP_SIMULATOR_HPP
+#endif // BASEBALL_CPP_SIMULATOR_HPP

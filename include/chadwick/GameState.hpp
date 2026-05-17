@@ -15,6 +15,7 @@ public:
     int GetBattingTeam() const override;
     int GetOuts() const override;
     int GetScore(int team) const override;
+
 private:
     friend class Game;
     explicit GameState(CWGameState* state);
@@ -23,4 +24,4 @@ private:
 
 } // namespace chadwick
 
-#endif //BASEBALL_CPP_GAMESTATE_HPP
+#endif // BASEBALL_CPP_GAMESTATE_HPP

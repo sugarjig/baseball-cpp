@@ -1,9 +1,9 @@
 #ifndef BASEBALL_CPP_SIMULATOROBSERVER_HPP
 #define BASEBALL_CPP_SIMULATOROBSERVER_HPP
 
-#include <iostream>
 #include "EventSource.hpp"
 #include "IGameState.hpp"
+#include <iostream>
 
 class SimulatorObserver {
 public:
@@ -11,10 +11,9 @@ public:
 
     virtual void OnPreEvent(const IGameState& state) {
         std::cout << "Before: "
-                  << " (State: Out=" << state.GetOuts()
-                  << ", Inning=" << state.GetInning()
-                  << ", Batting team=" << state.GetBattingTeam()
-                  << ", Score=" << state.GetScore(0) << "-" << state.GetScore(1) << ")\n";
+                  << " (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
+                  << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
+                  << state.GetScore(1) << ")\n";
     }
 
     virtual void OnEvent(const PlayInfo& event) {
@@ -25,9 +24,7 @@ public:
         std::cout << "Substitution: " << sub.name << " (" << sub.playerID << ") at pos " << sub.pos << "\n";
     }
 
-    virtual void OnComment(const std::string& comment) {
-        std::cout << "Comment: " << comment << "\n";
-    }
+    virtual void OnComment(const std::string& comment) { std::cout << "Comment: " << comment << "\n"; }
 
     virtual void OnRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
         std::cout << "Runner Adjustment: " << radj.playerID << " to base " << radj.base << "\n";
@@ -43,11 +40,10 @@ public:
 
     virtual void OnPostEvent(const IGameState& state) {
         std::cout << "After: "
-                  << " (State: Out=" << state.GetOuts()
-                  << ", Inning=" << state.GetInning()
-                  << ", Batting team=" << state.GetBattingTeam()
-                  << ", Score=" << state.GetScore(0) << "-" << state.GetScore(1) << ")\n\n";
+                  << " (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
+                  << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
+                  << state.GetScore(1) << ")\n\n";
     }
 };
 
-#endif //BASEBALL_CPP_SIMULATOROBSERVER_HPP
+#endif // BASEBALL_CPP_SIMULATOROBSERVER_HPP

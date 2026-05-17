@@ -1,12 +1,12 @@
 #ifndef BASEBALL_CPP_GAME_HPP
 #define BASEBALL_CPP_GAME_HPP
 
-#include <string_view>
-#include <filesystem>
-#include <vector>
-#include "GameState.hpp"
-#include "../Records.hpp"
 #include "../IGame.hpp"
+#include "../Records.hpp"
+#include "GameState.hpp"
+#include <filesystem>
+#include <string_view>
+#include <vector>
 
 struct cw_game_struct;
 typedef struct cw_game_struct CWGame;
@@ -17,8 +17,7 @@ namespace chadwick {
 
 class Game : public IGame {
 public:
-    explicit Game(std::string_view gameId, std::string_view version, 
-                  const std::vector<InfoRecord>& infoRecords,
+    explicit Game(std::string_view gameId, std::string_view version, const std::vector<InfoRecord>& infoRecords,
                   const std::vector<StarterInfo>& starters);
     ~Game() override;
 
@@ -62,4 +61,4 @@ private:
 
 } // namespace chadwick
 
-#endif //BASEBALL_CPP_GAME_HPP
+#endif // BASEBALL_CPP_GAME_HPP

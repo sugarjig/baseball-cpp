@@ -1,9 +1,9 @@
 #ifndef BASEBALL_CPP_IGAME_HPP
 #define BASEBALL_CPP_IGAME_HPP
 
-#include <string_view>
-#include "Records.hpp"
 #include "IGameState.hpp"
+#include "Records.hpp"
+#include <string_view>
 
 class IGame {
 public:
@@ -19,4 +19,4 @@ public:
     virtual const IGameState& GetGameState() const = 0;
 };
 
-#endif //BASEBALL_CPP_IGAME_HPP
+#endif // BASEBALL_CPP_IGAME_HPP

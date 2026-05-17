@@ -1,8 +1,8 @@
 #ifndef BASEBALL_CPP_SCOREBOOK_HPP
 #define BASEBALL_CPP_SCOREBOOK_HPP
 
-#include <filesystem>
 #include "Game.hpp"
+#include <filesystem>
 
 struct cw_scorebook_struct;
 typedef struct cw_scorebook_struct CWScorebook;
@@ -33,4 +33,4 @@ private:
 
 } // namespace chadwick
 
-#endif //BASEBALL_CPP_SCOREBOOK_HPP
+#endif // BASEBALL_CPP_SCOREBOOK_HPP

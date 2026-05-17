@@ -1,9 +1,9 @@
-#include <iostream>
-#include <filesystem>
 #include "Simulator.hpp"
-#include "StaticEventSource.hpp"
 #include "SimulatorObserver.hpp"
+#include "StaticEventSource.hpp"
 #include "chadwick/Game.hpp"
+#include <filesystem>
+#include <iostream>
 
 int main() {
     std::cout << "Starting Chadwick example...\n";
@@ -122,41 +122,25 @@ int main() {
         {RecordType::Play, PlayInfo{9, 0, "duraj001", "10", "BX", "S7/L78D+.3-H"}},
         {RecordType::Play, PlayInfo{9, 0, "dever001", "10", "B>B", "DI.1-2"}},
         {RecordType::Play, PlayInfo{9, 0, "dever001", "32", "B>B.BCFB", "W"}},
-        {RecordType::Play, PlayInfo{9, 0, "brega001", "10", "BX", "5/P15"}}
-    };
+        {RecordType::Play, PlayInfo{9, 0, "brega001", "10", "BX", "5/P15"}}};
 
     StaticEventSource eventSource(std::move(records));
     SimulatorObserver observer;
     Simulator simulator(&eventSource, &observer);
 
-    std::vector<InfoRecord> infoRecords = {
-        {"date", "2025/03/31"},
-        {"hometeam", "BAL"},
-        {"visteam", "BOS"}
-    };
+    std::vector<InfoRecord> infoRecords = {{"date", "2025/03/31"}, {"hometeam", "BAL"}, {"visteam", "BOS"}};
 
     std::vector<StarterInfo> starters = {
-        {"duraj001", "Jarren Duran", false, 1, 7},
-        {"dever001", "Rafael Devers", false, 2, 10},
-        {"brega001", "Alex Bregman", false, 3, 5},
-        {"refsr001", "Rob Refsnyder", false, 4, 9},
-        {"stort001", "Trevor Story", false, 5, 6},
-        {"campk002", "Kristian Campbell", false, 6, 4},
-        {"gonzr003", "Romy Gonzalez", false, 7, 3},
-        {"wongc001", "Connor Wong", false, 8, 2},
-        {"rafac001", "Ceddanne Rafaela", false, 9, 8},
-        {"newcs001", "Sean Newcomb", false, 0, 1},
-        {"westj002", "Jordan Westburg", true, 1, 4},
-        {"rutsa001", "Adley Rutschman", true, 2, 2},
-        {"oneit001", "Tyler O'Neill", true, 3, 7},
-        {"mounr001", "Ryan Mountcastle", true, 4, 3},
-        {"kjerh001", "Heston Kjerstad", true, 5, 10},
-        {"laurr001", "Ramon Laureano", true, 6, 9},
-        {"mullc002", "Cedric Mullins", true, 7, 8},
-        {"uriar001", "Ramon Urias", true, 8, 5},
-        {"hollj003", "Jackson Holliday", true, 9, 6},
-        {"povic001", "Cade Povich", true, 0, 1}
-    };
+        {"duraj001", "Jarren Duran", false, 1, 7},     {"dever001", "Rafael Devers", false, 2, 10},
+        {"brega001", "Alex Bregman", false, 3, 5},     {"refsr001", "Rob Refsnyder", false, 4, 9},
+        {"stort001", "Trevor Story", false, 5, 6},     {"campk002", "Kristian Campbell", false, 6, 4},
+        {"gonzr003", "Romy Gonzalez", false, 7, 3},    {"wongc001", "Connor Wong", false, 8, 2},
+        {"rafac001", "Ceddanne Rafaela", false, 9, 8}, {"newcs001", "Sean Newcomb", false, 0, 1},
+        {"westj002", "Jordan Westburg", true, 1, 4},   {"rutsa001", "Adley Rutschman", true, 2, 2},
+        {"oneit001", "Tyler O'Neill", true, 3, 7},     {"mounr001", "Ryan Mountcastle", true, 4, 3},
+        {"kjerh001", "Heston Kjerstad", true, 5, 10},  {"laurr001", "Ramon Laureano", true, 6, 9},
+        {"mullc002", "Cedric Mullins", true, 7, 8},    {"uriar001", "Ramon Urias", true, 8, 5},
+        {"hollj003", "Jackson Holliday", true, 9, 6},  {"povic001", "Cade Povich", true, 0, 1}};
 
     chadwick::Game game("BAL202503310", "2", infoRecords, starters);
     if (!game) {

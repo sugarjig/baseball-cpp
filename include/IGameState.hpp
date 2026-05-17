@@ -10,4 +10,4 @@ public:
     virtual int GetScore(int team) const = 0;
 };
 
-#endif //BASEBALL_CPP_IGAMESTATE_HPP
+#endif // BASEBALL_CPP_IGAMESTATE_HPP

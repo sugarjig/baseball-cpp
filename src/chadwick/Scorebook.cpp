@@ -1,6 +1,6 @@
 #include "chadwick/Scorebook.hpp"
-#include <cstdlib>
 #include <cstdio>
+#include <cstdlib>
 
 extern "C" {
 #include "chadwick.h"
@@ -8,9 +8,7 @@ extern "C" {
 
 namespace chadwick {
 
-Scorebook::Scorebook() {
-    scorebook = cw_scorebook_create();
-}
+Scorebook::Scorebook() { scorebook = cw_scorebook_create(); }
 
 Scorebook::~Scorebook() {
     if (scorebook) {
@@ -36,7 +34,8 @@ void Scorebook::AddGame(Game&& game) {
 
 int Scorebook::Read(const std::filesystem::path& path) {
     FILE* file = fopen(path.string().c_str(), "r");
-    if (!file) return -1;
+    if (!file)
+        return -1;
     int gamesRead = cw_scorebook_read(scorebook, file);
     fclose(file);
     return gamesRead;
@@ -44,7 +43,8 @@ int Scorebook::Read(const std::filesystem::path& path) {
 
 bool Scorebook::Write(const std::filesystem::path& path) {
     FILE* file = fopen(path.string().c_str(), "w");
-    if (!file) return false;
+    if (!file)
+        return false;
     cw_scorebook_write(scorebook, file);
     fclose(file);
     return true;

@@ -1,21 +1,26 @@
 # TODO
 
+## Simulator
 - [ ] Add a random event source
-- [ ] Ask Junie for a code review
-- [ ] Include Retrosheet documentation as context
-- [x] Add clang-tidy
-- [ ] Add clang-format
-- [ ] Use vcpkg to manage dependencies
 - [ ] Determine probability of state transitions instead of outcomes (S, D, T, HR, etc.)
-- [ ] Structured logging
+
+## Code Quality
+- [ ] Ask Junie for a code review
+- [x] Add clang-tidy
+- [x] Add clang-format
 - [ ] Add a README
 - [ ] Audit C++ usage
-- [ ] Use cw_game_data_set_er to set data records
-- [x] Organize all Chadwick wrappers (namespace?)
-- [x] Add to AGENTS.md: encapsulate all Chadwick usage in wrappers
-- [x] Add to AGENTS.md: never modify vendored library source code
 - [ ] Documentation strings
+
+## Testing
 - [ ] More unit test coverage
+- [ ] Separate unit tests from integration tests
+
+## Tooling
+- [ ] Use vcpkg to manage dependencies
+- [ ] Structured logging
 - [ ] Use [diffing library](https://github.com/sisong/HDiffPatch) in integration test
-- [x] GitHub Actions workflow
-- [ ] Try Chadwick lint functions
+- [ ] GitHub Actions workflow: Try pre-installed tools (ninja and cmake)
+
+## Agent Usage
+- [ ] Include Retrosheet documentation as context

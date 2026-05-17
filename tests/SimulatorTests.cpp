@@ -1,17 +1,17 @@
-#include <gtest/gtest.h>
-#include <gmock/gmock.h>
-#include "Simulator.hpp"
 #include "EventSource.hpp"
+#include "IGame.hpp"
+#include "IGameState.hpp"
+#include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
 #include "chadwick/Game.hpp"
 #include "chadwick/GameState.hpp"
-#include "IGame.hpp"
-#include "IGameState.hpp"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
-using ::testing::Return;
 using ::testing::_;
 using ::testing::Exactly;
 using ::testing::InSequence;
+using ::testing::Return;
 
 class MockEventSource : public EventSource {
 public:
@@ -48,7 +48,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
-    
+
     chadwick::GameState dummyState;
 
     PlayInfo play;
@@ -82,7 +82,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
-    
+
     chadwick::GameState dummyState;
 
     SubstitutionInfo sub;
@@ -116,7 +116,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
-    
+
     chadwick::GameState dummyState;
 
     std::string comment = "Test Comment";
@@ -146,7 +146,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
-    
+
     chadwick::GameState dummyState;
 
     RunnerAdjustmentInfo radj;
@@ -165,7 +165,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
-    
+
     chadwick::GameState dummyState;
 
     BatterAdjustmentInfo badj;

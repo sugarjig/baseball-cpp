@@ -1,13 +1,13 @@
-#include <gtest/gtest.h>
-#include <fstream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <filesystem>
 #include "Simulator.hpp"
 #include "StaticEventSource.hpp"
 #include "chadwick/Game.hpp"
 #include "chadwick/Scorebook.hpp"
+#include <algorithm>
+#include <filesystem>
+#include <fstream>
+#include <gtest/gtest.h>
+#include <string>
+#include <vector>
 
 namespace fs = std::filesystem;
 
@@ -100,7 +100,8 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
     chadwick::Scorebook scorebook;
 
     auto processGame = [&]() {
-        if (gameId.empty()) return;
+        if (gameId.empty())
+            return;
         chadwick::Game game(gameId, version, infoRecords, starters);
         StaticEventSource eventSource(events);
         Simulator simulator(&eventSource);
@@ -114,7 +115,8 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
 
     while (std::getline(inputFile, line)) {
         auto fields = ParseCsvLine(line);
-        if (fields.empty()) continue;
+        if (fields.empty())
+            continue;
 
         const std::string& type = fields[0];
         if (type == "id") {
@@ -193,8 +195,4 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
     fs::remove(outputPath);
 }
 
-INSTANTIATE_TEST_SUITE_P(
-    FixtureTests,
-    SimulatorIntegrationTest,
-    testing::ValuesIn(GetFixtureFiles())
-);
+INSTANTIATE_TEST_SUITE_P(FixtureTests, SimulatorIntegrationTest, testing::ValuesIn(GetFixtureFiles()));

@@ -55,4 +55,4 @@ struct PitcherAdjustmentInfo {
     char hand;
 };
 
-#endif //BASEBALL_CPP_RECORDS_HPP
+#endif // BASEBALL_CPP_RECORDS_HPP

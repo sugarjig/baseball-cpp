@@ -14,4 +14,4 @@ private:
     size_t currentIndex;
 };
 
-#endif //BASEBALL_CPP_STATICEVENTSOURCE_HPP
+#endif // BASEBALL_CPP_STATICEVENTSOURCE_HPP

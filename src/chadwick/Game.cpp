@@ -1,6 +1,6 @@
 #include "chadwick/Game.hpp"
-#include <cstdlib>
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 
 extern "C" {
@@ -9,19 +9,17 @@ extern "C" {
 
 namespace chadwick {
 
-Game::Game(std::string_view gameId, std::string_view version, 
-           const std::vector<InfoRecord>& infoRecords,
+Game::Game(std::string_view gameId, std::string_view version, const std::vector<InfoRecord>& infoRecords,
            const std::vector<StarterInfo>& starters) {
     game = cw_game_create(const_cast<char*>(std::string(gameId).c_str()));
     if (game) {
         cw_game_set_version(game, const_cast<char*>(std::string(version).c_str()));
         for (const auto& info : infoRecords) {
-            cw_game_info_append(game, const_cast<char*>(std::string(info.key).c_str()), const_cast<char*>(std::string(info.value).c_str()));
+            cw_game_info_append(game, const_cast<char*>(std::string(info.key).c_str()),
+                                const_cast<char*>(std::string(info.value).c_str()));
         }
         for (const auto& starter : starters) {
-            cw_game_starter_append(game, 
-                                   const_cast<char*>(starter.id.c_str()), 
-                                   const_cast<char*>(starter.name.c_str()), 
+            cw_game_starter_append(game, const_cast<char*>(starter.id.c_str()), const_cast<char*>(starter.name.c_str()),
                                    starter.isHome, starter.battingOrder, starter.position);
         }
         iter = cw_gameiter_create(game);
@@ -42,8 +40,8 @@ Game::~Game() {
     }
 }
 
-Game::Game(Game&& other) noexcept 
-    : game(other.game), iter(other.iter), gameState(other.gameState), 
+Game::Game(Game&& other) noexcept
+    : game(other.game), iter(other.iter), gameState(other.gameState),
       pendingAutoRunner(std::move(other.pendingAutoRunner)), pendingAutoBase(other.pendingAutoBase),
       pendingBatterAdjustmentPlayerID(std::move(other.pendingBatterAdjustmentPlayerID)),
       pendingBatterAdjustmentHand(other.pendingBatterAdjustmentHand),
@@ -88,7 +86,8 @@ Game& Game::operator=(Game&& other) noexcept {
 
 bool Game::Write(const std::filesystem::path& path) {
     FILE* file = fopen(path.string().c_str(), "w");
-    if (!file) return false;
+    if (!file)
+        return false;
     cw_game_write(game, file);
     fclose(file);
     return true;
@@ -125,10 +124,8 @@ void Game::UpdateState() {
 }
 
 void Game::AddEvent(const PlayInfo& play) {
-    cw_game_event_append(game, play.inning, play.team,
-                         const_cast<char*>(play.batter.c_str()),
-                         const_cast<char*>(play.pitchCount.c_str()),
-                         const_cast<char*>(play.pitchSequence.c_str()),
+    cw_game_event_append(game, play.inning, play.team, const_cast<char*>(play.batter.c_str()),
+                         const_cast<char*>(play.pitchCount.c_str()), const_cast<char*>(play.pitchSequence.c_str()),
                          const_cast<char*>(play.text.c_str()));
 
     if (game->last_event) {
@@ -151,7 +148,8 @@ void Game::AddEvent(const PlayInfo& play) {
 
         if (pendingPitcherAdjustmentHand != ' ') {
             game->last_event->pitcher_hand = pendingPitcherAdjustmentHand;
-            game->last_event->pitcher_hand_id = static_cast<char*>(malloc(pendingPitcherAdjustmentPlayerID.length() + 1));
+            game->last_event->pitcher_hand_id =
+                static_cast<char*>(malloc(pendingPitcherAdjustmentPlayerID.length() + 1));
             strcpy(game->last_event->pitcher_hand_id, pendingPitcherAdjustmentPlayerID.c_str());
 
             pendingPitcherAdjustmentHand = ' ';
@@ -161,9 +159,7 @@ void Game::AddEvent(const PlayInfo& play) {
 }
 
 void Game::AddSubstitution(const SubstitutionInfo& sub) {
-    cw_game_substitute_append(game, 
-                              const_cast<char*>(sub.playerID.c_str()), 
-                              const_cast<char*>(sub.name.c_str()), 
+    cw_game_substitute_append(game, const_cast<char*>(sub.playerID.c_str()), const_cast<char*>(sub.name.c_str()),
                               sub.team, sub.slot, sub.pos);
 }
 
@@ -195,8 +191,6 @@ void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
     pendingPitcherAdjustmentHand = padj.hand;
 }
 
-const IGameState& Game::GetGameState() const {
-    return gameState;
-}
+const IGameState& Game::GetGameState() const { return gameState; }
 
 } // namespace chadwick
