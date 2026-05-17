@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"littw901"
-info,ump1b,"wegnm901"
-info,ump2b,"tumpj901"
-info,ump3b,"porta901"
-info,umplf,"hamaa901"
-info,umprf,"bakej902"
+info,umphome,littw901
+info,ump1b,wegnm901
+info,ump2b,tumpj901
+info,ump3b,porta901
+info,umplf,hamaa901
+info,umprf,bakej902
 info,inputtime,2025/10/26 09:00:52
 info,howscored,unknown
 info,pitches,pitches
@@ -186,12 +186,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"johna901"
-info,ump1b,"tumpj901"
-info,ump2b,"porta901"
-info,ump3b,"hamaa901"
-info,umplf,"bakej902"
-info,umprf,"littw901"
+info,umphome,johna901
+info,ump1b,tumpj901
+info,ump2b,porta901
+info,ump3b,hamaa901
+info,umplf,bakej902
+info,umprf,littw901
 info,inputtime,2025/10/27 09:00:33
 info,howscored,unknown
 info,pitches,pitches
@@ -329,12 +329,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"wegnm901"
-info,ump1b,"porta901"
-info,ump2b,"hamaa901"
-info,ump3b,"bakej902"
-info,umplf,"littw901"
-info,umprf,"johna901"
+info,umphome,wegnm901
+info,ump1b,porta901
+info,ump2b,hamaa901
+info,ump3b,bakej902
+info,umplf,littw901
+info,umprf,johna901
 info,inputtime,2025/10/29 09:04:58
 info,howscored,unknown
 info,pitches,pitches
@@ -627,12 +627,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"tumpj901"
-info,ump1b,"hamaa901"
-info,ump2b,"bakej902"
-info,ump3b,"littw901"
-info,umplf,"johna901"
-info,umprf,"wegnm901"
+info,umphome,tumpj901
+info,ump1b,hamaa901
+info,ump2b,bakej902
+info,ump3b,littw901
+info,umplf,johna901
+info,umprf,wegnm901
 info,inputtime,2025/10/30 09:01:58
 info,howscored,unknown
 info,pitches,pitches
@@ -791,12 +791,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"porta901"
-info,ump1b,"bakej902"
-info,ump2b,"littw901"
-info,ump3b,"johna901"
-info,umplf,"wegnm901"
-info,umprf,"tumpj901"
+info,umphome,porta901
+info,ump1b,bakej902
+info,ump2b,littw901
+info,ump3b,johna901
+info,umplf,wegnm901
+info,umprf,tumpj901
 info,inputtime,2025/10/30 09:01:58
 info,howscored,unknown
 info,pitches,pitches
@@ -946,12 +946,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"hamaa901"
-info,ump1b,"littw901"
-info,ump2b,"johna901"
-info,ump3b,"wegnm901"
-info,umplf,"tumpj901"
-info,umprf,"porta901"
+info,umphome,hamaa901
+info,ump1b,littw901
+info,ump2b,johna901
+info,ump3b,wegnm901
+info,umplf,tumpj901
+info,umprf,porta901
 info,inputtime,2025/11/02 09:00:27
 info,howscored,unknown
 info,pitches,pitches
@@ -1103,12 +1103,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"bakej902"
-info,ump1b,"johna901"
-info,ump2b,"wegnm901"
-info,ump3b,"tumpj901"
-info,umplf,"porta901"
-info,umprf,"hamaa901"
+info,umphome,bakej902
+info,ump1b,johna901
+info,ump2b,wegnm901
+info,ump3b,tumpj901
+info,umplf,porta901
+info,umprf,hamaa901
 info,inputtime,2025/11/02 09:00:27
 info,howscored,unknown
 info,pitches,pitches
@@ -1228,7 +1228,6 @@ play,8,0,hernt002,01,SX,43/G4M
 badj,edmat001,R
 play,8,0,edmat001,00,,NP
 sub,hoffj003,"Jeff Hoffman",1,0,1
-badj,edmat001,R
 play,8,0,edmat001,21,.BBCX,43/G4
 play,8,1,cleme002,22,SBFBX,D7/L78XD
 play,8,1,gimea001,00,,NP

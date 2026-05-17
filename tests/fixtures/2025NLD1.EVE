@@ -11,12 +11,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"mosce901"
-info,ump1b,"estam901"
-info,ump2b,"littw901"
-info,ump3b,"barkl901"
-info,umplf,"conrc901"
-info,umprf,"blakr901"
+info,umphome,mosce901
+info,ump1b,estam901
+info,ump2b,littw901
+info,ump3b,barkl901
+info,umplf,conrc901
+info,umprf,blakr901
 info,inputtime,2025/10/08 09:00:14
 info,howscored,unknown
 info,pitches,pitches
@@ -177,12 +177,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"estam901"
-info,ump1b,"littw901"
-info,ump2b,"barkl901"
-info,ump3b,"conrc901"
-info,umplf,"blakr901"
-info,umprf,"mosce901"
+info,umphome,estam901
+info,ump1b,littw901
+info,ump2b,barkl901
+info,ump3b,conrc901
+info,umplf,blakr901
+info,umprf,mosce901
 info,inputtime,2025/10/08 09:00:14
 info,howscored,unknown
 info,pitches,pitches
@@ -337,12 +337,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"littw901"
-info,ump1b,"barkl901"
-info,ump2b,"conrc901"
-info,ump3b,"blakr901"
-info,umplf,"mosce901"
-info,umprf,"estam901"
+info,umphome,littw901
+info,ump1b,barkl901
+info,ump2b,conrc901
+info,ump3b,blakr901
+info,umplf,mosce901
+info,umprf,estam901
 info,inputtime,2025/10/10 09:00:17
 info,howscored,unknown
 info,pitches,pitches
@@ -507,12 +507,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"barkl901"
-info,ump1b,"conrc901"
-info,ump2b,"blakr901"
-info,ump3b,"mosce901"
-info,umplf,"estam901"
-info,umprf,"littw901"
+info,umphome,barkl901
+info,ump1b,conrc901
+info,ump2b,blakr901
+info,ump3b,mosce901
+info,umplf,estam901
+info,umprf,littw901
 info,inputtime,2025/10/11 09:03:28
 info,howscored,unknown
 info,pitches,pitches
@@ -663,12 +663,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"conrc901"
-info,ump1b,"blakr901"
-info,ump2b,"mosce901"
-info,ump3b,"estam901"
-info,umplf,"littw901"
-info,umprf,"barkl901"
+info,umphome,conrc901
+info,ump1b,blakr901
+info,ump2b,mosce901
+info,ump3b,estam901
+info,umplf,littw901
+info,umprf,barkl901
 info,inputtime,2025/10/13 09:00:07
 info,howscored,unknown
 info,pitches,pitches

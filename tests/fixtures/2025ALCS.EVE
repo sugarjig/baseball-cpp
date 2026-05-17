@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"addir901"
-info,ump1b,"may-b901"
-info,ump2b,"marqa901"
-info,ump3b,"hudsm901"
-info,umplf,"reybd901"
-info,umprf,"wolcq901"
+info,umphome,addir901
+info,ump1b,may-b901
+info,ump2b,marqa901
+info,ump3b,hudsm901
+info,umplf,reybd901
+info,umprf,wolcq901
 info,inputtime,2025/10/14 09:00:25
 info,howscored,unknown
 info,pitches,pitches
@@ -171,12 +171,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"eddid901"
-info,ump1b,"marqa901"
-info,ump2b,"hudsm901"
-info,ump3b,"reybd901"
-info,umplf,"wolcq901"
-info,umprf,"addir901"
+info,umphome,eddid901
+info,ump1b,marqa901
+info,ump2b,hudsm901
+info,ump3b,reybd901
+info,umplf,wolcq901
+info,umprf,addir901
 info,inputtime,2025/10/15 09:00:16
 info,howscored,unknown
 info,pitches,pitches
@@ -348,12 +348,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"may-b901"
-info,ump1b,"hudsm901"
-info,ump2b,"reybd901"
-info,ump3b,"wolcq901"
-info,umplf,"addir901"
-info,umprf,"eddid901"
+info,umphome,may-b901
+info,ump1b,hudsm901
+info,ump2b,reybd901
+info,ump3b,wolcq901
+info,umplf,addir901
+info,umprf,eddid901
 info,inputtime,2025/10/17 09:00:52
 info,howscored,unknown
 info,pitches,pitches
@@ -523,12 +523,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"marqa901"
-info,ump1b,"reybd901"
-info,ump2b,"wolcq901"
-info,ump3b,"addir901"
-info,umplf,"eddid901"
-info,umprf,"may-b901"
+info,umphome,marqa901
+info,ump1b,reybd901
+info,ump2b,wolcq901
+info,ump3b,addir901
+info,umplf,eddid901
+info,umprf,may-b901
 info,inputtime,2025/10/18 09:00:52
 info,howscored,unknown
 info,pitches,pitches
@@ -693,12 +693,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"hudsm901"
-info,ump1b,"wolcq901"
-info,ump2b,"addir901"
-info,ump3b,"eddid901"
-info,umplf,"may-b901"
-info,umprf,"marqa901"
+info,umphome,hudsm901
+info,ump1b,wolcq901
+info,ump2b,addir901
+info,ump3b,eddid901
+info,umplf,may-b901
+info,umprf,marqa901
 info,inputtime,2025/10/19 09:00:39
 info,howscored,unknown
 info,pitches,pitches
@@ -854,12 +854,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"reybd901"
-info,ump1b,"addir901"
-info,ump2b,"eddid901"
-info,ump3b,"may-b901"
-info,umplf,"marqa901"
-info,umprf,"hudsm901"
+info,umphome,reybd901
+info,ump1b,addir901
+info,ump2b,eddid901
+info,ump3b,may-b901
+info,umplf,marqa901
+info,umprf,hudsm901
 info,inputtime,2025/10/21 09:01:08
 info,howscored,unknown
 info,pitches,pitches
@@ -1009,12 +1009,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"wolcq901"
-info,ump1b,"eddid901"
-info,ump2b,"may-b901"
-info,ump3b,"marqa901"
-info,umplf,"hudsm901"
-info,umprf,"reybd901"
+info,umphome,wolcq901
+info,ump1b,eddid901
+info,ump2b,may-b901
+info,ump3b,marqa901
+info,umplf,hudsm901
+info,umprf,reybd901
 info,inputtime,2025/10/22 09:02:06
 info,howscored,unknown
 info,pitches,pitches

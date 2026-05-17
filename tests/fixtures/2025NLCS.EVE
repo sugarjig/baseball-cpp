@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"libkj901"
-info,ump1b,"hoyej901"
-info,ump2b,"becka901"
-info,ump3b,"carav901"
-info,umplf,"fairc901"
-info,umprf,"rippm901"
+info,umphome,libkj901
+info,ump1b,hoyej901
+info,ump2b,becka901
+info,ump3b,carav901
+info,umplf,fairc901
+info,umprf,rippm901
 info,inputtime,2025/10/15 09:00:16
 info,howscored,unknown
 info,pitches,pitches
@@ -176,12 +176,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"morag901"
-info,ump1b,"becka901"
-info,ump2b,"carav901"
-info,ump3b,"fairc901"
-info,umplf,"rippm901"
-info,umprf,"libkj901"
+info,umphome,morag901
+info,ump1b,becka901
+info,ump2b,carav901
+info,ump3b,fairc901
+info,umplf,rippm901
+info,umprf,libkj901
 info,inputtime,2025/10/18 09:00:52
 info,howscored,unknown
 info,pitches,pitches
@@ -330,12 +330,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"hoyej901"
-info,ump1b,"carav901"
-info,ump2b,"fairc901"
-info,ump3b,"rippm901"
-info,umplf,"libkj901"
-info,umprf,"morag901"
+info,umphome,hoyej901
+info,ump1b,carav901
+info,ump2b,fairc901
+info,ump3b,rippm901
+info,umplf,libkj901
+info,umprf,morag901
 info,inputtime,2025/10/18 09:00:52
 info,howscored,unknown
 info,pitches,pitches
@@ -491,12 +491,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"becka901"
-info,ump1b,"fairc901"
-info,ump2b,"rippm901"
-info,ump3b,"libkj901"
-info,umplf,"morag901"
-info,umprf,"hoyej901"
+info,umphome,becka901
+info,ump1b,fairc901
+info,ump2b,rippm901
+info,ump3b,libkj901
+info,umplf,morag901
+info,umprf,hoyej901
 info,inputtime,2025/10/19 09:00:39
 info,howscored,unknown
 info,pitches,pitches

@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"tosia901"
-info,ump1b,"rehaj901"
-info,ump2b,"tumpj901"
-info,ump3b,"guccc901"
-info,umplf,"porta901"
-info,umprf,"tomln901"
+info,umphome,tosia901
+info,ump1b,rehaj901
+info,ump2b,tumpj901
+info,ump3b,guccc901
+info,umplf,porta901
+info,umprf,tomln901
 info,inputtime,2025/10/08 09:00:14
 info,howscored,unknown
 info,pitches,pitches
@@ -201,12 +201,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"rehaj901"
-info,ump1b,"tumpj901"
-info,ump2b,"guccc901"
-info,ump3b,"porta901"
-info,umplf,"tomln901"
-info,umprf,"tosia901"
+info,umphome,rehaj901
+info,ump1b,tumpj901
+info,ump2b,guccc901
+info,ump3b,porta901
+info,umplf,tomln901
+info,umprf,tosia901
 info,inputtime,2025/10/07 11:11:51
 info,howscored,unknown
 info,pitches,pitches
@@ -352,12 +352,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"tumpj901"
-info,ump1b,"guccc901"
-info,ump2b,"porta901"
-info,ump3b,"tomln901"
-info,umplf,"tosia901"
-info,umprf,"rehaj901"
+info,umphome,tumpj901
+info,ump1b,guccc901
+info,ump2b,porta901
+info,ump3b,tomln901
+info,umplf,tosia901
+info,umprf,rehaj901
 info,inputtime,2025/10/09 09:00:43
 info,howscored,unknown
 info,pitches,pitches
@@ -521,12 +521,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"guccc901"
-info,ump1b,"porta901"
-info,ump2b,"tomln901"
-info,ump3b,"tosia901"
-info,umplf,"rehaj901"
-info,umprf,"tumpj901"
+info,umphome,guccc901
+info,ump1b,porta901
+info,ump2b,tomln901
+info,ump3b,tosia901
+info,umplf,rehaj901
+info,umprf,tumpj901
 info,inputtime,2025/10/10 09:00:17
 info,howscored,unknown
 info,pitches,pitches
@@ -688,12 +688,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"porta901"
-info,ump1b,"tomln901"
-info,ump2b,"tosia901"
-info,ump3b,"rehaj901"
-info,umplf,"tumpj901"
-info,umprf,"guccc901"
+info,umphome,porta901
+info,ump1b,tomln901
+info,ump2b,tosia901
+info,ump3b,rehaj901
+info,umplf,tumpj901
+info,umprf,guccc901
 info,inputtime,2025/10/12 09:00:09
 info,howscored,unknown
 info,pitches,pitches

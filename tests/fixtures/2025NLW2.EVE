@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"mahrn901"
-info,ump1b,"barrl901"
-info,ump2b,"wolcq901"
-info,ump3b,"marqa901"
-info,umplf,"gibsh902"
-info,umprf,"addir901"
+info,umphome,mahrn901
+info,ump1b,barrl901
+info,ump2b,wolcq901
+info,ump3b,marqa901
+info,umplf,gibsh902
+info,umprf,addir901
 info,inputtime,2025/10/02 09:01:10
 info,howscored,unknown
 info,pitches,pitches
@@ -193,12 +193,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"barrl901"
-info,ump1b,"wolcq901"
-info,ump2b,"marqa901"
-info,ump3b,"gibsh902"
-info,umplf,"addir901"
-info,umprf,"mahrn901"
+info,umphome,barrl901
+info,ump1b,wolcq901
+info,ump2b,marqa901
+info,ump3b,gibsh902
+info,umplf,addir901
+info,umprf,mahrn901
 info,inputtime,2025/10/03 09:00:33
 info,howscored,unknown
 info,pitches,pitches

@@ -11,12 +11,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"lives901"
-info,ump1b,"becka901"
-info,ump2b,"rackd901"
-info,ump3b,"carav901"
-info,umplf,"sches901"
-info,umprf,"torrc901"
+info,umphome,lives901
+info,ump1b,becka901
+info,ump2b,rackd901
+info,ump3b,carav901
+info,umplf,sches901
+info,umprf,torrc901
 info,inputtime,2025/10/02 09:01:10
 info,howscored,unknown
 info,pitches,pitches
@@ -162,12 +162,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"becka901"
-info,ump1b,"rackd901"
-info,ump2b,"carav901"
-info,ump3b,"sches901"
-info,umplf,"torrc901"
-info,umprf,"lives901"
+info,umphome,becka901
+info,ump1b,rackd901
+info,ump2b,carav901
+info,ump3b,sches901
+info,umplf,torrc901
+info,umprf,lives901
 info,inputtime,2025/10/03 09:00:33
 info,howscored,unknown
 info,pitches,pitches
@@ -343,12 +343,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"rackd901"
-info,ump1b,"carav901"
-info,ump2b,"sches901"
-info,ump3b,"torrc901"
-info,umplf,"lives901"
-info,umprf,"becka901"
+info,umphome,rackd901
+info,ump1b,carav901
+info,ump2b,sches901
+info,ump3b,torrc901
+info,umplf,lives901
+info,umprf,becka901
 info,inputtime,2025/10/03 09:00:33
 info,howscored,unknown
 info,pitches,pitches

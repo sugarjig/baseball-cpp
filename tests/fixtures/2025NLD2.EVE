@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"cejan901"
-info,ump1b,"johna901"
-info,ump2b,"lentn901"
-info,ump3b,"wegnm901"
-info,umplf,"wolfj901"
-info,umprf,"merzd901"
+info,umphome,cejan901
+info,ump1b,johna901
+info,ump2b,lentn901
+info,ump3b,wegnm901
+info,umplf,wolfj901
+info,umprf,merzd901
 info,inputtime,2025/10/08 09:00:14
 info,howscored,unknown
 info,pitches,pitches
@@ -193,12 +193,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"johna901"
-info,ump1b,"lentn901"
-info,ump2b,"wegnm901"
-info,ump3b,"wolfj901"
-info,umplf,"merzd901"
-info,umprf,"cejan901"
+info,umphome,johna901
+info,ump1b,lentn901
+info,ump2b,wegnm901
+info,ump3b,wolfj901
+info,umplf,merzd901
+info,umprf,cejan901
 info,inputtime,2025/10/08 09:00:14
 info,howscored,unknown
 info,pitches,pitches
@@ -376,12 +376,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"lentn901"
-info,ump1b,"wegnm901"
-info,ump2b,"wolfj901"
-info,ump3b,"merzd901"
-info,umplf,"cejan901"
-info,umprf,"johna901"
+info,umphome,lentn901
+info,ump1b,wegnm901
+info,ump2b,wolfj901
+info,ump3b,merzd901
+info,umplf,cejan901
+info,umprf,johna901
 info,inputtime,2025/10/10 09:00:17
 info,howscored,unknown
 info,pitches,pitches
@@ -545,12 +545,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"wegnm901"
-info,ump1b,"wolfj901"
-info,ump2b,"merzd901"
-info,ump3b,"cejan901"
-info,umplf,"johna901"
-info,umprf,"lentn901"
+info,umphome,wegnm901
+info,ump1b,wolfj901
+info,ump2b,merzd901
+info,ump3b,cejan901
+info,umplf,johna901
+info,umprf,lentn901
 info,inputtime,2025/10/11 09:03:28
 info,howscored,unknown
 info,pitches,pitches

@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"belld901"
-info,ump1b,"cuzzp901"
-info,ump2b,"randt901"
-info,ump3b,"vondc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,belld901
+info,ump1b,cuzzp901
+info,ump2b,randt901
+info,ump3b,vondc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/27 09:15:28
 info,howscored,unknown
 info,pitches,pitches
@@ -179,12 +179,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"cuzzp901"
-info,ump1b,"randt901"
-info,ump2b,"vondc901"
-info,ump3b,"belld901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,cuzzp901
+info,ump1b,randt901
+info,ump2b,vondc901
+info,ump3b,belld901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:29
 info,howscored,unknown
 info,pitches,pitches
@@ -328,12 +328,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"randt901"
-info,ump1b,"vondc901"
-info,ump2b,"belld901"
-info,ump3b,"cuzzp901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,randt901
+info,ump1b,vondc901
+info,ump2b,belld901
+info,ump3b,cuzzp901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:30
 info,howscored,unknown
 info,pitches,pitches
@@ -484,12 +484,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"vondc901"
-info,ump1b,"belld901"
-info,ump2b,"cuzzp901"
-info,ump3b,"randt901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,vondc901
+info,ump1b,belld901
+info,ump2b,cuzzp901
+info,ump3b,randt901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:31
 info,howscored,unknown
 info,pitches,pitches
@@ -671,12 +671,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"estam901"
-info,ump1b,"onorb901"
-info,ump2b,"diazl901"
-info,ump3b,"thomd901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,estam901
+info,ump1b,onorb901
+info,ump2b,diazl901
+info,ump3b,thomd901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/05/09 09:02:56
 info,howscored,unknown
 info,pitches,pitches
@@ -820,12 +820,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"onorb901"
-info,ump1b,"diazl901"
-info,ump2b,"thomd901"
-info,ump3b,"estam901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,onorb901
+info,ump1b,diazl901
+info,ump2b,thomd901
+info,ump3b,estam901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/14 09:04:08
 info,howscored,unknown
 info,pitches,pitches
@@ -983,12 +983,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"diazl901"
-info,ump1b,"thomd901"
-info,ump2b,"estam901"
-info,ump3b,"onorb901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,diazl901
+info,ump1b,thomd901
+info,ump2b,estam901
+info,ump3b,onorb901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/28 09:04:16
 info,howscored,unknown
 info,pitches,pitches
@@ -1126,12 +1126,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"ramoc901"
-info,ump1b,"marqa901"
-info,ump2b,"barrl901"
-info,ump3b,"torrc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,ramoc901
+info,ump1b,marqa901
+info,ump2b,barrl901
+info,ump3b,torrc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:37
 info,howscored,unknown
 info,pitches,pitches
@@ -1281,12 +1281,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"marqa901"
-info,ump1b,"barrl901"
-info,ump2b,"torrc901"
-info,ump3b,"ramoc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,marqa901
+info,ump1b,barrl901
+info,ump2b,torrc901
+info,ump3b,ramoc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:38
 info,howscored,unknown
 info,pitches,pitches
@@ -1437,12 +1437,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"barrl901"
-info,ump1b,"torrc901"
-info,ump2b,"ramoc901"
-info,ump3b,"marqa901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,barrl901
+info,ump1b,torrc901
+info,ump2b,ramoc901
+info,ump3b,marqa901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/04/17 09:04:17
 info,howscored,unknown
 info,pitches,pitches
@@ -1612,12 +1612,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"ticht901"
-info,ump1b,"hamaa901"
-info,ump2b,"cejan901"
-info,ump3b,"jonea901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,ticht901
+info,ump1b,hamaa901
+info,ump2b,cejan901
+info,ump3b,jonea901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/27 09:15:32
 info,howscored,unknown
 info,pitches,pitches
@@ -1748,12 +1748,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"hamaa901"
-info,ump1b,"cejan901"
-info,ump2b,"jonea901"
-info,ump3b,"ticht901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,hamaa901
+info,ump1b,cejan901
+info,ump2b,jonea901
+info,ump3b,ticht901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:42
 info,howscored,unknown
 info,pitches,pitches
@@ -1902,12 +1902,12 @@ sub,gricr001,"Randal Grichuk",1,3,11
 play,9,1,gricr001,11,.CBX,63/G6
 play,10,0,wallt003,00,.,NP
 sub,morij002,"Juan Morillo",1,0,1
-com,"Christopher Morel starts inning at 2nd base."
 radj,morec001,2
+com,"Christopher Morel starts inning at 2nd base."
 play,10,0,wallt003,32,...CBBFFBS,K
 play,10,0,simpc001,11,BCX,4/L4MD/DP.2X2(46)
-com,"Randal Grichuk starts inning at 2nd base."
 radj,gricr001,2
+com,"Randal Grichuk starts inning at 2nd base."
 play,10,1,naylj001,00,.,NP
 sub,barrj004,"Jorge Barrosa",1,3,12
 play,10,1,naylj001,01,..S.X,8/F8
@@ -1917,8 +1917,8 @@ play,10,1,gurrl001,12,.F.FF*BX,8/F8
 play,10,1,suare001,32,F*BBBFX,9/F89S
 play,11,0,misnk001,00,.,NP
 sub,jamed003,"Drey Jameson",1,0,1
-com,"Chandler Simpson starts inning at 2nd base."
 radj,simpc001,2
+com,"Chandler Simpson starts inning at 2nd base."
 play,11,0,misnk001,12,...SCFBX,D8/L8XD.2-H(UR);BX3(865)
 com,"$Diamondbacks challenged (tag play), call on the field was overturned."
 play,11,0,aranj001,30,BBBB,W
@@ -1928,8 +1928,8 @@ play,11,0,camij001,00,X,S6/G6M.2-3
 play,11,0,loweb001,31,BFBBX,63/G6
 play,11,1,thoma004,00,,NP
 sub,orzee001,"Eric Orze",0,0,1
-com,"Eugenio Suarez starts inning at 2nd base."
 radj,suare001,2
+com,"Eugenio Suarez starts inning at 2nd base."
 play,11,1,thoma004,10,..BX,S6/G6-.2-H(E6/TH)(NR)(UR);B-2
 play,11,1,tawat001,32,BBS.*BSFB,W
 play,11,1,moreg001,01,LX,9/L9D.2-3
@@ -1960,12 +1960,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"cejan901"
-info,ump1b,"jonea901"
-info,ump2b,"ticht901"
-info,ump3b,"hamaa901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,cejan901
+info,ump1b,jonea901
+info,ump2b,ticht901
+info,ump3b,hamaa901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:43
 info,howscored,unknown
 info,pitches,pitches
@@ -2094,8 +2094,8 @@ play,9,1,moreg001,10,BX,S8/L8S
 play,9,1,suare001,10,BX,1/L1S+/DP.1X1(13)
 play,10,0,camij001,00,,NP
 sub,feyej001,"J.P. Feyereisen",1,0,1
-com,"Jonathan Aranda starts inning at 2nd base."
 radj,aranj001,2
+com,"Jonathan Aranda starts inning at 2nd base."
 play,10,0,camij001,12,..FF.*BX,DGR/L89XD+.2-H(UR)
 play,10,0,misnk001,32,FBBFBX,43/G34.2-3
 play,10,0,morec001,11,SBX,HR/F7D.3-H
@@ -2103,8 +2103,8 @@ play,10,0,cabaj001,22,CBSBX,7/F78S
 play,10,0,simpc001,22,FSBFBS,K
 play,10,1,thoma004,00,,NP
 sub,fairp001,"Pete Fairbanks",0,0,1
-com,"Eugenio Suarez starts inning at 2nd base."
 radj,suare001,2
+com,"Eugenio Suarez starts inning at 2nd base."
 play,10,1,thoma004,00,..X,53/G56+
 play,10,1,tawat001,31,BBCBB,W
 play,10,1,carrc005,02,FSF*S,K
@@ -2132,12 +2132,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"cuzzp901"
-info,ump1b,"randt901"
-info,ump2b,"vondc901"
-info,ump3b,"belld901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,cuzzp901
+info,ump1b,randt901
+info,ump2b,vondc901
+info,ump3b,belld901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/05/02 05:48:31
 info,howscored,unknown
 info,pitches,pitches
@@ -2291,12 +2291,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"randt901"
-info,ump1b,"vondc901"
-info,ump2b,"belld901"
-info,ump3b,"cuzzp901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,randt901
+info,ump1b,vondc901
+info,ump2b,belld901
+info,ump3b,cuzzp901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/30 09:04:40
 info,howscored,unknown
 info,pitches,pitches
@@ -2429,8 +2429,8 @@ play,9,1,barrj004,01,LX,1/BL1S
 play,9,1,tawat001,00,1X,64(1)3/GDP/G6
 play,10,0,baldd001,00,,NP
 sub,martj011,"Justin Martinez",1,0,1
-com,"Matt Olson starts inning at 2nd base."
 radj,olsom001,2
+com,"Matt Olson starts inning at 2nd base."
 play,10,0,baldd001,01,..FX,13/G23.2-3
 play,10,0,albio001,00,B,WP.3-H(NR)(UR)
 play,10,0,albio001,10,B.X,7/F7LS
@@ -2438,8 +2438,8 @@ play,10,0,harrm004,30,BBBB,W
 play,10,0,white006,01,CX,43/G34
 play,10,1,carrc005,00,,NP
 sub,lee-d005,"Dylan Lee",0,0,1
-com,"Tim Tawa starts inning at 2nd base."
 radj,tawat001,2
+com,"Tim Tawa starts inning at 2nd base."
 play,10,1,carrc005,22,..BS*BFX,63/G4M+.2-3
 play,10,1,perdg001,12,FFBX,63/G6S
 play,10,1,smitp002,00,,NP
@@ -2469,12 +2469,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"vondc901"
-info,ump1b,"belld901"
-info,ump2b,"cuzzp901"
-info,ump3b,"randt901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,vondc901
+info,ump1b,belld901
+info,ump2b,cuzzp901
+info,ump3b,randt901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:44
 info,howscored,unknown
 info,pitches,pitches
@@ -2625,12 +2625,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"hudsm901"
-info,ump1b,"gibsh902"
-info,ump2b,"blakr901"
-info,ump3b,"valej901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,hudsm901
+info,ump1b,gibsh902
+info,ump2b,blakr901
+info,ump3b,valej901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/05/11 07:14:55
 info,howscored,unknown
 info,pitches,pitches
@@ -2787,12 +2787,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"gibsh902"
-info,ump1b,"blakr901"
-info,ump2b,"valej901"
-info,ump3b,"hudsm901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,gibsh902
+info,ump1b,blakr901
+info,ump2b,valej901
+info,ump3b,hudsm901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:48
 info,howscored,unknown
 info,pitches,pitches
@@ -2929,12 +2929,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"blakr901"
-info,ump1b,"valej901"
-info,ump2b,"hudsm901"
-info,ump3b,"gibsh902"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,blakr901
+info,ump1b,valej901
+info,ump2b,hudsm901
+info,ump3b,gibsh902
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/05/10 06:09:21
 info,howscored,unknown
 info,pitches,pitches
@@ -3089,12 +3089,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"millb903"
-info,ump1b,"rehaj901"
-info,ump2b,"tumpj901"
-info,ump3b,"conrc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,millb903
+info,ump1b,rehaj901
+info,ump2b,tumpj901
+info,ump3b,conrc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/05/14 06:38:59
 info,howscored,unknown
 info,pitches,pitches
@@ -3238,12 +3238,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"rehaj901"
-info,ump1b,"tumpj901"
-info,ump2b,"conrc901"
-info,ump3b,"millb903"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,rehaj901
+info,ump1b,tumpj901
+info,ump2b,conrc901
+info,ump3b,millb903
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/11 09:05:25
 info,howscored,unknown
 info,pitches,pitches
@@ -3440,12 +3440,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"tumpj901"
-info,ump1b,"conrc901"
-info,ump2b,"millb903"
-info,ump3b,"rehaj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,tumpj901
+info,ump1b,conrc901
+info,ump2b,millb903
+info,ump3b,rehaj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:49
 info,howscored,unknown
 info,pitches,pitches
@@ -3580,12 +3580,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"conrc901"
-info,ump1b,"millb903"
-info,ump2b,"rehaj901"
-info,ump3b,"tumpj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,conrc901
+info,ump1b,millb903
+info,ump2b,rehaj901
+info,ump3b,tumpj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/16 09:05:01
 info,howscored,unknown
 info,pitches,pitches
@@ -3758,12 +3758,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"ramoc901"
-info,ump1b,"bakej902"
-info,ump2b,"sches901"
-info,ump3b,"merzd901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,ramoc901
+info,ump1b,bakej902
+info,ump2b,sches901
+info,ump3b,merzd901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/05/23 05:30:40
 info,howscored,unknown
 info,pitches,pitches
@@ -3912,12 +3912,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"bakej902"
-info,ump1b,"sches901"
-info,ump2b,"merzd901"
-info,ump3b,"ramoc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,bakej902
+info,ump1b,sches901
+info,ump2b,merzd901
+info,ump3b,ramoc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:52
 info,howscored,unknown
 info,pitches,pitches
@@ -4049,7 +4049,7 @@ play,7,0,amada001,22,SM.B*BS,K
 play,7,0,beckj003,01,CX,HR/L7D.2-H
 play,7,0,tovae001,00,X,S8/G6M
 play,7,0,goodh001,00,1X,7/F7
-com,"ej,banij001,ARI,C,bakej902,7,"
+com,"ej,banij001,ARI,C,bakej902,7,"Pitcher disengagement"
 com,"$Diamondbacks bench coach Jeff Banister ejected by HP"
 com,"umpire Jordan Baker for arguing when umpire deemed the"
 com,"pitcher's fake pickoff throw a pitcher disengagement"
@@ -4119,12 +4119,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"sches901"
-info,ump1b,"merzd901"
-info,ump2b,"ramoc901"
-info,ump3b,"bakej902"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,sches901
+info,ump1b,merzd901
+info,ump2b,ramoc901
+info,ump3b,bakej902
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/06 09:04:45
 info,howscored,unknown
 info,pitches,pitches
@@ -4254,12 +4254,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"tumpj901"
-info,ump1b,"conrc901"
-info,ump2b,"millb903"
-info,ump3b,"rehaj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,tumpj901
+info,ump1b,conrc901
+info,ump2b,millb903
+info,ump3b,rehaj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/14 09:04:09
 info,howscored,unknown
 info,pitches,pitches
@@ -4399,12 +4399,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"conrc901"
-info,ump1b,"millb903"
-info,ump2b,"rehaj901"
-info,ump3b,"tumpj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,conrc901
+info,ump1b,millb903
+info,ump2b,rehaj901
+info,ump3b,tumpj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:57
 info,howscored,unknown
 info,pitches,pitches
@@ -4562,12 +4562,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"millb903"
-info,ump1b,"rehaj901"
-info,ump2b,"tumpj901"
-info,ump3b,"conrc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,millb903
+info,ump1b,rehaj901
+info,ump2b,tumpj901
+info,ump3b,conrc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:11:58
 info,howscored,unknown
 info,pitches,pitches
@@ -4727,12 +4727,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"barkl901"
-info,ump1b,"littw901"
-info,ump2b,"addir901"
-info,ump3b,"willr901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,barkl901
+info,ump1b,littw901
+info,ump2b,addir901
+info,ump3b,willr901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/27 09:15:35
 info,howscored,unknown
 info,pitches,pitches
@@ -4893,12 +4893,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"littw901"
-info,ump1b,"addir901"
-info,ump2b,"willr901"
-info,ump3b,"barkl901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,littw901
+info,ump1b,addir901
+info,ump2b,willr901
+info,ump3b,barkl901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/12 09:06:19
 info,howscored,unknown
 info,pitches,pitches
@@ -5062,12 +5062,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"addir901"
-info,ump1b,"willr901"
-info,ump2b,"barkl901"
-info,ump3b,"littw901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,addir901
+info,ump1b,willr901
+info,ump2b,barkl901
+info,ump3b,littw901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:12:00
 info,howscored,unknown
 info,pitches,pitches
@@ -5214,12 +5214,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"iassd901"
-info,ump1b,"buckc901"
-info,ump2b,"barrs901"
-info,ump3b,"becka901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,iassd901
+info,ump1b,buckc901
+info,ump2b,barrs901
+info,ump3b,becka901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/06 09:04:46
 info,howscored,unknown
 info,pitches,pitches
@@ -5373,15 +5373,15 @@ sub,munoa002,"Andres Munoz",0,0,1
 play,9,1,perdg001,12,.CC.BC,K
 play,9,1,naylj001,01,CX,8/F8XD+
 play,9,1,suare001,01,SX,53/G5
-com,"Cal Raleigh starts inning at 2nd base."
 radj,ralec001,2
+com,"Cal Raleigh starts inning at 2nd base."
 play,10,0,polaj001,32,.BSF.BBFFX,3/P3D
 play,10,0,arozr001,12,FBSX,9/F9
 play,10,0,moord002,32,SSBBB.C,K
 play,10,1,tawat001,00,,NP
 sub,vargc003,"Carlos Vargas",0,0,1
-com,"Eugenio Suarez starts inning at 2nd base."
 radj,suare001,2
+com,"Eugenio Suarez starts inning at 2nd base."
 play,10,1,tawat001,00,..,NP
 sub,vargi001,"Ildemaro Vargas",1,5,12
 play,10,1,tawat001,11,...LBX,54/SH/BG25-.2-3
@@ -5392,13 +5392,13 @@ play,11,0,solad001,00,,NP
 sub,vargi001,"Ildemaro Vargas",1,5,5
 play,11,0,solad001,00,.,NP
 sub,beekj001,"Jalen Beeks",1,0,1
-com,"Dylan Moore starts inning at 2nd base."
 radj,moord002,2
+com,"Dylan Moore starts inning at 2nd base."
 play,11,0,solad001,11,...C*BX,9/F9LS
 play,11,0,younc005,11,F*BX,3/G3.2-3
 play,11,0,canzd001,22,BBSCFC,K
-com,"Jose Herrera starts inning at 2nd base."
 radj,herrj003,2
+com,"Jose Herrera starts inning at 2nd base."
 play,11,1,carrc005,12,.CFBT,K
 play,11,1,martk001,30,VVVV,IW
 play,11,1,perdg001,32,C.*BSBBB,W.2-3;1-2
@@ -5430,12 +5430,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"buckc901"
-info,ump1b,"barrs901"
-info,ump2b,"becka901"
-info,ump3b,"iassd901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,buckc901
+info,ump1b,barrs901
+info,ump2b,becka901
+info,ump3b,iassd901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/17 09:04:53
 info,howscored,unknown
 info,pitches,pitches
@@ -5585,12 +5585,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"barrs901"
-info,ump1b,"becka901"
-info,ump2b,"iassd901"
-info,ump3b,"buckc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,barrs901
+info,ump1b,becka901
+info,ump2b,iassd901
+info,ump3b,buckc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/17 09:07:30
 info,howscored,unknown
 info,pitches,pitches
@@ -5743,12 +5743,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"viscj901"
-info,ump1b,"hoyej901"
-info,ump2b,"fleta901"
-info,ump3b,"morag901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,viscj901
+info,ump1b,hoyej901
+info,ump2b,fleta901
+info,ump3b,morag901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/09 09:05:39
 info,howscored,unknown
 info,pitches,pitches
@@ -5892,12 +5892,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"hoyej901"
-info,ump1b,"fleta901"
-info,ump2b,"morag901"
-info,ump3b,"viscj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,hoyej901
+info,ump1b,fleta901
+info,ump2b,morag901
+info,ump3b,viscj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/28 09:04:19
 info,howscored,unknown
 info,pitches,pitches
@@ -6068,12 +6068,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"fleta901"
-info,ump1b,"morag901"
-info,ump2b,"viscj901"
-info,ump3b,"hoyej901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,fleta901
+info,ump1b,morag901
+info,ump2b,viscj901
+info,ump3b,hoyej901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/06/28 09:12:08
 info,howscored,unknown
 info,pitches,pitches
@@ -6219,12 +6219,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"wolfj901"
-info,ump1b,"segac901"
-info,ump2b,"macka901"
-info,ump3b,"porta901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,wolfj901
+info,ump1b,segac901
+info,ump2b,macka901
+info,ump3b,porta901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/18 09:06:47
 info,howscored,unknown
 info,pitches,pitches
@@ -6399,12 +6399,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"segac901"
-info,ump1b,"macka901"
-info,ump2b,"porta901"
-info,ump3b,"wolfj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,segac901
+info,ump1b,macka901
+info,ump2b,porta901
+info,ump3b,wolfj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/19 09:06:22
 info,howscored,unknown
 info,pitches,pitches
@@ -6547,14 +6547,14 @@ play,9,1,martk001,22,CBBC*S,K
 play,9,1,smitp002,21,BCBX,5/L56
 play,10,0,ramia004,00,,NP
 sub,morij002,"Juan Morillo",1,0,1
-com,"Otto Lopez starts inning at 2nd base."
 radj,lopeo001,2
+com,"Otto Lopez starts inning at 2nd base."
 play,10,0,ramia004,00,..X,S9/G34+.2-H(UR)
 play,10,0,stowk001,32,BBBSC.B,W.1-2
 play,10,0,wagae001,01,CX,64(1)3/GDP/G6.2-3
 play,10,0,fortn001,02,SS.FS,K
-com,"Pavin Smith starts inning at 2nd base."
 radj,smitp002,2
+com,"Pavin Smith starts inning at 2nd base."
 play,10,1,suare001,00,.,NP
 sub,alexb001,"Blaze Alexander",1,3,12
 play,10,1,suare001,10,..BX,13/G1-
@@ -6583,12 +6583,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"macka901"
-info,ump1b,"porta901"
-info,ump2b,"wolfj901"
-info,ump3b,"segac901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,macka901
+info,ump1b,porta901
+info,ump2b,wolfj901
+info,ump3b,segac901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/03 09:07:15
 info,howscored,unknown
 info,pitches,pitches
@@ -6763,12 +6763,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"wolcq901"
-info,ump1b,"johna901"
-info,ump2b,"clemp901"
-info,ump3b,"dejer901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,wolcq901
+info,ump1b,johna901
+info,ump2b,clemp901
+info,ump3b,dejer901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/29 09:05:34
 info,howscored,unknown
 info,pitches,pitches
@@ -6911,12 +6911,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"johna901"
-info,ump1b,"clemp901"
-info,ump2b,"dejer901"
-info,ump3b,"wolcq901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,johna901
+info,ump1b,clemp901
+info,ump2b,dejer901
+info,ump3b,wolcq901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/23 09:14:29
 info,howscored,unknown
 info,pitches,pitches
@@ -7049,12 +7049,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"clemp901"
-info,ump1b,"dejer901"
-info,ump2b,"wolcq901"
-info,ump3b,"johna901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,clemp901
+info,ump1b,dejer901
+info,ump2b,wolcq901
+info,ump3b,johna901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/07 09:06:52
 info,howscored,unknown
 info,pitches,pitches
@@ -7196,8 +7196,8 @@ play,10,0,matol002,00,,NP
 sub,naylj001,"Josh Naylor",1,4,3
 play,10,0,matol002,00,.,NP
 sub,mills001,"Shelby Miller",1,3,1
-com,"Jung Hoo Lee starts inning at 2nd base."
 radj,lee-j001,2
+com,"Jung Hoo Lee starts inning at 2nd base."
 play,10,0,matol002,00,...,NP
 sub,ramoh002,"Heliot Ramos",0,6,11
 play,10,0,ramoh002,01,....SX,S4/G4M.2-3
@@ -7213,8 +7213,8 @@ play,10,1,gurrl001,00,..,NP
 sub,smitd008,"Dominic Smith",0,8,3
 play,10,1,gurrl001,00,...,NP
 sub,wiseb001,"Brett Wisely",0,9,4
-com,"Eugenio Suarez starts inning at 2nd base."
 radj,suare001,2
+com,"Eugenio Suarez starts inning at 2nd base."
 play,10,1,gurrl001,00,.....,NP
 sub,alexb001,"Blaze Alexander",1,5,12
 play,10,1,gurrl001,32,......BFBF.FBX,8/F8XD.2-3
@@ -7243,12 +7243,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"dejer901"
-info,ump1b,"wolcq901"
-info,ump2b,"johna901"
-info,ump3b,"clemp901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,dejer901
+info,ump1b,wolcq901
+info,ump2b,johna901
+info,ump3b,clemp901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/19 09:06:23
 info,howscored,unknown
 info,pitches,pitches
@@ -7380,12 +7380,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"wegnm901"
-info,ump1b,"tomln901"
-info,ump2b,"mahrn901"
-info,ump3b,"ballb901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,wegnm901
+info,ump1b,tomln901
+info,ump2b,mahrn901
+info,ump3b,ballb901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/31 09:05:11
 info,howscored,unknown
 info,pitches,pitches
@@ -7548,12 +7548,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"tomln901"
-info,ump1b,"mahrn901"
-info,ump2b,"ballb901"
-info,ump3b,"wegnm901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,tomln901
+info,ump1b,mahrn901
+info,ump2b,ballb901
+info,ump3b,wegnm901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/09 09:05:42
 info,howscored,unknown
 info,pitches,pitches
@@ -7696,12 +7696,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"mahrn901"
-info,ump1b,"ballb901"
-info,ump2b,"wegnm901"
-info,ump3b,"tomln901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,mahrn901
+info,ump1b,ballb901
+info,ump2b,wegnm901
+info,ump3b,tomln901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/28 09:04:20
 info,howscored,unknown
 info,pitches,pitches
@@ -7842,12 +7842,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"eddid901"
-info,ump1b,"jimee901"
-info,ump2b,"morag901"
-info,ump3b,"muchm901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,eddid901
+info,ump1b,jimee901
+info,ump2b,morag901
+info,ump3b,muchm901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/23 09:14:35
 info,howscored,unknown
 info,pitches,pitches
@@ -7986,12 +7986,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"jimee901"
-info,ump1b,"morag901"
-info,ump2b,"muchm901"
-info,ump3b,"eddid901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,jimee901
+info,ump1b,morag901
+info,ump2b,muchm901
+info,ump3b,eddid901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/29 09:05:35
 info,howscored,unknown
 info,pitches,pitches
@@ -8139,12 +8139,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"morag901"
-info,ump1b,"muchm901"
-info,ump2b,"eddid901"
-info,ump3b,"jimee901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,morag901
+info,ump1b,muchm901
+info,ump2b,eddid901
+info,ump3b,jimee901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/07/31 09:05:12
 info,howscored,unknown
 info,pitches,pitches
@@ -8286,12 +8286,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"mahrn901"
-info,ump1b,"carav901"
-info,ump2b,"walsb901"
-info,ump3b,"rippm901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,mahrn901
+info,ump1b,carav901
+info,ump2b,walsb901
+info,ump3b,rippm901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/06 09:06:24
 info,howscored,unknown
 info,pitches,pitches
@@ -8441,12 +8441,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"carav901"
-info,ump1b,"walsb901"
-info,ump2b,"rippm901"
-info,ump3b,"mahrn901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,carav901
+info,ump1b,walsb901
+info,ump2b,rippm901
+info,ump3b,mahrn901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/02 09:02:38
 info,howscored,unknown
 info,pitches,pitches
@@ -8616,12 +8616,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"walsb901"
-info,ump1b,"rippm901"
-info,ump2b,"mahrn901"
-info,ump3b,"carav901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,walsb901
+info,ump1b,rippm901
+info,ump2b,mahrn901
+info,ump3b,carav901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/19 09:03:21
 info,howscored,unknown
 info,pitches,pitches
@@ -8779,12 +8779,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"reybd901"
-info,ump1b,"barbs901"
-info,ump2b,"hoyej901"
-info,ump3b,"libkj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,reybd901
+info,ump1b,barbs901
+info,ump2b,hoyej901
+info,ump3b,libkj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/27 09:15:38
 info,howscored,unknown
 info,pitches,pitches
@@ -8927,12 +8927,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"barbs901"
-info,ump1b,"hoyej901"
-info,ump2b,"libkj901"
-info,ump3b,"reybd901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,barbs901
+info,ump1b,hoyej901
+info,ump2b,libkj901
+info,ump3b,reybd901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/09 09:05:48
 info,howscored,unknown
 info,pitches,pitches
@@ -9090,18 +9090,18 @@ play,10,0,iglej001,00,.,NP
 sub,mccaj001,"James McCann",1,9,2
 play,10,0,iglej001,00,..,NP
 sub,woodj003,"Jake Woodford",1,0,1
-com,"Jake Cronenworth starts inning at 2nd base."
 radj,cronj001,2
+com,"Jake Cronenworth starts inning at 2nd base."
 play,10,0,iglej001,00,....X,34/SH/BG23.2-3
 play,10,0,fermf002,21,.BBFX,63/G6S
 play,10,0,tatif002,11,CBX,63/G6
-com,"Corbin Carroll starts inning at 2nd base."
 radj,carrc005,2
+com,"Corbin Carroll starts inning at 2nd base."
 play,10,1,martk001,30,.VVVV,IW
 play,10,1,perdg001,02,CS.X,9/F8
 play,10,1,gurrl001,11,CBX,5(2)3/GDP/G5S-
-com,"Fernando Tatis Jr. starts inning at 2nd base."
 radj,tatif002,2
+com,"Fernando Tatis Jr. starts inning at 2nd base."
 play,11,0,arral001,01,.CX,S7/F7LS.2-H(UR);B-2
 play,11,0,machm001,32,BCCBF*BX,S7/L78.2-3
 play,11,0,merrj002,32,BTFBBFFX,8/SF/L8D+.3-H
@@ -9113,8 +9113,8 @@ play,11,0,fermf002,00,X,S9/L9.2-H;1-2
 play,11,0,tatif002,00,X,43/G34
 play,11,1,lockt001,00,,NP
 sub,morgd001,"David Morgan",0,0,1
-com,"Lourdes Gurriel Jr. starts inning at 2nd base."
 radj,gurrl001,2
+com,"Lourdes Gurriel Jr. starts inning at 2nd base."
 play,11,1,lockt001,32,..BBSBFS,K
 play,11,1,barrj004,10,BX,31/G34.2-3
 play,11,1,alexb001,02,CSX,9/F89XD
@@ -9146,12 +9146,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"hoyej901"
-info,ump1b,"libkj901"
-info,ump2b,"reybd901"
-info,ump3b,"barbs901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,hoyej901
+info,ump1b,libkj901
+info,ump2b,reybd901
+info,ump3b,barbs901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/06 09:06:25
 info,howscored,unknown
 info,pitches,pitches
@@ -9305,12 +9305,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"walsb901"
-info,ump1b,"conrc901"
-info,ump2b,"tumpj901"
-info,ump3b,"millb903"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,walsb901
+info,ump1b,conrc901
+info,ump2b,tumpj901
+info,ump3b,millb903
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/10 09:03:02
 info,howscored,unknown
 info,pitches,pitches
@@ -9447,12 +9447,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"conrc901"
-info,ump1b,"tumpj901"
-info,ump2b,"millb903"
-info,ump3b,"walsb901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,conrc901
+info,ump1b,tumpj901
+info,ump2b,millb903
+info,ump3b,walsb901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/15 09:06:15
 info,howscored,unknown
 info,pitches,pitches
@@ -9611,12 +9611,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"tumpj901"
-info,ump1b,"millb903"
-info,ump2b,"walsb901"
-info,ump3b,"conrc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,tumpj901
+info,ump1b,millb903
+info,ump2b,walsb901
+info,ump3b,conrc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/15 09:06:17
 info,howscored,unknown
 info,pitches,pitches
@@ -9781,12 +9781,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"guccc901"
-info,ump1b,"rackd901"
-info,ump2b,"whitc901"
-info,ump3b,"mosce901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,guccc901
+info,ump1b,rackd901
+info,ump2b,whitc901
+info,ump3b,mosce901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/22 09:04:45
 info,howscored,unknown
 info,pitches,pitches
@@ -9935,12 +9935,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"rackd901"
-info,ump1b,"whitc901"
-info,ump2b,"mosce901"
-info,ump3b,"guccc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,rackd901
+info,ump1b,whitc901
+info,ump2b,mosce901
+info,ump3b,guccc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/19 09:03:24
 info,howscored,unknown
 info,pitches,pitches
@@ -10102,12 +10102,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"whitc901"
-info,ump1b,"mosce901"
-info,ump2b,"guccc901"
-info,ump3b,"rackd901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,whitc901
+info,ump1b,mosce901
+info,ump2b,guccc901
+info,ump3b,rackd901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/28 09:04:23
 info,howscored,unknown
 info,pitches,pitches
@@ -10231,8 +10231,8 @@ sub,smitp002,"Pavin Smith",1,7,11
 play,9,1,smitp002,32,.BBBC.CX,7/L7D
 play,10,0,marta008,00,,NP
 sub,smitp002,"Pavin Smith",1,7,3
-com,"Brayan Rocchio starts inning at 2nd base."
 radj,roccb001,2
+com,"Brayan Rocchio starts inning at 2nd base."
 play,10,0,marta008,02,..SSFS,K
 play,10,0,kwans001,00,,NP
 sub,saala001,"Andrew Saalfrank",1,0,1
@@ -10244,8 +10244,8 @@ play,10,1,thoma004,00,,NP
 sub,ramij003,"Jose Ramirez",0,3,5
 play,10,1,thoma004,00,.,NP
 sub,festm001,"Matt Festa",0,2,1
-com,"Pavin Smith starts inning at 2nd base."
 radj,smitp002,2
+com,"Pavin Smith starts inning at 2nd base."
 play,10,1,thoma004,10,...BX,54/SH/BG25.2-3
 play,10,1,mccaj001,00,,NP
 sub,delca001,"Adrian Del Castillo",1,9,11
@@ -10271,12 +10271,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"addir901"
-info,ump1b,"hamaa901"
-info,ump2b,"barkl901"
-info,ump3b,"willr901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,addir901
+info,ump1b,hamaa901
+info,ump2b,barkl901
+info,ump3b,willr901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/06 09:06:29
 info,howscored,unknown
 info,pitches,pitches
@@ -10405,29 +10405,29 @@ play,9,1,alexb001,22,FC.BBX,6/P56
 play,9,1,thoma004,00,X,6/P6MS
 play,10,0,trevj001,00,,NP
 sub,curtj003,"John Curtiss",1,0,1
-com,"Ke'Bryan Hayes starts inning at 2nd base."
 radj,hayek001,2
+com,"Ke'Bryan Hayes starts inning at 2nd base."
 play,10,0,trevj001,11,..BCX,E1/TH/BG1S.2-H(NR)(UR);B-2
 play,10,0,mclam001,10,BX,54/SH/BG25.2-3
 play,10,0,friet001,02,CFX,9/F9LF/FL/DP.3XH(92)
 com,"$Reds challenged (tag play), call on the field was upheld."
 play,10,1,perdg001,00,,NP
 sub,ashcg001,"Graham Ashcraft",0,0,1
-com,"Alek Thomas starts inning at 2nd base."
 radj,thoma004,2
+com,"Alek Thomas starts inning at 2nd base."
 play,10,1,perdg001,00,..X,54/SH/BG25.2-3
 play,10,1,martk001,32,SFBFFFBFFBFFX,S8/F8S.3-H(UR)
 play,10,1,carrc005,00,X,46(1)3/GDP/G4
 play,11,0,andum001,00,,NP
 sub,beekj001,"Jalen Beeks",1,0,1
-com,"TJ Friedl starts inning at 2nd base."
 radj,friet001,2
+com,"TJ Friedl starts inning at 2nd base."
 play,11,0,andum001,22,..FBFBX,31/G3.2-3
 play,11,0,delae003,12,FBS.X,6/L6/DP.3X3(65)
 play,11,1,gurrl001,00,,NP
 sub,barls001,"Scott Barlow",0,0,1
-com,"Corbin Carroll starts inning at 2nd base."
 radj,carrc005,2
+com,"Corbin Carroll starts inning at 2nd base."
 play,11,1,gurrl001,10,..BX,S8/L78.2-H(UR)
 data,er,pagae001,0
 data,er,barls001,0
@@ -10457,12 +10457,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"hamaa901"
-info,ump1b,"barkl901"
-info,ump2b,"willr901"
-info,ump3b,"addir901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,hamaa901
+info,ump1b,barkl901
+info,ump2b,willr901
+info,ump3b,addir901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/08/28 09:04:25
 info,howscored,unknown
 info,pitches,pitches
@@ -10616,12 +10616,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"barkl901"
-info,ump1b,"willr901"
-info,ump2b,"addir901"
-info,ump3b,"hamaa901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,barkl901
+info,ump1b,willr901
+info,ump2b,addir901
+info,ump3b,hamaa901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/12 09:02:23
 info,howscored,unknown
 info,pitches,pitches
@@ -10781,12 +10781,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"fairc901"
-info,ump1b,"millb901"
-info,ump2b,"ortir901"
-info,ump3b,"jimee902"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,fairc901
+info,ump1b,millb901
+info,ump2b,ortir901
+info,ump3b,jimee902
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/20 09:02:12
 info,howscored,unknown
 info,pitches,pitches
@@ -10932,8 +10932,8 @@ play,9,1,moreg001,32,SBFBBFX,S9/L9S
 play,9,1,vargi001,00,X,56(1)3/GDP/G56S
 play,10,0,durae002,00,,NP
 sub,burgj002,"Juan Burgos",1,0,1
-com,"Michael Helman starts inning at 2nd base."
 radj,helmm001,2
+com,"Michael Helman starts inning at 2nd base."
 play,10,0,durae002,30,..BBBB,W
 play,10,0,langw001,12,CFBS,K
 play,10,0,moord002,10,*BX,63/G4M.2-3;1-2
@@ -10945,8 +10945,8 @@ sub,beekj001,"Jalen Beeks",1,0,1
 play,10,0,burgj001,30,.BBBX,9/F9LS
 play,10,1,lockt001,00,,NP
 sub,armss001,"Shawn Armstrong",0,0,1
-com,"Ildemaro Vargas starts inning at 2nd base."
 radj,vargi001,2
+com,"Ildemaro Vargas starts inning at 2nd base."
 play,10,1,lockt001,00,..,NP
 sub,delca001,"Adrian Del Castillo",1,8,11
 play,10,1,delca001,12,...BSFFS,K
@@ -10976,12 +10976,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"millb901"
-info,ump1b,"ortir901"
-info,ump2b,"jimee902"
-info,ump3b,"fairc901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,millb901
+info,ump1b,ortir901
+info,ump2b,jimee902
+info,ump3b,fairc901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/07 09:02:27
 info,howscored,unknown
 info,pitches,pitches
@@ -11129,12 +11129,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"ortir901"
-info,ump1b,"jimee902"
-info,ump2b,"fairc901"
-info,ump3b,"millb901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,ortir901
+info,ump1b,jimee902
+info,ump2b,fairc901
+info,ump3b,millb901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/26 13:43:19
 info,howscored,unknown
 info,pitches,pitches
@@ -11288,12 +11288,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"valej901"
-info,ump1b,"gibsh902"
-info,ump2b,"hudsm901"
-info,ump3b,"blakr901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,valej901
+info,ump1b,gibsh902
+info,ump2b,hudsm901
+info,ump3b,blakr901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/12 09:02:27
 info,howscored,unknown
 info,pitches,pitches
@@ -11454,12 +11454,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"gibsh902"
-info,ump1b,"hudsm901"
-info,ump2b,"blakr901"
-info,ump3b,"valej901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,gibsh902
+info,ump1b,hudsm901
+info,ump2b,blakr901
+info,ump3b,valej901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/08 09:02:29
 info,howscored,unknown
 info,pitches,pitches
@@ -11607,12 +11607,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"hudsm901"
-info,ump1b,"blakr901"
-info,ump2b,"valej901"
-info,ump3b,"gibsh902"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,hudsm901
+info,ump1b,blakr901
+info,ump2b,valej901
+info,ump3b,gibsh902
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/19 09:03:27
 info,howscored,unknown
 info,pitches,pitches
@@ -11780,12 +11780,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"sches901"
-info,ump1b,"bakej902"
-info,ump2b,"merzd901"
-info,ump3b,"bacoj901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,sches901
+info,ump1b,bakej902
+info,ump2b,merzd901
+info,ump3b,bacoj901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/23 09:01:15
 info,howscored,unknown
 info,pitches,pitches
@@ -11929,12 +11929,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"bakej902"
-info,ump1b,"merzd901"
-info,ump2b,"bacoj901"
-info,ump3b,"sches901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,bakej902
+info,ump1b,merzd901
+info,ump2b,bacoj901
+info,ump3b,sches901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/20 09:02:19
 info,howscored,unknown
 info,pitches,pitches
@@ -12096,12 +12096,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"merzd901"
-info,ump1b,"bacoj901"
-info,ump2b,"sches901"
-info,ump3b,"bakej902"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,merzd901
+info,ump1b,bacoj901
+info,ump2b,sches901
+info,ump3b,bakej902
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/26 09:04:47
 info,howscored,unknown
 info,pitches,pitches
@@ -12213,8 +12213,8 @@ play,10,0,dever001,00,,NP
 sub,moreg001,"Gabriel Moreno",1,4,2
 play,10,0,dever001,00,.,NP
 sub,garcb002,"Brandyn Garcia",1,6,1
-com,"Heliot Ramos starts inning at 2nd base."
 radj,ramoh002,2
+com,"Heliot Ramos starts inning at 2nd base."
 play,10,0,dever001,00,...,NP
 sub,mccrg001,"Grant McCray",0,1,12
 play,10,0,dever001,20,....BBX,9/L9D.2-3
@@ -12226,15 +12226,15 @@ play,10,1,tawat001,00,.,NP
 sub,encaj002,"Jerar Encarnacion",0,6,7
 play,10,1,tawat001,00,..,NP
 sub,peguj003,"Joel Peguero",0,0,1
-com,"Alek Thomas starts inning at 2nd base."
 radj,thoma004,2
+com,"Alek Thomas starts inning at 2nd base."
 play,10,1,tawat001,00,....X,13/SH/BG1S.2-3
 play,10,1,mccaj003,01,FX,3/G3S
 play,10,1,perdg001,10,.BX,43/G34
 play,11,0,eldrb002,00,,NP
 sub,curtj003,"John Curtiss",1,6,1
-com,"Matt Chapman starts inning at 2nd base."
 radj,chapm001,2
+com,"Matt Chapman starts inning at 2nd base."
 play,11,0,eldrb002,01,..FB,PB.2-3
 play,11,0,eldrb002,31,..FB.B*BB,W
 play,11,0,encaj002,00,,NP
@@ -12248,8 +12248,8 @@ play,11,0,gilbd001,02,.S.TFS,K
 play,11,0,mccrg001,32,FBB.SBFX,7/SF/F7LD.3-H
 play,11,0,dever001,11,BFX,S7/L78+.2-H
 play,11,0,adamw002,12,SFBT,K
-com,"Geraldo Perdomo starts inning at 2nd base."
 radj,perdg001,2
+com,"Geraldo Perdomo starts inning at 2nd base."
 play,11,1,martk001,21,..CBBX,43/G4D+.2-3
 play,11,1,carrc005,22,BCFF*BX,7/SF/L7+.3-H(UR)
 play,11,1,moreg001,31,BFBBB,W
@@ -12276,12 +12276,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"morag901"
-info,ump1b,"tosia901"
-info,ump2b,"blasc901"
-info,ump3b,"gonzm901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,morag901
+info,ump1b,tosia901
+info,ump2b,blasc901
+info,ump3b,gonzm901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/25 09:14:25
 info,howscored,unknown
 info,pitches,pitches
@@ -12445,12 +12445,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"tosia901"
-info,ump1b,"blasc901"
-info,ump2b,"gonzm901"
-info,ump3b,"morag901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,tosia901
+info,ump1b,blasc901
+info,ump2b,gonzm901
+info,ump3b,morag901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/28 09:00:55
 info,howscored,unknown
 info,pitches,pitches
@@ -12604,12 +12604,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"blasc901"
-info,ump1b,"gonzm901"
-info,ump2b,"morag901"
-info,ump3b,"tosia901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,blasc901
+info,ump1b,gonzm901
+info,ump2b,morag901
+info,ump3b,tosia901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/24 09:00:42
 info,howscored,unknown
 info,pitches,pitches
@@ -12768,12 +12768,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"valej901"
-info,ump1b,"hudsm901"
-info,ump2b,"blakr901"
-info,ump3b,"gibsh902"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,valej901
+info,ump1b,hudsm901
+info,ump2b,blakr901
+info,ump3b,gibsh902
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/27 09:01:38
 info,howscored,unknown
 info,pitches,pitches
@@ -12934,12 +12934,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"hudsm901"
-info,ump1b,"blakr901"
-info,ump2b,"gibsh902"
-info,ump3b,"valej901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,hudsm901
+info,ump1b,blakr901
+info,ump2b,gibsh902
+info,ump3b,valej901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/27 09:01:39
 info,howscored,unknown
 info,pitches,pitches
@@ -13085,8 +13085,8 @@ play,9,1,thoma004,21,BBSX,3/G3
 play,9,1,martk001,32,BFBBC.X,8/F89XD
 play,10,0,ohtas001,00,,NP
 sub,garcb002,"Brandyn Garcia",1,0,1
-com,"Ben Rortvedt starts inning at 2nd base."
 radj,rortb001,2
+com,"Ben Rortvedt starts inning at 2nd base."
 play,10,0,ohtas001,00,..,NP
 sub,kim-h003,"Hyeseong Kim",0,9,12
 play,10,0,ohtas001,22,...BFBSS,K
@@ -13097,8 +13097,8 @@ play,10,1,perdg001,00,,NP
 sub,rushd001,"Dalton Rushing",0,9,2
 play,10,1,perdg001,00,.,NP
 sub,dreyj001,"Jack Dreyer",0,0,1
-com,"Ketel Marte starts inning at 2nd base."
 radj,martk001,2
+com,"Ketel Marte starts inning at 2nd base."
 play,10,1,perdg001,21,...LBBX,24/SH/BG2-.2-3
 play,10,1,carrc005,30,VVVV,IW
 play,10,1,moreg001,30,BBVV,IW.1-2
@@ -13106,8 +13106,8 @@ play,10,1,mccaj003,12,FSFBX,6/P6MS
 play,10,1,mccaj001,00,,NP
 sub,treib001,"Blake Treinen",0,0,1
 play,10,1,mccaj001,02,.CSFX,9/F34D
-com,"Freddie Freeman starts inning at 2nd base."
 radj,freef001,2
+com,"Freddie Freeman starts inning at 2nd base."
 play,11,0,herne001,22,.BFFBX,8/F78
 play,11,0,hernt002,00,X,9/F9D+.2-3
 play,11,0,edmat001,12,CFFBX,S8/L78.3-H(UR)
@@ -13120,8 +13120,8 @@ play,11,1,tawat001,00,.,NP
 sub,pagea001,"Andy Pages",0,7,8
 play,11,1,tawat001,00,..,NP
 sub,wrobj001,"Justin Wrobleski",0,0,1
-com,"James McCann starts inning at 2nd base."
 radj,mccaj001,2
+com,"James McCann starts inning at 2nd base."
 play,11,1,tawat001,12,....CMBT,K
 play,11,1,vargi001,00,X,63/G6.2-3
 play,11,1,thoma004,02,CST,K
@@ -13152,12 +13152,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,2
 info,usedh,true
-info,umphome,"blakr901"
-info,ump1b,"gibsh902"
-info,ump2b,"valej901"
-info,ump3b,"hudsm901"
-info,umplf,"(none)"
-info,umprf,"(none)"
+info,umphome,blakr901
+info,ump1b,gibsh902
+info,ump2b,valej901
+info,ump3b,hudsm901
+info,umplf,(none)
+info,umprf,(none)
 info,inputtime,2025/09/28 09:00:56
 info,howscored,unknown
 info,pitches,pitches

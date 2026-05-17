@@ -11,12 +11,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"segac901"
-info,ump1b,"hamaa901"
-info,ump2b,"bakej902"
-info,ump3b,"randt901"
-info,umplf,"belld901"
-info,umprf,"ortir901"
+info,umphome,segac901
+info,ump1b,hamaa901
+info,ump2b,bakej902
+info,ump3b,randt901
+info,umplf,belld901
+info,umprf,ortir901
 info,inputtime,2025/10/08 09:00:14
 info,howscored,unknown
 info,pitches,pitches
@@ -182,12 +182,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"hamaa901"
-info,ump1b,"bakej902"
-info,ump2b,"randt901"
-info,ump3b,"belld901"
-info,umplf,"ortir901"
-info,umprf,"segac901"
+info,umphome,hamaa901
+info,ump1b,bakej902
+info,ump2b,randt901
+info,ump3b,belld901
+info,umplf,ortir901
+info,umprf,segac901
 info,inputtime,2025/10/07 11:11:51
 info,howscored,unknown
 info,pitches,pitches
@@ -359,12 +359,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"bakej902"
-info,ump1b,"randt901"
-info,ump2b,"belld901"
-info,ump3b,"ortir901"
-info,umplf,"segac901"
-info,umprf,"hamaa901"
+info,umphome,bakej902
+info,ump1b,randt901
+info,ump2b,belld901
+info,ump3b,ortir901
+info,umplf,segac901
+info,umprf,hamaa901
 info,inputtime,2025/10/09 09:00:43
 info,howscored,unknown
 info,pitches,pitches
@@ -546,12 +546,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"randt901"
-info,ump1b,"belld901"
-info,ump2b,"ortir901"
-info,ump3b,"segac901"
-info,umplf,"hamaa901"
-info,umprf,"bakej902"
+info,umphome,randt901
+info,ump1b,belld901
+info,ump2b,ortir901
+info,ump3b,segac901
+info,umplf,hamaa901
+info,umprf,bakej902
 info,inputtime,2025/10/10 09:00:17
 info,howscored,unknown
 info,pitches,pitches

@@ -11,12 +11,12 @@ info,daynight,night
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"iassd901"
-info,ump1b,"hudsm901"
-info,ump2b,"segac901"
-info,ump3b,"viscj901"
-info,umplf,"rehaj901"
-info,umprf,"bacce901"
+info,umphome,iassd901
+info,ump1b,hudsm901
+info,ump2b,segac901
+info,ump3b,viscj901
+info,umplf,rehaj901
+info,umprf,bacce901
 info,inputtime,2025/07/17 09:04:57
 info,howscored,unknown
 info,pitches,pitches

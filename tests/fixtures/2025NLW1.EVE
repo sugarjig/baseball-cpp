@@ -11,12 +11,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"bacce901"
-info,ump1b,"blasc901"
-info,ump2b,"reybd901"
-info,ump3b,"ticht901"
-info,umplf,"muchm901"
-info,umprf,"may-b901"
+info,umphome,bacce901
+info,ump1b,blasc901
+info,ump2b,reybd901
+info,ump3b,ticht901
+info,umplf,muchm901
+info,umprf,may-b901
 info,inputtime,2025/10/02 09:01:10
 info,howscored,unknown
 info,pitches,pitches
@@ -154,12 +154,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"blasc901"
-info,ump1b,"reybd901"
-info,ump2b,"ticht901"
-info,ump3b,"muchm901"
-info,umplf,"may-b901"
-info,umprf,"bacce901"
+info,umphome,blasc901
+info,ump1b,reybd901
+info,ump2b,ticht901
+info,ump3b,muchm901
+info,umplf,may-b901
+info,umprf,bacce901
 info,inputtime,2025/10/03 09:00:33
 info,howscored,unknown
 info,pitches,pitches
@@ -314,12 +314,12 @@ info,daynight,day
 info,innings,9
 info,tiebreaker,
 info,usedh,true
-info,umphome,"reybd901"
-info,ump1b,"ticht901"
-info,ump2b,"muchm901"
-info,ump3b,"may-b901"
-info,umplf,"bacce901"
-info,umprf,"blasc901"
+info,umphome,reybd901
+info,ump1b,ticht901
+info,ump2b,muchm901
+info,ump3b,may-b901
+info,umplf,bacce901
+info,umprf,blasc901
 info,inputtime,2025/10/03 09:00:33
 info,howscored,unknown
 info,pitches,pitches
