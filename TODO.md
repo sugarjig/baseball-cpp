@@ -3,8 +3,8 @@
 - [ ] Add a random event source
 - [ ] Ask Junie for a code review
 - [ ] Include Retrosheet documentation as context
-- [ ] Add static analysis tools
-- [ ] Add formatter
+- [ ] Add clang-tidy
+- [ ] Add clang-format
 - [ ] Use vcpkg to manage dependencies
 - [ ] Determine probability of state transitions instead of outcomes (S, D, T, HR, etc.)
 - [ ] Structured logging
@@ -17,3 +17,5 @@
 - [ ] Documentation strings
 - [ ] More unit test coverage
 - [ ] Use [diffing library](https://github.com/sisong/HDiffPatch) in integration test
+- [ ] GitHub Actions workflow
+- [ ] Try Chadwick lint functions
