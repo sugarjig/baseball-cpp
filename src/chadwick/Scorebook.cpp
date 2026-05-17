@@ -34,6 +34,14 @@ void Scorebook::AddGame(Game&& game) {
     }
 }
 
+int Scorebook::Read(const std::filesystem::path& path) {
+    FILE* file = fopen(path.string().c_str(), "r");
+    if (!file) return -1;
+    int gamesRead = cw_scorebook_read(scorebook, file);
+    fclose(file);
+    return gamesRead;
+}
+
 bool Scorebook::Write(const std::filesystem::path& path) {
     FILE* file = fopen(path.string().c_str(), "w");
     if (!file) return false;

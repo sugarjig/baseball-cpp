@@ -9,10 +9,6 @@
 #include "chadwick/Game.hpp"
 #include "chadwick/Scorebook.hpp"
 
-extern "C" {
-#include "chadwick.h"
-}
-
 namespace fs = std::filesystem;
 
 static std::vector<std::string> GetFixtureFiles() {
@@ -72,25 +68,10 @@ static std::vector<std::string> ReadFileLines(const std::string& path) {
 }
 
 static void NormalizeRetrosheetFile(const std::string& inputPath, const std::string& outputPath) {
-    FILE* inputFile = std::fopen(inputPath.c_str(), "r");
-    ASSERT_NE(inputFile, nullptr) << "Could not open input file: " << inputPath;
-
-    CWScorebook* scorebook = cw_scorebook_create();
-    ASSERT_NE(scorebook, nullptr) << "Could not create CWScorebook";
-
-    int gamesRead = cw_scorebook_read(scorebook, inputFile);
-    std::fclose(inputFile);
-
+    chadwick::Scorebook scorebook;
+    int gamesRead = scorebook.Read(inputPath);
     ASSERT_GE(gamesRead, 0) << "Failed to read scorebook from " << inputPath;
-
-    FILE* outputFile = std::fopen(outputPath.c_str(), "w");
-    ASSERT_NE(outputFile, nullptr) << "Could not open output file: " << outputPath;
-
-    cw_scorebook_write(scorebook, outputFile);
-    std::fclose(outputFile);
-
-    cw_scorebook_cleanup(scorebook);
-    std::free(scorebook);
+    ASSERT_TRUE(scorebook.Write(outputPath)) << "Failed to write scorebook to " << outputPath;
 }
 
 class SimulatorIntegrationTest : public testing::TestWithParam<std::string> {};

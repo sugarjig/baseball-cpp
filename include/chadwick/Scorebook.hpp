@@ -19,6 +19,12 @@ public:
     Scorebook& operator=(const Scorebook&) = delete;
 
     void AddGame(Game&& game);
+    /**
+     * Reads retrosheet data from a file into the scorebook.
+     * @param path The path to the retrosheet file.
+     * @return Number of games read, or -1 on error.
+     */
+    int Read(const std::filesystem::path& path);
     bool Write(const std::filesystem::path& path);
 
 private:
