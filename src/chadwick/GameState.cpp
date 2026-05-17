@@ -1,8 +1,10 @@
-#include "GameState.hpp"
+#include "chadwick/GameState.hpp"
 #include <cstdio>
 extern "C" {
 #include "chadwick.h"
 }
+
+namespace chadwick {
 
 GameState::GameState(CWGameState* state) : state(state) {}
 
@@ -24,3 +26,5 @@ int GameState::GetScore(int team) const {
     }
     return 0;
 }
+
+} // namespace chadwick

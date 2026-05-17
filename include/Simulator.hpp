@@ -8,6 +8,7 @@
 class EventSource;
 class SimulatorObserver;
 class IGame;
+class IGameState;
 
 class Simulator {
     EventSource* eventSource;

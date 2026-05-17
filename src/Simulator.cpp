@@ -5,7 +5,8 @@
 #include "Simulator.hpp"
 #include "EventSource.hpp"
 #include "SimulatorObserver.hpp"
-#include "Game.hpp"
+#include "IGame.hpp"
+#include "IGameState.hpp"
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer) : eventSource(eventSource), observer(observer) {
 }

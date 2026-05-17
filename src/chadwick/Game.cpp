@@ -1,4 +1,4 @@
-#include "Game.hpp"
+#include "chadwick/Game.hpp"
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
@@ -6,6 +6,8 @@
 extern "C" {
 #include "chadwick.h"
 }
+
+namespace chadwick {
 
 Game::Game(std::string_view gameId, std::string_view version, 
            const std::vector<InfoRecord>& infoRecords,
@@ -193,6 +195,8 @@ void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
     pendingPitcherAdjustmentHand = padj.hand;
 }
 
-const GameState& Game::GetGameState() const {
+const IGameState& Game::GetGameState() const {
     return gameState;
 }
+
+} // namespace chadwick

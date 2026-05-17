@@ -5,26 +5,15 @@
 #include <filesystem>
 #include <vector>
 #include "GameState.hpp"
-#include "Records.hpp"
+#include "../Records.hpp"
+#include "../IGame.hpp"
 
 struct cw_game_struct;
 typedef struct cw_game_struct CWGame;
 struct cw_gameiter_struct;
 typedef struct cw_gameiter_struct CWGameIterator;
 
-class IGame {
-public:
-    virtual ~IGame() = default;
-    virtual void AddEvent(const PlayInfo& play) = 0;
-    virtual void AddSubstitution(const SubstitutionInfo& sub) = 0;
-    virtual void AddComment(std::string_view comment) = 0;
-    virtual void AddData(const DataRecord& data) = 0;
-    virtual void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) = 0;
-    virtual void AddBatterAdjustment(const BatterAdjustmentInfo& badj) = 0;
-    virtual void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) = 0;
-    virtual void UpdateState() = 0;
-    virtual const GameState& GetGameState() const = 0;
-};
+namespace chadwick {
 
 class Game : public IGame {
 public:
@@ -51,7 +40,7 @@ public:
     void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) override;
     void AddBatterAdjustment(const BatterAdjustmentInfo& badj) override;
     void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) override;
-    const GameState& GetGameState() const override;
+    const IGameState& GetGameState() const override;
 
     explicit operator bool() const { return game != nullptr; }
 
@@ -70,5 +59,7 @@ private:
     std::string pendingPitcherAdjustmentPlayerID;
     char pendingPitcherAdjustmentHand = ' ';
 };
+
+} // namespace chadwick
 
 #endif //BASEBALL_CPP_GAME_HPP

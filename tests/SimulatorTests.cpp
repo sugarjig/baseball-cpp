@@ -3,7 +3,10 @@
 #include "Simulator.hpp"
 #include "EventSource.hpp"
 #include "SimulatorObserver.hpp"
-#include "Game.hpp"
+#include "chadwick/Game.hpp"
+#include "chadwick/GameState.hpp"
+#include "IGame.hpp"
+#include "IGameState.hpp"
 
 using ::testing::Return;
 using ::testing::_;
@@ -17,14 +20,14 @@ public:
 
 class MockSimulatorObserver : public SimulatorObserver {
 public:
-    MOCK_METHOD(void, OnPreEvent, (const GameState& state), (override));
+    MOCK_METHOD(void, OnPreEvent, (const IGameState& state), (override));
     MOCK_METHOD(void, OnEvent, (const PlayInfo& event), (override));
     MOCK_METHOD(void, OnSubstitution, (const SubstitutionInfo& sub), (override));
     MOCK_METHOD(void, OnComment, (const std::string& comment), (override));
     MOCK_METHOD(void, OnRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
     MOCK_METHOD(void, OnBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
     MOCK_METHOD(void, OnPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
-    MOCK_METHOD(void, OnPostEvent, (const GameState& state), (override));
+    MOCK_METHOD(void, OnPostEvent, (const IGameState& state), (override));
 };
 
 class MockGame : public IGame {
@@ -37,7 +40,7 @@ public:
     MOCK_METHOD(void, AddBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
     MOCK_METHOD(void, AddPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
     MOCK_METHOD(void, UpdateState, (), (override));
-    MOCK_METHOD(const GameState&, GetGameState, (), (const, override));
+    MOCK_METHOD(const IGameState&, GetGameState, (), (const, override));
 };
 
 TEST(SimulatorTest, ProcessesPlayEvent) {
@@ -46,7 +49,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
     
-    GameState dummyState;
+    chadwick::GameState dummyState;
 
     PlayInfo play;
     play.inning = 1;
@@ -80,7 +83,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
     
-    GameState dummyState;
+    chadwick::GameState dummyState;
 
     SubstitutionInfo sub;
     sub.playerID = "testp002";
@@ -114,7 +117,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
     
-    GameState dummyState;
+    chadwick::GameState dummyState;
 
     std::string comment = "Test Comment";
 
@@ -144,7 +147,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
     
-    GameState dummyState;
+    chadwick::GameState dummyState;
 
     RunnerAdjustmentInfo radj;
     radj.playerID = "testp001";
@@ -163,7 +166,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     MockGame mockGame;
     Simulator simulator(&mockSource, &mockObserver);
     
-    GameState dummyState;
+    chadwick::GameState dummyState;
 
     BatterAdjustmentInfo badj;
     badj.playerID = "testp001";

@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include "EventSource.hpp"
-#include "GameState.hpp"
+#include "IGameState.hpp"
 
 class SimulatorObserver {
 public:
     virtual ~SimulatorObserver() = default;
 
-    virtual void OnPreEvent(const GameState& state) {
+    virtual void OnPreEvent(const IGameState& state) {
         std::cout << "Before: "
                   << " (State: Out=" << state.GetOuts()
                   << ", Inning=" << state.GetInning()
@@ -41,7 +41,7 @@ public:
         std::cout << "Pitcher Adjustment: " << padj.playerID << " to hand " << padj.hand << "\n";
     }
 
-    virtual void OnPostEvent(const GameState& state) {
+    virtual void OnPostEvent(const IGameState& state) {
         std::cout << "After: "
                   << " (State: Out=" << state.GetOuts()
                   << ", Inning=" << state.GetInning()

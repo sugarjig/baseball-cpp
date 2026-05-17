@@ -6,8 +6,8 @@
 #include <filesystem>
 #include "Simulator.hpp"
 #include "StaticEventSource.hpp"
-#include "Game.hpp"
-#include "Scorebook.hpp"
+#include "chadwick/Game.hpp"
+#include "chadwick/Scorebook.hpp"
 
 extern "C" {
 #include "chadwick.h"
@@ -116,11 +116,11 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
     std::vector<Record> events;
     std::vector<DataRecord> dataRecords;
 
-    Scorebook scorebook;
+    chadwick::Scorebook scorebook;
 
     auto processGame = [&]() {
         if (gameId.empty()) return;
-        Game game(gameId, version, infoRecords, starters);
+        chadwick::Game game(gameId, version, infoRecords, starters);
         StaticEventSource eventSource(events);
         Simulator simulator(&eventSource);
         simulator.SimulateGame(game);

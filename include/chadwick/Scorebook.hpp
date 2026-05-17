@@ -7,6 +7,8 @@
 struct cw_scorebook_struct;
 typedef struct cw_scorebook_struct CWScorebook;
 
+namespace chadwick {
+
 class Scorebook {
 public:
     Scorebook();
@@ -22,5 +24,7 @@ public:
 private:
     CWScorebook* scorebook;
 };
+
+} // namespace chadwick
 
 #endif //BASEBALL_CPP_SCOREBOOK_HPP

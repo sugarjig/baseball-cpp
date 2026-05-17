@@ -7,16 +7,20 @@ add_subdirectory(lib)
 
 add_library(baseball_lib STATIC
         src/Simulator.cpp
-        src/Game.cpp
-        src/Scorebook.cpp
-        src/GameState.cpp
+        src/chadwick/Game.cpp
+        src/chadwick/Scorebook.cpp
+        src/chadwick/GameState.cpp
         src/StaticEventSource.cpp
         include/Simulator.hpp
-        include/Scorebook.hpp
+        include/chadwick/Scorebook.hpp
+        include/chadwick/Game.hpp
+        include/chadwick/GameState.hpp
         include/SimulatorObserver.hpp
         include/StaticEventSource.hpp
         include/EventSource.hpp
         include/Records.hpp
+        include/IGame.hpp
+        include/IGameState.hpp
 )
 target_include_directories(baseball_lib PUBLIC include)
 target_link_libraries(baseball_lib PUBLIC chadwick)

@@ -1,10 +1,12 @@
-#include "Scorebook.hpp"
+#include "chadwick/Scorebook.hpp"
 #include <cstdlib>
 #include <cstdio>
 
 extern "C" {
 #include "chadwick.h"
 }
+
+namespace chadwick {
 
 Scorebook::Scorebook() {
     scorebook = cw_scorebook_create();
@@ -39,3 +41,5 @@ bool Scorebook::Write(const std::filesystem::path& path) {
     fclose(file);
     return true;
 }
+
+} // namespace chadwick

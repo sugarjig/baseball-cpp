@@ -3,7 +3,7 @@
 #include "Simulator.hpp"
 #include "StaticEventSource.hpp"
 #include "SimulatorObserver.hpp"
-#include "Game.hpp"
+#include "chadwick/Game.hpp"
 
 int main() {
     std::cout << "Starting Chadwick example...\n";
@@ -158,7 +158,7 @@ int main() {
         {"povic001", "Cade Povich", true, 0, 1}
     };
 
-    Game game("BAL202503310", "2", infoRecords, starters);
+    chadwick::Game game("BAL202503310", "2", infoRecords, starters);
     if (!game) {
         std::cerr << "Failed to create game\n";
         return 1;
