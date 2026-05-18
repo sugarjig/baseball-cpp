@@ -1,0 +1,9 @@
+{
+  "name" : "baseball-cpp",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "47313591da1d14a8a9b209f4bee39d29acc39b31",
+  "dependencies" : [ {
+    "name" : "gtest",
+    "version>=" : "1.17.0#1"
+  } ]
+}

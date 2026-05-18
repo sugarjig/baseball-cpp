@@ -25,7 +25,8 @@ jobs:
         run: |
           cmake -S . -B build -G Ninja \
             -DCMAKE_CXX_COMPILER=clang++-18 \
-            -DCMAKE_C_COMPILER=clang-18
+            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build
         run: cmake --build build
 
@@ -39,7 +40,8 @@ jobs:
           cmake -S . -B build -G Ninja \
             -DCMAKE_CXX_COMPILER=clang++-18 \
             -DCMAKE_C_COMPILER=clang-18 \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Run clang-tidy
         run: |
           find src tools -name "*.cpp" | xargs clang-tidy-18 -p build
@@ -53,7 +55,8 @@ jobs:
         run: |
           cmake -S . -B build -G Ninja \
             -DCMAKE_CXX_COMPILER=clang++-18 \
-            -DCMAKE_C_COMPILER=clang-18
+            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build tests
         run: cmake --build build --target baseball_tests
       - name: Run Unit Tests
@@ -68,7 +71,8 @@ jobs:
         run: |
           cmake -S . -B build -G Ninja \
             -DCMAKE_CXX_COMPILER=clang++-18 \
-            -DCMAKE_C_COMPILER=clang-18
+            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build tests
         run: cmake --build build --target baseball_tests
       - name: Run Integration Tests

@@ -28,14 +28,7 @@ target_link_libraries(baseball_lib PUBLIC chadwick)
 add_executable(baseball_cpp src/main.cpp)
 target_link_libraries(baseball_cpp PRIVATE baseball_lib)
 
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.tar.gz
-)
-# For Windows: prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+find_package(GTest CONFIG REQUIRED)
 
 add_executable(normalize_retrosheet tools/normalize_retrosheet.cpp)
 target_link_libraries(normalize_retrosheet PRIVATE baseball_lib)

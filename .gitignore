@@ -6,3 +6,4 @@ out/
 .junie/
 output.EVA
 Testing/
+vcpkg_installed/
