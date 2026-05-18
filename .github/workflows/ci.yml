@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install Clang-Format
-        run: sudo apt-get update && sudo apt-get install -y clang-format-18
       - name: Run clang-format
         run: |
           find src include tests tools \( -name "*.cpp" -o -name "*.hpp" \) | xargs clang-format-18 --dry-run --Werror
@@ -23,9 +21,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install Ninja
-        run: sudo apt-get update && sudo apt-get install -y ninja-build
-      - uses: lukka/get-cmake@latest
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -39,9 +34,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install Ninja and Clang-Tidy
-        run: sudo apt-get update && sudo apt-get install -y ninja-build clang-tidy-18
-      - uses: lukka/get-cmake@latest
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -57,9 +49,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install Ninja
-        run: sudo apt-get update && sudo apt-get install -y ninja-build
-      - uses: lukka/get-cmake@latest
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -75,9 +64,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install Ninja
-        run: sudo apt-get update && sudo apt-get install -y ninja-build
-      - uses: lukka/get-cmake@latest
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
