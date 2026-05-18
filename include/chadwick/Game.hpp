@@ -9,9 +9,9 @@
 #include <vector>
 
 struct cw_game_struct;
-typedef struct cw_game_struct CWGame;
+using CWGame = struct cw_game_struct;
 struct cw_gameiter_struct;
-typedef struct cw_gameiter_struct CWGameIterator;
+using CWGameIterator = struct cw_gameiter_struct;
 
 namespace chadwick {
 
@@ -23,13 +23,13 @@ public:
 
     // Disable copying
     Game(const Game&) = delete;
-    Game& operator=(const Game&) = delete;
+    auto operator=(const Game&) -> Game& = delete;
 
     // Support move semantics
     Game(Game&& other) noexcept;
-    Game& operator=(Game&& other) noexcept;
+    auto operator=(Game&& other) noexcept -> Game&;
 
-    bool Write(const std::filesystem::path& path);
+    auto Write(const std::filesystem::path& path) -> bool;
 
     void UpdateState() override;
     void AddEvent(const PlayInfo& play) override;
@@ -39,7 +39,7 @@ public:
     void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) override;
     void AddBatterAdjustment(const BatterAdjustmentInfo& badj) override;
     void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) override;
-    const IGameState& GetGameState() const override;
+    [[nodiscard]] auto GetGameState() const -> const IGameState& override;
 
     explicit operator bool() const { return game != nullptr; }
 

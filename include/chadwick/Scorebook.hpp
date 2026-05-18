@@ -5,7 +5,7 @@
 #include <filesystem>
 
 struct cw_scorebook_struct;
-typedef struct cw_scorebook_struct CWScorebook;
+using CWScorebook = struct cw_scorebook_struct;
 
 namespace chadwick {
 
@@ -16,7 +16,7 @@ public:
 
     // Disable copying
     Scorebook(const Scorebook&) = delete;
-    Scorebook& operator=(const Scorebook&) = delete;
+    auto operator=(const Scorebook&) -> Scorebook& = delete;
 
     void AddGame(Game&& game);
     /**
@@ -24,8 +24,8 @@ public:
      * @param path The path to the retrosheet file.
      * @return Number of games read, or -1 on error.
      */
-    int Read(const std::filesystem::path& path);
-    bool Write(const std::filesystem::path& path);
+    auto Read(const std::filesystem::path& path) -> int;
+    auto Write(const std::filesystem::path& path) -> bool;
 
 private:
     CWScorebook* scorebook;

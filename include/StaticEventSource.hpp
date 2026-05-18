@@ -7,7 +7,7 @@
 class StaticEventSource : public EventSource {
 public:
     explicit StaticEventSource(std::vector<Record> records);
-    std::optional<Record> Next() override;
+    auto Next() -> std::optional<Record> override;
 
 private:
     std::vector<Record> records;

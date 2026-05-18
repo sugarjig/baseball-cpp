@@ -4,10 +4,10 @@
 class IGameState {
 public:
     virtual ~IGameState() = default;
-    virtual int GetInning() const = 0;
-    virtual int GetBattingTeam() const = 0;
-    virtual int GetOuts() const = 0;
-    virtual int GetScore(int team) const = 0;
+    [[nodiscard]] virtual auto GetInning() const -> int = 0;
+    [[nodiscard]] virtual auto GetBattingTeam() const -> int = 0;
+    [[nodiscard]] virtual auto GetOuts() const -> int = 0;
+    [[nodiscard]] virtual auto GetScore(int team) const -> int = 0;
 };
 
 #endif // BASEBALL_CPP_IGAMESTATE_HPP

@@ -16,7 +16,7 @@ public:
     virtual void AddBatterAdjustment(const BatterAdjustmentInfo& badj) = 0;
     virtual void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) = 0;
     virtual void UpdateState() = 0;
-    virtual const IGameState& GetGameState() const = 0;
+    [[nodiscard]] virtual auto GetGameState() const -> const IGameState& = 0;
 };
 
 #endif // BASEBALL_CPP_IGAME_HPP

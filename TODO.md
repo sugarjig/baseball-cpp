@@ -6,10 +6,8 @@
 
 ## Code Quality
 - [ ] Ask Junie for a code review
-- [x] Add clang-tidy
-- [x] Add clang-format
 - [ ] Add a README
-- [ ] Audit C++ usage
+- [ ] Audit C++ usage for possible 26 improvements
 - [ ] Documentation strings
 
 ## Testing
@@ -17,9 +15,10 @@
 - [ ] Separate unit tests from integration tests
 
 ## Tooling
-- [ ] Use vcpkg to manage dependencies
 - [ ] Structured logging
 - [ ] Use [diffing library](https://github.com/sisong/HDiffPatch) in integration test
+- [ ] Use [run-vcpkg](https://github.com/lukka/run-vcpkg) in GitHub Actions to cache packages
+  - [ ] Or use [handrolled solution](https://learn.microsoft.com/en-us/vcpkg/consume/binary-caching-github-packages?pivots=windows-runner)
 
 ## Agent Usage
 - [ ] Include Retrosheet documentation as context

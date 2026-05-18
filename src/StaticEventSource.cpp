@@ -3,7 +3,7 @@
 
 StaticEventSource::StaticEventSource(std::vector<Record> records) : records(std::move(records)), currentIndex(0) {}
 
-std::optional<Record> StaticEventSource::Next() {
+auto StaticEventSource::Next() -> std::optional<Record> {
     if (currentIndex < records.size()) {
         return records[currentIndex++];
     }

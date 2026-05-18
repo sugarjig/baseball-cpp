@@ -11,10 +11,10 @@ namespace chadwick {
 class GameState : public IGameState {
 public:
     GameState() : state(nullptr) {}
-    int GetInning() const override;
-    int GetBattingTeam() const override;
-    int GetOuts() const override;
-    int GetScore(int team) const override;
+    [[nodiscard]] auto GetInning() const -> int override;
+    [[nodiscard]] auto GetBattingTeam() const -> int override;
+    [[nodiscard]] auto GetOuts() const -> int override;
+    [[nodiscard]] auto GetScore(int team) const -> int override;
 
 private:
     friend class Game;

@@ -13,7 +13,7 @@ Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)
 
 void Simulator::SimulateGame(IGame& game) {
     while (auto record = eventSource->Next()) {
-        if (observer) {
+        if (observer != nullptr) {
             observer->OnPreEvent(game.GetGameState());
         }
 
@@ -21,7 +21,7 @@ void Simulator::SimulateGame(IGame& game) {
         case RecordType::Play: {
             const auto& play = std::get<PlayInfo>(record->data);
             game.AddEvent(play);
-            if (observer) {
+            if (observer != nullptr) {
                 observer->OnEvent(play);
             }
             break;
@@ -29,15 +29,15 @@ void Simulator::SimulateGame(IGame& game) {
         case RecordType::Substitution: {
             const auto& sub = std::get<SubstitutionInfo>(record->data);
             game.AddSubstitution(sub);
-            if (observer) {
+            if (observer != nullptr) {
                 observer->OnSubstitution(sub);
             }
             break;
         }
         case RecordType::Comment: {
             const auto& comment = std::get<std::string>(record->data);
-            game.AddComment(comment.c_str());
-            if (observer) {
+            game.AddComment(comment);
+            if (observer != nullptr) {
                 observer->OnComment(comment);
             }
             break;
@@ -45,7 +45,7 @@ void Simulator::SimulateGame(IGame& game) {
         case RecordType::RunnerAdjustment: {
             const auto& radj = std::get<RunnerAdjustmentInfo>(record->data);
             game.AddRunnerAdjustment(radj);
-            if (observer) {
+            if (observer != nullptr) {
                 observer->OnRunnerAdjustment(radj);
             }
             break;
@@ -53,7 +53,7 @@ void Simulator::SimulateGame(IGame& game) {
         case RecordType::BatterAdjustment: {
             const auto& badj = std::get<BatterAdjustmentInfo>(record->data);
             game.AddBatterAdjustment(badj);
-            if (observer) {
+            if (observer != nullptr) {
                 observer->OnBatterAdjustment(badj);
             }
             break;
@@ -61,7 +61,7 @@ void Simulator::SimulateGame(IGame& game) {
         case RecordType::PitcherAdjustment: {
             const auto& padj = std::get<PitcherAdjustmentInfo>(record->data);
             game.AddPitcherAdjustment(padj);
-            if (observer) {
+            if (observer != nullptr) {
                 observer->OnPitcherAdjustment(padj);
             }
             break;
@@ -72,7 +72,7 @@ void Simulator::SimulateGame(IGame& game) {
 
         game.UpdateState();
 
-        if (observer) {
+        if (observer != nullptr) {
             observer->OnPostEvent(game.GetGameState());
         }
     }

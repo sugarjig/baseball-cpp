@@ -17,7 +17,7 @@ struct Record {
 class EventSource {
 public:
     virtual ~EventSource() = default;
-    virtual std::optional<Record> Next() = 0;
+    virtual auto Next() -> std::optional<Record> = 0;
 };
 
 #endif // BASEBALL_CPP_EVENTSOURCE_HPP

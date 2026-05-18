@@ -3,7 +3,8 @@ Checks: 'bugprone-*,
          performance-*,
          readability-*,
          modernize-*,
-         cppcoreguidelines-*'
+         cppcoreguidelines-*,
+         misc-*'
 
 WarningsAsErrors: '*'
 
