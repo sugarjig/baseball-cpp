@@ -1,9 +1,9 @@
 #include "chadwick/Scorebook.hpp"
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+auto main(int argc, char* argv[]) -> int {
     if (argc != 3) {
-        std::cerr << "Usage: " << argv[0] << " <input_file> <output_file>" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <input_file> <output_file>" << '\n';
         return 1;
     }
 
@@ -11,21 +11,21 @@ int main(int argc, char* argv[]) {
     const char* outputPath = argv[2];
 
     chadwick::Scorebook scorebook;
-    int gamesRead = scorebook.Read(inputPath);
+    int const gamesRead = scorebook.Read(inputPath);
 
     if (gamesRead < 0) {
-        std::cerr << "Error: Failed to read scorebook from " << inputPath << std::endl;
+        std::cerr << "Error: Failed to read scorebook from " << inputPath << '\n';
         return 1;
     }
 
-    std::cout << "Successfully read " << gamesRead << " games from " << inputPath << std::endl;
+    std::cout << "Successfully read " << gamesRead << " games from " << inputPath << '\n';
 
     if (!scorebook.Write(outputPath)) {
-        std::cerr << "Error: Could not open output file: " << outputPath << std::endl;
+        std::cerr << "Error: Could not open output file: " << outputPath << '\n';
         return 1;
     }
 
-    std::cout << "Successfully wrote normalized scorebook to " << outputPath << std::endl;
+    std::cout << "Successfully wrote normalized scorebook to " << outputPath << '\n';
 
     return 0;
 }
