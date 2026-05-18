@@ -20,7 +20,6 @@
 - [ ] Use vcpkg to manage dependencies
 - [ ] Structured logging
 - [ ] Use [diffing library](https://github.com/sisong/HDiffPatch) in integration test
-- [ ] GitHub Actions workflow: Try pre-installed tools (ninja and cmake)
 
 ## Agent Usage
 - [ ] Include Retrosheet documentation as context

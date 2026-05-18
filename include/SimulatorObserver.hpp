@@ -10,8 +10,7 @@ public:
     virtual ~SimulatorObserver() = default;
 
     virtual void OnPreEvent(const IGameState& state) {
-        std::cout << "Before: "
-                  << " (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
+        std::cout << "Before: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
                   << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
                   << state.GetScore(1) << ")\n";
     }
@@ -39,8 +38,7 @@ public:
     }
 
     virtual void OnPostEvent(const IGameState& state) {
-        std::cout << "After: "
-                  << " (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
+        std::cout << "After: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
                   << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
                   << state.GetScore(1) << ")\n\n";
     }
