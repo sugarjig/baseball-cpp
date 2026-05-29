@@ -40,7 +40,7 @@ Game::~Game() {
 }
 
 Game::Game(Game&& other) noexcept
-    : game(other.game), iter(other.iter), gameState(other.gameState),
+    : game(other.game), iter(other.iter), gameState(std::move(other.gameState)),
       pendingAutoRunner(std::move(other.pendingAutoRunner)), pendingAutoBase(other.pendingAutoBase),
       pendingBatterAdjustmentPlayerId(std::move(other.pendingBatterAdjustmentPlayerId)),
       pendingBatterAdjustmentHand(other.pendingBatterAdjustmentHand),
@@ -48,7 +48,6 @@ Game::Game(Game&& other) noexcept
       pendingPitcherAdjustmentHand(other.pendingPitcherAdjustmentHand) {
     other.game = nullptr;
     other.iter = nullptr;
-    other.gameState.state = nullptr;
     other.pendingAutoBase = 0;
     other.pendingBatterAdjustmentHand = ' ';
     other.pendingPitcherAdjustmentHand = ' ';
@@ -66,7 +65,7 @@ Game& Game::operator=(Game&& other) noexcept {
         }
         game = other.game;
         iter = other.iter;
-        gameState = other.gameState;
+        gameState = std::move(other.gameState);
         pendingAutoRunner = std::move(other.pendingAutoRunner);
         pendingAutoBase = other.pendingAutoBase;
         pendingBatterAdjustmentPlayerId = std::move(other.pendingBatterAdjustmentPlayerId);
@@ -75,7 +74,6 @@ Game& Game::operator=(Game&& other) noexcept {
         pendingPitcherAdjustmentHand = other.pendingPitcherAdjustmentHand;
         other.game = nullptr;
         other.iter = nullptr;
-        other.gameState.state = nullptr;
         other.pendingAutoBase = 0;
         other.pendingBatterAdjustmentHand = ' ';
         other.pendingPitcherAdjustmentHand = ' ';

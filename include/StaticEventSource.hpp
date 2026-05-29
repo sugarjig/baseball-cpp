@@ -7,6 +7,16 @@
 class StaticEventSource : public EventSource {
 public:
     explicit StaticEventSource(std::vector<Record> records);
+    ~StaticEventSource() override = default;
+
+    // Disable copying
+    StaticEventSource(const StaticEventSource&) = delete;
+    auto operator=(const StaticEventSource&) -> StaticEventSource& = delete;
+
+    // Support move semantics
+    StaticEventSource(StaticEventSource&&) noexcept = default;
+    auto operator=(StaticEventSource&&) noexcept -> StaticEventSource& = default;
+
     auto Next() -> std::optional<Record> override;
 
 private:

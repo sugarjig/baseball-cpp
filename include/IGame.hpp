@@ -7,7 +7,13 @@
 
 class IGame {
 public:
+    IGame() = default;
     virtual ~IGame() = default;
+    IGame(const IGame&) = delete;
+    auto operator=(const IGame&) -> IGame& = delete;
+    IGame(IGame&&) = default;
+    auto operator=(IGame&&) -> IGame& = default;
+
     virtual void AddEvent(const PlayInfo& play) = 0;
     virtual void AddSubstitution(const SubstitutionInfo& sub) = 0;
     virtual void AddComment(std::string_view comment) = 0;

@@ -3,7 +3,13 @@
 
 class IGameState {
 public:
+    IGameState() = default;
     virtual ~IGameState() = default;
+    IGameState(const IGameState&) = delete;
+    auto operator=(const IGameState&) -> IGameState& = delete;
+    IGameState(IGameState&&) = default;
+    auto operator=(IGameState&&) -> IGameState& = default;
+
     [[nodiscard]] virtual auto GetInning() const -> int = 0;
     [[nodiscard]] virtual auto GetBattingTeam() const -> int = 0;
     [[nodiscard]] virtual auto GetOuts() const -> int = 0;

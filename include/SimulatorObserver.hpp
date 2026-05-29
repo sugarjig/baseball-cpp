@@ -7,7 +7,12 @@
 
 class SimulatorObserver {
 public:
+    SimulatorObserver() = default;
     virtual ~SimulatorObserver() = default;
+    SimulatorObserver(const SimulatorObserver&) = delete;
+    auto operator=(const SimulatorObserver&) -> SimulatorObserver& = delete;
+    SimulatorObserver(SimulatorObserver&&) = default;
+    auto operator=(SimulatorObserver&&) -> SimulatorObserver& = default;
 
     virtual void OnPreEvent(const IGameState& state) {
         std::cout << "Before: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()

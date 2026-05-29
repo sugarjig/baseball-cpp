@@ -18,6 +18,10 @@ public:
     Scorebook(const Scorebook&) = delete;
     auto operator=(const Scorebook&) -> Scorebook& = delete;
 
+    // Support move semantics
+    Scorebook(Scorebook&&) noexcept;
+    auto operator=(Scorebook&&) noexcept -> Scorebook&;
+
     void AddGame(Game&& game);
     /**
      * Reads retrosheet data from a file into the scorebook.

@@ -8,13 +8,23 @@ namespace chadwick {
 
 GameState::GameState(CWGameState* state) : state(state) {}
 
-int GameState::GetInning() const { return state ? state->inning : 1; }
+GameState::GameState(GameState&& other) noexcept : state(other.state) { other.state = nullptr; }
 
-int GameState::GetBattingTeam() const { return state ? state->batting_team : 0; }
+auto GameState::operator=(GameState&& other) noexcept -> GameState& {
+    if (this != &other) {
+        state = other.state;
+        other.state = nullptr;
+    }
+    return *this;
+}
 
-int GameState::GetOuts() const { return state ? state->outs : 0; }
+auto GameState::GetInning() const -> int { return state ? state->inning : 1; }
 
-int GameState::GetScore(int team) const {
+auto GameState::GetBattingTeam() const -> int { return state ? state->batting_team : 0; }
+
+auto GameState::GetOuts() const -> int { return state ? state->outs : 0; }
+
+auto GameState::GetScore(int team) const -> int {
     if (state && team >= 0 && team < 2) {
         return state->score[team];
     }

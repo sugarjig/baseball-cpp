@@ -4,13 +4,23 @@
 #include "../IGameState.hpp"
 
 struct cw_game_state;
-typedef struct cw_game_state CWGameState;
+using CWGameState = struct cw_game_state;
 
 namespace chadwick {
 
 class GameState : public IGameState {
 public:
     GameState() : state(nullptr) {}
+    ~GameState() override = default;
+
+    // Disable copying
+    GameState(const GameState&) = delete;
+    auto operator=(const GameState&) -> GameState& = delete;
+
+    // Support move semantics
+    GameState(GameState&& other) noexcept;
+    auto operator=(GameState&& other) noexcept -> GameState&;
+
     [[nodiscard]] auto GetInning() const -> int override;
     [[nodiscard]] auto GetBattingTeam() const -> int override;
     [[nodiscard]] auto GetOuts() const -> int override;

@@ -16,7 +16,13 @@ struct Record {
 
 class EventSource {
 public:
+    EventSource() = default;
     virtual ~EventSource() = default;
+    EventSource(const EventSource&) = delete;
+    auto operator=(const EventSource&) -> EventSource& = delete;
+    EventSource(EventSource&&) = default;
+    auto operator=(EventSource&&) -> EventSource& = default;
+
     virtual auto Next() -> std::optional<Record> = 0;
 };
 

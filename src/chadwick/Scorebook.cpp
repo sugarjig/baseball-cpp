@@ -17,6 +17,20 @@ Scorebook::~Scorebook() {
     }
 }
 
+Scorebook::Scorebook(Scorebook&& other) noexcept : scorebook(other.scorebook) { other.scorebook = nullptr; }
+
+auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
+    if (this != &other) {
+        if (scorebook) {
+            cw_scorebook_cleanup(scorebook);
+            free(scorebook);
+        }
+        scorebook = other.scorebook;
+        other.scorebook = nullptr;
+    }
+    return *this;
+}
+
 void Scorebook::AddGame(Game&& game) {
     if (game.game) {
         // Transfer ownership of CWGame to the scorebook

@@ -18,6 +18,10 @@ public:
     explicit Simulator(EventSource* eventSource, SimulatorObserver* observer = nullptr);
 
     ~Simulator() = default;
+    Simulator(const Simulator&) = delete;
+    auto operator=(const Simulator&) -> Simulator& = delete;
+    Simulator(Simulator&&) = default;
+    auto operator=(Simulator&&) -> Simulator& = default;
 
     void SimulateGame(IGame& game);
 };
