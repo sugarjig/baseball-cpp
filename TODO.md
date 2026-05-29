@@ -9,6 +9,7 @@
 - [ ] Add a README
 - [ ] Audit C++ usage for possible 26 improvements
 - [ ] Documentation strings
+- [ ] Comment on usage of cw_gameiter_reset in UpdateState
 
 ## Testing
 - [ ] More unit test coverage
@@ -17,6 +18,7 @@
 ## Tooling
 - [ ] Structured logging
 - [ ] Use [diffing library](https://github.com/sisong/HDiffPatch) in integration test
+- [ ] Use [CSV parser](https://github.com/vincentlaucsb/csv-parser) in integration test
 - [ ] Use [run-vcpkg](https://github.com/lukka/run-vcpkg) in GitHub Actions to cache packages
   - [ ] Or use [handrolled solution](https://learn.microsoft.com/en-us/vcpkg/consume/binary-caching-github-packages?pivots=windows-runner)
 
