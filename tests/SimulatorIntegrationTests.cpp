@@ -131,7 +131,7 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
         } else if (type == "version") {
             version = fields[1];
         } else if (type == "info") {
-            infoRecords.push_back({.key=fields[1], .value=fields[2]});
+            infoRecords.push_back({.key = fields[1], .value = fields[2]});
         } else if (type == "start") {
             StarterInfo starter;
             starter.id = fields[1];
@@ -168,12 +168,12 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             BatterAdjustmentInfo badj;
             badj.playerId = fields[1];
             badj.hand = fields[2][0];
-            events.push_back({.type=RecordType::BatterAdjustment, .data=badj});
+            events.push_back({.type = RecordType::BatterAdjustment, .data = badj});
         } else if (type == "padj") {
             PitcherAdjustmentInfo padj;
             padj.playerId = fields[1];
             padj.hand = fields[2][0];
-            events.push_back({.type=RecordType::PitcherAdjustment, .data=padj});
+            events.push_back({.type = RecordType::PitcherAdjustment, .data = padj});
         } else if (type == "data") {
             DataRecord data;
             data.fields = std::vector<std::string>(fields.begin() + 1, fields.end());

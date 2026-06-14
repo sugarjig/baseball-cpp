@@ -2,10 +2,10 @@
 // Created by Samuel Jones on 5/12/26.
 //
 
-#include "Records.hpp"
 #include "Simulator.hpp"
 #include "EventSource.hpp"
 #include "IGame.hpp"
+#include "Records.hpp"
 #include "SimulatorObserver.hpp"
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)

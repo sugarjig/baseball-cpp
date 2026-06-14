@@ -105,14 +105,14 @@ void Game::UpdateState() {
 
             for (CWComment* comment = currentEvent->first_comment; comment != nullptr; comment = comment->next) {
                 if (comment->text != nullptr && strncmp(comment->text, "suspended,", 10) == 0) {
-                    saved.push_back({.comment=comment, .originalText=comment->text});
+                    saved.push_back({.comment = comment, .originalText = comment->text});
                 }
             }
 
             cw_gameiter_next(iter);
 
             // Restore any mangled comments
-            for (auto&[comment, originalText] : saved) {
+            for (auto& [comment, originalText] : saved) {
                 strcpy(comment->text, originalText.c_str());
             }
         }

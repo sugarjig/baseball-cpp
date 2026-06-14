@@ -7,7 +7,7 @@ extern "C" {
 
 namespace chadwick {
 
-Scorebook::Scorebook() : scorebook(cw_scorebook_create()) { }
+Scorebook::Scorebook() : scorebook(cw_scorebook_create()) {}
 
 Scorebook::~Scorebook() {
     if (scorebook != nullptr) {
