@@ -3,6 +3,16 @@ project(baseball_cpp)
 
 set(CMAKE_CXX_STANDARD 26)
 
+# Add local vcpkg_installed directory to search path if it exists
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg_installed")
+    file(GLOB VCPKG_INSTALLED_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg_installed/*")
+    foreach(DIR ${VCPKG_INSTALLED_DIRS})
+        if(IS_DIRECTORY "${DIR}")
+            list(APPEND CMAKE_PREFIX_PATH "${DIR}")
+        endif()
+    endforeach()
+endif()
+
 add_subdirectory(lib)
 
 add_library(baseball_lib STATIC
