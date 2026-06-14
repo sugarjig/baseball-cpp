@@ -19,7 +19,8 @@ extern "C" {
 
 namespace chadwick {
 
-Game::Game(const std::string_view gameId, const std::string_view version, const std::vector<InfoRecord>& infoRecords, // NOLINT(bugprone-easily-swappable-parameters)
+Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-parameters)
+           const std::string_view version, const std::vector<InfoRecord>& infoRecords,
            const std::vector<StarterInfo>& starters) {
     game = cw_game_create(std::string(gameId).data());
     if (game != nullptr) {
@@ -139,7 +140,7 @@ void Game::AddEvent(const PlayInfo& play) {
     if (game->last_event != nullptr) {
         if (pendingAutoBase != 0) {
             game->last_event->auto_base = pendingAutoBase;
-            game->last_event->auto_runner_id = // NOLINT(cppcoreguidelines-owning-memory)
+            game->last_event->auto_runner_id =                              // NOLINT(cppcoreguidelines-owning-memory)
                 static_cast<char*>(malloc(pendingAutoRunner.length() + 1)); // NOLINT(cppcoreguidelines-no-malloc)
             strcpy(game->last_event->auto_runner_id, pendingAutoRunner.c_str());
 
@@ -158,7 +159,8 @@ void Game::AddEvent(const PlayInfo& play) {
         if (pendingPitcherAdjustmentHand != ' ') {
             game->last_event->pitcher_hand = pendingPitcherAdjustmentHand;
             game->last_event->pitcher_hand_id = // NOLINT(cppcoreguidelines-owning-memory)
-                static_cast<char*>(malloc(pendingPitcherAdjustmentPlayerId.length() + 1)); // NOLINT(cppcoreguidelines-no-malloc)
+                static_cast<char*>(
+                    malloc(pendingPitcherAdjustmentPlayerId.length() + 1)); // NOLINT(cppcoreguidelines-no-malloc)
             strcpy(game->last_event->pitcher_hand_id, pendingPitcherAdjustmentPlayerId.c_str());
 
             pendingPitcherAdjustmentHand = ' ';
