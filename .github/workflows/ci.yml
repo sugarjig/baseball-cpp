@@ -26,6 +26,8 @@ jobs:
           cmake -S . -B build -G Ninja \
             -DCMAKE_CXX_COMPILER=clang++-22 \
             -DCMAKE_C_COMPILER=clang-22 \
+            -DCMAKE_CXX_CLANG_TIDY=clang-tidy-22 \
+            -DCMAKE_CXX_SCAN_FOR_MODULES=OFF \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build
         run: cmake --build build
