@@ -40,6 +40,7 @@ jobs:
           cmake -S . -B build -G Ninja \
             -DCMAKE_CXX_COMPILER=clang++-22 \
             -DCMAKE_C_COMPILER=clang-22 \
+            -DCMAKE_CXX_SCAN_FOR_MODULES=OFF \
             -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Run clang-tidy
