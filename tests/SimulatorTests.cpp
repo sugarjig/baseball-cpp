@@ -8,15 +8,17 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <optional>
+#include <string>
+#include <string_view>
 
-using ::testing::_;
+using ::testing::_; // NOLINT(bugprone-reserved-identifier)
 using ::testing::InSequence;
 using ::testing::Return;
 
 namespace {
 class MockEventSource : public EventSource {
 public:
-    MOCK_METHOD(std::optional<Record>, Next, (), (override));
+    MOCK_METHOD(std::optional<Record>, Next, (), (override)); // NOLINT(modernize-use-trailing-return-type)
 };
 
 class MockSimulatorObserver : public SimulatorObserver {
@@ -41,7 +43,7 @@ public:
     MOCK_METHOD(void, AddBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
     MOCK_METHOD(void, AddPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
     MOCK_METHOD(void, UpdateState, (), (override));
-    MOCK_METHOD(const IGameState&, GetGameState, (), (const, override));
+    MOCK_METHOD(const IGameState&, GetGameState, (), (const, override)); // NOLINT(modernize-use-trailing-return-type)
 };
 } // namespace
 
@@ -50,8 +52,6 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
-
-    chadwick::GameState dummyState;
 
     PlayInfo play;
     play.inning = 1;
@@ -64,6 +64,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     record.data = play;
 
     {
+        chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -85,8 +86,6 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
-    chadwick::GameState dummyState;
-
     SubstitutionInfo sub;
     sub.playerId = "testp002";
     sub.name = "Sub Player";
@@ -98,6 +97,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     record.data = sub;
 
     {
+        chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -148,8 +148,6 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
-    chadwick::GameState dummyState;
-
     RunnerAdjustmentInfo radj;
     radj.playerId = "testp001";
     radj.base = 2;
@@ -159,6 +157,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     record.data = radj;
 
     {
+        chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -180,8 +179,6 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
-    chadwick::GameState dummyState;
-
     BatterAdjustmentInfo badj;
     badj.playerId = "testp001";
     badj.hand = 'R';
@@ -191,6 +188,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     record.data = badj;
 
     {
+        chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -212,8 +210,6 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
-    chadwick::GameState dummyState;
-
     PitcherAdjustmentInfo padj;
     padj.playerId = "testp001";
     padj.hand = 'L';
@@ -223,6 +219,7 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     record.data = padj;
 
     {
+        chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
