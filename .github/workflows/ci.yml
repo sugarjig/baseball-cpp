@@ -44,7 +44,7 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Run clang-tidy
         run: |
-          find src tests tools -name "*.cpp" | xargs clang-tidy-22 -p build
+          find src include tests tools \( -name "*.cpp" -o -name "*.hpp" \) | xargs clang-tidy-22 -p build
 
   unit-tests:
     name: Unit Tests
