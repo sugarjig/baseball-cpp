@@ -1,5 +1,7 @@
 #include "chadwick/Scorebook.hpp"
+#include "chadwick/Game.hpp"
 #include <cstdio>
+#include <filesystem>
 
 extern "C" {
 // clang-format off
