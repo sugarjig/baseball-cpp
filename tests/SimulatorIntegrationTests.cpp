@@ -142,7 +142,8 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             starter.name = fields.at(2);
             starter.isHome = fields.at(3) == "1";
             starter.battingOrder = std::stoi(fields.at(4));
-            starter.position = std::stoi(fields.at(5)); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            starter.position =
+                std::stoi(fields.at(5)); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
             starters.push_back(starter);
         } else if (type == "play") {
             PlayInfo play;
@@ -150,7 +151,8 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             play.team = std::stoi(fields.at(2));
             play.batter = fields.at(3);
             play.pitchCount = fields.at(4);
-            play.pitchSequence = fields.at(5); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            play.pitchSequence =
+                fields.at(5);         // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
             play.text = fields.at(6); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
             events.push_back({.type = RecordType::Play, .data = play});
         } else if (type == "sub") {
@@ -159,7 +161,8 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             sub.name = fields.at(2);
             sub.team = std::stoi(fields.at(3));
             sub.slot = std::stoi(fields.at(4));
-            sub.pos = std::stoi(fields.at(5)); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            sub.pos =
+                std::stoi(fields.at(5)); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
             events.push_back({.type = RecordType::Substitution, .data = sub});
         } else if (type == "com") {
             events.push_back({.type = RecordType::Comment, .data = fields.at(1)});
