@@ -2,6 +2,8 @@
 #define BASEBALL_CPP_STATICEVENTSOURCE_HPP
 
 #include "EventSource.hpp"
+#include <cstdlib>
+#include <optional>
 #include <vector>
 
 class StaticEventSource : public EventSource {

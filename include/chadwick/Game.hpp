@@ -4,7 +4,9 @@
 #include "../IGame.hpp"
 #include "../Records.hpp"
 #include "GameState.hpp"
+#include "IGameState.hpp"
 #include <filesystem>
+#include <string>
 #include <string_view>
 #include <vector>
 

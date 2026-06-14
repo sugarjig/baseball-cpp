@@ -5,7 +5,6 @@
 #include <optional>
 #include <string>
 #include <variant>
-#include <vector>
 
 struct Record {
     RecordType type = RecordType::Play;

@@ -1,9 +1,10 @@
 #ifndef BASEBALL_CPP_SIMULATOROBSERVER_HPP
 #define BASEBALL_CPP_SIMULATOROBSERVER_HPP
 
-#include "EventSource.hpp"
 #include "IGameState.hpp"
+#include "Records.hpp"
 #include <iostream>
+#include <string>
 
 class SimulatorObserver {
 public:
