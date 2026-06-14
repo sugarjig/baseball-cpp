@@ -5,6 +5,7 @@
 
 extern "C" {
 // clang-format off
+// ReSharper disable once CppUnusedIncludeDirective
 #include "parse.h"
 #include "game.h"
 // clang-format on
@@ -19,7 +20,7 @@ Scorebook::Scorebook() : scorebook(cw_scorebook_create()) {}
 Scorebook::~Scorebook() {
     if (scorebook != nullptr) {
         cw_scorebook_cleanup(scorebook);
-        free(scorebook);
+        free(scorebook); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
     }
 }
 
@@ -29,7 +30,7 @@ auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
     if (this != &other) {
         if (scorebook != nullptr) {
             cw_scorebook_cleanup(scorebook);
-            free(scorebook);
+            free(scorebook); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
         }
         scorebook = other.scorebook;
         other.scorebook = nullptr;
@@ -37,7 +38,7 @@ auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
     return *this;
 }
 
-void Scorebook::AddGame(Game&& game) {
+void Scorebook::AddGame(Game&& game) const {
     if (game.game != nullptr) {
         // Transfer ownership of CWGame to the scorebook
         cw_scorebook_append_game(scorebook, game.game);
@@ -46,7 +47,7 @@ void Scorebook::AddGame(Game&& game) {
         // Clean up the iterator, as Scorebook only manages CWGame
         if (game.iter != nullptr) {
             cw_gameiter_cleanup(game.iter);
-            free(game.iter);
+            free(game.iter); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
             game.iter = nullptr;
         }
     }
@@ -58,7 +59,7 @@ auto Scorebook::Read(const std::filesystem::path& path) const -> int {
         return -1;
     }
     int const gamesRead = cw_scorebook_read(scorebook, file);
-    fclose(file);
+    fclose(file); // NOLINT(cppcoreguidelines-owning-memory)
     return gamesRead;
 }
 
@@ -68,7 +69,7 @@ auto Scorebook::Write(const std::filesystem::path& path) const -> bool {
         return false;
     }
     cw_scorebook_write(scorebook, file);
-    fclose(file);
+    fclose(file); // NOLINT(cppcoreguidelines-owning-memory)
     return true;
 }
 

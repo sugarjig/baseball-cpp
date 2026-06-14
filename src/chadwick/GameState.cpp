@@ -1,8 +1,10 @@
 #include "chadwick/GameState.hpp"
-#include <cstdio>
+// ReSharper disable once CppUnusedIncludeDirective
+#include <cstdio> // NOLINT(misc-include-cleaner)
 extern "C" {
 // clang-format off
-#include "parse.h"
+// ReSharper disable once CppUnusedIncludeDirective
+#include "parse.h" // NOLINT(misc-include-cleaner)
 // clang-format on
 #include "gameiter.h"
 }

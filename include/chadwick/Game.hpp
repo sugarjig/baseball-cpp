@@ -8,9 +8,9 @@
 #include <string_view>
 #include <vector>
 
-struct cw_game_struct;
+struct cw_game_struct; // NOLINT(readability-identifier-naming)
 using CWGame = cw_game_struct;
-struct cw_gameiter_struct;
+struct cw_gameiter_struct; // NOLINT(readability-identifier-naming)
 using CWGameIterator = cw_gameiter_struct;
 
 namespace chadwick {

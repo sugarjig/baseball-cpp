@@ -4,7 +4,7 @@
 #include "Game.hpp"
 #include <filesystem>
 
-struct cw_scorebook_struct;
+struct cw_scorebook_struct; // NOLINT(readability-identifier-naming)
 using CWScorebook = cw_scorebook_struct;
 
 namespace chadwick {
@@ -22,7 +22,7 @@ public:
     Scorebook(Scorebook&& other) noexcept;
     auto operator=(Scorebook&& other) noexcept -> Scorebook&;
 
-    void AddGame(Game&& game);
+    void AddGame(Game&& game) const;
     /**
      * Reads retrosheet data from a file into the scorebook.
      * @param path The path to the retrosheet file.

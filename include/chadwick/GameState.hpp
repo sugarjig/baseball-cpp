@@ -3,8 +3,8 @@
 
 #include "../IGameState.hpp"
 
-struct cw_game_state;
-using CWGameState = struct cw_game_state;
+struct cw_game_state; // NOLINT(readability-identifier-naming)
+using CWGameState = cw_game_state;
 
 namespace chadwick {
 
