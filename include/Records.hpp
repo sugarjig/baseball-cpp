@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-enum class RecordType { Play, Substitution, Comment, Starter, RunnerAdjustment, BatterAdjustment, PitcherAdjustment };
+enum class RecordType : std::uint8_t { Play, Substitution, Comment, Starter, RunnerAdjustment, BatterAdjustment, PitcherAdjustment };
 
 struct InfoRecord {
     std::string key;

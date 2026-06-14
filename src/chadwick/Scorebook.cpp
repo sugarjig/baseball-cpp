@@ -1,13 +1,14 @@
 #include "chadwick/Scorebook.hpp"
 #include "chadwick/Game.hpp"
 #include <cstdio>
+#include <cstdlib>
 #include <filesystem>
 
 extern "C" {
 // clang-format off
 // ReSharper disable once CppUnusedIncludeDirective
-#include "parse.h"
-#include "game.h"
+#include "parse.h" // NOLINT(misc-include-cleaner)
+#include "game.h" // NOLINT(misc-include-cleaner)
 // clang-format on
 #include "book.h"
 #include "gameiter.h"
@@ -41,7 +42,8 @@ auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
 void Scorebook::AddGame(Game&& game) const {
     if (game.game != nullptr) {
         // Transfer ownership of CWGame to the scorebook
-        cw_scorebook_append_game(scorebook, game.game);
+        Game&& copy = std::move(game);
+        cw_scorebook_append_game(scorebook, copy.game);
         game.game = nullptr;
 
         // Clean up the iterator, as Scorebook only manages CWGame

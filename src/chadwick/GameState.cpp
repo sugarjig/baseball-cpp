@@ -29,9 +29,9 @@ auto GameState::GetBattingTeam() const -> int { return (state != nullptr) ? stat
 
 auto GameState::GetOuts() const -> int { return (state != nullptr) ? state->outs : 0; }
 
-auto GameState::GetScore(int team) const -> int {
-    if ((state != nullptr) && team >= 0 && team < 2) {
-        return state->score[team];
+auto GameState::GetScore(const int team) const -> int {
+    if (state != nullptr && team >= 0 && team < 2) {
+        return state->score[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
     }
     return 0;
 }

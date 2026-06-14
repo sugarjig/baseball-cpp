@@ -11,7 +11,7 @@
 extern "C" {
 // clang-format off
 // ReSharper disable once CppUnusedIncludeDirective
-#include "parse.h"
+#include "parse.h" // NOLINT(misc-include-cleaner)
 // clang-format on
 #include "game.h"
 #include "gameiter.h"

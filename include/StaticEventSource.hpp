@@ -21,7 +21,7 @@ public:
 
 private:
     std::vector<Record> records;
-    size_t currentIndex;
+    size_t currentIndex = 0;
 };
 
 #endif // BASEBALL_CPP_STATICEVENTSOURCE_HPP
