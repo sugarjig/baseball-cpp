@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Run clang-format
         run: |
-          find src include tests tools \( -name "*.cpp" -o -name "*.hpp" \) | xargs clang-format-18 --dry-run --Werror
+          find src include tests tools \( -name "*.cpp" -o -name "*.hpp" \) | xargs clang-format-22 --dry-run --Werror
 
   build:
     name: Build
@@ -24,8 +24,8 @@ jobs:
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
-            -DCMAKE_CXX_COMPILER=clang++-18 \
-            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_CXX_COMPILER=clang++-22 \
+            -DCMAKE_C_COMPILER=clang-22 \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build
         run: cmake --build build
@@ -38,13 +38,13 @@ jobs:
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
-            -DCMAKE_CXX_COMPILER=clang++-18 \
-            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_CXX_COMPILER=clang++-22 \
+            -DCMAKE_C_COMPILER=clang-22 \
             -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Run clang-tidy
         run: |
-          find src tools -name "*.cpp" | xargs clang-tidy-18 -p build
+          find src tools -name "*.cpp" | xargs clang-tidy-22 -p build
 
   unit-tests:
     name: Unit Tests
@@ -54,8 +54,8 @@ jobs:
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
-            -DCMAKE_CXX_COMPILER=clang++-18 \
-            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_CXX_COMPILER=clang++-22 \
+            -DCMAKE_C_COMPILER=clang-22 \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build tests
         run: cmake --build build --target baseball_tests
@@ -70,8 +70,8 @@ jobs:
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
-            -DCMAKE_CXX_COMPILER=clang++-18 \
-            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_CXX_COMPILER=clang++-22 \
+            -DCMAKE_C_COMPILER=clang-22 \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build tests
         run: cmake --build build --target baseball_tests
