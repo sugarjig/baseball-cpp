@@ -3,12 +3,13 @@
 
 auto main(int argc, char* argv[]) -> int {
     if (argc != 3) {
-        std::cerr << "Usage: " << argv[0] << " <input_file> <output_file>" << '\n';
+        std::cerr << "Usage: " << argv[0] // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+                  << " <input_file> <output_file>" << '\n';
         return 1;
     }
 
-    const char* inputPath = argv[1];
-    const char* outputPath = argv[2];
+    const char* inputPath = argv[1];  // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+    const char* outputPath = argv[2]; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
 
     chadwick::Scorebook const scorebook;
     int const gamesRead = scorebook.Read(inputPath);

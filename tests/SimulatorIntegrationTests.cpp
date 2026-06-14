@@ -1,9 +1,11 @@
+#include "EventSource.hpp"
 #include "Records.hpp"
 #include "Simulator.hpp"
 #include "StaticEventSource.hpp"
 #include "chadwick/Game.hpp"
 #include "chadwick/Scorebook.hpp"
 #include <algorithm>
+#include <cctype>
 #include <filesystem>
 #include <fstream>
 #include <gtest/gtest.h>
