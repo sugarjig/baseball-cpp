@@ -1,7 +1,10 @@
 #include "chadwick/GameState.hpp"
 #include <cstdio>
 extern "C" {
-#include "chadwick.h"
+// clang-format off
+#include "parse.h"
+// clang-format on
+#include "gameiter.h"
 }
 
 namespace chadwick {

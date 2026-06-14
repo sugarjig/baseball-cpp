@@ -1,11 +1,18 @@
 #include "chadwick/Game.hpp"
+#include "IGameState.hpp"
 #include "Records.hpp"
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <string_view>
 #include <utility>
+#include <vector>
 extern "C" {
-#include "chadwick.h"
+// clang-format off
+#include "parse.h"
+// clang-format on
+#include "game.h"
+#include "gameiter.h"
 }
 
 namespace chadwick {
@@ -107,7 +114,7 @@ void Game::UpdateState() {
             std::vector<SavedComment> saved;
 
             for (CWComment* comment = currentEvent->first_comment; comment != nullptr; comment = comment->next) {
-                if (comment->text != nullptr && strncmp(comment->text, "suspended,", 10) == 0) {
+                if (comment->text != nullptr && strncmp(comment->text, "suspended,", suspendedTextSize) == 0) {
                     saved.push_back({.comment = comment, .originalText = comment->text});
                 }
             }

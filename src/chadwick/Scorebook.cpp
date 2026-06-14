@@ -2,7 +2,12 @@
 #include <cstdio>
 
 extern "C" {
-#include "chadwick.h"
+// clang-format off
+#include "parse.h"
+#include "game.h"
+// clang-format on
+#include "book.h"
+#include "gameiter.h"
 }
 
 namespace chadwick {

@@ -11,6 +11,7 @@
 - [ ] Documentation strings
 - [ ] Comment on usage of cw_gameiter_reset in UpdateState
 - [ ] Use -Wall -Werror flags (and possibly -Wextra and -Wpedantic)
+- [ ] Automatically format code with clang-format before committing
 
 ## Testing
 - [ ] More unit test coverage

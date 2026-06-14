@@ -9,9 +9,9 @@
 #include <vector>
 
 struct cw_game_struct;
-using CWGame = struct cw_game_struct;
+using CWGame = cw_game_struct;
 struct cw_gameiter_struct;
-using CWGameIterator = struct cw_gameiter_struct;
+using CWGameIterator = cw_gameiter_struct;
 
 namespace chadwick {
 
@@ -57,6 +57,8 @@ private:
 
     std::string pendingPitcherAdjustmentPlayerId;
     char pendingPitcherAdjustmentHand = ' ';
+
+    static constexpr int suspendedTextSize = 10;
 };
 
 } // namespace chadwick
