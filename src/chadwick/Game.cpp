@@ -1,6 +1,6 @@
 #include "chadwick/Game.hpp"
 #include <cstdio>
-
+#include <cstring>
 extern "C" {
 #include "chadwick.h"
 }
