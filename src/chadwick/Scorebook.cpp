@@ -1,6 +1,5 @@
 #include "chadwick/Scorebook.hpp"
 #include <cstdio>
-#include <cstdlib>
 
 extern "C" {
 #include "chadwick.h"
@@ -8,10 +7,10 @@ extern "C" {
 
 namespace chadwick {
 
-Scorebook::Scorebook() { scorebook = cw_scorebook_create(); }
+Scorebook::Scorebook() : scorebook(cw_scorebook_create()) { }
 
 Scorebook::~Scorebook() {
-    if (scorebook) {
+    if (scorebook != nullptr) {
         cw_scorebook_cleanup(scorebook);
         free(scorebook);
     }
@@ -21,7 +20,7 @@ Scorebook::Scorebook(Scorebook&& other) noexcept : scorebook(other.scorebook) { 
 
 auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
     if (this != &other) {
-        if (scorebook) {
+        if (scorebook != nullptr) {
             cw_scorebook_cleanup(scorebook);
             free(scorebook);
         }
@@ -32,13 +31,13 @@ auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
 }
 
 void Scorebook::AddGame(Game&& game) {
-    if (game.game) {
+    if (game.game != nullptr) {
         // Transfer ownership of CWGame to the scorebook
         cw_scorebook_append_game(scorebook, game.game);
         game.game = nullptr;
 
         // Clean up the iterator, as Scorebook only manages CWGame
-        if (game.iter) {
+        if (game.iter != nullptr) {
             cw_gameiter_cleanup(game.iter);
             free(game.iter);
             game.iter = nullptr;
@@ -46,19 +45,19 @@ void Scorebook::AddGame(Game&& game) {
     }
 }
 
-int Scorebook::Read(const std::filesystem::path& path) {
+auto Scorebook::Read(const std::filesystem::path& path) const -> int {
     FILE* file = fopen(path.string().c_str(), "r");
-    if (!file) {
+    if (file == nullptr) {
         return -1;
     }
-    int gamesRead = cw_scorebook_read(scorebook, file);
+    int const gamesRead = cw_scorebook_read(scorebook, file);
     fclose(file);
     return gamesRead;
 }
 
-bool Scorebook::Write(const std::filesystem::path& path) {
+auto Scorebook::Write(const std::filesystem::path& path) const -> bool {
     FILE* file = fopen(path.string().c_str(), "w");
-    if (!file) {
+    if (file == nullptr) {
         return false;
     }
     cw_scorebook_write(scorebook, file);

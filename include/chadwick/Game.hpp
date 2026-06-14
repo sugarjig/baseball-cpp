@@ -29,7 +29,7 @@ public:
     Game(Game&& other) noexcept;
     auto operator=(Game&& other) noexcept -> Game&;
 
-    auto Write(const std::filesystem::path& path) -> bool;
+    auto Write(const std::filesystem::path& path) const -> bool;
 
     void UpdateState() override;
     void AddEvent(const PlayInfo& play) override;

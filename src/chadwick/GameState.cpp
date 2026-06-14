@@ -18,14 +18,14 @@ auto GameState::operator=(GameState&& other) noexcept -> GameState& {
     return *this;
 }
 
-auto GameState::GetInning() const -> int { return state ? state->inning : 1; }
+auto GameState::GetInning() const -> int { return (state != nullptr) ? state->inning : 1; }
 
-auto GameState::GetBattingTeam() const -> int { return state ? state->batting_team : 0; }
+auto GameState::GetBattingTeam() const -> int { return (state != nullptr) ? state->batting_team : 0; }
 
-auto GameState::GetOuts() const -> int { return state ? state->outs : 0; }
+auto GameState::GetOuts() const -> int { return (state != nullptr) ? state->outs : 0; }
 
 auto GameState::GetScore(int team) const -> int {
-    if (state && team >= 0 && team < 2) {
+    if ((state != nullptr) && team >= 0 && team < 2) {
         return state->score[team];
     }
     return 0;

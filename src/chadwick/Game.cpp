@@ -1,7 +1,5 @@
 #include "chadwick/Game.hpp"
 #include <cstdio>
-#include <cstdlib>
-#include <cstring>
 
 extern "C" {
 #include "chadwick.h"
@@ -12,28 +10,28 @@ namespace chadwick {
 Game::Game(std::string_view gameId, std::string_view version, const std::vector<InfoRecord>& infoRecords,
            const std::vector<StarterInfo>& starters) {
     game = cw_game_create(std::string(gameId).data());
-    if (game) {
+    if (game != nullptr) {
         cw_game_set_version(game, std::string(version).data());
         for (const auto& info : infoRecords) {
             cw_game_info_append(game, std::string(info.key).data(), std::string(info.value).data());
         }
         for (const auto& starter : starters) {
             cw_game_starter_append(game, std::string(starter.id).data(), std::string(starter.name).data(),
-                                   starter.isHome, starter.battingOrder, starter.position);
+                                   static_cast<int>(starter.isHome), starter.battingOrder, starter.position);
         }
         iter = cw_gameiter_create(game);
     } else {
         iter = nullptr;
     }
-    gameState.state = iter ? iter->state : nullptr;
+    gameState.state = (iter != nullptr) ? iter->state : nullptr;
 }
 
 Game::~Game() {
-    if (iter) {
+    if (iter != nullptr) {
         cw_gameiter_cleanup(iter);
         free(iter);
     }
-    if (game) {
+    if (game != nullptr) {
         cw_game_cleanup(game);
         free(game);
     }
@@ -53,13 +51,13 @@ Game::Game(Game&& other) noexcept
     other.pendingPitcherAdjustmentHand = ' ';
 }
 
-Game& Game::operator=(Game&& other) noexcept {
+auto Game::operator=(Game&& other) noexcept -> Game& {
     if (this != &other) {
-        if (iter) {
+        if (iter != nullptr) {
             cw_gameiter_cleanup(iter);
             free(iter);
         }
-        if (game) {
+        if (game != nullptr) {
             cw_game_cleanup(game);
             free(game);
         }
@@ -81,9 +79,9 @@ Game& Game::operator=(Game&& other) noexcept {
     return *this;
 }
 
-bool Game::Write(const std::filesystem::path& path) {
+auto Game::Write(const std::filesystem::path& path) const -> bool {
     FILE* file = fopen(path.string().c_str(), "w");
-    if (!file) {
+    if (file == nullptr) {
         return false;
     }
     cw_game_write(game, file);
@@ -92,10 +90,10 @@ bool Game::Write(const std::filesystem::path& path) {
 }
 
 void Game::UpdateState() {
-    if (iter) {
+    if (iter != nullptr) {
         cw_gameiter_reset(iter);
         while (iter->event != nullptr) {
-            CWEvent* currentEvent = iter->event;
+            CWEvent const* currentEvent = iter->event;
 
             // Save "suspended" comments that Chadwick's cw_gameiter_process_comments might mangle with strtok
             // May be able to remove in versions of Chadwick higher than 0.10.0
@@ -105,17 +103,17 @@ void Game::UpdateState() {
             };
             std::vector<SavedComment> saved;
 
-            for (CWComment* c = currentEvent->first_comment; c != nullptr; c = c->next) {
-                if (c->text && strncmp(c->text, "suspended,", 10) == 0) {
-                    saved.push_back({c, c->text});
+            for (CWComment* comment = currentEvent->first_comment; comment != nullptr; comment = comment->next) {
+                if (comment->text != nullptr && strncmp(comment->text, "suspended,", 10) == 0) {
+                    saved.push_back({.comment=comment, .originalText=comment->text});
                 }
             }
 
             cw_gameiter_next(iter);
 
             // Restore any mangled comments
-            for (auto& s : saved) {
-                strcpy(s.comment->text, s.originalText.c_str());
+            for (auto&[comment, originalText] : saved) {
+                strcpy(comment->text, originalText.c_str());
             }
         }
     }
@@ -126,7 +124,7 @@ void Game::AddEvent(const PlayInfo& play) {
                          std::string(play.pitchCount).data(), std::string(play.pitchSequence).data(),
                          std::string(play.text).data());
 
-    if (game->last_event) {
+    if (game->last_event != nullptr) {
         if (pendingAutoBase != 0) {
             game->last_event->auto_base = pendingAutoBase;
             game->last_event->auto_runner_id = static_cast<char*>(malloc(pendingAutoRunner.length() + 1));
@@ -165,12 +163,12 @@ void Game::AddComment(std::string_view comment) { cw_game_comment_append(game, s
 
 void Game::AddData(const DataRecord& data) {
     std::vector<std::string> copies(data.fields.begin(), data.fields.end());
-    std::vector<char*> c_fields;
-    c_fields.reserve(copies.size());
+    std::vector<char*> cFields;
+    cFields.reserve(copies.size());
     for (auto& field : copies) {
-        c_fields.push_back(field.data());
+        cFields.push_back(field.data());
     }
-    cw_game_data_append(game, static_cast<int>(c_fields.size()), c_fields.data());
+    cw_game_data_append(game, static_cast<int>(cFields.size()), cFields.data());
 }
 
 void Game::AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
@@ -188,6 +186,6 @@ void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
     pendingPitcherAdjustmentHand = padj.hand;
 }
 
-const IGameState& Game::GetGameState() const { return gameState; }
+auto Game::GetGameState() const -> const IGameState& { return gameState; }
 
 } // namespace chadwick

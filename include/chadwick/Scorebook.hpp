@@ -28,8 +28,8 @@ public:
      * @param path The path to the retrosheet file.
      * @return Number of games read, or -1 on error.
      */
-    auto Read(const std::filesystem::path& path) -> int;
-    auto Write(const std::filesystem::path& path) -> bool;
+    [[nodiscard]] auto Read(const std::filesystem::path& path) const -> int;
+    [[nodiscard]] auto Write(const std::filesystem::path& path) const -> bool;
 
 private:
     CWScorebook* scorebook;

@@ -2,16 +2,16 @@
 // Created by Samuel Jones on 5/12/26.
 //
 
+#include "Records.hpp"
 #include "Simulator.hpp"
 #include "EventSource.hpp"
 #include "IGame.hpp"
-#include "IGameState.hpp"
 #include "SimulatorObserver.hpp"
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)
     : eventSource(eventSource), observer(observer) {}
 
-void Simulator::SimulateGame(IGame& game) {
+void Simulator::SimulateGame(IGame& game) const {
     while (auto record = eventSource->Next()) {
         if (observer != nullptr) {
             observer->OnPreEvent(game.GetGameState());

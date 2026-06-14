@@ -23,7 +23,7 @@ public:
     Simulator(Simulator&&) = default;
     auto operator=(Simulator&&) -> Simulator& = default;
 
-    void SimulateGame(IGame& game);
+    void SimulateGame(IGame& game) const;
 };
 
 #endif // BASEBALL_CPP_SIMULATOR_HPP
