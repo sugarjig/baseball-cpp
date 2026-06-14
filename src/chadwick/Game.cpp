@@ -21,8 +21,8 @@ namespace chadwick {
 
 Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-parameters)
            const std::string_view version, const std::vector<InfoRecord>& infoRecords,
-           const std::vector<StarterInfo>& starters) {
-    game = cw_game_create(std::string(gameId).data());
+           const std::vector<StarterInfo>& starters)
+    : game(cw_game_create(std::string(gameId).data())) {
     if (game != nullptr) {
         cw_game_set_version(game, std::string(version).data());
         for (const auto& info : infoRecords) {
@@ -33,8 +33,6 @@ Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-pa
                                    static_cast<int>(starter.isHome), starter.battingOrder, starter.position);
         }
         iter = cw_gameiter_create(game);
-    } else {
-        iter = nullptr;
     }
     gameState.state = (iter != nullptr) ? iter->state : nullptr;
 }
