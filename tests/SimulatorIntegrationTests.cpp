@@ -11,9 +11,9 @@
 
 namespace fs = std::filesystem;
 
-static std::vector<std::string> GetFixtureFiles() {
+static auto GetFixtureFiles() -> std::vector<std::string> {
 #ifdef PROJECT_ROOT
-    fs::path fixturesDir = fs::path(PROJECT_ROOT) / "tests" / "fixtures";
+    fs::path const fixturesDir = fs::path(PROJECT_ROOT) / "tests" / "fixtures";
 #else
     fs::path fixturesDir = fs::path(".") / "tests" / "fixtures";
 #endif
@@ -26,23 +26,23 @@ static std::vector<std::string> GetFixtureFiles() {
     for (const auto& entry : fs::directory_iterator(fixturesDir)) {
         if (entry.is_regular_file()) {
             std::string ext = entry.path().extension().string();
-            std::transform(ext.begin(), ext.end(), ext.begin(), ::toupper);
+            std::ranges::transform(ext, ext.begin(), ::toupper);
 
             if (ext == ".EVA" || ext == ".EVN" || ext == ".EVE") {
                 files.push_back(entry.path().string());
             }
         }
     }
-    std::sort(files.begin(), files.end());
+    std::ranges::sort(files);
     return files;
 }
 
 // Simple CSV parser for Retrosheet records
-static std::vector<std::string> ParseCsvLine(const std::string& line) {
+static auto ParseCsvLine(const std::string& line) -> std::vector<std::string> {
     std::vector<std::string> fields;
     std::string currentField;
     bool inQuotes = false;
-    for (char c : line) {
+    for (char const c : line) {
         if (c == '"') {
             inQuotes = !inQuotes;
         } else if (c == ',' && !inQuotes) {
@@ -56,7 +56,7 @@ static std::vector<std::string> ParseCsvLine(const std::string& line) {
     return fields;
 }
 
-static std::vector<std::string> ReadFileLines(const std::string& path) {
+static auto ReadFileLines(const std::string& path) -> std::vector<std::string> {
     std::vector<std::string> lines;
     std::ifstream file(path);
     std::string line;
@@ -68,7 +68,7 @@ static std::vector<std::string> ReadFileLines(const std::string& path) {
 
 static void NormalizeRetrosheetFile(const std::string& inputPath, const std::string& outputPath) {
     chadwick::Scorebook scorebook;
-    int gamesRead = scorebook.Read(inputPath);
+    int const gamesRead = scorebook.Read(inputPath);
     ASSERT_GE(gamesRead, 0) << "Failed to read scorebook from " << inputPath;
     ASSERT_TRUE(scorebook.Write(outputPath)) << "Failed to write scorebook to " << outputPath;
 }
@@ -76,12 +76,12 @@ static void NormalizeRetrosheetFile(const std::string& inputPath, const std::str
 class SimulatorIntegrationTest : public testing::TestWithParam<std::string> {};
 
 TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
-    std::string inputPath = GetParam();
-    fs::path p(inputPath);
+    std::string const& inputPath = GetParam();
+    fs::path const p(inputPath);
 
-    fs::path tempDir = fs::temp_directory_path();
-    fs::path normalizedPath = tempDir / ("normalized_" + p.filename().string());
-    fs::path outputPath = tempDir / ("output_" + p.filename().string());
+    fs::path const tempDir = fs::temp_directory_path();
+    fs::path const normalizedPath = tempDir / ("normalized_" + p.filename().string());
+    fs::path const outputPath = tempDir / ("output_" + p.filename().string());
 
     ASSERT_NO_FATAL_FAILURE(NormalizeRetrosheetFile(inputPath, normalizedPath.string()));
 
@@ -98,7 +98,7 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
 
     chadwick::Scorebook scorebook;
 
-    auto processGame = [&]() {
+    auto processGame = [&]() -> void {
         if (gameId.empty()) {
             return;
         }
@@ -131,7 +131,7 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
         } else if (type == "version") {
             version = fields[1];
         } else if (type == "info") {
-            infoRecords.push_back({fields[1], fields[2]});
+            infoRecords.push_back({.key=fields[1], .value=fields[2]});
         } else if (type == "start") {
             StarterInfo starter;
             starter.id = fields[1];
@@ -168,12 +168,12 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             BatterAdjustmentInfo badj;
             badj.playerId = fields[1];
             badj.hand = fields[2][0];
-            events.push_back({RecordType::BatterAdjustment, badj});
+            events.push_back({.type=RecordType::BatterAdjustment, .data=badj});
         } else if (type == "padj") {
             PitcherAdjustmentInfo padj;
             padj.playerId = fields[1];
             padj.hand = fields[2][0];
-            events.push_back({RecordType::PitcherAdjustment, padj});
+            events.push_back({.type=RecordType::PitcherAdjustment, .data=padj});
         } else if (type == "data") {
             DataRecord data;
             data.fields = std::vector<std::string>(fields.begin() + 1, fields.end());
