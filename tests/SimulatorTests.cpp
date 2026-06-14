@@ -1,9 +1,11 @@
 #include "EventSource.hpp"
 #include "IGame.hpp"
 #include "IGameState.hpp"
+#include "Records.hpp"
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
 #include "chadwick/GameState.hpp"
+#include <optional>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
@@ -117,15 +119,14 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
-    chadwick::GameState dummyState;
-
-    std::string comment = "Test Comment";
+    constexpr std::string comment = "Test Comment";
 
     Record record;
     record.type = RecordType::Comment;
     record.data = comment;
 
     {
+        chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
