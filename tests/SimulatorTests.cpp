@@ -5,9 +5,9 @@
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
 #include "chadwick/GameState.hpp"
-#include <optional>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include <optional>
 
 using ::testing::_;
 using ::testing::InSequence;
@@ -119,7 +119,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
-    constexpr std::string comment = "Test Comment";
+    const std::string comment = "Test Comment";
 
     Record record;
     record.type = RecordType::Comment;
