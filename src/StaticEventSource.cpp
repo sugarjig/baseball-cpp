@@ -1,4 +1,5 @@
 #include "StaticEventSource.hpp"
+#include <optional>
 #include <utility>
 
 StaticEventSource::StaticEventSource(std::vector<Record> records) : records(std::move(records)), currentIndex(0) {}

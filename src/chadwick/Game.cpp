@@ -1,13 +1,16 @@
 #include "chadwick/Game.hpp"
+#include "Records.hpp"
 #include <cstdio>
 #include <cstring>
+#include <string_view>
+#include <utility>
 extern "C" {
 #include "chadwick.h"
 }
 
 namespace chadwick {
 
-Game::Game(std::string_view gameId, std::string_view version, const std::vector<InfoRecord>& infoRecords,
+Game::Game(const std::string_view gameId, const std::string_view version, const std::vector<InfoRecord>& infoRecords,
            const std::vector<StarterInfo>& starters) {
     game = cw_game_create(std::string(gameId).data());
     if (game != nullptr) {

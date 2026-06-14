@@ -5,7 +5,7 @@
 #include <filesystem>
 
 struct cw_scorebook_struct;
-using CWScorebook = struct cw_scorebook_struct;
+using CWScorebook = cw_scorebook_struct;
 
 namespace chadwick {
 
@@ -19,8 +19,8 @@ public:
     auto operator=(const Scorebook&) -> Scorebook& = delete;
 
     // Support move semantics
-    Scorebook(Scorebook&&) noexcept;
-    auto operator=(Scorebook&&) noexcept -> Scorebook&;
+    Scorebook(Scorebook&& other) noexcept;
+    auto operator=(Scorebook&& other) noexcept -> Scorebook&;
 
     void AddGame(Game&& game);
     /**

@@ -7,6 +7,7 @@
 #include "IGame.hpp"
 #include "Records.hpp"
 #include "SimulatorObserver.hpp"
+#include <string>
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)
     : eventSource(eventSource), observer(observer) {}

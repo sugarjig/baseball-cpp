@@ -1,3 +1,4 @@
+#include "EventSource.hpp"
 #include "Records.hpp"
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
@@ -6,6 +7,7 @@
 #include <filesystem>
 #include <iostream>
 #include <utility>
+#include <vector>
 
 auto main() -> int {
     std::cout << "Starting Chadwick example...\n";
@@ -683,7 +685,7 @@ auto main() -> int {
 
     StaticEventSource eventSource(std::move(records));
     SimulatorObserver observer;
-    Simulator simulator(&eventSource, &observer);
+    Simulator const simulator(&eventSource, &observer);
 
     std::vector<InfoRecord> const infoRecords = {{.key = "date", .value = "2025/03/31"},
                                                  {.key = "hometeam", .value = "BAL"},
