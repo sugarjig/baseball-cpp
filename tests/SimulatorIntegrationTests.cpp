@@ -11,7 +11,8 @@
 
 namespace fs = std::filesystem;
 
-static auto GetFixtureFiles() -> std::vector<std::string> {
+namespace {
+auto GetFixtureFiles() -> std::vector<std::string> {
 #ifdef PROJECT_ROOT
     fs::path const fixturesDir = fs::path(PROJECT_ROOT) / "tests" / "fixtures";
 #else
@@ -38,25 +39,25 @@ static auto GetFixtureFiles() -> std::vector<std::string> {
 }
 
 // Simple CSV parser for Retrosheet records
-static auto ParseCsvLine(const std::string& line) -> std::vector<std::string> {
+auto ParseCsvLine(const std::string& line) -> std::vector<std::string> {
     std::vector<std::string> fields;
     std::string currentField;
     bool inQuotes = false;
-    for (char const c : line) {
-        if (c == '"') {
+    for (char const character : line) {
+        if (character == '"') {
             inQuotes = !inQuotes;
-        } else if (c == ',' && !inQuotes) {
+        } else if (character == ',' && !inQuotes) {
             fields.push_back(currentField);
             currentField.clear();
         } else {
-            currentField += c;
+            currentField += character;
         }
     }
     fields.push_back(currentField);
     return fields;
 }
 
-static auto ReadFileLines(const std::string& path) -> std::vector<std::string> {
+auto ReadFileLines(const std::string& path) -> std::vector<std::string> {
     std::vector<std::string> lines;
     std::ifstream file(path);
     std::string line;
@@ -66,22 +67,23 @@ static auto ReadFileLines(const std::string& path) -> std::vector<std::string> {
     return lines;
 }
 
-static void NormalizeRetrosheetFile(const std::string& inputPath, const std::string& outputPath) {
-    chadwick::Scorebook scorebook;
+void NormalizeRetrosheetFile(const std::string& inputPath, const std::string& outputPath) {
+    chadwick::Scorebook const scorebook;
     int const gamesRead = scorebook.Read(inputPath);
     ASSERT_GE(gamesRead, 0) << "Failed to read scorebook from " << inputPath;
     ASSERT_TRUE(scorebook.Write(outputPath)) << "Failed to write scorebook to " << outputPath;
 }
 
 class SimulatorIntegrationTest : public testing::TestWithParam<std::string> {};
+} // namespace
 
 TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
     std::string const& inputPath = GetParam();
-    fs::path const p(inputPath);
+    fs::path const path(inputPath);
 
     fs::path const tempDir = fs::temp_directory_path();
-    fs::path const normalizedPath = tempDir / ("normalized_" + p.filename().string());
-    fs::path const outputPath = tempDir / ("output_" + p.filename().string());
+    fs::path const normalizedPath = tempDir / ("normalized_" + path.filename().string());
+    fs::path const outputPath = tempDir / ("output_" + path.filename().string());
 
     ASSERT_NO_FATAL_FAILURE(NormalizeRetrosheetFile(inputPath, normalizedPath.string()));
 
@@ -104,7 +106,7 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
         }
         chadwick::Game game(gameId, version, infoRecords, starters);
         StaticEventSource eventSource(events);
-        Simulator simulator(&eventSource);
+        Simulator const simulator(&eventSource);
         simulator.SimulateGame(game);
 
         for (const auto& data : dataRecords) {
@@ -119,60 +121,60 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
             continue;
         }
 
-        const std::string& type = fields[0];
+        const std::string& type = fields.at(0);
         if (type == "id") {
             processGame();
-            gameId = fields[1];
+            gameId = fields.at(1);
             version.clear();
             infoRecords.clear();
             starters.clear();
             events.clear();
             dataRecords.clear();
         } else if (type == "version") {
-            version = fields[1];
+            version = fields.at(1);
         } else if (type == "info") {
-            infoRecords.push_back({.key = fields[1], .value = fields[2]});
+            infoRecords.push_back({.key = fields.at(1), .value = fields.at(2)});
         } else if (type == "start") {
             StarterInfo starter;
-            starter.id = fields[1];
-            starter.name = fields[2];
-            starter.isHome = (fields[3] == "1");
-            starter.battingOrder = std::stoi(fields[4]);
-            starter.position = std::stoi(fields[5]);
+            starter.id = fields.at(1);
+            starter.name = fields.at(2);
+            starter.isHome = fields.at(3) == "1";
+            starter.battingOrder = std::stoi(fields.at(4));
+            starter.position = std::stoi(fields.at(5));
             starters.push_back(starter);
         } else if (type == "play") {
             PlayInfo play;
-            play.inning = std::stoi(fields[1]);
-            play.team = std::stoi(fields[2]);
-            play.batter = fields[3];
-            play.pitchCount = fields[4];
-            play.pitchSequence = fields[5];
-            play.text = fields[6];
-            events.push_back({RecordType::Play, play});
+            play.inning = std::stoi(fields.at(1));
+            play.team = std::stoi(fields.at(2));
+            play.batter = fields.at(3);
+            play.pitchCount = fields.at(4);
+            play.pitchSequence = fields.at(5);
+            play.text = fields.at(6);
+            events.push_back({.type = RecordType::Play, .data = play});
         } else if (type == "sub") {
             SubstitutionInfo sub;
-            sub.playerId = fields[1];
-            sub.name = fields[2];
-            sub.team = std::stoi(fields[3]);
-            sub.slot = std::stoi(fields[4]);
-            sub.pos = std::stoi(fields[5]);
-            events.push_back({RecordType::Substitution, sub});
+            sub.playerId = fields.at(1);
+            sub.name = fields.at(2);
+            sub.team = std::stoi(fields.at(3));
+            sub.slot = std::stoi(fields.at(4));
+            sub.pos = std::stoi(fields.at(5));
+            events.push_back({.type = RecordType::Substitution, .data = sub});
         } else if (type == "com") {
-            events.push_back({RecordType::Comment, fields[1]});
+            events.push_back({.type = RecordType::Comment, .data = fields.at(1)});
         } else if (type == "radj") {
             RunnerAdjustmentInfo radj;
-            radj.playerId = fields[1];
-            radj.base = std::stoi(fields[2]);
-            events.push_back({RecordType::RunnerAdjustment, radj});
+            radj.playerId = fields.at(1);
+            radj.base = std::stoi(fields.at(2));
+            events.push_back({.type = RecordType::RunnerAdjustment, .data = radj});
         } else if (type == "badj") {
             BatterAdjustmentInfo badj;
-            badj.playerId = fields[1];
-            badj.hand = fields[2][0];
+            badj.playerId = fields.at(1);
+            badj.hand = fields.at(2).at(0);
             events.push_back({.type = RecordType::BatterAdjustment, .data = badj});
         } else if (type == "padj") {
             PitcherAdjustmentInfo padj;
-            padj.playerId = fields[1];
-            padj.hand = fields[2][0];
+            padj.playerId = fields.at(1);
+            padj.hand = fields.at(2).at(0);
             events.push_back({.type = RecordType::PitcherAdjustment, .data = padj});
         } else if (type == "data") {
             DataRecord data;

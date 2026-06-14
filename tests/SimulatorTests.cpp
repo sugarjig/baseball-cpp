@@ -3,16 +3,15 @@
 #include "IGameState.hpp"
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
-#include "chadwick/Game.hpp"
 #include "chadwick/GameState.hpp"
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 using ::testing::_;
-using ::testing::Exactly;
 using ::testing::InSequence;
 using ::testing::Return;
 
+namespace {
 class MockEventSource : public EventSource {
 public:
     MOCK_METHOD(std::optional<Record>, Next, (), (override));
@@ -42,12 +41,13 @@ public:
     MOCK_METHOD(void, UpdateState, (), (override));
     MOCK_METHOD(const IGameState&, GetGameState, (), (const, override));
 };
+} // namespace
 
 TEST(SimulatorTest, ProcessesPlayEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
-    Simulator simulator(&mockSource, &mockObserver);
+    Simulator const simulator(&mockSource, &mockObserver);
 
     chadwick::GameState dummyState;
 
@@ -81,7 +81,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
-    Simulator simulator(&mockSource, &mockObserver);
+    Simulator const simulator(&mockSource, &mockObserver);
 
     chadwick::GameState dummyState;
 
@@ -115,7 +115,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
-    Simulator simulator(&mockSource, &mockObserver);
+    Simulator const simulator(&mockSource, &mockObserver);
 
     chadwick::GameState dummyState;
 
@@ -145,7 +145,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
-    Simulator simulator(&mockSource, &mockObserver);
+    Simulator const simulator(&mockSource, &mockObserver);
 
     chadwick::GameState dummyState;
 
@@ -177,7 +177,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
-    Simulator simulator(&mockSource, &mockObserver);
+    Simulator const simulator(&mockSource, &mockObserver);
 
     chadwick::GameState dummyState;
 
@@ -209,7 +209,7 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
     MockGame mockGame;
-    Simulator simulator(&mockSource, &mockObserver);
+    Simulator const simulator(&mockSource, &mockObserver);
 
     chadwick::GameState dummyState;
 

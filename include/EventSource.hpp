@@ -8,7 +8,7 @@
 #include <vector>
 
 struct Record {
-    RecordType type;
+    RecordType type = RecordType::Play;
     std::variant<PlayInfo, SubstitutionInfo, std::string, StarterInfo, RunnerAdjustmentInfo, BatterAdjustmentInfo,
                  PitcherAdjustmentInfo>
         data;

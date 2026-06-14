@@ -25,8 +25,8 @@ struct DataRecord {
 };
 
 struct PlayInfo {
-    int inning;
-    int team;
+    int inning = 0;
+    int team = 0;
     std::string batter;
     std::string pitchCount;
     std::string pitchSequence;
@@ -36,32 +36,32 @@ struct PlayInfo {
 struct SubstitutionInfo {
     std::string playerId;
     std::string name;
-    int team;
-    int slot;
-    int pos;
+    int team = 0;
+    int slot = 0;
+    int pos = 0;
 };
 
 struct StarterInfo {
     std::string id;
     std::string name;
-    bool isHome;
-    int battingOrder;
-    int position;
+    bool isHome = false;
+    int battingOrder = 0;
+    int position = 0;
 };
 
 struct RunnerAdjustmentInfo {
     std::string playerId;
-    int base;
+    int base = 0;
 };
 
 struct BatterAdjustmentInfo {
     std::string playerId;
-    char hand;
+    char hand = '\0';
 };
 
 struct PitcherAdjustmentInfo {
     std::string playerId;
-    char hand;
+    char hand = '\0';
 };
 
 #endif // BASEBALL_CPP_RECORDS_HPP
