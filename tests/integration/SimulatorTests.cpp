@@ -18,9 +18,9 @@ namespace fs = std::filesystem;
 namespace {
 auto GetFixtureFiles() -> std::vector<std::string> {
 #ifdef PROJECT_ROOT
-    fs::path const fixturesDir = fs::path(PROJECT_ROOT) / "tests" / "fixtures";
+    fs::path const fixturesDir = fs::path(PROJECT_ROOT) / "tests" / "integration" / "fixtures";
 #else
-    fs::path fixturesDir = fs::path(".") / "tests" / "fixtures";
+    fs::path fixturesDir = fs::path(".") / "tests" / "integration" / "fixtures";
 #endif
     std::vector<std::string> files;
 
@@ -78,10 +78,10 @@ void NormalizeRetrosheetFile(const std::string& inputPath, const std::string& ou
     ASSERT_TRUE(scorebook.Write(outputPath)) << "Failed to write scorebook to " << outputPath;
 }
 
-class SimulatorIntegrationTest : public testing::TestWithParam<std::string> {};
+class SimulatorTest : public testing::TestWithParam<std::string> {};
 } // namespace
 
-TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
+TEST_P(SimulatorTest, FullGameSimulation) {
     std::string const& inputPath = GetParam();
     fs::path const path(inputPath);
 
@@ -205,4 +205,4 @@ TEST_P(SimulatorIntegrationTest, FullGameSimulation) {
     fs::remove(outputPath);
 }
 
-INSTANTIATE_TEST_SUITE_P(FixtureTests, SimulatorIntegrationTest, testing::ValuesIn(GetFixtureFiles()));
+INSTANTIATE_TEST_SUITE_P(FixtureTests, SimulatorTest, testing::ValuesIn(GetFixtureFiles()));

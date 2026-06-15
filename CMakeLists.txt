@@ -45,17 +45,4 @@ target_link_libraries(normalize_retrosheet PRIVATE baseball_lib)
 
 enable_testing()
 
-add_executable(baseball_tests
-        tests/SimulatorTests.cpp
-        tests/SimulatorIntegrationTests.cpp
-)
-target_compile_definitions(baseball_tests PRIVATE PROJECT_ROOT="${CMAKE_CURRENT_SOURCE_DIR}")
-target_link_libraries(baseball_tests
-    PRIVATE
-    baseball_lib
-    GTest::gtest_main
-    GTest::gmock
-)
-
-include(GoogleTest)
-gtest_discover_tests(baseball_tests)
+add_subdirectory(tests)

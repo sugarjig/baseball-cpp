@@ -59,9 +59,9 @@ jobs:
             -DCMAKE_C_COMPILER=clang-22 \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build tests
-        run: cmake --build build --target baseball_tests
+        run: cmake --build build --target baseball_unit_tests
       - name: Run Unit Tests
-        run: ./build/baseball_tests --gtest_filter="SimulatorTest.*"
+        run: ctest --test-dir build -L unit --output-on-failure
 
   integration-tests:
     name: Integration Tests
@@ -75,6 +75,6 @@ jobs:
             -DCMAKE_C_COMPILER=clang-22 \
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake
       - name: Build tests
-        run: cmake --build build --target baseball_tests
+        run: cmake --build build --target baseball_integration_tests
       - name: Run Integration Tests
-        run: ./build/baseball_tests --gtest_filter="SimulatorIntegrationTest.*"
+        run: ctest --test-dir build -L integration --output-on-failure
