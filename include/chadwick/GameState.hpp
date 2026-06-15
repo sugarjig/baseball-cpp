@@ -1,7 +1,8 @@
 #ifndef BASEBALL_CPP_GAMESTATE_HPP
 #define BASEBALL_CPP_GAMESTATE_HPP
 
-#include "../IGameState.hpp"
+#include "IGameState.hpp"
+#include <string>
 
 struct cw_game_state; // NOLINT(readability-identifier-naming)
 using CWGameState = cw_game_state;
@@ -36,6 +37,8 @@ public:
     auto operator=(GameState&& other) noexcept -> GameState&;
 
     /// @inheritdoc
+    [[nodiscard]] auto GetNextBatter(int team) const -> std::string override;
+    /// @inheritdoc
     [[nodiscard]] auto GetInning() const -> int override;
     /// @inheritdoc
     [[nodiscard]] auto GetBattingTeam() const -> int override;
@@ -48,6 +51,7 @@ private:
     friend class Game;
     explicit GameState(CWGameState* state);
     CWGameState* state;
+    static constexpr int numInningsInGame = 9;
 };
 
 } // namespace chadwick

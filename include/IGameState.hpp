@@ -1,6 +1,8 @@
 #ifndef BASEBALL_CPP_IGAMESTATE_HPP
 #define BASEBALL_CPP_IGAMESTATE_HPP
 
+#include <string>
+
 /**
  * @brief Interface for the current state of a baseball game.
  */
@@ -12,6 +14,13 @@ public:
     auto operator=(const IGameState&) -> IGameState& = delete;
     IGameState(IGameState&&) = default;
     auto operator=(IGameState&&) -> IGameState& = default;
+
+    /**
+     * @brief Gets the ID of the next batter for a specific team.
+     * @param team The team (0 for visitor, 1 for home).
+     * @return The player ID of the batter next up for that team.
+     */
+    [[nodiscard]] virtual auto GetNextBatter(int team) const -> std::string = 0;
 
     /**
      * @brief Gets the current inning.

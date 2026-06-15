@@ -1,6 +1,7 @@
 #include "chadwick/GameState.hpp"
 // ReSharper disable once CppUnusedIncludeDirective
 #include <cstdio> // NOLINT(misc-include-cleaner)
+#include <string>
 extern "C" {
 // clang-format off
 // ReSharper disable once CppUnusedIncludeDirective
@@ -21,6 +22,18 @@ auto GameState::operator=(GameState&& other) noexcept -> GameState& {
         other.state = nullptr;
     }
     return *this;
+}
+
+auto GameState::GetNextBatter(int const team) const -> std::string {
+    if (state != nullptr && team >= 0 && team < 2) {
+        int const slot = state->next_batter[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
+        if (slot >= 1 && slot <= numInningsInGame) {
+            char const* playerId =
+                state->lineups[slot][team].player_id; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
+            return (playerId != nullptr) ? playerId : "";
+        }
+    }
+    return "";
 }
 
 auto GameState::GetInning() const -> int { return (state != nullptr) ? state->inning : 1; }

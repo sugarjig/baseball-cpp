@@ -2,6 +2,7 @@
 #define BASEBALL_CPP_STATICEVENTSOURCE_HPP
 
 #include "EventSource.hpp"
+#include "IGameState.hpp"
 #include <cstdlib>
 #include <optional>
 #include <vector>
@@ -29,7 +30,7 @@ public:
     auto operator=(StaticEventSource&&) noexcept -> StaticEventSource& = default;
 
     /// @inheritdoc
-    auto Next() -> std::optional<Record> override;
+    auto Next(const IGameState& state) -> std::optional<Record> override;
 
 private:
     std::vector<Record> records;
