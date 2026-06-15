@@ -28,7 +28,7 @@ auto GetFixtureFiles() -> std::vector<std::string> {
         return files;
     }
 
-    for (const auto& entry : fs::directory_iterator(fixturesDir)) {
+    for (const auto& entry : fs::recursive_directory_iterator(fixturesDir)) {
         if (entry.is_regular_file()) {
             std::string ext = entry.path().extension().string();
             std::ranges::transform(ext, ext.begin(), toupper);
@@ -48,16 +48,24 @@ auto ParseCsvLine(const std::string& line) -> std::vector<std::string> {
     std::string currentField;
     bool inQuotes = false;
     for (char const character : line) {
-        if (character == '"') {
-            inQuotes = !inQuotes;
-        } else if (character == ',' && !inQuotes) {
+        if (character == ',' && !inQuotes) {
             fields.push_back(currentField);
             currentField.clear();
+        } else if (character == '"') {
+            inQuotes = !inQuotes;
+            currentField += character;
         } else {
             currentField += character;
         }
     }
     fields.push_back(currentField);
+
+    for (auto& field : fields) {
+        if (field.size() >= 2 && field.front() == '"' && field.back() == '"') {
+            field = field.substr(1, field.size() - 2);
+        }
+    }
+
     return fields;
 }
 
