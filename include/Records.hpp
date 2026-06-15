@@ -37,12 +37,12 @@ struct DataRecord {
  * @brief Represents a 'play' record, describing an action on the field.
  */
 struct PlayInfo {
-    int inning = 0;             ///< The inning number.
-    int team = 0;               ///< The team (0 for visitor, 1 for home).
-    std::string batter;         ///< The player ID of the batter.
-    std::string pitchCount;     ///< The ball/strike count at the time of the play.
-    std::string pitchSequence;  ///< The sequence of pitches in the plate appearance.
-    std::string text;           ///< The Retrosheet play description.
+    int inning = 0;            ///< The inning number.
+    int team = 0;              ///< The team (0 for visitor, 1 for home).
+    std::string batter;        ///< The player ID of the batter.
+    std::string pitchCount;    ///< The ball/strike count at the time of the play.
+    std::string pitchSequence; ///< The sequence of pitches in the plate appearance.
+    std::string text;          ///< The Retrosheet play description.
 };
 
 /**
