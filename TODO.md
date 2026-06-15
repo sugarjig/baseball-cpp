@@ -15,7 +15,6 @@
 
 ## Testing
 - [ ] More unit test coverage
-- [ ] Separate unit tests from integration tests
 
 ## Tooling
 - [ ] Structured logging

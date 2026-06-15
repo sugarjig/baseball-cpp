@@ -53,7 +53,7 @@ The project wraps the Chadwick C library. Key integration points:
 ### Writing Tests
 - Use GoogleTest.
 - Unit tests for logic should use mocks for `EventSource`, `IGame`, or `SimulatorObserver` where appropriate.
-- See `tests/SimulatorTests.cpp` for unit tests and `tests/SimulatorIntegrationTests.cpp` for end-to-end integration tests.
+- See `tests/unit/SimulatorTests.cpp` for unit tests and `tests/integration/SimulatorTests.cpp` for end-to-end integration tests.
 
 ### Project Tools
 - **`normalize_retrosheet`**: A utility tool that reads a Retrosheet file into a `Scorebook` and writes it back out, effectively normalizing the data using Chadwick's internal logic. Useful for verifying that wrappers correctly handle all records in a file.
