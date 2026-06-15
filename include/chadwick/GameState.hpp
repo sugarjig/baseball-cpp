@@ -46,10 +46,17 @@ public:
     [[nodiscard]] auto GetOuts() const -> int override;
     /// @inheritdoc
     [[nodiscard]] auto GetScore(int team) const -> int override;
+    /// @inheritdoc
+    [[nodiscard]] auto KeepPlaying() const -> bool override;
+
+    /**
+     * @brief Constructs a GameState wrapping a Chadwick cw_game_state.
+     * @param state The Chadwick cw_game_state to wrap.
+     */
+    explicit GameState(CWGameState* state);
 
 private:
     friend class Game;
-    explicit GameState(CWGameState* state);
     CWGameState* state;
     static constexpr int numInningsInGame = 9;
 };

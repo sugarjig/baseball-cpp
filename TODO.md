@@ -3,7 +3,6 @@
 ## Simulator
 - [ ] Determine probability of state transitions instead of outcomes (S, D, T, HR, etc.)
 - [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
-- [ ] Move "keep playing" logic from RandomEventSource to GameState (include unit tests)
 
 ## Code Quality
 - [ ] Ask Junie for a code review

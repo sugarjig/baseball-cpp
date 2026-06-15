@@ -49,4 +49,35 @@ auto GameState::GetScore(const int team) const -> int {
     return 0;
 }
 
+auto GameState::KeepPlaying() const -> bool {
+    int inning = GetInning();
+    int team = GetBattingTeam();
+
+    // Check if half-inning is over
+    if (GetOuts() >= 3) {
+        if (team == 0) {
+            team = 1;
+        } else {
+            team = 0;
+            inning++;
+        }
+    }
+
+    int const visitorScore = GetScore(0);
+    int const homeScore = GetScore(1);
+
+    // If it's the bottom of the 9th inning or later, and the home team is ahead, the game is over.
+    if (inning >= numInningsInGame && team == 1 && homeScore > visitorScore) {
+        return false;
+    }
+
+    // If it's the end of the 9th or later (about to start top of next inning), and there is not a tie, the game is
+    // over.
+    if (inning > numInningsInGame && team == 0 && visitorScore != homeScore) {
+        return false;
+    }
+
+    return true;
+}
+
 } // namespace chadwick
