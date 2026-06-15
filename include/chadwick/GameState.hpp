@@ -8,8 +8,14 @@ using CWGameState = cw_game_state;
 
 namespace chadwick {
 
+/**
+ * @brief Implementation of IGameState backed by Chadwick's cw_game_state.
+ */
 class GameState : public IGameState {
 public:
+    /**
+     * @brief Constructs an empty GameState.
+     */
     GameState() : state(nullptr) {}
     ~GameState() override = default;
 
@@ -17,13 +23,25 @@ public:
     GameState(const GameState&) = delete;
     auto operator=(const GameState&) -> GameState& = delete;
 
-    // Support move semantics
+    /**
+     * @brief Move constructor for GameState.
+     * @param other The GameState to move from.
+     */
     GameState(GameState&& other) noexcept;
+    /**
+     * @brief Move assignment operator for GameState.
+     * @param other The GameState to move from.
+     * @return A reference to this GameState.
+     */
     auto operator=(GameState&& other) noexcept -> GameState&;
 
+    /// @inheritdoc
     [[nodiscard]] auto GetInning() const -> int override;
+    /// @inheritdoc
     [[nodiscard]] auto GetBattingTeam() const -> int override;
+    /// @inheritdoc
     [[nodiscard]] auto GetOuts() const -> int override;
+    /// @inheritdoc
     [[nodiscard]] auto GetScore(int team) const -> int override;
 
 private:

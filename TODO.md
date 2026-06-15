@@ -3,12 +3,12 @@
 ## Simulator
 - [ ] Add a random event source
 - [ ] Determine probability of state transitions instead of outcomes (S, D, T, HR, etc.)
+- [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
 
 ## Code Quality
 - [ ] Ask Junie for a code review
 - [ ] Add a README
 - [ ] Audit C++ usage for possible 26 improvements
-- [ ] Documentation strings
 - [ ] Use -Wall -Werror flags (and possibly -Wextra and -Wpedantic)
 - [ ] Automatically format code with clang-format before committing
 - [ ] Audit AGENTS.md
