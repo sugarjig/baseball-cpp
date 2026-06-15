@@ -18,7 +18,8 @@ using ::testing::Return;
 namespace {
 class MockEventSource : public EventSource {
 public:
-    MOCK_METHOD(std::optional<Record>, Next, (), (override)); // NOLINT(modernize-use-trailing-return-type)
+    MOCK_METHOD(std::optional<Record>, Next, (const IGameState& state), // NOLINT(modernize-use-trailing-return-type)
+                (override));
 };
 
 class MockSimulatorObserver : public SimulatorObserver {
@@ -66,7 +67,8 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     {
         chadwick::GameState dummyState;
         InSequence seq;
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
@@ -74,7 +76,8 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
         EXPECT_CALL(mockGame, UpdateState()).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(std::nullopt));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(std::nullopt));
     }
 
     simulator.SimulateGame(mockGame);
@@ -99,7 +102,8 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     {
         chadwick::GameState dummyState;
         InSequence seq;
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockGame, AddSubstitution(_)).Times(1);
@@ -107,7 +111,8 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
         EXPECT_CALL(mockGame, UpdateState()).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(std::nullopt));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(std::nullopt));
     }
 
     simulator.SimulateGame(mockGame);
@@ -128,7 +133,8 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     {
         chadwick::GameState dummyState;
         InSequence seq;
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockGame, AddComment(_)).Times(1);
@@ -136,7 +142,8 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
         EXPECT_CALL(mockGame, UpdateState()).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(std::nullopt));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(std::nullopt));
     }
 
     simulator.SimulateGame(mockGame);
@@ -159,7 +166,8 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     {
         chadwick::GameState dummyState;
         InSequence seq;
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockGame, AddRunnerAdjustment(_)).Times(1);
@@ -167,7 +175,8 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
         EXPECT_CALL(mockGame, UpdateState()).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(std::nullopt));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(std::nullopt));
     }
 
     simulator.SimulateGame(mockGame);
@@ -190,7 +199,8 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     {
         chadwick::GameState dummyState;
         InSequence seq;
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockGame, AddBatterAdjustment(_)).Times(1);
@@ -198,7 +208,8 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
         EXPECT_CALL(mockGame, UpdateState()).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(std::nullopt));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(std::nullopt));
     }
 
     simulator.SimulateGame(mockGame);
@@ -221,7 +232,8 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     {
         chadwick::GameState dummyState;
         InSequence seq;
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(record));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockGame, AddPitcherAdjustment(_)).Times(1);
@@ -229,7 +241,8 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
         EXPECT_CALL(mockGame, UpdateState()).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
-        EXPECT_CALL(mockSource, Next()).WillOnce(Return(std::nullopt));
+        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(std::nullopt));
     }
 
     simulator.SimulateGame(mockGame);

@@ -13,7 +13,7 @@ Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)
     : eventSource(eventSource), observer(observer) {}
 
 void Simulator::SimulateGame(IGame& game) const {
-    while (auto record = eventSource->Next()) {
+    while (const auto record = eventSource->Next(game.GetGameState())) {
         if (observer != nullptr) {
             observer->OnPreEvent(game.GetGameState());
         }

@@ -1,6 +1,7 @@
 #ifndef BASEBALL_CPP_EVENTSOURCE_HPP
 #define BASEBALL_CPP_EVENTSOURCE_HPP
 
+#include "IGameState.hpp"
 #include "Records.hpp"
 #include <optional>
 #include <string>
@@ -33,9 +34,10 @@ public:
 
     /**
      * @brief Retrieves the next record from the event stream.
+     * @param state The current state of the game.
      * @return An optional containing the next record, or std::nullopt if the end of the stream is reached.
      */
-    virtual auto Next() -> std::optional<Record> = 0;
+    virtual auto Next(const IGameState& state) -> std::optional<Record> = 0;
 };
 
 #endif // BASEBALL_CPP_EVENTSOURCE_HPP
