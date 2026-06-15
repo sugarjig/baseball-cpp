@@ -46,6 +46,12 @@ public:
      * @return The current score for that team.
      */
     [[nodiscard]] virtual auto GetScore(int team) const -> int = 0;
+
+    /**
+     * @brief Checks if the game should continue.
+     * @return True if the game is still in progress, false if it has ended.
+     */
+    [[nodiscard]] virtual auto KeepPlaying() const -> bool = 0;
 };
 
 #endif // BASEBALL_CPP_IGAMESTATE_HPP

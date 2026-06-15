@@ -38,7 +38,6 @@ public:
 private:
     std::mt19937 rng;
     std::uniform_real_distribution<double> dist;
-    static constexpr int numInningsInGame = 9;
 };
 
 #endif // BASEBALL_CPP_RANDOMEVENTSOURCE_HPP
