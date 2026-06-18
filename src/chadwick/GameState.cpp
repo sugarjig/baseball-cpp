@@ -42,6 +42,10 @@ auto GameState::GetBattingTeam() const -> int { return (state != nullptr) ? stat
 
 auto GameState::GetOuts() const -> int { return (state != nullptr) ? state->outs : 0; }
 
+auto GameState::IsBaseOccupied(int const base) const -> bool {
+    return (state != nullptr) && (cw_gamestate_base_occupied(state, base) != 0);
+}
+
 auto GameState::GetScore(const int team) const -> int {
     if (state != nullptr && team >= 0 && team < 2) {
         return state->score[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)

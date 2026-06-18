@@ -45,6 +45,8 @@ public:
     /// @inheritdoc
     [[nodiscard]] auto GetOuts() const -> int override;
     /// @inheritdoc
+    [[nodiscard]] auto IsBaseOccupied(int base) const -> bool override;
+    /// @inheritdoc
     [[nodiscard]] auto GetScore(int team) const -> int override;
     /// @inheritdoc
     [[nodiscard]] auto KeepPlaying() const -> bool override;

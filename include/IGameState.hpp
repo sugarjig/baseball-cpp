@@ -41,6 +41,13 @@ public:
     [[nodiscard]] virtual auto GetOuts() const -> int = 0;
 
     /**
+     * @brief Checks if a specific base is occupied.
+     * @param base The base number (1, 2, or 3).
+     * @return True if the base is occupied, false otherwise.
+     */
+    [[nodiscard]] virtual auto IsBaseOccupied(int base) const -> bool = 0;
+
+    /**
      * @brief Gets the current score for a specific team.
      * @param team The team (0 for visitor, 1 for home).
      * @return The current score for that team.

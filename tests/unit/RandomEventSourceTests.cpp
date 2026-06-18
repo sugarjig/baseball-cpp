@@ -11,6 +11,7 @@ public:
     MOCK_METHOD(bool, KeepPlaying, (), (const, override));                  // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetInning, (), (const, override));                     // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetOuts, (), (const, override));                       // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(bool, IsBaseOccupied, (int base), (const, override));       // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetBattingTeam, (), (const, override));                // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(std::string, GetNextBatter, (int team), (const, override)); // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetScore, (int team), (const, override));              // NOLINT(*-use-trailing-return-type)
@@ -27,6 +28,7 @@ TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
     EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));
     EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(0));
+    EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
     EXPECT_CALL(state, GetNextBatter(testing::_)).WillRepeatedly(testing::Return("PLAYER1"));
 
     auto record1 = source.Next(state);
