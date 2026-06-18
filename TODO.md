@@ -16,7 +16,6 @@
 - [ ] Add a README
 - [ ] Audit C++ usage for possible 26 improvements
 - [ ] Use -Wall -Werror flags (and possibly -Wextra and -Wpedantic)
-- [ ] Automatically format code with clang-format before committing
 - [ ] Audit AGENTS.md
 
 ## Testing
