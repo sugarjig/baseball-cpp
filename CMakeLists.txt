@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 4.2)
 project(baseball_cpp)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 26)
 
 # Add local vcpkg_installed directory to search path if it exists

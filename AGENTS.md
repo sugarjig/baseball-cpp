@@ -41,6 +41,21 @@ The project wraps the Chadwick C library. Key integration points:
 - **RAII**: Always use destructors or smart pointers to manage C resources from Chadwick to prevent memory leaks.
 - **Interfaces**: Use abstract base classes (prefixed with `I`) for components that need decoupling or mocking (e.g., `IGame`, `EventSource`, `IGameState`).
 
+### Quality Gates
+To maintain code quality and consistency, all agents must run the following checks before submitting their work:
+- **`clang-format`**: Ensures code adheres to the project's formatting standards.
+- **`clang-tidy`**: Performs static analysis to catch potential bugs and enforce best practices.
+
+A utility script is provided to run both checks:
+```bash
+./scripts/run-quality-checks.sh
+```
+
+**Requirements**:
+1. Run `./scripts/run-quality-checks.sh` before every submission.
+2. Fix all issues reported by `clang-tidy`. The script will exit with a non-zero code if any issues (including warnings) are found.
+3. Ensure the project is configured with `CMAKE_EXPORT_COMPILE_COMMANDS=ON` (enabled by default in `CMakeLists.txt`) for `clang-tidy` to work correctly.
+
 ## Common Workflows
 
 ### Adding New Event Types
