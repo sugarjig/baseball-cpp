@@ -17,7 +17,7 @@ struct Record {
      */
     std::variant<PlayInfo, SubstitutionInfo, std::string, StarterInfo, RunnerAdjustmentInfo, BatterAdjustmentInfo,
                  PitcherAdjustmentInfo>
-        data{};
+        data;
 };
 
 /**
