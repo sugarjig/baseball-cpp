@@ -3,6 +3,7 @@
 #include "IGameState.hpp"
 #include "Records.hpp"
 #include <optional>
+#include <string>
 
 namespace {
 constexpr int runnerOn1st = 1;
@@ -41,7 +42,6 @@ void RandomEventSource::ApplyAdvancements(PlayInfo& play, int bases) {
     }
 }
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
     if (outcomes.empty() || !state.KeepPlaying()) {
         return std::nullopt;
@@ -73,11 +73,10 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
 
     // Branch based on 24 possible states (3 out counts * 8 base configurations)
     // This structure allows for easy specialization of each state in the future.
-    // NOLINTNEXTLINE(readability-function-cognitive-complexity)
-    switch (outs) {      // NOLINT(bugprone-branch-clone)
-    case 0:              // NOLINT(bugprone-branch-clone)
-        switch (bases) { // NOLINT(bugprone-branch-clone)
-        case 0:          // NOLINT(bugprone-branch-clone)
+    switch (outs) {
+    case 0:
+        switch (bases) {
+        case 0:
             play.text = GetOutcome(0);
             break; // 0 outs, bases empty
         case runnerOn1st:
@@ -106,9 +105,9 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
             break;
         }
         break;
-    case 1:                            // NOLINT(bugprone-branch-clone)
-        switch (bases) {               // NOLINT(bugprone-branch-clone)
-        case 0:                        // NOLINT(bugprone-branch-clone)
+    case 1:
+        switch (bases) {
+        case 0:
             play.text = GetOutcome(8); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn1st:
@@ -137,9 +136,9 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
             break;
         }
         break;
-    case 2:                             // NOLINT(bugprone-branch-clone)
-        switch (bases) {                // NOLINT(bugprone-branch-clone)
-        case 0:                         // NOLINT(bugprone-branch-clone)
+    case 2:
+        switch (bases) {
+        case 0:
             play.text = GetOutcome(16); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn1st:
