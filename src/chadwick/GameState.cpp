@@ -77,7 +77,7 @@ auto GameState::KeepPlaying() const -> bool {
 
     // If it's the end of the 9th or later (about to start top of next inning), and there is not a tie, the game is
     // over.
-    if (inning > numInningsInGame && team == 0 && visitorScore != homeScore) {
+    if (GetOuts() >= 3 && inning > numInningsInGame && team == 0 && visitorScore != homeScore) {
         return false;
     }
 

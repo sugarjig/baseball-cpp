@@ -4,6 +4,7 @@
 - [ ] Determine probability of state transitions instead of outcomes (S, D, T, HR, etc.)
 - [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
 - [ ] Move KeepPlaying out of Chadwick GameState
+- [ ] Add abstraction over Retrosheet records
 - [ ] Simulate pitch sequences
 - [ ] Add stolen bases
 - [ ] Add double plays
