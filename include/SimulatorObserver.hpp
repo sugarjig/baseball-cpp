@@ -27,7 +27,8 @@ public:
     virtual void OnPreEvent(const IGameState& state) {
         std::cout << "Before: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
                   << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
-                  << state.GetScore(1) << ")\n";
+                  << state.GetScore(1) << ", Bases=" << (state.IsBaseOccupied(1) ? "1" : "-")
+                  << (state.IsBaseOccupied(2) ? "2" : "-") << (state.IsBaseOccupied(3) ? "3" : "-") << ")\n";
     }
 
     /**
@@ -35,7 +36,11 @@ public:
      * @param event The play information.
      */
     virtual void OnEvent(const PlayInfo& event) {
-        std::cout << "Play: " << event.batter << " - " << event.text << "\n";
+        std::cout << "Play: " << event.batter << " - " << event.text;
+        if (auto dot = event.text.find('.'); dot != std::string::npos) {
+            std::cout << " [Adv: " << event.text.substr(dot + 1) << "]";
+        }
+        std::cout << "\n";
     }
 
     /**
@@ -83,7 +88,8 @@ public:
     virtual void OnPostEvent(const IGameState& state) {
         std::cout << "After: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
                   << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
-                  << state.GetScore(1) << ")\n\n";
+                  << state.GetScore(1) << ", Bases=" << (state.IsBaseOccupied(1) ? "1" : "-")
+                  << (state.IsBaseOccupied(2) ? "2" : "-") << (state.IsBaseOccupied(3) ? "3" : "-") << ")\n\n";
     }
 };
 
