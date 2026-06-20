@@ -14,12 +14,36 @@ constexpr int runnersOn2nd3rd = 6;
 constexpr int basesLoaded = 7;
 } // namespace
 
-RandomEventSource::RandomEventSource(const unsigned int seed)
-    : rng(static_cast<std::mt19937::result_type>(seed)), playDist({probabilityStrikeout, probabilityHomeRun}),
-      outcomes({"K", "HR"}) {}
+RandomEventSource::RandomEventSource(const unsigned int seed) : rng(static_cast<std::mt19937::result_type>(seed)) {}
 
+auto RandomEventSource::GetOutcome(int /*stateId*/) -> std::string { return outcomes.at(playDist(rng)); }
+
+void RandomEventSource::ApplyAdvancements(PlayInfo& play, int bases) {
+    if (play.text == "K") {
+        return;
+    }
+    std::string advancements;
+    bool const isSingle = (play.text == "S");
+
+    if ((bases & 1) != 0) {
+        advancements += (isSingle ? "1-2;" : "1-H;");
+    }
+    if ((bases & 2) != 0) {
+        advancements += "2-H;";
+    }
+    if ((bases & 4) != 0) {
+        advancements += "3-H;";
+    }
+
+    if (!advancements.empty()) {
+        advancements.pop_back(); // Remove trailing ';'
+        play.text += "." + advancements;
+    }
+}
+
+// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
-    if (!state.KeepPlaying()) {
+    if (outcomes.empty() || !state.KeepPlaying()) {
         return std::nullopt;
     }
 
@@ -47,107 +71,110 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
     int const bases =
         (state.IsBaseOccupied(1) ? 1 : 0) | (state.IsBaseOccupied(2) ? 2 : 0) | (state.IsBaseOccupied(3) ? 4 : 0);
 
-    auto getOutcome = [&](int /*stateId*/) -> std::string { return outcomes.at(playDist(rng)); };
-
     // Branch based on 24 possible states (3 out counts * 8 base configurations)
     // This structure allows for easy specialization of each state in the future.
-    switch (outs) {
-    case 0:
-        switch (bases) {
-        case 0:
-            play.text = getOutcome(0);
+    // NOLINTNEXTLINE(readability-function-cognitive-complexity)
+    switch (outs) {      // NOLINT(bugprone-branch-clone)
+    case 0:              // NOLINT(bugprone-branch-clone)
+        switch (bases) { // NOLINT(bugprone-branch-clone)
+        case 0:          // NOLINT(bugprone-branch-clone)
+            play.text = GetOutcome(0);
             break; // 0 outs, bases empty
         case runnerOn1st:
-            play.text = getOutcome(1);
+            play.text = GetOutcome(1);
             break;
         case runnerOn2nd:
-            play.text = getOutcome(2);
+            play.text = GetOutcome(2);
             break;
         case runnersOn1st2nd:
-            play.text = getOutcome(3);
+            play.text = GetOutcome(3);
             break;
         case runnerOn3rd:
-            play.text = getOutcome(4);
+            play.text = GetOutcome(4);
             break;
         case runnersOn1st3rd:
-            play.text = getOutcome(5); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(5); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnersOn2nd3rd:
-            play.text = getOutcome(6); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(6); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case basesLoaded:
-            play.text = getOutcome(7); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(7); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         default:
-            play.text = getOutcome(-1);
+            play.text = GetOutcome(-1);
             break;
         }
         break;
-    case 1:
-        switch (bases) {
-        case 0:
-            play.text = getOutcome(8); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+    case 1:                            // NOLINT(bugprone-branch-clone)
+        switch (bases) {               // NOLINT(bugprone-branch-clone)
+        case 0:                        // NOLINT(bugprone-branch-clone)
+            play.text = GetOutcome(8); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn1st:
-            play.text = getOutcome(9); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(9); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn2nd:
-            play.text = getOutcome(10); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(10); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnersOn1st2nd:
-            play.text = getOutcome(11); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(11); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn3rd:
-            play.text = getOutcome(12); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(12); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnersOn1st3rd:
-            play.text = getOutcome(13); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(13); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnersOn2nd3rd:
-            play.text = getOutcome(14); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(14); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case basesLoaded:
-            play.text = getOutcome(15); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(15); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         default:
-            play.text = getOutcome(-2);
+            play.text = GetOutcome(-2);
             break;
         }
         break;
-    case 2:
-        switch (bases) {
-        case 0:
-            play.text = getOutcome(16); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+    case 2:                             // NOLINT(bugprone-branch-clone)
+        switch (bases) {                // NOLINT(bugprone-branch-clone)
+        case 0:                         // NOLINT(bugprone-branch-clone)
+            play.text = GetOutcome(16); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn1st:
-            play.text = getOutcome(17); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(17); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn2nd:
-            play.text = getOutcome(18); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(18); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnersOn1st2nd:
-            play.text = getOutcome(19); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(19); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnerOn3rd:
-            play.text = getOutcome(20); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(20); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnersOn1st3rd:
-            play.text = getOutcome(21); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(21); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case runnersOn2nd3rd:
-            play.text = getOutcome(22); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(22); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         case basesLoaded:
-            play.text = getOutcome(23); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
+            play.text = GetOutcome(23); // NOLINT(readability-magic-numbers,cppcoreguidelines-avoid-magic-numbers)
             break;
         default:
-            play.text = getOutcome(-3);
+            play.text = GetOutcome(-3);
             break;
         }
         break;
     default:
-        play.text = getOutcome(-4);
+        play.text = GetOutcome(-4);
         break;
+    }
+
+    if (bases != 0) {
+        ApplyAdvancements(play, bases);
     }
 
     Record record;
