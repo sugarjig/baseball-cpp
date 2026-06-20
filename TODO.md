@@ -1,7 +1,8 @@
 # TODO
 
 ## Simulator
-- [ ] Determine probability of state transitions instead of outcomes (S, D, T, HR, etc.)
+- [ ] Fix the bug where the game ends on a walk off in the top of the 10th inning
+- [ ] Determine the probability of state transitions instead of outcomes (S, D, T, HR, etc.)
 - [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
 - [ ] Move KeepPlaying out of Chadwick GameState
 - [ ] Add abstraction over Retrosheet records
@@ -25,7 +26,7 @@
 ## Tooling
 - [ ] Structured logging
 - [ ] Use [diffing library](https://github.com/sisong/HDiffPatch) in integration test
-- [ ] Use [CSV parser](https://github.com/vincentlaucsb/csv-parser) in integration test
+- [ ] Use [CSV parser](https://github.com/vincentlaucsb/csv-parser) in an integration test
 - [ ] Use [run-vcpkg](https://github.com/lukka/run-vcpkg) in GitHub Actions to cache packages
   - [ ] Or use [handrolled solution](https://learn.microsoft.com/en-us/vcpkg/consume/binary-caching-github-packages?pivots=windows-runner)
 - [ ] Publish Chadwick to vcpkg
