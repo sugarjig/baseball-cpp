@@ -1,0 +1,622 @@
+Play,Type,Bnt,Fl,Loc,B,Count,Probability,New Outs,Runs
+Strikeout,-,-,-,-,Out,9821, 21.97%,1,0
+Walk,-,-,-,-,1st,3448,  7.71%,0,0
+Generic out,Grounder,-,-,6,Out,1617,  3.62%,1,0
+Generic out,Grounder,-,-,34,Out,1328,  2.97%,1,0
+Generic out,Grounder,-,-,56,Out,1110,  2.48%,1,0
+Generic out,Grounder,-,-,4,Out,1011,  2.26%,1,0
+Generic out,Grounder,-,-,3,Out,979,  2.19%,1,0
+Generic out,Fly,-,-,8XD,Out,609,  1.36%,1,0
+Generic out,Grounder,-,-,5,Out,486,  1.09%,1,0
+Single,Grounder,-,-,34,1st,459,  1.03%,0,0
+Hit by pitch,-,-,-,-,1st,451,  1.01%,0,0
+Single,Grounder,-,-,56,1st,444,  0.99%,0,0
+Generic out,Fly,-,-,9D,Out,402,  0.90%,1,0
+Generic out,Fly,-,-,8D,Out,387,  0.87%,1,0
+Generic out,Fly,-,-,7D,Out,375,  0.84%,1,0
+Generic out,Fly,-,-,89D,Out,366,  0.82%,1,0
+Single,Liner,-,-,8,1st,361,  0.81%,0,0
+Generic out,Grounder,-,-,6M,Out,355,  0.79%,1,0
+Single,Grounder,-,-,6M,1st,353,  0.79%,0,0
+Generic out,Fly,-,-,89XD,Out,345,  0.77%,1,0
+Single,Grounder,-,-,6,1st,342,  0.77%,0,0
+Generic out,Fly,-,-,78D,Out,332,  0.74%,1,0
+Generic out,Fly,-,-,78XD,Out,329,  0.74%,1,0
+Single,Grounder,-,-,4,1st,322,  0.72%,0,0
+Generic out,Liner,-,-,8D,Out,303,  0.68%,1,0
+Generic out,Fly,-,-,8,Out,299,  0.67%,1,0
+Single,Liner,-,-,89,1st,288,  0.64%,0,0
+Single,Liner,-,-,7,1st,281,  0.63%,0,0
+Generic out,Grounder,-,-,56S,Out,263,  0.59%,1,0
+Single,Liner,-,-,78,1st,254,  0.57%,0,0
+Home run,Fly,-,-,7D,Score,252,  0.56%,0,1
+Single,Liner,-,-,9,1st,246,  0.55%,0,0
+Single,Grounder,-,-,4M,1st,243,  0.54%,0,0
+Home run,Fly,-,-,9D,Score,235,  0.53%,0,1
+Home run,Fly,-,-,78XD,Score,232,  0.52%,0,1
+Generic out,Fly,-,-,78,Out,228,  0.51%,1,0
+Home run,Fly,-,-,89XD,Score,227,  0.51%,0,1
+Generic out,Liner,-,-,8XD,Out,226,  0.51%,1,0
+Generic out,Fly,-,-,7,Out,223,  0.50%,1,0
+Generic out,Grounder,-,-,4M,Out,222,  0.50%,1,0
+Generic out,Fly,-,-,89,Out,217,  0.49%,1,0
+Generic out,Fly,-,-,9,Out,212,  0.47%,1,0
+Generic out,Liner,-,-,9D,Out,203,  0.45%,1,0
+Generic out,Grounder,-,-,1S,Out,202,  0.45%,1,0
+Single,Liner,-,-,8D,1st,195,  0.44%,0,0
+Generic out,Pop-up,-,Y,2F,Out,195,  0.44%,1,0
+Generic out,Liner,-,-,7D,Out,194,  0.43%,1,0
+Generic out,Grounder,-,-,6S,Out,193,  0.43%,1,0
+Home run,Fly,-,-,9LD,Score,185,  0.41%,0,1
+Generic out,Pop-up,-,Y,3F,Out,183,  0.41%,1,0
+Single,Liner,-,-,89D,1st,179,  0.40%,0,0
+Generic out,Grounder,-,-,4D,Out,179,  0.40%,1,0
+Generic out,Liner,-,-,7,Out,178,  0.40%,1,0
+Double,Liner,-,-,7LD,2nd,175,  0.39%,0,0
+Double,Grounder,-,-,5,2nd,170,  0.38%,0,0
+Generic out,Liner,-,-,9,Out,167,  0.37%,1,0
+Generic out,Liner,-,-,89D,Out,162,  0.36%,1,0
+Generic out,Fly,-,-,7S,Out,161,  0.36%,1,0
+Generic out,Liner,-,-,78D,Out,161,  0.36%,1,0
+Generic out,Fly,-,-,8S,Out,159,  0.36%,1,0
+Single,Liner,-,-,78D,1st,158,  0.35%,0,0
+Double,Liner,-,-,89XD,2nd,156,  0.35%,0,0
+Generic out,Fly,-,-,7L,Out,155,  0.35%,1,0
+Generic out,Fly,-,-,9LD,Out,154,  0.34%,1,0
+Home run,Fly,-,-,7LD,Score,153,  0.34%,0,1
+Generic out,Fly,-,-,9S,Out,149,  0.33%,1,0
+Generic out,Fly,-,-,89S,Out,140,  0.31%,1,0
+Double,Liner,-,-,9LD,2nd,139,  0.31%,0,0
+Generic out,Fly,-,-,7LD,Out,136,  0.30%,1,0
+Single,Liner,-,-,7S,1st,135,  0.30%,0,0
+Home run,Fly,-,-,8XD,Score,134,  0.30%,0,1
+Generic out,Grounder,-,-,6D,Out,134,  0.30%,1,0
+Generic out,Grounder,-,-,1,Out,128,  0.29%,1,0
+Generic out,Fly,-,-,78S,Out,126,  0.28%,1,0
+Generic out,Fly,-,-,9L,Out,125,  0.28%,1,0
+Single,Liner,-,-,9S,1st,125,  0.28%,0,0
+Double,Liner,-,-,78XD,2nd,119,  0.27%,0,0
+Single,Grounder,-,-,5,1st,117,  0.26%,0,0
+Generic out,Grounder,-,-,2,Out,115,  0.26%,1,0
+Generic out,Pop-up,-,Y,5F,Out,113,  0.25%,1,0
+Generic out,Liner,-,-,8,Out,109,  0.24%,1,0
+Double,Liner,-,-,7L,2nd,109,  0.24%,0,0
+Generic out,Pop-up,-,-,6,Out,108,  0.24%,1,0
+Generic out,Grounder,-,-,4MS,Out,106,  0.24%,1,0
+Generic out,Fly,-,-,9LS,Out,105,  0.23%,1,0
+Generic out,Fly,-,-,7LS,Out,103,  0.23%,1,0
+Single,Grounder,-,-,3,1st,102,  0.23%,0,0
+Generic out,Liner,-,-,89,Out,100,  0.22%,1,0
+Generic out,Grounder,-,-,34S,Out,94,  0.21%,1,0
+Generic out,Pop-up,-,-,6D,Out,91,  0.20%,1,0
+Generic out,Grounder,-,-,6MS,Out,91,  0.20%,1,0
+Generic out,Pop-up,-,-,34,Out,90,  0.20%,1,0
+Double,Liner,-,-,9L,2nd,90,  0.20%,0,0
+Generic out,Grounder,-,-,13,Out,89,  0.20%,1,0
+Generic out,Pop-up,-,-,56D,Out,88,  0.20%,1,0
+Generic out,Pop-up,-,-,4,Out,88,  0.20%,1,0
+Generic out,Liner,-,-,56,Out,86,  0.19%,1,0
+Single,Liner,-,-,7L,1st,86,  0.19%,0,0
+Single,Liner,-,-,8S,1st,86,  0.19%,0,0
+Generic out,Pop-up,-,-,56,Out,85,  0.19%,1,0
+Generic out,Grounder,-,-,34D,Out,85,  0.19%,1,0
+Generic out,Pop-up,-,-,4D,Out,84,  0.19%,1,0
+Generic out,Pop-up,-,Y,3SF,Out,83,  0.19%,1,0
+Generic out,Pop-up,-,-,34D,Out,82,  0.18%,1,0
+Generic out,Liner,-,-,3,Out,81,  0.18%,1,0
+Generic out,Grounder,-,-,6MD,Out,78,  0.17%,1,0
+Generic out,Liner,-,-,6D,Out,77,  0.17%,1,0
+Single,Liner,-,-,78S,1st,76,  0.17%,0,0
+Single,Liner,-,-,89S,1st,76,  0.17%,0,0
+Generic out,Grounder,-,-,23,Out,74,  0.17%,1,0
+Generic out,Liner,-,-,4D,Out,73,  0.16%,1,0
+Generic out,Liner,-,-,78,Out,72,  0.16%,1,0
+Double,Fly,-,-,78XD,2nd,72,  0.16%,0,0
+Double,Fly,-,-,89XD,2nd,71,  0.16%,0,0
+Generic out,Grounder,-,-,4MD,Out,70,  0.16%,1,0
+Generic out,Liner,-,-,89XD,Out,70,  0.16%,1,0
+Single,Liner,-,-,7D,1st,69,  0.15%,0,0
+Single,Liner,-,-,9D,1st,69,  0.15%,0,0
+Generic out,Grounder,-,-,5S,Out,67,  0.15%,1,0
+Double,Liner,-,-,78D,2nd,66,  0.15%,0,0
+Generic out,Pop-up,-,-,3,Out,66,  0.15%,1,0
+Double,Grounder,-,-,3,2nd,65,  0.15%,0,0
+Single,Liner,-,-,9L,1st,65,  0.15%,0,0
+Double,Liner,-,-,89D,2nd,63,  0.14%,0,0
+Generic out,Grounder,-,-,3S,Out,61,  0.14%,1,0
+Single,Liner,-,-,9LS,1st,61,  0.14%,0,0
+Generic out,Liner,-,-,34,Out,60,  0.13%,1,0
+Generic out,Pop-up,-,Y,5SF,Out,60,  0.13%,1,0
+Double,Liner,-,-,7LS,2nd,59,  0.13%,0,0
+Generic out,Grounder,-,-,4S,Out,58,  0.13%,1,0
+Generic out,Pop-up,-,-,3D,Out,57,  0.13%,1,0
+Generic out,Liner,-,-,6,Out,57,  0.13%,1,0
+Generic out,Pop-up,-,Y,3DF,Out,55,  0.12%,1,0
+Generic out,Pop-up,-,-,5D,Out,54,  0.12%,1,0
+Generic out,Grounder,-,-,56D,Out,53,  0.12%,1,0
+Double,Liner,-,-,7D,2nd,53,  0.12%,0,0
+Generic out,Pop-up,-,-,6MD,Out,53,  0.12%,1,0
+Error,Grounder,-,-,6,1st,52,  0.12%,0,0
+Single,Grounder,-,-,56S,1st,52,  0.12%,0,0
+Double,Liner,-,-,8XD,2nd,52,  0.12%,0,0
+Error,Grounder,-,-,56,1st,50,  0.11%,0,0
+Generic out,Liner,-,-,78XD,Out,50,  0.11%,1,0
+Single,Grounder,-,-,25,1st,48,  0.11%,0,0
+Single,Grounder,-,-,5S,1st,48,  0.11%,0,0
+Generic out,Pop-up,-,-,4MD,Out,45,  0.10%,1,0
+Generic out,Liner,-,-,4MD,Out,44,  0.10%,1,0
+Generic out,Liner,-,-,5,Out,44,  0.10%,1,0
+Generic out,Liner,-,-,4,Out,43,  0.10%,1,0
+Single,Fly,-,-,8S,1st,43,  0.10%,0,0
+Generic out,Fly,-,-,34D,Out,43,  0.10%,1,0
+Double,Liner,-,-,9LS,2nd,41,  0.09%,0,0
+Generic out,Pop-up,-,-,5,Out,39,  0.09%,1,0
+Single,Grounder,-,-,6S,1st,38,  0.09%,0,0
+Single,Liner,-,-,7LS,1st,38,  0.09%,0,0
+Generic out,Grounder,-,-,3D,Out,38,  0.09%,1,0
+Double,Fly,-,-,7LD,2nd,36,  0.08%,0,0
+Single,Fly,-,-,9S,1st,35,  0.08%,0,0
+Double,Liner,-,-,9D,2nd,34,  0.08%,0,0
+Generic out,Liner,-,-,6MD,Out,34,  0.08%,1,0
+Single,Fly,-,-,89S,1st,34,  0.08%,0,0
+Generic out,Fly,-,-,6D,Out,34,  0.08%,1,0
+Generic out,Fly,-,-,56D,Out,34,  0.08%,1,0
+Generic out,Pop-up,-,Y,5DF,Out,34,  0.08%,1,0
+Double,Fly,-,-,9LD,2nd,33,  0.07%,0,0
+Double,Fly,-,-,7D,2nd,32,  0.07%,0,0
+Generic out,Liner,-,-,9L,Out,32,  0.07%,1,0
+Generic out,Pop-up,-,-,4S,Out,31,  0.07%,1,0
+Generic out,Pop-up,-,-,56S,Out,31,  0.07%,1,0
+Double,Fly,-,-,8XD,2nd,30,  0.07%,0,0
+Generic out,Liner,-,-,34D,Out,29,  0.06%,1,0
+Single,Liner,-,-,7LD,1st,29,  0.06%,0,0
+Generic out,Grounder,-,-,15,Out,29,  0.06%,1,0
+Generic out,Fly,-,Y,9LSF,Out,28,  0.06%,1,0
+Double,Fly,-,-,9D,2nd,28,  0.06%,0,0
+Generic out,Pop-up,-,-,34S,Out,28,  0.06%,1,0
+Single,Grounder,Y,-,25,1st,28,  0.06%,0,0
+Single,Grounder,-,-,2,1st,28,  0.06%,0,0
+Generic out,Pop-up,-,-,8S,Out,28,  0.06%,1,0
+Single,Fly,-,-,78S,1st,27,  0.06%,0,0
+Single,Fly,-,-,8,1st,27,  0.06%,0,0
+Single,Fly,-,-,9LS,1st,27,  0.06%,0,0
+Generic out,Liner,-,-,7L,Out,26,  0.06%,1,0
+Single,Liner,-,-,9LD,1st,26,  0.06%,0,0
+Error,Grounder,-,-,5,1st,26,  0.06%,0,0
+Generic out,Pop-up,-,-,3S,Out,26,  0.06%,1,0
+Generic out,Pop-up,-,-,6M,Out,26,  0.06%,1,0
+Generic out,Fly,-,-,4D,Out,25,  0.06%,1,0
+Home run,Liner,-,-,7D,Score,24,  0.05%,0,1
+Generic out,Liner,-,-,56D,Out,24,  0.05%,1,0
+Generic out,Fly,-,Y,7LSF,Out,24,  0.05%,1,0
+Single,Grounder,-,-,6MS,1st,24,  0.05%,0,0
+Single,Fly,-,-,89,1st,23,  0.05%,0,0
+Generic out,Pop-up,-,-,6S,Out,23,  0.05%,1,0
+Generic out,Pop-up,-,-,4M,Out,22,  0.05%,1,0
+Home run,Liner,-,-,89XD,Score,22,  0.05%,0,1
+Generic out,Liner,-,-,6M,Out,22,  0.05%,1,0
+Generic out,Pop-up,-,-,1S,Out,22,  0.05%,1,0
+Generic out,Grounder,-,-,5D,Out,22,  0.05%,1,0
+Error,Grounder,-,-,34,1st,22,  0.05%,0,0
+Generic out,Fly,-,Y,9LF,Out,21,  0.05%,1,0
+Generic out,Grounder,Y,-,2,Out,21,  0.05%,1,0
+Single,Fly,-,-,7S,1st,21,  0.05%,0,0
+Single,Grounder,-,-,1S,1st,21,  0.05%,0,0
+Generic out,Pop-up,-,-,6MS,Out,21,  0.05%,1,0
+Generic out,Pop-up,-,-,78S,Out,20,  0.04%,1,0
+Double,Liner,-,-,89,2nd,20,  0.04%,0,0
+Double,Liner,-,-,78,2nd,20,  0.04%,0,0
+Generic out,Pop-up,-,-,4MS,Out,20,  0.04%,1,0
+Strikeout,-,-,-,-,1st,20,  0.04%,0,0
+Single,Liner,-,-,56D,1st,19,  0.04%,0,0
+Generic out,Liner,-,-,4MS,Out,19,  0.04%,1,0
+Generic out,Pop-up,-,-,25,Out,19,  0.04%,1,0
+Generic out,Liner,-,-,7LD,Out,19,  0.04%,1,0
+Generic out,Grounder,-,-,25,Out,18,  0.04%,1,0
+Generic out,Liner,-,-,9LD,Out,18,  0.04%,1,0
+Generic out,Fly,-,-,6MD,Out,18,  0.04%,1,0
+Generic out,Pop-up,-,-,23,Out,18,  0.04%,1,0
+Triple,Liner,-,-,9LD,3rd,18,  0.04%,0,0
+Generic out,Pop-up,-,-,5S,Out,18,  0.04%,1,0
+Generic out,Fly,-,-,3D,Out,17,  0.04%,1,0
+Home run,Liner,-,-,78XD,Score,17,  0.04%,0,1
+Triple,Liner,-,-,89XD,3rd,17,  0.04%,0,0
+Home run,Liner,-,-,9D,Score,17,  0.04%,0,1
+Double,Fly,-,-,7LS,2nd,17,  0.04%,0,0
+Double,Fly,-,-,9LS,2nd,16,  0.04%,0,0
+Single,Grounder,Y,-,2,1st,16,  0.04%,0,0
+Single,Fly,-,-,7LS,1st,16,  0.04%,0,0
+Generic out,Fly,-,Y,7LF,Out,15,  0.03%,1,0
+Triple,Fly,-,-,8XD,3rd,15,  0.03%,0,0
+Triple,Fly,-,-,89XD,3rd,15,  0.03%,0,0
+Generic out,Fly,-,Y,3DF,Out,15,  0.03%,1,0
+Single,Fly,-,-,78,1st,14,  0.03%,0,0
+Generic out,Fly,-,-,5D,Out,14,  0.03%,1,0
+Generic out,Pop-up,-,-,2,Out,14,  0.03%,1,0
+Home run,Liner,-,-,7LD,Score,14,  0.03%,0,1
+Home run,Liner,-,-,9LD,Score,14,  0.03%,0,1
+Double,Grounder,-,-,56,2nd,13,  0.03%,0,0
+Generic out,Liner,-,-,4M,Out,13,  0.03%,1,0
+Error,Grounder,-,-,4,1st,13,  0.03%,0,0
+Generic out,Pop-up,-,-,89S,Out,13,  0.03%,1,0
+Generic out,Grounder,Y,-,1S,Out,13,  0.03%,1,0
+Single,Liner,-,-,34D,1st,12,  0.03%,0,0
+Single,Grounder,-,-,4MS,1st,12,  0.03%,0,0
+Error,Grounder,-,-,3,1st,12,  0.03%,0,0
+Single,Liner,-,-,6D,1st,12,  0.03%,0,0
+Single,Grounder,-,-,15,1st,12,  0.03%,0,0
+Generic out,Pop-up,-,Y,25F,Out,12,  0.03%,1,0
+Triple,Grounder,-,-,3,3rd,11,  0.02%,0,0
+Double,Liner,-,-,3D,2nd,11,  0.02%,0,0
+Double,Liner,-,-,8D,2nd,11,  0.02%,0,0
+Generic out,Pop-up,-,Y,23F,Out,11,  0.02%,1,0
+Generic out,Fly,-,-,4MD,Out,11,  0.02%,1,0
+Triple,Liner,-,-,8XD,3rd,11,  0.02%,0,0
+Generic out,Liner,-,-,5D,Out,11,  0.02%,1,0
+Interference,-,-,-,-,1st,11,  0.02%,0,0
+Generic out,Grounder,Y,-,23,Out,10,  0.02%,1,0
+Single,Fly,-,-,3D,1st,10,  0.02%,0,0
+Generic out,Liner,-,-,13,Out,10,  0.02%,1,0
+Single,Liner,-,-,8XD,1st,10,  0.02%,0,0
+Single,Liner,-,-,89XD,1st,10,  0.02%,0,0
+Generic out,Pop-up,-,-,15,Out,10,  0.02%,1,0
+Triple,Fly,-,-,78XD,3rd,10,  0.02%,0,0
+Double,Fly,-,-,7L,2nd,10,  0.02%,0,0
+Error,Grounder,-,-,6M,1st,10,  0.02%,0,0
+Home run,Liner,-,-,8XD,Score,10,  0.02%,0,1
+Single,Grounder,-,-,4S,1st,10,  0.02%,0,0
+Triple,Liner,-,-,9L,3rd,9,  0.02%,0,0
+Single,Grounder,-,-,13,1st,9,  0.02%,0,0
+Double,Grounder,-,-,4,2nd,9,  0.02%,0,0
+Generic out,Fly,-,Y,5DF,Out,9,  0.02%,1,0
+Single,Grounder,-,-,34S,1st,9,  0.02%,0,0
+Double,Liner,-,-,5D,2nd,9,  0.02%,0,0
+Single,Grounder,-,-,23,1st,9,  0.02%,0,0
+Double,Fly,-,-,78D,2nd,9,  0.02%,0,0
+Generic out,Pop-up,-,-,9S,Out,9,  0.02%,1,0
+Error,Grounder,-,-,56S,1st,9,  0.02%,0,0
+Generic out,Liner,-,-,9S,Out,8,  0.02%,1,0
+Triple,Liner,-,-,7LD,3rd,8,  0.02%,0,0
+Generic out,Liner,-,-,1S,Out,8,  0.02%,1,0
+Triple,Liner,-,-,78XD,3rd,8,  0.02%,0,0
+Double,Grounder,-,-,6,2nd,8,  0.02%,0,0
+Triple,Fly,-,-,9LD,3rd,8,  0.02%,0,0
+Foul error,Pop-up,-,Y,-,Stays,8,  0.02%,0,0
+Triple,Fly,-,-,9D,3rd,8,  0.02%,0,0
+Generic out,Liner,-,-,1,Out,8,  0.02%,1,0
+Generic out,Fly,-,Y,7LDF,Out,8,  0.02%,1,0
+Double,Liner,-,-,7,2nd,8,  0.02%,0,0
+Single,Grounder,Y,-,34S,1st,8,  0.02%,0,0
+Generic out,Grounder,Y,-,25,Out,8,  0.02%,1,0
+Error,Grounder,-,-,6D,1st,7,  0.02%,0,0
+Single,Liner,-,-,4D,1st,7,  0.02%,0,0
+Single,Grounder,Y,-,56S,1st,7,  0.02%,0,0
+Single,Liner,-,-,5D,1st,7,  0.02%,0,0
+Generic out,Pop-up,-,-,7S,Out,7,  0.02%,1,0
+Generic out,Liner,-,-,7S,Out,7,  0.02%,1,0
+Single,Liner,-,-,3D,1st,7,  0.02%,0,0
+Generic out,Pop-up,-,-,1,Out,6,  0.01%,1,0
+Generic out,Grounder,Y,-,34S,Out,6,  0.01%,1,0
+Single,Fly,-,-,9,1st,6,  0.01%,0,0
+Generic out,Pop-up,-,-,13,Out,6,  0.01%,1,0
+Single,Liner,-,-,1,1st,6,  0.01%,0,0
+Single,Liner,-,-,6,1st,6,  0.01%,0,0
+Triple,Liner,-,-,89D,3rd,6,  0.01%,0,0
+Single,Liner,-,-,78XD,1st,6,  0.01%,0,0
+Double,Fly,-,-,5D,2nd,5,  0.01%,0,0
+Triple,Liner,-,-,9LS,3rd,5,  0.01%,0,0
+Single,Grounder,-,-,3S,1st,5,  0.01%,0,0
+Generic out,Grounder,Y,-,3S,Out,5,  0.01%,1,0
+Single,Grounder,-,-,4,2nd,5,  0.01%,0,0
+Double,Fly,-,-,9L,2nd,5,  0.01%,0,0
+Double,Fly,-,-,8S,2nd,5,  0.01%,0,0
+Error,Grounder,-,-,1S,1st,5,  0.01%,0,0
+Single,Fly,-,-,7L,1st,5,  0.01%,0,0
+Generic out,Liner,-,-,3D,Out,5,  0.01%,1,0
+Double,Fly,-,-,89S,2nd,5,  0.01%,0,0
+Single,Fly,-,-,9L,1st,5,  0.01%,0,0
+Single,Liner,-,-,4MD,1st,5,  0.01%,0,0
+Error,Grounder,-,-,56,2nd,4,  0.01%,0,0
+Single,Fly,-,-,34D,1st,4,  0.01%,0,0
+Triple,Fly,-,-,9L,3rd,4,  0.01%,0,0
+Single,Liner,-,-,13,1st,4,  0.01%,0,0
+Single,Grounder,Y,-,5S,1st,4,  0.01%,0,0
+Single,Pop-up,-,-,3D,1st,4,  0.01%,0,0
+Single,Liner,-,-,78D,2nd,4,  0.01%,0,0
+Double,Fly,-,-,7,2nd,4,  0.01%,0,0
+Error,Grounder,-,-,6S,1st,4,  0.01%,0,0
+Single,Grounder,-,-,5,Out,4,  0.01%,1,0
+Single,Liner,-,-,56,1st,4,  0.01%,0,0
+Generic out,Liner,-,-,56S,Out,4,  0.01%,1,0
+Single,Liner,-,-,7LD,Out,4,  0.01%,1,0
+Error,Grounder,-,-,6,2nd,4,  0.01%,0,0
+Single,Fly,-,-,56D,1st,4,  0.01%,0,0
+Single,Fly,-,-,9LD,1st,4,  0.01%,0,0
+Single,Liner,-,-,9D,Out,4,  0.01%,1,0
+Double,Liner,-,-,7S,2nd,4,  0.01%,0,0
+Double,Fly,-,-,89,2nd,4,  0.01%,0,0
+Error,Fly,-,-,89XD,2nd,3,  0.01%,0,0
+Error,Grounder,-,-,3,2nd,3,  0.01%,0,0
+Error,Grounder,-,-,56D,1st,3,  0.01%,0,0
+Generic out,Pop-up,Y,Y,2F,Out,3,  0.01%,1,0
+Single,Grounder,Y,-,25,2nd,3,  0.01%,0,0
+Double,Grounder,-,-,3S,2nd,3,  0.01%,0,0
+Double,Pop-up,-,-,5D,2nd,3,  0.01%,0,0
+Single,Liner,-,-,7,Out,3,  0.01%,1,0
+Generic out,Liner,-,-,6MS,Out,3,  0.01%,1,0
+Double,Liner,-,-,5,2nd,3,  0.01%,0,0
+Double,Liner,-,-,9S,2nd,3,  0.01%,0,0
+Single,Fly,-,-,9D,1st,3,  0.01%,0,0
+Double,Fly,-,-,9,2nd,3,  0.01%,0,0
+Single,Grounder,-,-,1,1st,3,  0.01%,0,0
+Double,Fly,-,-,78,2nd,3,  0.01%,0,0
+Double,Grounder,-,-,34,2nd,3,  0.01%,0,0
+Error,Grounder,-,-,4M,1st,3,  0.01%,0,0
+Error,Fly,-,-,9LD,2nd,3,  0.01%,0,0
+Single,Grounder,Y,-,34,1st,3,  0.01%,0,0
+Single,Grounder,Y,-,23,1st,3,  0.01%,0,0
+Single,Grounder,-,-,34,2nd,3,  0.01%,0,0
+Single,Pop-up,-,-,5D,1st,3,  0.01%,0,0
+Generic out,Fly,-,Y,5F,Out,3,  0.01%,1,0
+Generic out,Grounder,Y,-,56S,Out,3,  0.01%,1,0
+Generic out,Fly,-,Y,9LDF,Out,3,  0.01%,1,0
+Double,Liner,-,-,9,2nd,3,  0.01%,0,0
+Single,Liner,-,-,4M,1st,3,  0.01%,0,0
+Single,Fly,-,-,3D,Out,3,  0.01%,1,0
+Single,Liner,-,-,1S,1st,3,  0.01%,0,0
+Double,Liner,-,-,8,2nd,3,  0.01%,0,0
+Triple,Liner,-,-,9D,3rd,2,  0.00%,0,0
+Error,Grounder,-,-,5D,1st,2,  0.00%,0,0
+Error,Liner,-,-,8D,1st,2,  0.00%,0,0
+Generic out,Grounder,-,-,56,1st,2,  0.00%,0,0
+Error,Grounder,-,-,15,2nd,2,  0.00%,0,0
+Error,Grounder,-,-,13,1st,2,  0.00%,0,0
+Double,Grounder,-,-,6M,2nd,2,  0.00%,0,0
+Generic out,Pop-up,-,Y,9LSF,Out,2,  0.00%,1,0
+Double,Fly,-,-,78XD,Out,2,  0.00%,1,0
+Single,Grounder,-,-,2,2nd,2,  0.00%,0,0
+Single,Liner,-,-,6MD,1st,2,  0.00%,0,0
+Error,Grounder,-,-,1S,2nd,2,  0.00%,0,0
+Single,Liner,-,-,4,1st,2,  0.00%,0,0
+Single,Fly,-,-,6D,1st,2,  0.00%,0,0
+Double,Fly,-,-,78XD,3rd,2,  0.00%,0,0
+Double,Fly,-,-,7S,2nd,2,  0.00%,0,0
+Triple,Fly,-,-,7D,3rd,2,  0.00%,0,0
+Single,Liner,-,-,9LD,Out,2,  0.00%,1,0
+Error,Grounder,-,-,34S,1st,2,  0.00%,0,0
+Single,Liner,-,-,4MS,1st,2,  0.00%,0,0
+Single,Fly,-,-,7,1st,2,  0.00%,0,0
+Single,Fly,-,-,7D,1st,2,  0.00%,0,0
+Generic out,Pop-up,-,Y,7LSF,Out,2,  0.00%,1,0
+Triple,Fly,-,-,7LD,3rd,2,  0.00%,0,0
+Error,Grounder,-,-,7S,1st,2,  0.00%,0,0
+Error,Grounder,-,-,56S,2nd,2,  0.00%,0,0
+Single,Fly,-,-,5D,1st,2,  0.00%,0,0
+Single,Grounder,-,-,56,2nd,2,  0.00%,0,0
+Error,Fly,-,-,89S,1st,2,  0.00%,0,0
+Error,Grounder,-,-,1,1st,2,  0.00%,0,0
+Single,Liner,-,-,78,2nd,2,  0.00%,0,0
+Generic out,Pop-up,-,-,7LS,Out,2,  0.00%,1,0
+Error,Grounder,-,-,8,1st,2,  0.00%,0,0
+Double,Fly,-,-,89D,2nd,2,  0.00%,0,0
+Single,Liner,-,-,7L,Out,2,  0.00%,1,0
+Single,Liner,-,-,89S,2nd,2,  0.00%,0,0
+Triple,Liner,-,-,7D,3rd,2,  0.00%,0,0
+Generic out,Fly,-,Y,3F,Out,2,  0.00%,1,0
+Generic out,Pop-up,Y,-,1S,Out,2,  0.00%,1,0
+Error,Grounder,Y,-,1S,1st,2,  0.00%,0,0
+Single,Liner,-,-,9L,Out,2,  0.00%,1,0
+Single,Grounder,-,-,25,2nd,2,  0.00%,0,0
+Error,Grounder,-,-,4MS,1st,2,  0.00%,0,0
+Single,Liner,-,-,6S,1st,2,  0.00%,0,0
+Generic out,Pop-up,-,-,9LS,Out,2,  0.00%,1,0
+Generic out,Fly,-,-,5,Out,2,  0.00%,1,0
+Single,Grounder,-,-,6,Out,2,  0.00%,1,0
+Error,Grounder,-,-,4D,1st,2,  0.00%,0,0
+Triple,Grounder,-,-,5,3rd,2,  0.00%,0,0
+Single,Liner,-,-,78D,Out,2,  0.00%,1,0
+Error,Grounder,-,-,5,2nd,2,  0.00%,0,0
+Single,Liner,-,-,78XD,Out,2,  0.00%,1,0
+Triple,Fly,-,-,7LS,3rd,2,  0.00%,0,0
+Double,Liner,-,-,78S,2nd,2,  0.00%,0,0
+Error,Grounder,Y,-,2,1st,2,  0.00%,0,0
+Single,Grounder,Y,-,2,2nd,2,  0.00%,0,0
+Single,Liner,-,-,4S,1st,2,  0.00%,0,0
+Triple,Liner,-,-,9,3rd,2,  0.00%,0,0
+Generic out,Liner,-,-,78S,Out,2,  0.00%,1,0
+Single,Grounder,-,-,6,2nd,2,  0.00%,0,0
+Single,Fly,-,-,89XD,1st,2,  0.00%,0,0
+Single,Liner,-,-,89,Out,2,  0.00%,1,0
+Single,Liner,-,-,7LS,Out,2,  0.00%,1,0
+Triple,Liner,-,-,78D,3rd,2,  0.00%,0,0
+Single,Grounder,-,-,6S,2nd,2,  0.00%,0,0
+Single,Pop-up,-,-,34D,1st,2,  0.00%,0,0
+Single,Liner,-,-,89D,Out,2,  0.00%,1,0
+Single,Liner,-,-,8,2nd,1,  0.00%,0,0
+Double,Pop-up,-,-,9LS,2nd,1,  0.00%,0,0
+Double,Liner,-,-,7L,3rd,1,  0.00%,0,0
+Generic out,Liner,-,-,5S,Out,1,  0.00%,1,0
+Triple,Liner,-,-,8D,3rd,1,  0.00%,0,0
+Triple,Fly,-,-,78D,3rd,1,  0.00%,0,0
+Single,Fly,-,-,89D,1st,1,  0.00%,0,0
+Generic out,Grounder,Y,-,4S,Out,1,  0.00%,1,0
+Error,Grounder,-,-,7LD,2nd,1,  0.00%,0,0
+Double,Fly,-,-,8D,2nd,1,  0.00%,0,0
+Generic out,Grounder,-,-,7LD,Out,1,  0.00%,1,0
+Single,Grounder,-,-,23,2nd,1,  0.00%,0,0
+Triple,Fly,-,-,8D,3rd,1,  0.00%,0,0
+Single,Grounder,-,-,6,3rd,1,  0.00%,0,0
+Single,Liner,-,-,7L,2nd,1,  0.00%,0,0
+Double,Liner,-,-,56,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,6S,2nd,1,  0.00%,0,0
+Single,Liner,-,-,8S,2nd,1,  0.00%,0,0
+Double,Liner,-,-,6,2nd,1,  0.00%,0,0
+Single,Liner,-,-,89XD,Out,1,  0.00%,1,0
+Single,Liner,-,-,89D,2nd,1,  0.00%,0,0
+Single,Pop-up,-,-,78S,1st,1,  0.00%,0,0
+Error,Fly,-,-,7D,2nd,1,  0.00%,0,0
+Double,Liner,-,-,89S,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,6D,2nd,1,  0.00%,0,0
+Double,Pop-up,-,-,3D,2nd,1,  0.00%,0,0
+Error,Fly,-,-,7LS,2nd,1,  0.00%,0,0
+Error,Fly,-,-,56D,1st,1,  0.00%,0,0
+Single,Fly,-,-,7LD,1st,1,  0.00%,0,0
+Single,Liner,-,-,7LD,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,23,1st,1,  0.00%,0,0
+Single,Fly,-,-,78D,1st,1,  0.00%,0,0
+Error,Grounder,-,-,56D,2nd,1,  0.00%,0,0
+Double,Grounder,-,-,4,3rd,1,  0.00%,0,0
+Generic out,Liner,-,-,8S,Out,1,  0.00%,1,0
+Error,Grounder,-,-,9,1st,1,  0.00%,0,0
+Error,Grounder,-,-,7,1st,1,  0.00%,0,0
+Double,Liner,-,-,8XD,3rd,1,  0.00%,0,0
+Error,Liner,-,-,56,2nd,1,  0.00%,0,0
+Single,Liner,-,-,7,2nd,1,  0.00%,0,0
+Error,Fly,-,-,9LS,3rd,1,  0.00%,0,0
+Error,Fly,-,-,78XD,3rd,1,  0.00%,0,0
+Double,Liner,-,-,4,2nd,1,  0.00%,0,0
+Generic out,Liner,-,Y,5F,Out,1,  0.00%,1,0
+Generic out,Liner,Y,-,3,Out,1,  0.00%,1,0
+Single,Liner,-,-,5,1st,1,  0.00%,0,0
+Error,Grounder,-,-,3D,1st,1,  0.00%,0,0
+Error,Pop-up,-,-,3,1st,1,  0.00%,0,0
+Generic out,Pop-up,Y,Y,3F,Out,1,  0.00%,1,0
+Error,Fly,-,-,89D,2nd,1,  0.00%,0,0
+Single,Fly,-,-,7LS,3rd,1,  0.00%,0,0
+Double,Grounder,-,-,3D,2nd,1,  0.00%,0,0
+Double,Liner,-,-,5S,2nd,1,  0.00%,0,0
+Single,Liner,-,-,3S,1st,1,  0.00%,0,0
+Double,Liner,-,-,-,2nd,1,  0.00%,0,0
+Single,Liner,-,-,89S,Out,1,  0.00%,1,0
+Generic out,Pop-up,Y,-,3,Out,1,  0.00%,1,0
+Single,Grounder,Y,-,15,1st,1,  0.00%,0,0
+Error,Pop-up,-,-,3D,1st,1,  0.00%,0,0
+Double,Grounder,-,-,5,3rd,1,  0.00%,0,0
+Double,Liner,-,-,9LD,Out,1,  0.00%,1,0
+Generic out,Fly,-,-,56,Out,1,  0.00%,1,0
+Double,Grounder,-,-,3,Out,1,  0.00%,1,0
+Single,Liner,-,-,2,1st,1,  0.00%,0,0
+Generic out,Pop-up,Y,-,3S,Out,1,  0.00%,1,0
+Single,Fly,-,-,7LS,2nd,1,  0.00%,0,0
+Single,Grounder,Y,-,3,2nd,1,  0.00%,0,0
+Generic out,Pop-up,Y,-,23,Out,1,  0.00%,1,0
+Triple,Fly,-,-,78XD,Score,1,  0.00%,0,1
+Double,Liner,-,-,78XD,Out,1,  0.00%,1,0
+Single,Liner,-,-,8D,2nd,1,  0.00%,0,0
+Home run,Fly,-,-,7L,Score,1,  0.00%,0,1
+Single,Grounder,-,-,2,Out,1,  0.00%,1,0
+Single,Fly,-,-,4D,1st,1,  0.00%,0,0
+Single,Fly,-,-,89D,Out,1,  0.00%,1,0
+Single,Pop-up,-,-,13,1st,1,  0.00%,0,0
+Error,Grounder,-,-,5S,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,4MS,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,5D,2nd,1,  0.00%,0,0
+Triple,Fly,-,-,7L,3rd,1,  0.00%,0,0
+Generic out,Fly,-,-,56S,Out,1,  0.00%,1,0
+Double,Grounder,-,-,5S,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,5S,1st,1,  0.00%,0,0
+Error,Fly,-,-,9LD,3rd,1,  0.00%,0,0
+Generic out,Grounder,-,-,-,Out,1,  0.00%,1,0
+Single,Liner,-,-,8,Out,1,  0.00%,1,0
+Single,Pop-up,-,-,15,1st,1,  0.00%,0,0
+Generic out,Grounder,Y,-,5S,Out,1,  0.00%,1,0
+Error,Grounder,-,-,8S,1st,1,  0.00%,0,0
+Error,Liner,Y,-,56S,1st,1,  0.00%,0,0
+Double,Liner,-,-,9L,3rd,1,  0.00%,0,0
+Double,Liner,-,-,7,Out,1,  0.00%,1,0
+Single,Liner,-,-,34,1st,1,  0.00%,0,0
+Single,Pop-up,-,-,4,1st,1,  0.00%,0,0
+Single,Pop-up,-,-,9LS,1st,1,  0.00%,0,0
+Single,Grounder,-,-,34S,2nd,1,  0.00%,0,0
+Single,Pop-up,-,-,7LS,1st,1,  0.00%,0,0
+Home run,Fly,-,-,78D,Score,1,  0.00%,0,1
+Error,Grounder,-,-,1,2nd,1,  0.00%,0,0
+Double,Fly,-,-,78S,2nd,1,  0.00%,0,0
+Generic out,Liner,-,-,9LS,Out,1,  0.00%,1,0
+Single,Grounder,Y,-,6S,1st,1,  0.00%,0,0
+Single,Liner,-,-,9,2nd,1,  0.00%,0,0
+Double,Liner,-,-,7LD,3rd,1,  0.00%,0,0
+Generic out,Grounder,-,-,89XD,Out,1,  0.00%,1,0
+Double,Fly,-,-,5,2nd,1,  0.00%,0,0
+Single,Fly,-,-,9LD,Out,1,  0.00%,1,0
+Error,Liner,-,-,8D,2nd,1,  0.00%,0,0
+Error,Liner,-,-,5,1st,1,  0.00%,0,0
+Single,Grounder,Y,-,3S,1st,1,  0.00%,0,0
+Single,Grounder,-,-,1,2nd,1,  0.00%,0,0
+Single,Fly,-,-,7LS,Out,1,  0.00%,1,0
+Single,Grounder,-,-,1S,2nd,1,  0.00%,0,0
+Triple,Liner,-,-,3D,3rd,1,  0.00%,0,0
+Error,Liner,-,-,34,1st,1,  0.00%,0,0
+Error,Pop-up,-,-,3D,2nd,1,  0.00%,0,0
+Double,Grounder,-,-,56S,2nd,1,  0.00%,0,0
+Single,Grounder,Y,-,5S,2nd,1,  0.00%,0,0
+Generic out,Grounder,-,-,3,1st,1,  0.00%,0,0
+Double,Liner,-,-,9LD,3rd,1,  0.00%,0,0
+Single,Fly,-,-,89XD,Out,1,  0.00%,1,0
+Home run,Fly,-,-,9,Score,1,  0.00%,0,1
+Single,Grounder,-,-,4,Out,1,  0.00%,1,0
+Error,Fly,-,-,78,2nd,1,  0.00%,0,0
+Generic out,Pop-up,Y,-,15,Out,1,  0.00%,1,0
+Single,Grounder,-,-,5S,2nd,1,  0.00%,0,0
+Double,Liner,-,-,89XD,3rd,1,  0.00%,0,0
+Error,Liner,-,-,78,2nd,1,  0.00%,0,0
+Single,Grounder,Y,-,4S,1st,1,  0.00%,0,0
+Single,Grounder,-,-,5,2nd,1,  0.00%,0,0
+Triple,Fly,-,-,9,3rd,1,  0.00%,0,0
+Triple,Liner,-,-,8XD,Out,1,  0.00%,1,0
+Generic out,Pop-up,Y,-,13,Out,1,  0.00%,1,0
+Double,Pop-up,-,-,8S,2nd,1,  0.00%,0,0
+Double,Fly,-,-,78S,3rd,1,  0.00%,0,0
+Generic out,Grounder,-,-,89S,Out,1,  0.00%,1,0
+Single,Grounder,-,-,4M,Out,1,  0.00%,1,0
+Generic out,Fly,-,-,-,Out,1,  0.00%,1,0
+Error,Grounder,-,-,6MS,1st,1,  0.00%,0,0
+Double,Grounder,-,-,3,3rd,1,  0.00%,0,0
+Single,Pop-up,-,-,3,1st,1,  0.00%,0,0
+Triple,Fly,-,-,89D,3rd,1,  0.00%,0,0
+Single,Pop-up,-,-,3D,Out,1,  0.00%,1,0
+Single,Pop-up,-,-,4MD,1st,1,  0.00%,0,0
+Single,Liner,-,-,8D,Out,1,  0.00%,1,0
+Error,Grounder,-,-,6MD,1st,1,  0.00%,0,0
+Generic out,Grounder,-,Y,2F,Out,1,  0.00%,1,0
+Single,Grounder,-,-,56S,Score,1,  0.00%,0,1
+Error,Grounder,Y,-,34S,1st,1,  0.00%,0,0
+Generic out,Liner,-,Y,3F,Out,1,  0.00%,1,0
+Single,Liner,-,-,9LS,Out,1,  0.00%,1,0
+Error,Liner,-,-,9D,2nd,1,  0.00%,0,0
+Single,Grounder,-,-,56,Out,1,  0.00%,1,0
+Double,Liner,-,-,1,2nd,1,  0.00%,0,0
+Single,Grounder,-,-,4M,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,4,2nd,1,  0.00%,0,0
+Double,Liner,-,-,9LS,3rd,1,  0.00%,0,0
+Single,Grounder,-,-,6M,2nd,1,  0.00%,0,0
+Double,Fly,-,-,8XD,Out,1,  0.00%,1,0
+Generic out,Pop-up,Y,Y,3SF,Out,1,  0.00%,1,0
+Single,Grounder,Y,-,1S,1st,1,  0.00%,0,0
+Generic out,Grounder,-,-,9L,Out,1,  0.00%,1,0
+Generic out,Pop-up,Y,-,34S,Out,1,  0.00%,1,0
+Error,Pop-up,-,-,8S,2nd,1,  0.00%,0,0
+Single,Grounder,-,-,23,Out,1,  0.00%,1,0
+Error,Grounder,-,-,2,1st,1,  0.00%,0,0
+Single,Pop-up,-,-,5,1st,1,  0.00%,0,0
+Error,Grounder,Y,-,23,1st,1,  0.00%,0,0
+Generic out,Pop-up,Y,Y,5F,Out,1,  0.00%,1,0
+Single,Grounder,-,-,56S,2nd,1,  0.00%,0,0
+Single,Grounder,-,-,4S,2nd,1,  0.00%,0,0
+Double,Grounder,-,-,4M,2nd,1,  0.00%,0,0
+Error,Liner,-,-,9LD,1st,1,  0.00%,0,0
+Error,Liner,-,-,78XD,2nd,1,  0.00%,0,0
+Generic out,Liner,-,-,6S,Out,1,  0.00%,1,0
+Strikeout,-,-,-,-,2nd,1,  0.00%,0,0
+Error,Grounder,-,-,34S,2nd,1,  0.00%,0,0
+Double,Liner,-,-,2,2nd,1,  0.00%,0,0
+Single,Liner,-,-,15,1st,1,  0.00%,0,0
+Intentional walk,-,-,-,-,1st,1,  0.00%,0,0
+Generic out,Fly,-,-,34,Out,1,  0.00%,1,0
+Single,Grounder,Y,-,4,1st,1,  0.00%,0,0
+Single,Liner,-,-,4M,Out,1,  0.00%,1,0
+Single,Grounder,-,-,3,2nd,1,  0.00%,0,0
+Generic out,Grounder,-,-,4,2nd,1,  0.00%,0,0
+Single,Fly,-,-,8D,1st,1,  0.00%,0,0
+Error,Grounder,-,-,3S,1st,1,  0.00%,0,0
+Generic out,Grounder,-,-,7S,Out,1,  0.00%,1,0

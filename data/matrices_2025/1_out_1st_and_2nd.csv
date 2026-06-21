@@ -1,0 +1,587 @@
+Play,Type,Bnt,Fl,Loc,B,R1,R2,Count,Probability,New Outs,Runs
+Strikeout,-,-,-,-,Out,1st,2nd,937, 19.98%,2,0
+Walk,-,-,-,-,1st,2nd,3rd,336,  7.17%,1,0
+Generic out,Grounder,-,-,6,Out,Out,2nd,93,  1.98%,3,0
+Wild pitch,-,-,-,-,Stays,2nd,3rd,86,  1.83%,1,0
+Generic out,Grounder,-,-,4,Out,Out,2nd,68,  1.45%,3,0
+Stolen base,-,-,-,-,Stays,2nd,3rd,63,  1.34%,1,0
+Generic out,Grounder,-,-,56,Out,Out,2nd,60,  1.28%,3,0
+Generic out,Grounder,-,-,34,1st,Out,3rd,59,  1.26%,2,0
+Hit by pitch,-,-,-,-,1st,2nd,3rd,57,  1.22%,1,0
+Generic out,Grounder,-,-,3,Out,2nd,3rd,56,  1.19%,2,0
+Generic out,Grounder,-,-,34,Out,Out,2nd,54,  1.15%,3,0
+Generic out,Grounder,-,-,6,1st,Out,3rd,44,  0.94%,2,0
+Generic out,Grounder,-,-,6M,Out,Out,2nd,42,  0.90%,3,0
+Generic out,Fly,-,-,8XD,Out,1st,3rd,40,  0.85%,2,0
+Generic out,Grounder,-,-,3,1st,Out,3rd,37,  0.79%,2,0
+Generic out,Fly,-,-,9D,Out,1st,3rd,31,  0.66%,2,0
+Generic out,Fly,-,-,78D,Out,1st,2nd,30,  0.64%,2,0
+Generic out,Fly,-,-,8,Out,1st,2nd,30,  0.64%,2,0
+Generic out,Grounder,-,-,56,1st,Out,3rd,29,  0.62%,2,0
+Generic out,Grounder,-,-,34,Out,2nd,3rd,28,  0.60%,2,0
+Generic out,Fly,-,-,8D,Out,1st,2nd,27,  0.58%,2,0
+Generic out,Fly,-,-,8XD,Out,1st,2nd,27,  0.58%,2,0
+Generic out,Liner,-,-,8D,Out,1st,2nd,26,  0.55%,2,0
+Single,Grounder,-,-,56,1st,2nd,Score,26,  0.55%,1,1
+Home run,Fly,-,-,7D,Score,Score,Score,26,  0.55%,1,3
+Generic out,Fly,-,-,78S,Out,1st,2nd,25,  0.53%,2,0
+Generic out,Fly,-,-,78,Out,1st,2nd,24,  0.51%,2,0
+Single,Grounder,-,-,34,1st,2nd,3rd,24,  0.51%,1,0
+Generic out,Fly,-,-,7,Out,1st,2nd,24,  0.51%,2,0
+Single,Grounder,-,-,4,1st,3rd,Score,23,  0.49%,1,1
+Generic out,Fly,-,-,7D,Out,1st,2nd,23,  0.49%,2,0
+Generic out,Fly,-,-,89D,Out,1st,2nd,22,  0.47%,2,0
+Generic out,Fly,-,-,89D,Out,1st,3rd,21,  0.45%,2,0
+Generic out,Pop-up,-,Y,2F,Out,1st,2nd,21,  0.45%,2,0
+Generic out,Grounder,-,-,4,1st,Out,3rd,21,  0.45%,2,0
+Home run,Fly,-,-,89XD,Score,Score,Score,21,  0.45%,1,3
+Single,Grounder,-,-,34,1st,3rd,Score,20,  0.43%,1,1
+Generic out,Fly,-,-,9,Out,1st,2nd,20,  0.43%,2,0
+Single,Grounder,-,-,56,1st,2nd,3rd,19,  0.41%,1,0
+Home run,Fly,-,-,78XD,Score,Score,Score,19,  0.41%,1,3
+Single,Liner,-,-,7,1st,2nd,3rd,19,  0.41%,1,0
+Generic out,Grounder,-,-,5,Out,Out,2nd,19,  0.41%,3,0
+Generic out,Fly,-,-,89XD,Out,1st,3rd,19,  0.41%,2,0
+Generic out,Fly,-,-,89S,Out,1st,2nd,19,  0.41%,2,0
+Single,Grounder,-,-,34,1st,2nd,Score,19,  0.41%,1,1
+Single,Grounder,-,-,6M,1st,2nd,Score,18,  0.38%,1,1
+Generic out,Fly,-,-,7S,Out,1st,2nd,18,  0.38%,2,0
+Single,Liner,-,-,8,1st,2nd,3rd,18,  0.38%,1,0
+Single,Grounder,-,-,6,1st,2nd,3rd,18,  0.38%,1,0
+Single,Liner,-,-,8,1st,2nd,Score,18,  0.38%,1,1
+Generic out,Fly,-,-,89,Out,1st,2nd,17,  0.36%,2,0
+Stolen base,-,-,-,-,Stays,1st,3rd,17,  0.36%,1,0
+Generic out,Fly,-,-,9S,Out,1st,2nd,17,  0.36%,2,0
+Generic out,Liner,-,-,9,Out,1st,2nd,17,  0.36%,2,0
+Single,Liner,-,-,9,1st,2nd,3rd,17,  0.36%,1,0
+Generic out,Fly,-,-,8S,Out,1st,2nd,17,  0.36%,2,0
+Generic out,Grounder,-,-,6,Out,2nd,3rd,16,  0.34%,2,0
+Home run,Fly,-,-,8XD,Score,Score,Score,16,  0.34%,1,3
+Home run,Fly,-,-,9D,Score,Score,Score,15,  0.32%,1,3
+Generic out,Liner,-,-,78D,Out,1st,2nd,15,  0.32%,2,0
+Generic out,Fly,-,-,78XD,Out,1st,3rd,15,  0.32%,2,0
+Generic out,Grounder,-,-,6S,Out,2nd,3rd,15,  0.32%,2,0
+Single,Liner,-,-,89,1st,2nd,3rd,15,  0.32%,1,0
+Generic out,Grounder,-,-,1S,Out,2nd,3rd,15,  0.32%,2,0
+Generic out,Pop-up,-,-,4D,Out,1st,2nd,14,  0.30%,2,0
+Generic out,Grounder,-,-,4M,Out,Out,2nd,14,  0.30%,3,0
+Generic out,Pop-up,-,-,34,Out,1st,2nd,14,  0.30%,2,0
+Generic out,Liner,-,-,7D,Out,1st,2nd,14,  0.30%,2,0
+Home run,Fly,-,-,7LD,Score,Score,Score,13,  0.28%,1,3
+Generic out,Grounder,-,-,6M,1st,Out,3rd,13,  0.28%,2,0
+Generic out,Pop-up,-,-,56,Out,1st,2nd,13,  0.28%,2,0
+Single,Grounder,-,-,4M,1st,2nd,Score,13,  0.28%,1,1
+Generic out,Pop-up,-,Y,5F,Out,1st,2nd,12,  0.26%,2,0
+Generic out,Liner,-,-,78,Out,1st,2nd,12,  0.26%,2,0
+Generic out,Grounder,-,-,56S,Out,2nd,3rd,12,  0.26%,2,0
+Generic out,Pop-up,-,-,6D,Out,1st,2nd,12,  0.26%,2,0
+Single,Grounder,-,-,6,1st,2nd,Score,12,  0.26%,1,1
+Generic out,Pop-up,-,Y,3F,Out,1st,2nd,12,  0.26%,2,0
+Generic out,Fly,-,-,9LS,Out,1st,2nd,12,  0.26%,2,0
+Caught stealing,-,-,-,-,Stays,2nd,Out,12,  0.26%,2,0
+Home run,Fly,-,-,9LD,Score,Score,Score,11,  0.23%,1,3
+Generic out,Grounder,-,-,4,Out,2nd,3rd,11,  0.23%,2,0
+Double,Liner,-,-,9LD,2nd,3rd,Score,11,  0.23%,1,1
+Generic out,Pop-up,-,-,34D,Out,1st,2nd,11,  0.23%,2,0
+Generic out,Grounder,-,-,3,Out,Out,2nd,11,  0.23%,3,0
+Single,Liner,-,-,9S,1st,2nd,3rd,11,  0.23%,1,0
+Generic out,Pop-up,-,Y,3SF,Out,1st,2nd,11,  0.23%,2,0
+Single,Liner,-,-,78,1st,2nd,Score,11,  0.23%,1,1
+Generic out,Grounder,-,-,3S,Out,2nd,3rd,11,  0.23%,2,0
+Double,Liner,-,-,7L,2nd,3rd,Score,11,  0.23%,1,1
+Generic out,Pop-up,-,-,6,Out,1st,2nd,10,  0.21%,2,0
+Generic out,Liner,-,-,89,Out,1st,2nd,10,  0.21%,2,0
+Double,Grounder,-,-,5,2nd,3rd,Score,10,  0.21%,1,1
+Double,Liner,-,-,9L,2nd,3rd,Score,10,  0.21%,1,1
+Strikeout,-,-,-,-,Out,2nd,3rd,10,  0.21%,2,0
+Generic out,Liner,-,-,8XD,Out,1st,2nd,10,  0.21%,2,0
+Single,Grounder,-,-,4M,1st,3rd,Score,10,  0.21%,1,1
+Generic out,Grounder,-,-,56,1st,2nd,Out,10,  0.21%,2,0
+Generic out,Liner,-,-,7,Out,1st,2nd,10,  0.21%,2,0
+Generic out,Grounder,-,-,5,Out,1st,Out,9,  0.19%,3,0
+Single,Grounder,-,-,6M,1st,3rd,Score,9,  0.19%,1,1
+Generic out,Grounder,-,-,5,1st,Out,3rd,9,  0.19%,2,0
+Double,Liner,-,-,89XD,2nd,Score,Score,9,  0.19%,1,2
+Single,Liner,-,-,7,1st,2nd,Score,9,  0.19%,1,1
+Single,Liner,-,-,7S,1st,2nd,3rd,9,  0.19%,1,0
+Generic out,Fly,-,-,78XD,Out,1st,2nd,9,  0.19%,2,0
+Generic out,Fly,-,-,9D,Out,1st,2nd,9,  0.19%,2,0
+Generic out,Fly,-,-,8XD,Out,2nd,3rd,9,  0.19%,2,0
+Balk,-,-,-,-,Stays,2nd,3rd,9,  0.19%,1,0
+Generic out,Grounder,-,-,6MS,Out,Out,2nd,9,  0.19%,3,0
+Caught stealing,-,-,-,-,Stays,1st,Out,9,  0.19%,2,0
+Generic out,Liner,-,-,8,Out,1st,2nd,9,  0.19%,2,0
+Double,Grounder,-,-,3,2nd,3rd,Score,9,  0.19%,1,1
+Double,Liner,-,-,78XD,2nd,3rd,Score,8,  0.17%,1,1
+Single,Liner,-,-,89,1st,3rd,Score,8,  0.17%,1,1
+Generic out,Liner,-,-,8XD,Out,1st,3rd,8,  0.17%,2,0
+Generic out,Grounder,-,-,6MS,Out,2nd,3rd,8,  0.17%,2,0
+Pickoff,-,-,-,-,Stays,1st,Out,8,  0.17%,2,0
+Single,Liner,-,-,78,1st,2nd,3rd,8,  0.17%,1,0
+Generic out,Fly,-,-,7LS,Out,1st,2nd,8,  0.17%,2,0
+Double,Liner,-,-,7LD,2nd,Score,Score,8,  0.17%,1,2
+Double,Liner,-,-,7LD,2nd,3rd,Score,8,  0.17%,1,1
+Generic out,Fly,-,-,7LD,Out,1st,2nd,8,  0.17%,2,0
+Wild pitch,-,-,-,-,Stays,1st,3rd,8,  0.17%,1,0
+Generic out,Grounder,-,-,56,Out,1st,Out,8,  0.17%,3,0
+Generic out,Grounder,-,-,34S,Out,2nd,3rd,8,  0.17%,2,0
+Single,Grounder,-,-,6,1st,3rd,Score,8,  0.17%,1,1
+Double,Grounder,-,-,5,2nd,Score,Score,8,  0.17%,1,2
+Generic out,Pop-up,-,-,56D,Out,1st,2nd,8,  0.17%,2,0
+Generic out,Liner,-,-,9D,Out,1st,2nd,8,  0.17%,2,0
+Generic out,Liner,-,-,89D,Out,1st,2nd,8,  0.17%,2,0
+Generic out,Grounder,-,-,6S,Out,Out,2nd,8,  0.17%,3,0
+Generic out,Liner,-,-,6,Out,1st,2nd,7,  0.15%,2,0
+Single,Liner,-,-,78D,1st,3rd,Score,7,  0.15%,1,1
+Generic out,Grounder,-,-,56,Out,2nd,3rd,7,  0.15%,2,0
+Single,Liner,-,-,7S,1st,2nd,Score,7,  0.15%,1,1
+Single,Liner,-,-,8D,1st,2nd,3rd,7,  0.15%,1,0
+Generic out,Fly,-,-,9L,Out,1st,2nd,7,  0.15%,2,0
+Generic out,Grounder,-,-,23,Out,2nd,3rd,7,  0.15%,2,0
+Fielder's choice,Grounder,-,-,4,1st,2nd,3rd,7,  0.15%,1,0
+Passed ball,-,-,-,-,Stays,2nd,3rd,6,  0.13%,1,0
+Generic out,Grounder,-,-,56S,Out,Out,2nd,6,  0.13%,3,0
+Double,Liner,-,-,7L,2nd,Score,Score,6,  0.13%,1,2
+Fielder's choice,Grounder,-,-,34,1st,2nd,3rd,6,  0.13%,1,0
+Single,Liner,-,-,8D,1st,2nd,Score,6,  0.13%,1,1
+Single,Fly,-,-,89S,1st,2nd,3rd,6,  0.13%,1,0
+Generic out,Grounder,-,-,1,Out,Out,2nd,6,  0.13%,3,0
+Generic out,Pop-up,-,Y,5SF,Out,1st,2nd,6,  0.13%,2,0
+Generic out,Grounder,-,-,4M,1st,Out,3rd,6,  0.13%,2,0
+Single,Liner,-,-,78,1st,3rd,Score,6,  0.13%,1,1
+Generic out,Grounder,-,-,1S,Out,Out,2nd,6,  0.13%,3,0
+Double,Liner,-,-,78XD,2nd,Score,Score,6,  0.13%,1,2
+Generic out,Fly,-,-,7L,Out,1st,2nd,6,  0.13%,2,0
+Generic out,Pop-up,-,-,4,Out,1st,2nd,6,  0.13%,2,0
+Fielder's choice,Grounder,-,-,56,1st,2nd,3rd,6,  0.13%,1,0
+Single,Liner,-,-,9S,1st,3rd,Score,6,  0.13%,1,1
+Double,Fly,-,-,78XD,2nd,3rd,Score,6,  0.13%,1,1
+Generic out,Grounder,-,-,13,Out,Out,2nd,6,  0.13%,3,0
+Generic out,Liner,-,-,9D,Out,1st,3rd,6,  0.13%,2,0
+Generic out,Pop-up,-,-,3,Out,1st,2nd,6,  0.13%,2,0
+Generic out,Grounder,-,-,6S,1st,Out,3rd,6,  0.13%,2,0
+Generic out,Liner,-,-,3,Out,1st,2nd,5,  0.11%,2,0
+Single,Grounder,-,-,3,1st,3rd,Score,5,  0.11%,1,1
+Generic out,Fly,-,-,9LD,Out,1st,3rd,5,  0.11%,2,0
+Double,Fly,-,-,89XD,2nd,3rd,Score,5,  0.11%,1,1
+Generic out,Fly,-,Y,7LSF,Out,1st,2nd,5,  0.11%,2,0
+Generic out,Grounder,-,-,2,Out,2nd,3rd,5,  0.11%,2,0
+Single,Grounder,-,-,6M,2nd,3rd,Score,5,  0.11%,1,1
+Single,Liner,-,-,89D,1st,3rd,Score,5,  0.11%,1,1
+Generic out,Fly,-,-,9L,Out,1st,3rd,5,  0.11%,2,0
+Generic out,Grounder,-,-,5,1st,2nd,Out,5,  0.11%,2,0
+Home run,Liner,-,-,7LD,Score,Score,Score,5,  0.11%,1,3
+Single,Grounder,-,-,4,1st,2nd,Score,5,  0.11%,1,1
+Generic out,Liner,-,-,89D,Out,1st,3rd,5,  0.11%,2,0
+Single,Grounder,-,-,6M,1st,2nd,3rd,5,  0.11%,1,0
+Generic out,Grounder,-,-,13,1st,Out,3rd,5,  0.11%,2,0
+Single,Liner,-,-,78S,1st,2nd,Score,5,  0.11%,1,1
+Single,Grounder,-,-,4,1st,2nd,3rd,5,  0.11%,1,0
+Generic out,Liner,-,-,9L,Out,1st,2nd,5,  0.11%,2,0
+Generic out,Liner,-,-,4D,Out,1st,Out,5,  0.11%,3,0
+Single,Liner,-,-,8,1st,3rd,Score,5,  0.11%,1,1
+Generic out,Pop-up,-,-,34S,Out,1st,2nd,5,  0.11%,2,0
+Interference,-,-,-,-,1st,2nd,3rd,5,  0.11%,1,0
+Generic out,Fly,-,-,8D,Out,1st,3rd,5,  0.11%,2,0
+Generic out,Grounder,-,-,56S,Out,1st,Out,5,  0.11%,3,0
+Generic out,Fly,-,-,89XD,Out,1st,2nd,4,  0.09%,2,0
+Generic out,Grounder,-,-,1S,1st,Out,3rd,4,  0.09%,2,0
+Generic out,Liner,-,-,3,Out,Out,2nd,4,  0.09%,3,0
+Generic out,Grounder,-,-,13,Out,2nd,3rd,4,  0.09%,2,0
+Single,Grounder,-,-,4M,1st,2nd,3rd,4,  0.09%,1,0
+Single,Grounder,-,-,5,1st,2nd,3rd,4,  0.09%,1,0
+Generic out,Fly,-,-,56D,Out,1st,2nd,4,  0.09%,2,0
+Generic out,Pop-up,-,-,3S,Out,1st,2nd,4,  0.09%,2,0
+Generic out,Pop-up,-,-,6S,Out,1st,2nd,4,  0.09%,2,0
+Single,Liner,-,-,8S,1st,2nd,Score,4,  0.09%,1,1
+Single,Grounder,-,-,56,1st,3rd,Score,4,  0.09%,1,1
+Generic out,Fly,-,-,78D,Out,1st,3rd,4,  0.09%,2,0
+Double,Fly,-,-,9D,2nd,3rd,Score,4,  0.09%,1,1
+Generic out,Liner,-,-,6D,Out,1st,2nd,4,  0.09%,2,0
+Single,Fly,-,-,78S,1st,2nd,3rd,4,  0.09%,1,0
+Generic out,Fly,-,Y,9LSF,Out,1st,2nd,4,  0.09%,2,0
+Generic out,Pop-up,-,-,4MD,Out,1st,2nd,4,  0.09%,2,0
+Generic out,Liner,-,-,34,Out,1st,Out,4,  0.09%,3,0
+Single,Liner,-,-,78S,1st,2nd,3rd,4,  0.09%,1,0
+Pickoff,-,-,-,-,Stays,Out,2nd,4,  0.09%,2,0
+Single,Liner,-,-,9D,1st,2nd,3rd,4,  0.09%,1,0
+Stolen base,-,-,-,-,Stays,3rd,Score,4,  0.09%,1,1
+Single,Liner,-,-,78S,1st,3rd,Score,4,  0.09%,1,1
+Generic out,Fly,-,Y,7LF,Out,1st,2nd,4,  0.09%,2,0
+Double,Liner,-,-,89D,2nd,3rd,Score,4,  0.09%,1,1
+Generic out,Grounder,-,-,56S,1st,Out,3rd,4,  0.09%,2,0
+Generic out,Grounder,-,-,5,Out,2nd,3rd,4,  0.09%,2,0
+Generic out,Pop-up,-,-,56S,Out,1st,2nd,4,  0.09%,2,0
+Generic out,Pop-up,-,-,9S,Out,1st,2nd,3,  0.06%,2,0
+Single,Fly,-,-,89,1st,2nd,3rd,3,  0.06%,1,0
+Pickoff,-,-,-,-,Stays,2nd,Out,3,  0.06%,2,0
+Single,Liner,-,-,89D,1st,2nd,3rd,3,  0.06%,1,0
+Single,Liner,-,-,7L,1st,2nd,Score,3,  0.06%,1,1
+Generic out,Liner,-,-,56,Out,1st,2nd,3,  0.06%,2,0
+Single,Liner,-,-,9,1st,3rd,Score,3,  0.06%,1,1
+Single,Liner,-,-,89,1st,2nd,Score,3,  0.06%,1,1
+Generic out,Grounder,-,-,5S,Out,1st,Out,3,  0.06%,3,0
+Generic out,Liner,-,-,8D,Out,1st,3rd,3,  0.06%,2,0
+Caught stealing,-,-,-,-,Stays,Out,3rd,3,  0.06%,2,0
+Generic out,Liner,-,-,34,Out,1st,2nd,3,  0.06%,2,0
+Single,Grounder,-,-,15,1st,2nd,3rd,3,  0.06%,1,0
+Generic out,Grounder,-,-,5S,1st,2nd,Out,3,  0.06%,2,0
+Single,Grounder,-,-,2,1st,2nd,3rd,3,  0.06%,1,0
+Stolen base,-,-,-,-,Stays,2nd,Score,3,  0.06%,1,1
+Generic out,Pop-up,-,-,3D,Out,1st,2nd,3,  0.06%,2,0
+Generic out,Liner,-,-,4,Out,1st,2nd,3,  0.06%,2,0
+Generic out,Liner,-,-,4D,Out,1st,2nd,3,  0.06%,2,0
+Pickoff,-,-,-,-,Stays,2nd,3rd,3,  0.06%,1,0
+Single,Liner,-,-,8S,1st,2nd,3rd,3,  0.06%,1,0
+Double,Liner,-,-,8XD,2nd,Score,Score,3,  0.06%,1,2
+Fielder's choice,Grounder,-,-,6,1st,2nd,3rd,3,  0.06%,1,0
+Single,Liner,-,-,8S,1st,3rd,Score,3,  0.06%,1,1
+Double,Liner,-,-,7LS,2nd,3rd,Score,3,  0.06%,1,1
+Single,Grounder,-,-,3,1st,2nd,Score,3,  0.06%,1,1
+Double,Liner,-,-,9LS,2nd,3rd,Score,3,  0.06%,1,1
+Generic out,Fly,-,Y,9LF,Out,1st,2nd,3,  0.06%,2,0
+Generic out,Fly,-,-,9,Out,1st,3rd,3,  0.06%,2,0
+Double,Liner,-,-,7D,2nd,3rd,Score,3,  0.06%,1,1
+Generic out,Grounder,-,-,4MS,Out,2nd,3rd,3,  0.06%,2,0
+Double,Grounder,-,-,34,2nd,3rd,Score,3,  0.06%,1,1
+Generic out,Fly,-,-,6D,Out,1st,2nd,3,  0.06%,2,0
+Generic out,Fly,-,-,34D,Out,1st,2nd,3,  0.06%,2,0
+Double,Fly,-,-,7LD,2nd,3rd,Score,3,  0.06%,1,1
+Single,Grounder,-,-,34,2nd,3rd,Score,3,  0.06%,1,1
+Single,Liner,-,-,89S,1st,2nd,3rd,3,  0.06%,1,0
+Generic out,Fly,-,-,78XD,Out,2nd,3rd,3,  0.06%,2,0
+Generic out,Grounder,-,-,5S,Out,2nd,3rd,3,  0.06%,2,0
+Single,Fly,-,-,9LS,1st,2nd,3rd,3,  0.06%,1,0
+Double,Liner,-,-,9LD,2nd,Score,Score,3,  0.06%,1,2
+Single,Grounder,-,-,56,2nd,3rd,Score,3,  0.06%,1,1
+Single,Grounder,-,-,1S,1st,2nd,3rd,3,  0.06%,1,0
+Generic out,Liner,-,-,5,Out,1st,Out,2,  0.04%,3,0
+Double,Grounder,-,-,3,2nd,Score,Score,2,  0.04%,1,2
+Single,Liner,-,-,9LS,1st,3rd,Score,2,  0.04%,1,1
+Generic out,Grounder,-,-,6MD,Out,Out,2nd,2,  0.04%,3,0
+Generic out,Liner,-,-,4M,Out,1st,Out,2,  0.04%,3,0
+Other advance,-,-,-,-,Stays,Out,3rd,2,  0.04%,2,0
+Generic out,Pop-up,-,-,5,Out,1st,2nd,2,  0.04%,2,0
+Generic out,Fly,-,-,89,Out,1st,3rd,2,  0.04%,2,0
+Double,Liner,-,-,9LD,3rd,Score,Score,2,  0.04%,1,2
+Generic out,Grounder,-,-,4M,Out,2nd,3rd,2,  0.04%,2,0
+Single,Liner,-,-,78D,1st,2nd,Score,2,  0.04%,1,1
+Double,Liner,-,-,89XD,2nd,3rd,Score,2,  0.04%,1,1
+Generic out,Grounder,-,-,6,1st,Out,Score,2,  0.04%,2,1
+Single,Grounder,-,-,25,1st,2nd,3rd,2,  0.04%,1,0
+Single,Liner,-,-,34D,1st,2nd,3rd,2,  0.04%,1,0
+Single,Liner,-,-,7L,1st,3rd,Score,2,  0.04%,1,1
+Double,Liner,-,-,78D,2nd,3rd,Score,2,  0.04%,1,1
+Single,Liner,-,-,5D,1st,2nd,3rd,2,  0.04%,1,0
+Generic out,Pop-up,-,Y,5DF,Out,1st,2nd,2,  0.04%,2,0
+Single,Fly,-,-,78S,1st,2nd,Score,2,  0.04%,1,1
+Single,Fly,-,-,9LS,1st,2nd,Score,2,  0.04%,1,1
+Home run,Liner,-,-,89XD,Score,Score,Score,2,  0.04%,1,3
+Generic out,Liner,-,-,4,Out,1st,Out,2,  0.04%,3,0
+Generic out,Pop-up,-,Y,25F,Out,1st,2nd,2,  0.04%,2,0
+Single,Grounder,-,-,4,2nd,3rd,Score,2,  0.04%,1,1
+Generic out,Liner,-,-,6D,Out,1st,Out,2,  0.04%,3,0
+Single,Liner,-,-,89D,2nd,3rd,Score,2,  0.04%,1,1
+Double,Fly,-,-,78D,2nd,3rd,Score,2,  0.04%,1,1
+Single,Liner,-,-,9S,1st,2nd,Score,2,  0.04%,1,1
+Generic out,Pop-up,-,Y,3DF,Out,1st,2nd,2,  0.04%,2,0
+Single,Liner,-,-,8D,1st,3rd,Score,2,  0.04%,1,1
+Single,Liner,-,-,89D,1st,2nd,Score,2,  0.04%,1,1
+Fielder's choice,Grounder,-,-,13,1st,2nd,3rd,2,  0.04%,1,0
+Single,Fly,-,-,7L,1st,2nd,Score,2,  0.04%,1,1
+Generic out,Grounder,-,-,56,2nd,Out,Score,2,  0.04%,2,1
+Single,Fly,-,-,9S,1st,2nd,3rd,2,  0.04%,1,0
+Generic out,Pop-up,-,Y,23F,Out,1st,2nd,2,  0.04%,2,0
+Double,Fly,-,-,9LD,2nd,3rd,Score,2,  0.04%,1,1
+Generic out,Liner,-,-,7S,Out,1st,2nd,2,  0.04%,2,0
+Single,Liner,-,-,9L,1st,3rd,Score,2,  0.04%,1,1
+Generic out,Pop-up,-,-,6MS,Out,1st,2nd,2,  0.04%,2,0
+Generic out,Grounder,-,-,4MS,1st,Out,3rd,2,  0.04%,2,0
+Single,Grounder,-,-,5,1st,2nd,Score,2,  0.04%,1,1
+Generic out,Grounder,-,-,34,1st,Out,Score,2,  0.04%,2,1
+Single,Liner,-,-,7D,1st,2nd,Score,2,  0.04%,1,1
+Generic out,Grounder,Y,-,25,Out,2nd,3rd,2,  0.04%,2,0
+Generic out,Pop-up,-,-,1S,Out,1st,2nd,2,  0.04%,2,0
+Generic out,Pop-up,-,-,5D,Out,1st,2nd,2,  0.04%,2,0
+Strikeout,-,-,-,-,Out,1st,Out,2,  0.04%,3,0
+Single,Liner,-,-,8S,2nd,3rd,Score,2,  0.04%,1,1
+Double,Liner,-,-,78D,2nd,Score,Score,2,  0.04%,1,2
+Double,Fly,-,-,78XD,2nd,Score,Score,2,  0.04%,1,2
+Single,Grounder,-,-,6S,1st,2nd,3rd,2,  0.04%,1,0
+Generic out,Liner,-,-,6,Out,1st,Out,2,  0.04%,3,0
+Single,Grounder,-,-,34,1st,3rd,Out,2,  0.04%,2,0
+Triple,Liner,-,-,89XD,3rd,Score,Score,2,  0.04%,1,2
+Home run,Liner,-,-,7D,Score,Score,Score,2,  0.04%,1,3
+Home run,Liner,-,-,9D,Score,Score,Score,2,  0.04%,1,3
+Generic out,Grounder,-,-,4MD,Out,Out,2nd,2,  0.04%,3,0
+Generic out,Grounder,-,-,15,Out,2nd,3rd,2,  0.04%,2,0
+Single,Grounder,Y,-,25,1st,2nd,3rd,2,  0.04%,1,0
+Foul error,Pop-up,-,Y,-,Stays,1st,2nd,2,  0.04%,1,0
+Generic out,Fly,-,Y,9LF,Out,1st,3rd,2,  0.04%,2,0
+Generic out,Grounder,Y,-,1S,Out,2nd,3rd,2,  0.04%,2,0
+Single,Fly,-,-,8,1st,3rd,Score,2,  0.04%,1,1
+Fielder's choice,Grounder,-,-,3,1st,2nd,3rd,2,  0.04%,1,0
+Double,Fly,-,-,7D,2nd,3rd,Score,2,  0.04%,1,1
+Single,Grounder,-,-,34S,1st,2nd,3rd,2,  0.04%,1,0
+Pickoff,-,-,-,-,Stays,1st,3rd,2,  0.04%,1,0
+Generic out,Liner,-,-,56,Out,1st,Out,2,  0.04%,3,0
+Generic out,Grounder,-,-,56,1st,3rd,Out,2,  0.04%,2,0
+Generic out,Liner,-,-,89XD,Out,1st,3rd,2,  0.04%,2,0
+Generic out,Liner,-,-,6MD,Out,1st,Out,2,  0.04%,3,0
+Generic out,Pop-up,-,-,78S,Out,1st,2nd,2,  0.04%,2,0
+Single,Grounder,-,-,56S,1st,2nd,3rd,2,  0.04%,1,0
+Single,Fly,-,-,8S,1st,2nd,Score,2,  0.04%,1,1
+Single,Liner,-,-,7L,2nd,3rd,Score,2,  0.04%,1,1
+Generic out,Pop-up,-,-,5S,Out,1st,2nd,2,  0.04%,2,0
+Triple,Liner,-,-,8XD,3rd,Score,Score,2,  0.04%,1,2
+Single,Liner,-,-,7LS,1st,2nd,3rd,2,  0.04%,1,0
+Generic out,Grounder,-,-,34S,Out,Out,2nd,2,  0.04%,3,0
+Generic out,Liner,-,-,5,Out,1st,2nd,2,  0.04%,2,0
+Generic out,Fly,-,-,9D,Out,2nd,3rd,2,  0.04%,2,0
+Generic out,Grounder,-,-,6M,Out,2nd,3rd,2,  0.04%,2,0
+Single,Liner,-,-,9L,1st,2nd,3rd,2,  0.04%,1,0
+Generic out,Liner,-,-,9,Out,1st,3rd,2,  0.04%,2,0
+Generic out,Grounder,-,-,56D,1st,Out,3rd,1,  0.02%,2,0
+Single,Liner,-,-,9S,1st,Out,3rd,1,  0.02%,2,0
+Generic out,Fly,-,-,8D,Out,2nd,3rd,1,  0.02%,2,0
+Single,Grounder,-,-,6,1st,Score,Score,1,  0.02%,1,2
+Generic out,Grounder,-,-,5S,Out,Out,2nd,1,  0.02%,3,0
+Double,Fly,-,-,8XD,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Fly,-,-,9L,Out,2nd,3rd,1,  0.02%,2,0
+Single,Grounder,-,-,4MS,1st,2nd,3rd,1,  0.02%,1,0
+Fielder's choice,Grounder,-,-,6,1st,3rd,Score,1,  0.02%,1,1
+Error,Grounder,-,-,13,1st,2nd,3rd,1,  0.02%,1,0
+Single,Liner,-,-,7D,1st,2nd,Out,1,  0.02%,2,0
+Generic out,Liner,-,-,78XD,Out,1st,2nd,1,  0.02%,2,0
+Single,Liner,-,-,6S,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Grounder,-,-,4MS,Out,Out,2nd,1,  0.02%,3,0
+Single,Liner,-,-,13,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Grounder,-,-,4S,Out,2nd,3rd,1,  0.02%,2,0
+Double,Grounder,-,-,2,Out,Score,Score,1,  0.02%,2,2
+Other advance,-,-,-,-,Stays,2nd,Out,1,  0.02%,2,0
+Generic out,Fly,-,-,78S,1st,2nd,Out,1,  0.02%,2,0
+Generic out,Grounder,-,-,5D,1st,Out,3rd,1,  0.02%,2,0
+Generic out,Pop-up,-,-,6MD,Out,1st,2nd,1,  0.02%,2,0
+Single,Liner,-,-,78D,1st,2nd,3rd,1,  0.02%,1,0
+Double,Liner,-,-,7S,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Fly,-,-,7D,Out,1st,Out,1,  0.02%,3,0
+Generic out,Pop-up,-,-,89S,Out,1st,2nd,1,  0.02%,2,0
+Single,Liner,-,-,25,1st,2nd,3rd,1,  0.02%,1,0
+Double,Liner,-,-,8XD,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,-,-,25,Out,2nd,3rd,1,  0.02%,2,0
+Generic out,Pop-up,-,-,34,1st,Out,3rd,1,  0.02%,2,0
+Single,Liner,-,-,7,1st,Out,Score,1,  0.02%,2,1
+Single,Fly,-,-,9,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Liner,-,-,7L,Out,1st,2nd,1,  0.02%,2,0
+Single,Liner,-,-,9,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Fly,-,-,9LD,Out,1st,Out,1,  0.02%,3,0
+Error,Grounder,-,-,6,2nd,3rd,Score,1,  0.02%,1,1
+Single,Grounder,-,-,4M,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,Y,-,23,Out,2nd,3rd,1,  0.02%,2,0
+Generic out,Liner,-,-,9,1st,Out,3rd,1,  0.02%,2,0
+Generic out,Grounder,-,-,6M,1st,Out,Score,1,  0.02%,2,1
+Error,Grounder,-,-,9L,2nd,Score,Score,1,  0.02%,1,2
+Generic out,Grounder,-,-,15,1st,Out,3rd,1,  0.02%,2,0
+Generic out,Fly,-,-,89,Out,1st,Out,1,  0.02%,3,0
+Generic out,Fly,-,-,9S,1st,Out,3rd,1,  0.02%,2,0
+Single,Fly,-,-,78,1st,2nd,3rd,1,  0.02%,1,0
+Single,Liner,-,-,89S,1st,2nd,Score,1,  0.02%,1,1
+Single,Liner,-,-,34D,2nd,3rd,Score,1,  0.02%,1,1
+Single,Grounder,-,-,25,2nd,3rd,Score,1,  0.02%,1,1
+Single,Fly,-,-,7S,1st,2nd,3rd,1,  0.02%,1,0
+Single,Liner,-,-,7D,1st,2nd,3rd,1,  0.02%,1,0
+Double,Liner,-,-,9LD,2nd,Out,Score,1,  0.02%,2,1
+Single,Fly,-,-,7,1st,2nd,Score,1,  0.02%,1,1
+Single,Liner,-,-,7LD,1st,3rd,Score,1,  0.02%,1,1
+Single,Fly,-,-,8S,1st,2nd,3rd,1,  0.02%,1,0
+Double,Liner,-,-,8D,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,56D,Out,1st,Out,1,  0.02%,3,0
+Single,Liner,-,-,7D,1st,3rd,Score,1,  0.02%,1,1
+Double,Liner,-,-,5S,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,4MD,Out,1st,Out,1,  0.02%,3,0
+Single,Liner,-,-,8,2nd,Score,Score,1,  0.02%,1,2
+Generic out,Liner,-,-,78XD,Out,1st,3rd,1,  0.02%,2,0
+Error,Liner,-,-,7S,1st,2nd,Score,1,  0.02%,1,1
+Triple,Liner,-,-,9,3rd,Score,Score,1,  0.02%,1,2
+Single,Liner,-,-,4D,1st,2nd,3rd,1,  0.02%,1,0
+Single,Liner,-,-,78,Out,3rd,Score,1,  0.02%,2,1
+Single,Liner,-,-,7LS,1st,2nd,Score,1,  0.02%,1,1
+Generic out,Pop-up,-,-,34,Out,1st,Out,1,  0.02%,3,0
+Generic out,Grounder,-,-,5,1st,Out,Score,1,  0.02%,2,1
+Single,Fly,-,-,89XD,1st,3rd,Score,1,  0.02%,1,1
+Other advance,-,-,-,-,Stays,1st,Out,1,  0.02%,2,0
+Double,Grounder,-,-,6M,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,-,-,56,1st,Out,Score,1,  0.02%,2,1
+Single,Grounder,-,-,1,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Grounder,-,-,6D,Out,Out,2nd,1,  0.02%,3,0
+Generic out,Pop-up,Y,-,1S,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Liner,-,-,1,Out,Out,2nd,1,  0.02%,3,0
+Single,Liner,-,-,6MD,1st,2nd,3rd,1,  0.02%,1,0
+Triple,Liner,-,-,78XD,3rd,Score,Score,1,  0.02%,1,2
+Single,Grounder,-,-,4M,1st,2nd,Out,1,  0.02%,2,0
+Single,Fly,-,-,5D,1st,2nd,3rd,1,  0.02%,1,0
+Single,Grounder,-,-,6MS,1st,2nd,Score,1,  0.02%,1,1
+Generic out,Grounder,-,-,1S,1st,2nd,Out,1,  0.02%,2,0
+Generic out,Grounder,-,-,56S,1st,2nd,Out,1,  0.02%,2,0
+Double,Liner,-,-,7LD,3rd,Score,Score,1,  0.02%,1,2
+Generic out,Pop-up,-,-,15,Out,1st,2nd,1,  0.02%,2,0
+Single,Liner,-,-,7LS,2nd,3rd,Score,1,  0.02%,1,1
+Single,Liner,-,-,3D,1st,3rd,Score,1,  0.02%,1,1
+Single,Liner,-,-,4D,2nd,Out,Score,1,  0.02%,2,1
+Double,Liner,-,-,9D,2nd,3rd,Score,1,  0.02%,1,1
+Single,Fly,-,-,7D,1st,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,Y,-,2,Out,2nd,3rd,1,  0.02%,2,0
+Generic out,Fly,-,Y,5DF,Out,1st,2nd,1,  0.02%,2,0
+Triple,Liner,-,-,7L,3rd,Score,Score,1,  0.02%,1,2
+Single,Liner,-,-,89D,Out,3rd,Score,1,  0.02%,2,1
+Double,Grounder,-,-,4,2nd,3rd,Score,1,  0.02%,1,1
+Double,Liner,-,-,78,2nd,3rd,Score,1,  0.02%,1,1
+Double,Fly,-,-,3D,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Fly,-,-,4MD,Out,1st,2nd,1,  0.02%,2,0
+Double,Liner,-,-,7LS,2nd,Score,Score,1,  0.02%,1,2
+Single,Fly,-,-,9S,1st,2nd,Score,1,  0.02%,1,1
+Single,Grounder,-,-,4,2nd,Out,Score,1,  0.02%,2,1
+Double,Fly,-,-,8XD,2nd,Score,Score,1,  0.02%,1,2
+Single,Liner,-,-,9S,2nd,3rd,Out,1,  0.02%,2,0
+Double,Grounder,-,-,4M,2nd,3rd,Score,1,  0.02%,1,1
+Single,Liner,-,-,7L,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Grounder,-,-,4,1st,Out,2nd,1,  0.02%,2,0
+Fielder's choice,Grounder,-,-,7L,2nd,Score,Score,1,  0.02%,1,2
+Single,Grounder,-,-,56,1st,Out,Score,1,  0.02%,2,1
+Generic out,Pop-up,-,-,7LS,Out,1st,2nd,1,  0.02%,2,0
+Triple,Liner,-,-,9LS,3rd,Score,Score,1,  0.02%,1,2
+Triple,Grounder,-,-,3,3rd,Score,Score,1,  0.02%,1,2
+Generic out,Grounder,-,-,6,2nd,Out,Score,1,  0.02%,2,1
+Double,Fly,-,-,78D,2nd,Score,Score,1,  0.02%,1,2
+Generic out,Grounder,-,-,4M,1st,Out,Score,1,  0.02%,2,1
+Single,Liner,-,-,7,1st,2nd,Out,1,  0.02%,2,0
+Home run,Fly,-,-,78,Score,Score,Score,1,  0.02%,1,3
+Generic out,Fly,-,-,4D,Out,1st,2nd,1,  0.02%,2,0
+Single,Liner,-,-,9LS,1st,2nd,Score,1,  0.02%,1,1
+Generic out,Pop-up,-,-,8S,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Grounder,-,-,56S,1st,Out,Score,1,  0.02%,2,1
+Single,Liner,-,-,9,1st,2nd,Score,1,  0.02%,1,1
+Single,Grounder,-,-,2,1st,3rd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,89,Out,1st,Out,1,  0.02%,3,0
+Generic out,Grounder,-,-,7,1st,Out,Out,1,  0.02%,3,0
+Single,Fly,-,-,78XD,1st,2nd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,4M,Out,1st,2nd,1,  0.02%,2,0
+Single,Grounder,-,-,6MS,1st,2nd,3rd,1,  0.02%,1,0
+Double,Fly,-,-,89XD,2nd,Out,Score,1,  0.02%,2,1
+Generic out,Fly,-,-,7LS,1st,2nd,Out,1,  0.02%,2,0
+Fielder's choice,Grounder,-,-,1,1st,2nd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,9,Out,Out,2nd,1,  0.02%,3,0
+Single,Pop-up,-,-,7S,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Fly,-,Y,9LDF,Out,1st,3rd,1,  0.02%,2,0
+Generic out,Fly,-,-,2,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Grounder,-,-,4M,2nd,Out,Score,1,  0.02%,2,1
+Double,Fly,-,-,8,2nd,3rd,Score,1,  0.02%,1,1
+Single,Fly,-,-,7S,1st,3rd,Score,1,  0.02%,1,1
+Single,Grounder,-,-,3,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Liner,-,-,7LD,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Fly,-,-,7LD,Out,1st,3rd,1,  0.02%,2,0
+Generic out,Grounder,-,-,2,1st,Out,3rd,1,  0.02%,2,0
+Single,Grounder,-,-,4M,2nd,Out,Score,1,  0.02%,2,1
+Generic out,Grounder,-,-,6,1st,Out,Out,1,  0.02%,3,0
+Generic out,Fly,-,-,89D,Out,2nd,3rd,1,  0.02%,2,0
+Generic out,Fly,-,-,9L,Out,Out,3rd,1,  0.02%,3,0
+Single,Liner,-,-,7L,2nd,3rd,Out,1,  0.02%,2,0
+Single,Grounder,-,-,34,3rd,Score,Score,1,  0.02%,1,2
+Single,Grounder,-,-,4M,1st,Out,Score,1,  0.02%,2,1
+Generic out,Grounder,-,-,25,Out,Out,2nd,1,  0.02%,3,0
+Single,Liner,-,-,9LD,1st,3rd,Score,1,  0.02%,1,1
+Generic out,Pop-up,-,-,3,Out,Out,2nd,1,  0.02%,3,0
+Single,Liner,-,-,9S,2nd,Out,3rd,1,  0.02%,2,0
+Double,Liner,-,-,89S,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Pop-up,-,-,4M,Out,1st,2nd,1,  0.02%,2,0
+Double,Liner,-,-,9,2nd,3rd,Score,1,  0.02%,1,1
+Single,Grounder,-,-,34,2nd,Out,Score,1,  0.02%,2,1
+Single,Liner,-,-,1,1st,2nd,3rd,1,  0.02%,1,0
+Error,Grounder,-,-,1S,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,4MD,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Liner,-,-,89XD,Out,1st,2nd,1,  0.02%,2,0
+Fielder's choice,Grounder,-,-,5,1st,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,-,-,2,1st,2nd,Out,1,  0.02%,2,0
+Triple,Fly,-,-,89XD,3rd,Score,Score,1,  0.02%,1,2
+Generic out,Liner,-,-,4D,Out,Out,2nd,1,  0.02%,3,0
+Single,Grounder,-,-,6,2nd,3rd,Score,1,  0.02%,1,1
+Single,Fly,-,-,3D,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Grounder,-,-,34D,Out,Out,2nd,1,  0.02%,3,0
+Single,Grounder,Y,-,2,1st,2nd,3rd,1,  0.02%,1,0
+Single,Liner,-,-,8D,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,89D,Out,2nd,3rd,1,  0.02%,2,0
+Triple,Liner,-,-,9L,3rd,Score,Score,1,  0.02%,1,2
+Single,Liner,-,-,8XD,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Grounder,Y,-,3,Out,2nd,3rd,1,  0.02%,2,0
+Fielder's choice,Grounder,-,-,3,2nd,3rd,Score,1,  0.02%,1,1
+Fielder's choice,Grounder,-,-,1S,1st,2nd,Score,1,  0.02%,1,1
+Generic out,Liner,-,-,6M,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Pop-up,Y,Y,2F,Out,1st,Out,1,  0.02%,3,0
+Error,Fly,-,-,78XD,1st,2nd,3rd,1,  0.02%,1,0
+Generic out,Grounder,-,-,4MD,1st,Out,3rd,1,  0.02%,2,0
+Generic out,Pop-up,-,-,23,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Grounder,-,-,34D,1st,Out,3rd,1,  0.02%,2,0
+Generic out,Fly,-,-,7D,Out,1st,3rd,1,  0.02%,2,0
+Single,Liner,-,-,89S,2nd,3rd,Out,1,  0.02%,2,0
+Single,Fly,-,-,7LD,2nd,Out,Score,1,  0.02%,2,1
+Single,Liner,-,-,89,1st,3rd,Out,1,  0.02%,2,0
+Generic out,Fly,-,-,7,Out,1st,Out,1,  0.02%,3,0
+Fielder's choice,Grounder,-,-,4M,1st,2nd,3rd,1,  0.02%,1,0
+Error,Grounder,-,-,56,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Fly,-,-,8XD,Out,Out,2nd,1,  0.02%,3,0
+Generic out,Grounder,-,-,4,1st,Out,Out,1,  0.02%,3,0
+Single,Grounder,-,-,34,2nd,Score,Score,1,  0.02%,1,2
+Generic out,Liner,-,-,6MD,Out,Out,2nd,1,  0.02%,3,0
+Single,Liner,-,-,8,2nd,3rd,Out,1,  0.02%,2,0
+Generic out,Grounder,-,-,3,1st,Out,Score,1,  0.02%,2,1
+Generic out,Grounder,-,-,4S,1st,Out,3rd,1,  0.02%,2,0
+Single,Liner,-,-,8,1st,2nd,Out,1,  0.02%,2,0
+Fielder's choice,Grounder,-,-,1S,1st,2nd,3rd,1,  0.02%,1,0
+Double,Liner,-,-,9D,2nd,Out,Score,1,  0.02%,2,1
+Generic out,Grounder,-,-,34S,1st,Out,3rd,1,  0.02%,2,0
+Fielder's choice,Grounder,-,-,4D,1st,2nd,3rd,1,  0.02%,1,0
+Single,Liner,-,-,78,1st,2nd,Out,1,  0.02%,2,0
+Generic out,Grounder,-,-,6MS,1st,Out,3rd,1,  0.02%,2,0
+Generic out,Fly,-,-,3D,Out,1st,2nd,1,  0.02%,2,0
+Generic out,Fly,-,-,9LD,Out,1st,2nd,1,  0.02%,2,0
+Double,Liner,-,-,78D,3rd,Score,Score,1,  0.02%,1,2
+Generic out,Liner,-,-,5D,Out,1st,Out,1,  0.02%,3,0
+Generic out,Pop-up,-,-,25,Out,1st,Out,1,  0.02%,3,0
+Single,Grounder,-,-,6S,1st,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,-,-,4,1st,Out,Score,1,  0.02%,2,1
+Generic out,Pop-up,-,Y,5F,Out,2nd,3rd,1,  0.02%,2,0
+Generic out,Pop-up,-,-,4MS,Out,1st,2nd,1,  0.02%,2,0
+Strikeout,-,-,-,-,Out,1st,3rd,1,  0.02%,2,0
+Double,Liner,-,-,9L,3rd,Score,Score,1,  0.02%,1,2
+Generic out,Grounder,-,-,1,1st,Out,3rd,1,  0.02%,2,0
+Single,Liner,-,-,89XD,1st,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,-,-,6,1st,2nd,Out,1,  0.02%,2,0
+Single,Fly,-,-,89S,1st,2nd,Score,1,  0.02%,1,1
+Double,Liner,-,-,78,2nd,Score,Score,1,  0.02%,1,2
+Double,Liner,-,-,9S,2nd,3rd,Score,1,  0.02%,1,1
+Fielder's choice,Grounder,-,-,34,1st,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,Y,-,5S,Out,2nd,3rd,1,  0.02%,2,0
+Generic out,Grounder,-,-,3D,1st,Out,3rd,1,  0.02%,2,0
+Double,Liner,-,-,9L,2nd,Score,Score,1,  0.02%,1,2
+Generic out,Fly,-,-,7,Out,2nd,3rd,1,  0.02%,2,0
+Single,Liner,-,-,9L,2nd,3rd,Score,1,  0.02%,1,1
+Double,Fly,-,-,7LS,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Grounder,-,-,6D,1st,Out,3rd,1,  0.02%,2,0
+Single,Liner,-,-,89,2nd,Out,Score,1,  0.02%,2,1
+Single,Liner,-,-,89,2nd,3rd,Score,1,  0.02%,1,1
+Double,Fly,-,-,89D,2nd,3rd,Out,1,  0.02%,2,0
+Double,Liner,-,-,9LS,2nd,Score,Score,1,  0.02%,1,2
+Generic out,Liner,-,-,78,Out,1st,Out,1,  0.02%,3,0
+Fielder's choice,Grounder,-,-,4D,2nd,3rd,Score,1,  0.02%,1,1
+Generic out,Fly,-,-,9L,Out,2nd,Score,1,  0.02%,2,1
+Generic out,Liner,-,-,8D,Out,1st,Out,1,  0.02%,3,0
+Generic out,Fly,-,-,9LD,Out,2nd,3rd,1,  0.02%,2,0
+Generic out,Fly,-,-,8,Out,1st,3rd,1,  0.02%,2,0
+Fielder's choice,Liner,-,-,78,2nd,Out,Score,1,  0.02%,2,1
+Error,Grounder,-,-,34,1st,2nd,Score,1,  0.02%,1,1
+Double,Liner,-,-,89XD,2nd,Out,Score,1,  0.02%,2,1
+Single,Liner,-,-,78D,3rd,Score,Score,1,  0.02%,1,2
+Generic out,Fly,-,-,5D,Out,1st,2nd,1,  0.02%,2,0
+Single,Liner,-,-,9LS,1st,2nd,3rd,1,  0.02%,1,0
+Fielder's choice,Grounder,-,-,56,1st,3rd,Score,1,  0.02%,1,1
+Single,Liner,-,-,78,2nd,3rd,Score,1,  0.02%,1,1
