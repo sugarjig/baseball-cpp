@@ -23,6 +23,7 @@ add_library(baseball_lib STATIC
         src/chadwick/GameState.cpp
         src/StaticEventSource.cpp
         src/RandomEventSource.cpp
+        src/MatrixEventSource.cpp
         include/Simulator.hpp
         include/chadwick/Scorebook.hpp
         include/chadwick/Game.hpp
@@ -30,6 +31,7 @@ add_library(baseball_lib STATIC
         include/SimulatorObserver.hpp
         include/StaticEventSource.hpp
         include/RandomEventSource.hpp
+        include/MatrixEventSource.hpp
         include/EventSource.hpp
         include/Records.hpp
         include/IGame.hpp
