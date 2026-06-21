@@ -11,7 +11,7 @@ jobs:
     name: Format
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Run clang-format
         run: |
           find src include tests tools \( -name "*.cpp" -o -name "*.hpp" \) | xargs clang-format-22 --dry-run --Werror
@@ -20,7 +20,7 @@ jobs:
     name: Build
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -34,7 +34,7 @@ jobs:
     name: Lint
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -51,7 +51,7 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -67,7 +67,7 @@ jobs:
     name: Integration Tests
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
