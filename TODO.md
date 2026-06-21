@@ -1,17 +1,14 @@
 # TODO
 
 ## Simulator
-- [ ] Fix the bug where the game ends on a walk off in the top of the 10th inning
-- [ ] Determine the probability of state transitions instead of outcomes (S, D, T, HR, etc.)
+- [ ] Use transition matrix for each starting state
+- [ ] Consider batter and pitcher handedness in matrices
+- [ ] Consider ballpark in matrices
 - [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
 - [ ] Move KeepPlaying out of Chadwick GameState
 - [ ] Add abstraction over Retrosheet records
 - [ ] Simulate pitch sequences
-- [ ] Add stolen bases
-- [ ] Add double plays
-- [ ] Add triple plays
-- [ ] Add sacrifice hits
-- [ ] Add sacrifice flies
+- [ ] Create transition matrices for batters, pitchers, fielders, umpires
 
 ## Code Quality
 - [ ] Ask Junie for a code review
