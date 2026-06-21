@@ -1,7 +1,7 @@
 # TODO
 
 ## Simulator
-- [ ] Use transition matrix for each starting state
+- [x] Use transition matrix for each starting state
 - [ ] Consider batter and pitcher handedness in matrices
 - [ ] Consider ballpark in matrices
 - [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
