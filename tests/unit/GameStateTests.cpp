@@ -13,13 +13,13 @@ extern "C" {
 namespace {
 
 struct KeepPlayingParams {
-    std::string label;
-    int inning;
-    int battingTeam;
-    int outs;
-    int visitorScore;
-    int homeScore;
-    bool expected;
+    std::string label{};
+    int inning = 0;
+    int battingTeam = 0;
+    int outs = 0;
+    int visitorScore = 0;
+    int homeScore = 0;
+    bool expected = false;
 };
 
 class GameStateKeepPlayingTest : public ::testing::TestWithParam<KeepPlayingParams> {
@@ -40,7 +40,8 @@ TEST_P(GameStateKeepPlayingTest, KeepPlaying) {
     state.score[1] = params.homeScore;
 
     chadwick::GameState const gameState(&state);
-    EXPECT_EQ(gameState.KeepPlaying(), params.expected) << "Failed for: " << params.label;
+    EXPECT_EQ(gameState.KeepPlaying(), params.expected)
+        << "Failed for: " << params.label; // NOLINT(readability-implicit-bool-conversion)
 }
 
 INSTANTIATE_TEST_SUITE_P(GameStateTests, GameStateKeepPlayingTest,

@@ -1,5 +1,7 @@
 #include "IGameState.hpp"
+#include "MatrixData.hpp" // IWYU pragma: keep
 #include "MatrixEventSource.hpp"
+#include "MatrixLoader.hpp" // IWYU pragma: keep
 #include <filesystem>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -19,11 +21,23 @@ public:
 constexpr unsigned int seed123 = 123;
 constexpr unsigned int seed456 = 456;
 constexpr unsigned int seed789 = 789;
+
+auto GetTestData() -> MatrixData {
+    std::filesystem::path const dataDir = std::filesystem::path(PROJECT_ROOT) / "data" / "matrices_2025";
+    return MatrixLoader::LoadMatrices(dataDir);
+}
 } // namespace
 
-TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
+TEST(MatrixLoaderTest, LoadsDataFromDirectory) {
     std::filesystem::path const dataDir = std::filesystem::path(PROJECT_ROOT) / "data" / "matrices_2025";
-    MatrixEventSource source(dataDir, seed123);
+    auto data = MatrixLoader::LoadMatrices(dataDir);
+    EXPECT_FALSE(data.matrices.empty());
+    EXPECT_FALSE(data.distributions.empty());
+    EXPECT_EQ(data.matrices.size(), data.distributions.size());
+}
+
+TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
+    MatrixEventSource source(GetTestData(), seed123); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
     EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true));
@@ -45,8 +59,7 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
 }
 
 TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
-    std::filesystem::path const dataDir = std::filesystem::path(PROJECT_ROOT) / "data" / "matrices_2025";
-    MatrixEventSource source(dataDir, seed456);
+    MatrixEventSource source(GetTestData(), seed456); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
     EXPECT_CALL(state, KeepPlaying()).WillRepeatedly(testing::Return(true));
@@ -64,8 +77,7 @@ TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
 }
 
 TEST(MatrixEventSourceTest, ReturnsNulloptWhenGameEnds) {
-    std::filesystem::path const dataDir = std::filesystem::path(PROJECT_ROOT) / "data" / "matrices_2025";
-    MatrixEventSource source(dataDir);
+    MatrixEventSource source(GetTestData()); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
     EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(false));
@@ -75,8 +87,7 @@ TEST(MatrixEventSourceTest, ReturnsNulloptWhenGameEnds) {
 }
 
 TEST(MatrixEventSourceTest, HandlesHalfInningTransition) {
-    std::filesystem::path const dataDir = std::filesystem::path(PROJECT_ROOT) / "data" / "matrices_2025";
-    MatrixEventSource source(dataDir, seed789);
+    MatrixEventSource source(GetTestData(), seed789); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
     // Simulate state after 3rd out of top 1st

@@ -1,7 +1,7 @@
 #ifndef BASEBALL_CPP_IGAMESTATE_HPP
 #define BASEBALL_CPP_IGAMESTATE_HPP
 
-#include <string>
+#include <string> // IWYU pragma: keep
 
 /**
  * @brief Interface for the current state of a baseball game.

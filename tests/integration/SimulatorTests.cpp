@@ -147,53 +147,49 @@ TEST_P(SimulatorTest, FullGameSimulation) {
         } else if (type == "info") {
             infoRecords.push_back({.key = fields.at(1), .value = fields.at(2)});
         } else if (type == "start") {
-            StarterInfo starter;
-            starter.id = fields.at(1);
-            starter.name = fields.at(2);
-            starter.isHome = fields.at(3) == "1";
-            starter.battingOrder = std::stoi(fields.at(4));
-            starter.position =
-                std::stoi(fields.at(5)); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            const StarterInfo starter{
+                .id = fields.at(1),
+                .name = fields.at(2),
+                .isHome = fields.at(3) == "1",
+                .battingOrder = std::stoi(fields.at(4)),
+                .position =
+                    std::stoi(fields.at(5)) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            };
             starters.push_back(starter);
         } else if (type == "play") {
-            PlayInfo play;
-            play.inning = std::stoi(fields.at(1));
-            play.team = std::stoi(fields.at(2));
-            play.batter = fields.at(3);
-            play.pitchCount = fields.at(4);
-            play.pitchSequence =
-                fields.at(5);         // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-            play.text = fields.at(6); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            const PlayInfo play{
+                .inning = std::stoi(fields.at(1)),
+                .team = std::stoi(fields.at(2)),
+                .batter = fields.at(3),
+                .pitchCount = fields.at(4),
+                .pitchSequence =
+                    fields.at(5),    // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+                .text = fields.at(6) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            };
             events.push_back({.type = RecordType::Play, .data = play});
         } else if (type == "sub") {
-            SubstitutionInfo sub;
-            sub.playerId = fields.at(1);
-            sub.name = fields.at(2);
-            sub.team = std::stoi(fields.at(3));
-            sub.slot = std::stoi(fields.at(4));
-            sub.pos =
-                std::stoi(fields.at(5)); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            const SubstitutionInfo sub{
+                .playerId = fields.at(1),
+                .name = fields.at(2),
+                .team = std::stoi(fields.at(3)),
+                .slot = std::stoi(fields.at(4)),
+                .pos =
+                    std::stoi(fields.at(5)) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+            };
             events.push_back({.type = RecordType::Substitution, .data = sub});
         } else if (type == "com") {
             events.push_back({.type = RecordType::Comment, .data = fields.at(1)});
         } else if (type == "radj") {
-            RunnerAdjustmentInfo radj;
-            radj.playerId = fields.at(1);
-            radj.base = std::stoi(fields.at(2));
+            const RunnerAdjustmentInfo radj{.playerId = fields.at(1), .base = std::stoi(fields.at(2))};
             events.push_back({.type = RecordType::RunnerAdjustment, .data = radj});
         } else if (type == "badj") {
-            BatterAdjustmentInfo badj;
-            badj.playerId = fields.at(1);
-            badj.hand = fields.at(2).at(0);
+            const BatterAdjustmentInfo badj{.playerId = fields.at(1), .hand = fields.at(2).at(0)};
             events.push_back({.type = RecordType::BatterAdjustment, .data = badj});
         } else if (type == "padj") {
-            PitcherAdjustmentInfo padj;
-            padj.playerId = fields.at(1);
-            padj.hand = fields.at(2).at(0);
+            const PitcherAdjustmentInfo padj{.playerId = fields.at(1), .hand = fields.at(2).at(0)};
             events.push_back({.type = RecordType::PitcherAdjustment, .data = padj});
         } else if (type == "data") {
-            DataRecord data;
-            data.fields = std::vector<std::string>(fields.begin() + 1, fields.end());
+            const DataRecord data{.fields = std::vector<std::string>(fields.begin() + 1, fields.end())};
             dataRecords.push_back(data);
         }
     }
