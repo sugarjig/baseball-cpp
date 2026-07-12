@@ -24,6 +24,7 @@ add_library(baseball_lib STATIC
         src/StaticEventSource.cpp
         src/RandomEventSource.cpp
         src/MatrixEventSource.cpp
+        src/MatrixLoader.cpp
         include/Simulator.hpp
         include/chadwick/Scorebook.hpp
         include/chadwick/Game.hpp
@@ -32,12 +33,15 @@ add_library(baseball_lib STATIC
         include/StaticEventSource.hpp
         include/RandomEventSource.hpp
         include/MatrixEventSource.hpp
+        include/MatrixLoader.hpp
+        include/MatrixData.hpp
         include/EventSource.hpp
         include/Records.hpp
         include/IGame.hpp
         include/IGameState.hpp
 )
 target_include_directories(baseball_lib PUBLIC include)
+target_compile_definitions(baseball_lib PUBLIC PROJECT_ROOT="${CMAKE_SOURCE_DIR}")
 target_link_libraries(baseball_lib PUBLIC chadwick)
 
 add_executable(baseball_cpp src/main.cpp)

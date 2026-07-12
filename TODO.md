@@ -5,7 +5,7 @@
 - [ ] Consider batter and pitcher handedness in matrices
 - [ ] Consider ballpark in matrices
 - [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
-- [ ] Move KeepPlaying out of Chadwick GameState
+- [ ] Move KeepPlaying out of Chadwick GameState (into Simulator?)
 - [ ] Add abstraction over Retrosheet records
 - [ ] Simulate pitch sequences
 - [ ] Create transition matrices for batters, pitchers, fielders, umpires

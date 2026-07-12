@@ -1,6 +1,6 @@
 #include "IGameState.hpp"
 #include "RandomEventSource.hpp"
-#include "Records.hpp"
+#include "Records.hpp" // IWYU pragma: keep
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <string>
@@ -20,7 +20,7 @@ public:
 
 TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
     constexpr int seed = 12345;
-    RandomEventSource source(seed);
+    RandomEventSource source(seed); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
     EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true)).WillOnce(testing::Return(false));

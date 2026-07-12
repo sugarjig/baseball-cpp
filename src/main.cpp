@@ -1,5 +1,5 @@
-#include "RandomEventSource.hpp"
-#include "Records.hpp"
+#include "MatrixEventSource.hpp"
+#include "MatrixLoader.hpp" // IWYU pragma: keep
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
 #include "chadwick/Game.hpp"
@@ -10,7 +10,10 @@
 auto main() -> int {
     std::cout << "Starting Chadwick example...\n";
 
-    RandomEventSource eventSource;
+    std::filesystem::path const dataDir = std::filesystem::path(PROJECT_ROOT) / "data" / "matrices_2025";
+    auto data = MatrixLoader::LoadMatrices(dataDir);
+    MatrixEventSource eventSource{std::move(data)};
+
     SimulatorObserver observer;
     Simulator const simulator(&eventSource, &observer);
 

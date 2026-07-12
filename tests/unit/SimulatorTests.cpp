@@ -1,6 +1,6 @@
 #include "EventSource.hpp"
 #include "IGame.hpp"
-#include "IGameState.hpp"
+#include "IGameState.hpp" // IWYU pragma: keep
 #include "Records.hpp"
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
@@ -18,40 +18,57 @@ using ::testing::Return;
 namespace {
 class MockEventSource : public EventSource {
 public:
-    MOCK_METHOD(std::optional<Record>, Next, (const IGameState& state), // NOLINT(modernize-use-trailing-return-type)
-                (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
+    MOCK_METHOD(std::optional<Record>, Next, (const IGameState& state), (override));
 };
 
 class MockSimulatorObserver : public SimulatorObserver {
 public:
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnPreEvent, (const IGameState& state), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnEvent, (const PlayInfo& event), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnSubstitution, (const SubstitutionInfo& sub), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnComment, (const std::string& comment), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, OnPostEvent, (const IGameState& state), (override));
 };
 
 class MockGame : public IGame {
 public:
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, AddEvent, (const PlayInfo& play), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, AddSubstitution, (const SubstitutionInfo& sub), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, AddComment, (std::string_view comment), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, AddData, (const DataRecord& data), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, AddRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, AddBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, AddPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
     MOCK_METHOD(void, UpdateState, (), (override));
-    MOCK_METHOD(const IGameState&, GetGameState, (), (const, override)); // NOLINT(modernize-use-trailing-return-type)
+    // NOLINTNEXTLINE(modernize-use-trailing-return-type)
+    MOCK_METHOD(const IGameState&, GetGameState, (), (const, override));
 };
 } // namespace
 
 TEST(SimulatorTest, ProcessesPlayEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame;
+    MockGame mockGame; // NOLINT(misc-const-correctness)
     Simulator const simulator(&mockSource, &mockObserver);
 
     PlayInfo play;
@@ -65,7 +82,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     record.data = play;
 
     {
-        chadwick::GameState dummyState;
+        const chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
@@ -86,7 +103,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
 TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame;
+    MockGame mockGame; // NOLINT(misc-const-correctness)
     Simulator const simulator(&mockSource, &mockObserver);
 
     SubstitutionInfo sub;
@@ -100,7 +117,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     record.data = sub;
 
     {
-        chadwick::GameState dummyState;
+        const chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
@@ -121,7 +138,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
 TEST(SimulatorTest, ProcessesCommentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame;
+    MockGame mockGame; // NOLINT(misc-const-correctness)
     Simulator const simulator(&mockSource, &mockObserver);
 
     const std::string comment = "Test Comment";
@@ -131,7 +148,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     record.data = comment;
 
     {
-        chadwick::GameState dummyState;
+        const chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
@@ -152,7 +169,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
 TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame;
+    MockGame mockGame; // NOLINT(misc-const-correctness)
     Simulator const simulator(&mockSource, &mockObserver);
 
     RunnerAdjustmentInfo radj;
@@ -164,7 +181,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     record.data = radj;
 
     {
-        chadwick::GameState dummyState;
+        const chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
@@ -185,7 +202,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
 TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame;
+    MockGame mockGame; // NOLINT(misc-const-correctness)
     Simulator const simulator(&mockSource, &mockObserver);
 
     BatterAdjustmentInfo badj;
@@ -197,7 +214,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     record.data = badj;
 
     {
-        chadwick::GameState dummyState;
+        const chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
@@ -218,7 +235,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
 TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame;
+    MockGame mockGame; // NOLINT(misc-const-correctness)
     Simulator const simulator(&mockSource, &mockObserver);
 
     PitcherAdjustmentInfo padj;
@@ -230,7 +247,7 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     record.data = padj;
 
     {
-        chadwick::GameState dummyState;
+        const chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
