@@ -40,7 +40,7 @@ public:
 
 private:
     auto GetOutcome(int stateId) -> std::string;
-    static void ApplyAdvancements(PlayInfo& play, unsigned int bases);
+    static void ApplyAdvancements(PlayInfo& play, int bases);
 
     std::mt19937 rng{std::random_device{}()};
     static constexpr double probabilityStrikeout = 0.7;

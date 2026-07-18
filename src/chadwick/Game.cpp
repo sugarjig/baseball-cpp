@@ -21,8 +21,8 @@ namespace chadwick {
 
 Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-parameters)
            const std::string_view version, const std::vector<InfoRecord>& infoRecords,
-           const std::vector<StarterInfo>& starters)
-    : game(cw_game_create(std::string(gameId).data())) {
+           const std::vector<StarterInfo>& starters) {
+    game = cw_game_create(std::string(gameId).data());
     if (game != nullptr) {
         cw_game_set_version(game, std::string(version).data());
         for (const auto& info : infoRecords) {
@@ -121,7 +121,7 @@ void Game::UpdateState() {
             // Save "suspended" comments that Chadwick's cw_gameiter_process_comments might mangle with strtok
             // May be able to remove in versions of Chadwick higher than 0.10.0
             struct SavedComment {
-                CWComment* comment = nullptr;
+                CWComment* comment;
                 std::string originalText;
             };
             std::vector<SavedComment> saved;
