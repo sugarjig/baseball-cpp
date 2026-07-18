@@ -51,13 +51,17 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
 
     auto record = source.Next(state);
     ASSERT_TRUE(record.has_value());
-    EXPECT_EQ(record->type, RecordType::Play);
+    if (record.has_value()) {
+        EXPECT_EQ(record->type, RecordType::Play);
+    }
 
-    auto play = std::get<PlayInfo>(record->data);
-    EXPECT_EQ(play.inning, 1);
-    EXPECT_EQ(play.team, 0);
-    EXPECT_EQ(play.batter, "PLAYER1");
-    EXPECT_FALSE(play.text.empty());
+    if (record.has_value()) {
+        auto play = std::get<PlayInfo>(record->data);
+        EXPECT_EQ(play.inning, 1);
+        EXPECT_EQ(play.team, 0);
+        EXPECT_EQ(play.batter, "PLAYER1");
+        EXPECT_FALSE(play.text.empty());
+    }
 }
 
 TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
@@ -75,7 +79,9 @@ TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
 
     auto record = source.Next(state);
     ASSERT_TRUE(record.has_value());
-    EXPECT_EQ(record->type, RecordType::Play);
+    if (record.has_value()) {
+        EXPECT_EQ(record->type, RecordType::Play);
+    }
 }
 
 TEST(MatrixEventSourceTest, ReturnsNulloptWhenGameEnds) {
@@ -102,10 +108,12 @@ TEST(MatrixEventSourceTest, HandlesHalfInningTransition) {
 
     auto record = source.Next(state);
     ASSERT_TRUE(record.has_value());
-    auto play = std::get<PlayInfo>(record->data);
+    if (record.has_value()) {
+        auto play = std::get<PlayInfo>(record->data);
 
-    // Should have flipped to home team (1)
-    EXPECT_EQ(play.team, 1);
-    EXPECT_EQ(play.inning, 1);
-    EXPECT_EQ(play.batter, "HOME_PLAYER1");
+        // Should have flipped to home team (1)
+        EXPECT_EQ(play.team, 1);
+        EXPECT_EQ(play.inning, 1);
+        EXPECT_EQ(play.batter, "HOME_PLAYER1");
+    }
 }
