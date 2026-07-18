@@ -20,6 +20,7 @@ public:
     MOCK_METHOD(int, GetBattingTeam, (), (const, override));                // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(std::string, GetNextBatter, (int team), (const, override)); // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetScore, (int team), (const, override));              // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(std::string, GetRunnerOnBase, (int base), (const, override)); // NOLINT(*-use-trailing-return-type)
 };
 
 constexpr unsigned int seed123 = 123;

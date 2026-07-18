@@ -23,6 +23,13 @@ public:
     [[nodiscard]] virtual auto GetNextBatter(int team) const -> std::string = 0;
 
     /**
+     * @brief Gets the ID of the player on a specific base.
+     * @param base The base number (1, 2, or 3).
+     * @return The player ID of the runner on that base, or an empty string if unoccupied.
+     */
+    [[nodiscard]] virtual auto GetRunnerOnBase(int base) const -> std::string = 0;
+
+    /**
      * @brief Gets the current inning.
      * @return The inning number (1-based).
      */
