@@ -9,13 +9,13 @@
  * @brief Types of records that can be encountered in a baseball event stream.
  */
 enum class RecordType : std::uint8_t {
-    Play,              ///< A play event (e.g., hit, out).
-    Substitution,      ///< A player substitution.
-    Comment,           ///< A comment record.
-    Starter,           ///< A starting lineup record.
-    RunnerAdjustment,  ///< An adjustment to a runner's position.
-    BatterAdjustment,  ///< An adjustment to the batter's hand.
-    PitcherAdjustment, ///< An adjustment to a pitcher's hand.
+    Play,             ///< A play event (e.g., hit, out).
+    Substitution,     ///< A player substitution.
+    Comment,          ///< A comment record.
+    Starter,          ///< A starting lineup record.
+    RunnerAdjustment, ///< An adjustment to a runner's position.
+    BatterAdjustment, ///< An adjustment to the batter's hand.
+    PitcherAdjustment ///< An adjustment to a pitcher's hand.
 };
 
 /**
