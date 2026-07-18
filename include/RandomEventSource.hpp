@@ -5,10 +5,10 @@
 #include "IGameState.hpp"
 #include "Records.hpp"
 #include <cstddef>
-#include <optional>
-#include <random>
-#include <string>
-#include <vector>
+#include <optional> // IWYU pragma: keep
+#include <random>   // IWYU pragma: keep
+#include <string>   // IWYU pragma: keep
+#include <vector>   // IWYU pragma: keep
 
 /**
  * @brief An EventSource that generates random baseball events.
@@ -40,7 +40,7 @@ public:
 
 private:
     auto GetOutcome(int stateId) -> std::string;
-    static void ApplyAdvancements(PlayInfo& play, int bases);
+    static void ApplyAdvancements(PlayInfo& play, unsigned int bases);
 
     std::mt19937 rng{std::random_device{}()};
     static constexpr double probabilityStrikeout = 0.7;

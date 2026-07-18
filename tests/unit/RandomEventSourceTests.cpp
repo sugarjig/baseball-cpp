@@ -3,7 +3,7 @@
 #include "Records.hpp" // IWYU pragma: keep
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include <string>
+#include <string> // IWYU pragma: keep
 
 namespace {
 class MockGameState : public IGameState {

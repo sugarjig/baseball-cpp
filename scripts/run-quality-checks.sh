@@ -1,9 +1,27 @@
 #!/bin/bash
 
 # Configuration
+# The expected clang-tidy version
+EXPECTED_CLANG_TIDY_VERSION="22"
 # The path to clang-tidy provided in the requirements
 DEFAULT_CLANG_TIDY_PATH="$HOME/Applications/CLion.app/Contents/bin/clang/mac/aarch64/bin/clang-tidy"
 CLANG_TIDY_PATH="${CLANG_TIDY_PATH:-$DEFAULT_CLANG_TIDY_PATH}"
+
+# macOS SDK path for clang-tidy
+EXTRA_ARGS=""
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    SDK_PATH=$(xcrun --sdk macosx --show-sdk-path 2>/dev/null)
+    if [ -n "$SDK_PATH" ]; then
+        # Add SDK path and architecture
+        EXTRA_ARGS="--extra-arg=-isysroot --extra-arg=$SDK_PATH --extra-arg=-arch --extra-arg=arm64"
+        # Explicitly add system include paths to help clang-tidy find standard headers
+        # These paths are derived from 'c++ -E -x c++ - -v < /dev/null'
+        EXTRA_ARGS="$EXTRA_ARGS --extra-arg=-isystem --extra-arg=$SDK_PATH/usr/include/c++/v1"
+        EXTRA_ARGS="$EXTRA_ARGS --extra-arg=-isystem --extra-arg=/Library/Developer/CommandLineTools/usr/lib/clang/21/include"
+        EXTRA_ARGS="$EXTRA_ARGS --extra-arg=-isystem --extra-arg=$SDK_PATH/usr/include"
+        EXTRA_ARGS="$EXTRA_ARGS --extra-arg=-isystem --extra-arg=/Library/Developer/CommandLineTools/usr/include"
+    fi
+fi
 BUILD_DIR="${BUILD_DIR:-cmake-build-debug}"
 
 # Resolve tilde in path if present
@@ -43,23 +61,51 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "--- Running clang-tidy ---"
-# Check if the specified clang-tidy exists and is executable
-if [ ! -x "$CLANG_TIDY_PATH" ]; then
-    echo "Warning: clang-tidy not found at $CLANG_TIDY_PATH"
-    echo "Attempting to use clang-tidy from PATH..."
-    CLANG_TIDY_PATH="clang-tidy"
-    
-    if ! command -v clang-tidy &> /dev/null; then
-        echo "Error: clang-tidy is not available on PATH either."
-        exit 1
+
+# 1. Determine the clang-tidy executable to use
+if [ -n "$CLANG_TIDY_PATH" ]; then
+    # Use the path provided by the environment variable
+    if [ ! -x "$CLANG_TIDY_PATH" ]; then
+        # Handle tilde expansion manually if needed (though shell might have done it)
+        if [[ "$CLANG_TIDY_PATH" == "~"* ]]; then
+            CLANG_TIDY_PATH="${HOME}${CLANG_TIDY_PATH:1}"
+        fi
+        if [ ! -x "$CLANG_TIDY_PATH" ]; then
+            echo "Error: Specified CLANG_TIDY_PATH does not exist or is not executable: $CLANG_TIDY_PATH"
+            exit 1
+        fi
     fi
+elif [ -x "$DEFAULT_CLANG_TIDY_PATH" ]; then
+    CLANG_TIDY_PATH="$DEFAULT_CLANG_TIDY_PATH"
+elif command -v "clang-tidy-$EXPECTED_CLANG_TIDY_VERSION" &> /dev/null; then
+    CLANG_TIDY_PATH="clang-tidy-$EXPECTED_CLANG_TIDY_VERSION"
+elif command -v clang-tidy &> /dev/null; then
+    CLANG_TIDY_PATH="clang-tidy"
+else
+    echo "Error: clang-tidy not found."
+    exit 1
+fi
+
+echo "Using clang-tidy: $CLANG_TIDY_PATH"
+
+# 2. Verify version for consistency
+ACTUAL_VERSION=$("$CLANG_TIDY_PATH" --version | grep -oE "version [0-9]+" | cut -d' ' -f2)
+if [ -z "$ACTUAL_VERSION" ]; then
+    # Fallback for versions that don't match the regex (e.g. custom builds)
+    ACTUAL_VERSION=$("$CLANG_TIDY_PATH" --version | head -n 2 | tail -n 1 | awk '{print $3}' | cut -d. -f1)
+fi
+
+if [ "$ACTUAL_VERSION" != "$EXPECTED_CLANG_TIDY_VERSION" ]; then
+    echo "Warning: clang-tidy version mismatch!"
+    echo "  Expected: $EXPECTED_CLANG_TIDY_VERSION"
+    echo "  Actual:   $ACTUAL_VERSION"
+    echo "This may cause inconsistent results between local and CI environments."
+    # We don't exit here by default to allow users with newer/older versions to still run it,
+    # but we warn them. If we want to be strict, we could exit 1.
 fi
 
 # Run clang-tidy
-# -p specifies the directory containing compile_commands.json
-# Note: we don't use -fix here by default to avoid unexpected changes, 
-# but the agent is expected to fix issues if reported.
-echo "$FILES" | xargs "$CLANG_TIDY_PATH" -p "$BUILD_DIR" --quiet
+echo "$FILES" | xargs "$CLANG_TIDY_PATH" -p "$BUILD_DIR" $EXTRA_ARGS --quiet
 
 TIDY_EXIT_CODE=$?
 

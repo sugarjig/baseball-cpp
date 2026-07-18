@@ -1,5 +1,5 @@
 #include "StaticEventSource.hpp"
-#include "EventSource.hpp"
+#include "EventSource.hpp" // IWYU pragma: keep
 #include "IGameState.hpp"
 #include <optional>
 #include <utility>

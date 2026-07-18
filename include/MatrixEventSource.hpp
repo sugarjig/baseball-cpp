@@ -4,10 +4,10 @@
 #include "EventSource.hpp"
 #include "IGameState.hpp"
 #include "MatrixData.hpp"
-#include <map>
+#include <optional>
 #include <random>
 #include <string>
-#include <vector>
+#include <string_view> // IWYU pragma: keep
 
 /**
  * @brief An EventSource that generates baseball events based on transition matrices.
@@ -39,14 +39,18 @@ public:
 private:
     [[nodiscard]] auto GetMatrixKey(const IGameState& state) const -> std::string;
     [[nodiscard]] auto TranslateBaseAction(const MatrixOutcome& outcome) const -> std::string;
-    [[nodiscard]] auto TranslateAdvancement(int base, const std::string& endBaseName) const -> std::string;
+    [[nodiscard]] static auto TranslateGenericOut(const std::string& loc) -> std::string;
+    [[nodiscard]] static auto TranslateStolenBase(const MatrixOutcome& outcome) -> std::string_view;
+    [[nodiscard]] static auto TranslateCaughtStealing(const MatrixOutcome& outcome) -> std::string_view;
+    [[nodiscard]] static auto TranslatePickoff(const MatrixOutcome& outcome) -> std::string_view;
+    [[nodiscard]] static auto TranslateAdvancement(int base, const std::string& endBaseName) -> std::string;
     [[nodiscard]] auto TranslateAdvancements(const MatrixOutcome& outcome, const IGameState& state) const
         -> std::string;
     [[nodiscard]] auto GenerateRetrosheetText(const MatrixOutcome& outcome, const IGameState& state) const
         -> std::string;
 
     MatrixData data;
-    std::mt19937 rng{};
+    std::mt19937 rng;
 };
 
 #endif // BASEBALL_CPP_MATRIXEVENTSOURCE_HPP

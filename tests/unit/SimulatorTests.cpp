@@ -8,8 +8,8 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <optional>
-#include <string>
-#include <string_view>
+#include <string>      // IWYU pragma: keep
+#include <string_view> // IWYU pragma: keep
 
 using ::testing::_; // NOLINT(bugprone-reserved-identifier)
 using ::testing::InSequence;

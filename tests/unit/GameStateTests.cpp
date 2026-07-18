@@ -1,6 +1,6 @@
 #include "chadwick/GameState.hpp"
 #include <gtest/gtest.h>
-#include <string>
+#include <string> // IWYU pragma: keep
 
 extern "C" {
 // clang-format off
@@ -13,7 +13,7 @@ extern "C" {
 namespace {
 
 struct KeepPlayingParams {
-    std::string label{};
+    std::string label;
     int inning = 0;
     int battingTeam = 0;
     int outs = 0;

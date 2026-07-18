@@ -42,16 +42,16 @@ auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
 
 void Scorebook::AddGame(Game&& game) const {
     if (game.game != nullptr) {
+        Game target = std::move(game);
         // Transfer ownership of CWGame to the scorebook
-        Game&& copy = std::move(game);
-        cw_scorebook_append_game(scorebook, copy.game);
-        game.game = nullptr;
+        cw_scorebook_append_game(scorebook, target.game);
+        target.game = nullptr;
 
         // Clean up the iterator, as Scorebook only manages CWGame
-        if (game.iter != nullptr) {
-            cw_gameiter_cleanup(game.iter);
-            free(game.iter); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
-            game.iter = nullptr;
+        if (target.iter != nullptr) {
+            cw_gameiter_cleanup(target.iter);
+            free(target.iter); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
+            target.iter = nullptr;
         }
     }
 }

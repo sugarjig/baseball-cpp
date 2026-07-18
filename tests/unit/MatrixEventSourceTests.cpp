@@ -2,9 +2,11 @@
 #include "MatrixData.hpp" // IWYU pragma: keep
 #include "MatrixEventSource.hpp"
 #include "MatrixLoader.hpp" // IWYU pragma: keep
+#include "Records.hpp"      // IWYU pragma: keep
 #include <filesystem>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include <string> // IWYU pragma: keep
 
 namespace {
 class MockGameState : public IGameState {
