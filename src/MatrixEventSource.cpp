@@ -1,23 +1,21 @@
 #include "MatrixEventSource.hpp"
-#include "EventSource.hpp" // IWYU pragma: keep
+#include "EventSource.hpp"
 #include "IGameState.hpp"
-#include "MatrixData.hpp" // IWYU pragma: keep
+#include "MatrixData.hpp"
 #include "Records.hpp"
-#include <cctype>      // IWYU pragma: keep
-#include <cstddef>     // IWYU pragma: keep
-#include <map>         // IWYU pragma: keep
-#include <optional>    // IWYU pragma: keep
-#include <string>      // IWYU pragma: keep
-#include <string_view> // IWYU pragma: keep
-#include <utility>     // IWYU pragma: keep
-#include <vector>      // IWYU pragma: keep
+#include <cctype>
+#include <cstddef>
+#include <map>
+#include <optional>
+#include <string>
+#include <string_view>
+#include <utility>
+#include <vector>
 
-// NOLINTNEXTLINE(bugprone-easily-swappable-parameters,bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions)
 MatrixEventSource::MatrixEventSource(MatrixData data, unsigned int seed)
     : data(std::move(data)), rng(static_cast<std::mt19937::result_type>(seed)) {}
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
-auto MatrixEventSource::GetMatrixKey(const IGameState& state) const -> std::string {
+auto MatrixEventSource::GetMatrixKey(const IGameState& state) -> std::string {
     int currentOuts = state.GetOuts();
     bool const occupied1 = state.IsBaseOccupied(1);
     bool const occupied2 = state.IsBaseOccupied(2);
@@ -50,7 +48,6 @@ auto MatrixEventSource::GetMatrixKey(const IGameState& state) const -> std::stri
     return key;
 }
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Record> {
     if (!state.KeepPlaying()) {
         return std::nullopt;
@@ -90,8 +87,7 @@ auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Record> {
     return Record{.type = RecordType::Play, .data = play};
 }
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
-auto MatrixEventSource::TranslateBaseAction(const MatrixOutcome& outcome) const -> std::string {
+auto MatrixEventSource::TranslateBaseAction(const MatrixOutcome& outcome) -> std::string {
     static const std::map<std::string, std::string> simplePlays = {
         {"Strikeout", "K"}, {"Walk", "W"},          {"Single", "S"},      {"Double", "D"},       {"Triple", "T"},
         {"Home run", "HR"}, {"Hit by pitch", "HP"}, {"Wild pitch", "WP"}, {"Passed ball", "PB"}, {"Balk", "BK"},
@@ -170,7 +166,6 @@ auto MatrixEventSource::TranslatePickoff(const MatrixOutcome& outcome) -> std::s
     return "PO";
 }
 
-// NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
 auto MatrixEventSource::TranslateAdvancement(int base, const std::string& endBaseName) -> std::string {
     if (endBaseName == "Out") {
         return std::to_string(base) + "X" + (base == 3 ? "H" : std::to_string(base + 1));
@@ -192,9 +187,7 @@ auto MatrixEventSource::TranslateAdvancement(int base, const std::string& endBas
     return "";
 }
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
-auto MatrixEventSource::TranslateAdvancements(const MatrixOutcome& outcome, const IGameState& state) const
-    -> std::string {
+auto MatrixEventSource::TranslateAdvancements(const MatrixOutcome& outcome, const IGameState& state) -> std::string {
     std::vector<std::string> ads;
 
     if (state.GetOuts() < 3) {
@@ -228,7 +221,6 @@ auto MatrixEventSource::TranslateAdvancements(const MatrixOutcome& outcome, cons
     return resultStr;
 }
 
-auto MatrixEventSource::GenerateRetrosheetText(const MatrixOutcome& outcome, const IGameState& state) const
-    -> std::string {
+auto MatrixEventSource::GenerateRetrosheetText(const MatrixOutcome& outcome, const IGameState& state) -> std::string {
     return TranslateBaseAction(outcome) + TranslateAdvancements(outcome, state);
 }

@@ -2,8 +2,8 @@
 #define BASEBALL_CPP_RECORDS_HPP
 
 #include <cstdint>
-#include <string> // IWYU pragma: keep
-#include <vector> // IWYU pragma: keep
+#include <string>
+#include <vector>
 
 /**
  * @brief Types of records that can be encountered in a baseball event stream.

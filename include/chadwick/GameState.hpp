@@ -2,7 +2,7 @@
 #define BASEBALL_CPP_GAMESTATE_HPP
 
 #include "IGameState.hpp"
-#include <string> // IWYU pragma: keep
+#include <string>
 
 struct cw_game_state; // NOLINT(readability-identifier-naming)
 using CWGameState = cw_game_state;

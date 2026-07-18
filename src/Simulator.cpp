@@ -7,7 +7,7 @@
 #include "IGame.hpp"
 #include "Records.hpp"
 #include "SimulatorObserver.hpp"
-#include <string> // IWYU pragma: keep
+#include <string>
 
 Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)
     : eventSource(eventSource), observer(observer) {}

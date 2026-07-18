@@ -1,22 +1,20 @@
 #include "MatrixLoader.hpp"
-#include "MatrixData.hpp" // IWYU pragma: keep
-#include <cstddef>        // IWYU pragma: keep
+#include "MatrixData.hpp"
+#include <cstddef>
 #include <filesystem>
-#include <fstream> // IWYU pragma: keep
-#include <map>     // IWYU pragma: keep
-#include <random>  // IWYU pragma: keep
-#include <sstream> // IWYU pragma: keep
-#include <string>  // IWYU pragma: keep
-#include <utility> // IWYU pragma: keep
-#include <vector>  // IWYU pragma: keep
+#include <fstream>
+#include <map>
+#include <random>
+#include <sstream>
+#include <string>
+#include <utility>
+#include <vector>
 
 namespace {
-// NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
 auto Split(const std::string& inputStr, char delimiter) -> std::vector<std::string> {
     std::vector<std::string> tokens;
     std::string token;
     std::istringstream tokenStream(inputStr);
-    // NOLINTNEXTLINE(bugprone-infinite-loop)
     while (std::getline(tokenStream, token, delimiter)) {
         token.erase(0, token.find_first_not_of(" \t\r\n") == std::string::npos ? token.length()
                                                                                : token.find_first_not_of(" \t\r\n"));
@@ -102,7 +100,6 @@ void LoadMatrixFile(const std::filesystem::path& filePath, std::vector<MatrixOut
         headerMap[headers.at(i)] = i;
     }
 
-    // NOLINTNEXTLINE(bugprone-infinite-loop)
     while (std::getline(file, line)) {
         if (line.empty()) {
             continue;
@@ -122,7 +119,6 @@ void LoadMatrixFile(const std::filesystem::path& filePath, std::vector<MatrixOut
 }
 } // namespace
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 auto MatrixLoader::LoadMatrices(const std::filesystem::path& dataDir) -> MatrixData {
     MatrixData data;
     const std::vector<std::string> baseConfigs = {

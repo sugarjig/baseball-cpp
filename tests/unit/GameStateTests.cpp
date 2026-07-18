@@ -1,6 +1,6 @@
 #include "chadwick/GameState.hpp"
 #include <gtest/gtest.h>
-#include <string> // IWYU pragma: keep
+#include <string>
 
 extern "C" {
 // clang-format off

@@ -1,15 +1,14 @@
 #include "MatrixEventSource.hpp"
-#include "MatrixLoader.hpp" // IWYU pragma: keep
-#include "Records.hpp"      // IWYU pragma: keep
+#include "MatrixLoader.hpp"
+#include "Records.hpp"
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
 #include "chadwick/Game.hpp"
-#include <exception> // IWYU pragma: keep
+#include <exception>
 #include <filesystem>
-#include <iostream>  // IWYU pragma: keep
-#include <stdexcept> // IWYU pragma: keep
-#include <utility>   // IWYU pragma: keep
-#include <vector>    // IWYU pragma: keep
+#include <iostream>
+#include <utility>
+#include <vector>
 
 auto main() -> int {
     try {

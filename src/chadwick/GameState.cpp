@@ -1,7 +1,7 @@
 #include "chadwick/GameState.hpp"
 // ReSharper disable once CppUnusedIncludeDirective
 #include <cstdio> // NOLINT(misc-include-cleaner)
-#include <string> // IWYU pragma: keep
+#include <string>
 extern "C" {
 // clang-format off
 // ReSharper disable once CppUnusedIncludeDirective

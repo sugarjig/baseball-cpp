@@ -7,7 +7,7 @@
 #include <optional>
 #include <random>
 #include <string>
-#include <string_view> // IWYU pragma: keep
+#include <string_view>
 
 /**
  * @brief An EventSource that generates baseball events based on transition matrices.
@@ -37,16 +37,16 @@ public:
     auto Next(const IGameState& state) -> std::optional<Record> override;
 
 private:
-    [[nodiscard]] auto GetMatrixKey(const IGameState& state) const -> std::string;
-    [[nodiscard]] auto TranslateBaseAction(const MatrixOutcome& outcome) const -> std::string;
+    [[nodiscard]] static auto GetMatrixKey(const IGameState& state) -> std::string;
+    [[nodiscard]] static auto TranslateBaseAction(const MatrixOutcome& outcome) -> std::string;
     [[nodiscard]] static auto TranslateGenericOut(const std::string& loc) -> std::string;
     [[nodiscard]] static auto TranslateStolenBase(const MatrixOutcome& outcome) -> std::string_view;
     [[nodiscard]] static auto TranslateCaughtStealing(const MatrixOutcome& outcome) -> std::string_view;
     [[nodiscard]] static auto TranslatePickoff(const MatrixOutcome& outcome) -> std::string_view;
     [[nodiscard]] static auto TranslateAdvancement(int base, const std::string& endBaseName) -> std::string;
-    [[nodiscard]] auto TranslateAdvancements(const MatrixOutcome& outcome, const IGameState& state) const
+    [[nodiscard]] static auto TranslateAdvancements(const MatrixOutcome& outcome, const IGameState& state)
         -> std::string;
-    [[nodiscard]] auto GenerateRetrosheetText(const MatrixOutcome& outcome, const IGameState& state) const
+    [[nodiscard]] static auto GenerateRetrosheetText(const MatrixOutcome& outcome, const IGameState& state)
         -> std::string;
 
     MatrixData data;

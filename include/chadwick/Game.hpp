@@ -6,9 +6,9 @@
 #include "GameState.hpp"
 #include "IGameState.hpp"
 #include <filesystem>
-#include <string>      // IWYU pragma: keep
-#include <string_view> // IWYU pragma: keep
-#include <vector>      // IWYU pragma: keep
+#include <string>
+#include <string_view>
+#include <vector>
 
 struct cw_game_struct; // NOLINT(readability-identifier-naming)
 using CWGame = cw_game_struct;
@@ -90,8 +90,8 @@ public:
 
 private:
     friend class Scorebook;
-    CWGame* game = nullptr;
-    CWGameIterator* iter = nullptr;
+    CWGame* game;
+    CWGameIterator* iter;
     GameState gameState;
 
     std::string pendingAutoRunner;

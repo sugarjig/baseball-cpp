@@ -63,7 +63,7 @@ public:
     [[nodiscard]] auto Write(const std::filesystem::path& path) const -> bool;
 
 private:
-    CWScorebook* scorebook = nullptr;
+    CWScorebook* scorebook;
 };
 
 } // namespace chadwick
