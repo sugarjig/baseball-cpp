@@ -28,6 +28,16 @@ auto GetTestData() -> MatrixData {
     std::filesystem::path const dataDir = std::filesystem::path(PROJECT_ROOT) / "data" / "matrices_2025";
     return MatrixLoader::LoadMatrices(dataDir);
 }
+
+auto ValidatePlayRecord(std::optional<Record> record) {
+    EXPECT_EQ(record->type, RecordType::Play);
+
+    auto play = std::get<PlayInfo>(record->data);
+    EXPECT_EQ(play.inning, 1);
+    EXPECT_EQ(play.team, 0);
+    EXPECT_EQ(play.batter, "PLAYER1");
+    EXPECT_FALSE(play.text.empty());
+}
 } // namespace
 
 TEST(MatrixLoaderTest, LoadsDataFromDirectory) {
@@ -52,15 +62,7 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
     auto record = source.Next(state);
     ASSERT_TRUE(record.has_value());
     if (record.has_value()) {
-        EXPECT_EQ(record->type, RecordType::Play);
-    }
-
-    if (record.has_value()) {
-        auto play = std::get<PlayInfo>(record->data);
-        EXPECT_EQ(play.inning, 1);
-        EXPECT_EQ(play.team, 0);
-        EXPECT_EQ(play.batter, "PLAYER1");
-        EXPECT_FALSE(play.text.empty());
+        ValidatePlayRecord(record);
     }
 }
 
