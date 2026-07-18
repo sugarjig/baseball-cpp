@@ -1,14 +1,18 @@
 #include "MatrixEventSource.hpp"
-#include "EventSource.hpp"
+#include "EventSource.hpp" // IWYU pragma: keep
 #include "IGameState.hpp"
 #include "MatrixData.hpp" // IWYU pragma: keep
 #include "Records.hpp"
-#include <algorithm>
-#include <map>
-#include <string>
-#include <vector>
+#include <cctype>      // IWYU pragma: keep
+#include <cstddef>     // IWYU pragma: keep
+#include <map>         // IWYU pragma: keep
+#include <optional>    // IWYU pragma: keep
+#include <string>      // IWYU pragma: keep
+#include <string_view> // IWYU pragma: keep
+#include <utility>     // IWYU pragma: keep
+#include <vector>      // IWYU pragma: keep
 
-// NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
+// NOLINTNEXTLINE(bugprone-easily-swappable-parameters,bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions)
 MatrixEventSource::MatrixEventSource(MatrixData data, unsigned int seed)
     : data(std::move(data)), rng(static_cast<std::mt19937::result_type>(seed)) {}
 
@@ -72,27 +76,26 @@ auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Record> {
     }
 
     size_t const sampledIndex = data.distributions.at(key)(rng);
-    const auto& outcome = itMatrix->second[sampledIndex];
+    const auto& outcome = itMatrix->second.at(sampledIndex);
 
-    PlayInfo play;
-    play.inning = currentInning;
-    play.team = currentTeam;
-    play.batter = state.GetNextBatter(currentTeam);
-    play.pitchCount = "";
-    play.pitchSequence = "";
-    play.text = GenerateRetrosheetText(outcome, state);
+    PlayInfo const play{
+        .inning = currentInning,
+        .team = currentTeam,
+        .batter = state.GetNextBatter(currentTeam),
+        .pitchCount = "",
+        .pitchSequence = "",
+        .text = GenerateRetrosheetText(outcome, state),
+    };
 
-    Record nextRecord;
-    nextRecord.type = RecordType::Play;
-    nextRecord.data = play;
-    return nextRecord;
+    return Record{.type = RecordType::Play, .data = play};
 }
 
 // NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 auto MatrixEventSource::TranslateBaseAction(const MatrixOutcome& outcome) const -> std::string {
     static const std::map<std::string, std::string> simplePlays = {
         {"Strikeout", "K"}, {"Walk", "W"},          {"Single", "S"},      {"Double", "D"},       {"Triple", "T"},
-        {"Home run", "HR"}, {"Hit by pitch", "HP"}, {"Wild pitch", "WP"}, {"Passed ball", "PB"}, {"Balk", "BK"}};
+        {"Home run", "HR"}, {"Hit by pitch", "HP"}, {"Wild pitch", "WP"}, {"Passed ball", "PB"}, {"Balk", "BK"},
+    };
 
     auto itPlay = simplePlays.find(outcome.play);
     if (itPlay != simplePlays.end()) {
@@ -100,59 +103,75 @@ auto MatrixEventSource::TranslateBaseAction(const MatrixOutcome& outcome) const 
     }
 
     if (outcome.play == "Generic out") {
-        std::string fielders;
-        for (char c : outcome.loc) {
-            if (std::isdigit(c) != 0) {
-                fielders += c;
-            } else if (fielders.empty()) {
-                continue;
-            } else {
-                break;
-            }
-        }
-        return fielders.empty() ? outcome.loc : fielders;
+        return TranslateGenericOut(outcome.loc);
     }
     if (outcome.play == "Stolen base") {
-        if (outcome.r3Base == "Score") {
-            return "SBH";
-        }
-        if (outcome.r2Base == "3rd") {
-            return "SB3";
-        }
-        if (outcome.r1Base == "2nd") {
-            return "SB2";
-        }
-        return "SB";
+        return std::string(TranslateStolenBase(outcome));
     }
     if (outcome.play == "Caught stealing") {
-        if (outcome.r3Base == "Out") {
-            return "CSH";
-        }
-        if (outcome.r2Base == "Out") {
-            return "CS3";
-        }
-        if (outcome.r1Base == "Out") {
-            return "CS2";
-        }
-        return "CS";
+        return std::string(TranslateCaughtStealing(outcome));
     }
     if (outcome.play == "Pickoff") {
-        if (outcome.r3Base == "Out") {
-            return "PO3";
-        }
-        if (outcome.r2Base == "Out") {
-            return "PO2";
-        }
-        if (outcome.r1Base == "Out") {
-            return "PO1";
-        }
-        return "PO";
+        return std::string(TranslatePickoff(outcome));
     }
     return outcome.play;
 }
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static,bugprone-easily-swappable-parameters)
-auto MatrixEventSource::TranslateAdvancement(int base, const std::string& endBaseName) const -> std::string {
+auto MatrixEventSource::TranslateGenericOut(const std::string& loc) -> std::string {
+    std::string fielders;
+    for (char const locationChar : loc) {
+        if (std::isdigit(locationChar) != 0) {
+            fielders += locationChar;
+        } else if (fielders.empty()) {
+            continue;
+        } else {
+            break;
+        }
+    }
+    return fielders.empty() ? loc : fielders;
+}
+
+auto MatrixEventSource::TranslateStolenBase(const MatrixOutcome& outcome) -> std::string_view {
+    if (outcome.r3Base == "Score") {
+        return "SBH";
+    }
+    if (outcome.r2Base == "3rd") {
+        return "SB3";
+    }
+    if (outcome.r1Base == "2nd") {
+        return "SB2";
+    }
+    return "SB";
+}
+
+auto MatrixEventSource::TranslateCaughtStealing(const MatrixOutcome& outcome) -> std::string_view {
+    if (outcome.r3Base == "Out") {
+        return "CSH";
+    }
+    if (outcome.r2Base == "Out") {
+        return "CS3";
+    }
+    if (outcome.r1Base == "Out") {
+        return "CS2";
+    }
+    return "CS";
+}
+
+auto MatrixEventSource::TranslatePickoff(const MatrixOutcome& outcome) -> std::string_view {
+    if (outcome.r3Base == "Out") {
+        return "PO3";
+    }
+    if (outcome.r2Base == "Out") {
+        return "PO2";
+    }
+    if (outcome.r1Base == "Out") {
+        return "PO1";
+    }
+    return "PO";
+}
+
+// NOLINTNEXTLINE(bugprone-easily-swappable-parameters)
+auto MatrixEventSource::TranslateAdvancement(int base, const std::string& endBaseName) -> std::string {
     if (endBaseName == "Out") {
         return std::to_string(base) + "X" + (base == 3 ? "H" : std::to_string(base + 1));
     }
@@ -180,19 +199,19 @@ auto MatrixEventSource::TranslateAdvancements(const MatrixOutcome& outcome, cons
 
     if (state.GetOuts() < 3) {
         if (state.IsBaseOccupied(1)) {
-            std::string adv = TranslateAdvancement(1, outcome.r1Base);
+            std::string const adv = TranslateAdvancement(1, outcome.r1Base);
             if (!adv.empty()) {
                 ads.push_back(adv);
             }
         }
         if (state.IsBaseOccupied(2)) {
-            std::string adv = TranslateAdvancement(2, outcome.r2Base);
+            std::string const adv = TranslateAdvancement(2, outcome.r2Base);
             if (!adv.empty()) {
                 ads.push_back(adv);
             }
         }
         if (state.IsBaseOccupied(3)) {
-            std::string adv = TranslateAdvancement(3, outcome.r3Base);
+            std::string const adv = TranslateAdvancement(3, outcome.r3Base);
             if (!adv.empty()) {
                 ads.push_back(adv);
             }
@@ -201,9 +220,9 @@ auto MatrixEventSource::TranslateAdvancements(const MatrixOutcome& outcome, cons
 
     std::string resultStr;
     if (!ads.empty()) {
-        resultStr += ".";
+        resultStr += '.';
         for (size_t i = 0; i < ads.size(); ++i) {
-            resultStr += ads[i] + (i == ads.size() - 1 ? "" : ";");
+            resultStr += ads.at(i) + (i == ads.size() - 1 ? "" : ";");
         }
     }
     return resultStr;

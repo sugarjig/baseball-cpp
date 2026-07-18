@@ -14,6 +14,7 @@
 - [ ] Ask Junie for a code review
 - [ ] Add a README
 - [ ] Audit C++ usage for possible 26 improvements
+- [ ] Audit CMake usage
 - [ ] Use -Wall -Werror flags (and possibly -Wextra and -Wpedantic)
 - [ ] Audit AGENTS.md
 
@@ -32,3 +33,4 @@
 
 ## Agent Usage
 - [ ] Include Retrosheet documentation as context
+- [ ] Run `/project-onboarding`
