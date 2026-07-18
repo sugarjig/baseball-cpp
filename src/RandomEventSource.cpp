@@ -1,5 +1,5 @@
 #include "RandomEventSource.hpp"
-#include "EventSource.hpp" // IWYU pragma: keep
+#include "EventSource.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
 #include <optional>
@@ -15,13 +15,10 @@ constexpr int runnersOn2nd3rd = 6;
 constexpr int basesLoaded = 7;
 } // namespace
 
-// NOLINTNEXTLINE(bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions)
 RandomEventSource::RandomEventSource(const unsigned int seed) : rng(static_cast<std::mt19937::result_type>(seed)) {}
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 auto RandomEventSource::GetOutcome(int /*stateId*/) -> std::string { return outcomes.at(playDist(rng)); }
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 void RandomEventSource::ApplyAdvancements(PlayInfo& play, unsigned int bases) {
     if (play.text == "K") {
         return;
@@ -70,7 +67,6 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
     std::string text;
     // Branch based on 24 possible states (3 out counts * 8 base configurations)
     // This structure allows for easy specialization of each state in the future.
-    // NOLINTNEXTLINE(bugprone-branch-clone)
     switch (outs) {
     case 0:
         switch (bases) {

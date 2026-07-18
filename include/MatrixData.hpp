@@ -1,11 +1,11 @@
 #ifndef BASEBALL_CPP_MATRIXDATA_HPP
 #define BASEBALL_CPP_MATRIXDATA_HPP
 
-#include <cstddef> // IWYU pragma: keep
-#include <map>     // IWYU pragma: keep
-#include <random>  // IWYU pragma: keep
-#include <string>  // IWYU pragma: keep
-#include <vector>  // IWYU pragma: keep
+#include <cstddef>
+#include <map>
+#include <random>
+#include <string>
+#include <vector>
 
 /**
  * @brief An outcome sampled from a transition matrix.

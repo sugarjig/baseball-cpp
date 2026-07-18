@@ -5,10 +5,10 @@
 #include "IGameState.hpp"
 #include "Records.hpp"
 #include <cstddef>
-#include <optional> // IWYU pragma: keep
-#include <random>   // IWYU pragma: keep
-#include <string>   // IWYU pragma: keep
-#include <vector>   // IWYU pragma: keep
+#include <optional>
+#include <random>
+#include <string>
+#include <vector>
 
 /**
  * @brief An EventSource that generates random baseball events.

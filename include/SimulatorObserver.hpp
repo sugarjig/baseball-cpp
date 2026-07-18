@@ -4,7 +4,7 @@
 #include "IGameState.hpp"
 #include "Records.hpp"
 #include <iostream>
-#include <string> // IWYU pragma: keep
+#include <string>
 
 /**
  * @brief Observer interface for monitoring baseball simulation events.

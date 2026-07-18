@@ -1,6 +1,6 @@
 #include "chadwick/Scorebook.hpp"
-#include <exception> // IWYU pragma: keep
-#include <iostream>  // IWYU pragma: keep
+#include <exception>
+#include <iostream>
 
 auto main(int argc, char* argv[]) -> int {
     try {

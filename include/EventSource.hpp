@@ -3,9 +3,9 @@
 
 #include "IGameState.hpp"
 #include "Records.hpp"
-#include <optional> // IWYU pragma: keep
-#include <string>   // IWYU pragma: keep
-#include <variant>  // IWYU pragma: keep
+#include <optional>
+#include <string>
+#include <variant>
 
 /**
  * @brief Represents a single record in an event stream.

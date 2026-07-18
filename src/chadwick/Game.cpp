@@ -136,12 +136,7 @@ void Game::UpdateState() {
 
             // Restore any mangled comments
             for (auto& [comment, originalText] : saved) {
-                if (comment->text != nullptr) {
-                    strncpy(comment->text, originalText.c_str(), originalText.length());
-                    // Use pointer arithmetic suppression or find a safer way
-                    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-                    comment->text[originalText.length()] = '\0';
-                }
+                strcpy(comment->text, originalText.c_str());
             }
         }
     }

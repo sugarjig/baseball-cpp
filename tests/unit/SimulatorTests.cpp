@@ -1,6 +1,6 @@
 #include "EventSource.hpp"
 #include "IGame.hpp"
-#include "IGameState.hpp" // IWYU pragma: keep
+#include "IGameState.hpp"
 #include "Records.hpp"
 #include "Simulator.hpp"
 #include "SimulatorObserver.hpp"
@@ -8,8 +8,8 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <optional>
-#include <string>      // IWYU pragma: keep
-#include <string_view> // IWYU pragma: keep
+#include <string>
+#include <string_view>
 
 using ::testing::_; // NOLINT(bugprone-reserved-identifier)
 using ::testing::InSequence;
@@ -68,7 +68,7 @@ public:
 TEST(SimulatorTest, ProcessesPlayEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame; // NOLINT(misc-const-correctness)
+    MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
     PlayInfo play;
@@ -103,7 +103,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
 TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame; // NOLINT(misc-const-correctness)
+    MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
     SubstitutionInfo sub;
@@ -138,7 +138,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
 TEST(SimulatorTest, ProcessesCommentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame; // NOLINT(misc-const-correctness)
+    MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
     const std::string comment = "Test Comment";
@@ -169,7 +169,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
 TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame; // NOLINT(misc-const-correctness)
+    MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
     RunnerAdjustmentInfo radj;
@@ -202,7 +202,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
 TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame; // NOLINT(misc-const-correctness)
+    MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
     BatterAdjustmentInfo badj;
@@ -235,7 +235,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
 TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     MockEventSource mockSource;
     MockSimulatorObserver mockObserver;
-    MockGame mockGame; // NOLINT(misc-const-correctness)
+    MockGame mockGame;
     Simulator const simulator(&mockSource, &mockObserver);
 
     PitcherAdjustmentInfo padj;
