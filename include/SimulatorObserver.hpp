@@ -27,8 +27,10 @@ public:
     virtual void OnPreEvent(const IGameState& state) {
         std::cout << "Before: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
                   << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
-                  << state.GetScore(1) << ", Bases=" << (state.IsBaseOccupied(1) ? "1" : "-")
-                  << (state.IsBaseOccupied(2) ? "2" : "-") << (state.IsBaseOccupied(3) ? "3" : "-") << ")\n";
+                  << state.GetScore(1) << ", Batter=" << state.GetNextBatter(state.GetBattingTeam())
+                  << ", Bases=1:" << (state.IsBaseOccupied(1) ? state.GetRunnerOnBase(1) : "-")
+                  << ", 2:" << (state.IsBaseOccupied(2) ? state.GetRunnerOnBase(2) : "-")
+                  << ", 3:" << (state.IsBaseOccupied(3) ? state.GetRunnerOnBase(3) : "-") << ")\n";
     }
 
     /**
@@ -88,8 +90,10 @@ public:
     virtual void OnPostEvent(const IGameState& state) {
         std::cout << "After: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
                   << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
-                  << state.GetScore(1) << ", Bases=" << (state.IsBaseOccupied(1) ? "1" : "-")
-                  << (state.IsBaseOccupied(2) ? "2" : "-") << (state.IsBaseOccupied(3) ? "3" : "-") << ")\n\n";
+                  << state.GetScore(1) << ", Batter=" << state.GetNextBatter(state.GetBattingTeam())
+                  << ", Bases=1:" << (state.IsBaseOccupied(1) ? state.GetRunnerOnBase(1) : "-")
+                  << ", 2:" << (state.IsBaseOccupied(2) ? state.GetRunnerOnBase(2) : "-")
+                  << ", 3:" << (state.IsBaseOccupied(3) ? state.GetRunnerOnBase(3) : "-") << ")\n\n";
     }
 };
 

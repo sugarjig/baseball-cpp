@@ -83,4 +83,39 @@ INSTANTIATE_TEST_SUITE_P(GameStateTests, GameStateKeepPlayingTest,
                              return info.param.label;
                          });
 
+TEST(GameStateTest, GetNextBatter) {
+    CWGameState state{};
+    cw_gamestate_initialize(&state);
+
+    state.batting_team = 0;
+    state.next_batter[0] = 1;
+
+    char playerId[] = "testp001";
+    state.lineups[1][0].player_id = playerId;
+
+    chadwick::GameState const gameState(&state);
+    EXPECT_EQ(gameState.GetNextBatter(0), "testp001");
+
+    state.lineups[1][0].player_id = nullptr;
+    cw_gamestate_cleanup(&state);
+}
+
+TEST(GameStateTest, GetRunnerOnBase) {
+    CWGameState state{};
+    cw_gamestate_initialize(&state);
+
+    char runner1[] = "runner1";
+    char runner2[] = "runner2";
+    strcpy(state.runners[1].runner, runner1);
+    strcpy(state.runners[2].runner, runner2);
+    // Base 3 is empty (cw_gamestate_initialize clears it)
+
+    chadwick::GameState const gameState(&state);
+    EXPECT_EQ(gameState.GetRunnerOnBase(1), "runner1");
+    EXPECT_EQ(gameState.GetRunnerOnBase(2), "runner2");
+    EXPECT_EQ(gameState.GetRunnerOnBase(3), "");
+
+    cw_gamestate_cleanup(&state);
+}
+
 } // namespace

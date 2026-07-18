@@ -39,6 +39,8 @@ public:
     /// @inheritdoc
     [[nodiscard]] auto GetNextBatter(int team) const -> std::string override;
     /// @inheritdoc
+    [[nodiscard]] auto GetRunnerOnBase(int base) const -> std::string override;
+    /// @inheritdoc
     [[nodiscard]] auto GetInning() const -> int override;
     /// @inheritdoc
     [[nodiscard]] auto GetBattingTeam() const -> int override;
