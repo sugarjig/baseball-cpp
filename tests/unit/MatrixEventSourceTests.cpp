@@ -1,12 +1,14 @@
+#include "EventSource.hpp"
 #include "IGameState.hpp"
-#include "MatrixData.hpp" // IWYU pragma: keep
+#include "MatrixData.hpp"
 #include "MatrixEventSource.hpp"
-#include "MatrixLoader.hpp" // IWYU pragma: keep
-#include "Records.hpp"      // IWYU pragma: keep
+#include "MatrixLoader.hpp"
+#include "Records.hpp"
 #include <filesystem>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include <string> // IWYU pragma: keep
+#include <optional>
+#include <string>
 
 namespace {
 class MockGameState : public IGameState {
@@ -29,10 +31,9 @@ auto GetTestData() -> MatrixData {
     return MatrixLoader::LoadMatrices(dataDir);
 }
 
-auto ValidatePlayRecord(std::optional<Record> record) {
-    EXPECT_EQ(record->type, RecordType::Play);
+auto ValidateRecordTypeAndPlay(RecordType recordType, const PlayInfo& play) {
+    EXPECT_EQ(recordType, RecordType::Play);
 
-    auto play = std::get<PlayInfo>(record->data);
     EXPECT_EQ(play.inning, 1);
     EXPECT_EQ(play.team, 0);
     EXPECT_EQ(play.batter, "PLAYER1");
@@ -62,7 +63,7 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
     auto record = source.Next(state);
     ASSERT_TRUE(record.has_value());
     if (record.has_value()) {
-        ValidatePlayRecord(record);
+        ValidateRecordTypeAndPlay(record->type, std::get<PlayInfo>(record->data));
     }
 }
 
