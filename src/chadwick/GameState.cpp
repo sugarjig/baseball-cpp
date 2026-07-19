@@ -38,7 +38,8 @@ auto GameState::GetNextBatter(int const team) const -> std::string {
 
 auto GameState::GetRunnerOnBase(int const base) const -> std::string {
     if (state != nullptr && base >= 1 && base <= 3) {
-        return state->runners[base].runner; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
+        // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-array-to-pointer-decay,cppcoreguidelines-pro-bounds-constant-array-index)
+        return state->runners[base].runner;
     }
     return "";
 }

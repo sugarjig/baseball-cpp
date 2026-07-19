@@ -1,4 +1,5 @@
 #include "chadwick/GameState.hpp"
+#include <cstring>
 #include <gtest/gtest.h>
 #include <string>
 
@@ -90,8 +91,8 @@ TEST(GameStateTest, GetNextBatter) {
     state.batting_team = 0;
     state.next_batter[0] = 1;
 
-    char playerId[] = "testp001";
-    state.lineups[1][0].player_id = playerId;
+    char playerId[] = "testp001";             // NOLINT(cppcoreguidelines-avoid-c-arrays,modernize-avoid-c-arrays)
+    state.lineups[1][0].player_id = playerId; // NOLINT(cppcoreguidelines-pro-bounds-array-to-pointer-decay)
 
     chadwick::GameState const gameState(&state);
     EXPECT_EQ(gameState.GetNextBatter(0), "testp001");
@@ -104,10 +105,10 @@ TEST(GameStateTest, GetRunnerOnBase) {
     CWGameState state{};
     cw_gamestate_initialize(&state);
 
-    char runner1[] = "runner1";
-    char runner2[] = "runner2";
-    strcpy(state.runners[1].runner, runner1);
-    strcpy(state.runners[2].runner, runner2);
+    char runner1[] = "runner1";               // NOLINT(cppcoreguidelines-avoid-c-arrays,modernize-avoid-c-arrays)
+    char runner2[] = "runner2";               // NOLINT(cppcoreguidelines-avoid-c-arrays,modernize-avoid-c-arrays)
+    strcpy(state.runners[1].runner, runner1); // NOLINT(cppcoreguidelines-pro-bounds-array-to-pointer-decay)
+    strcpy(state.runners[2].runner, runner2); // NOLINT(cppcoreguidelines-pro-bounds-array-to-pointer-decay)
     // Base 3 is empty (cw_gamestate_initialize clears it)
 
     chadwick::GameState const gameState(&state);

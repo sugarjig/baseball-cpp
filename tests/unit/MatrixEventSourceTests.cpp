@@ -13,13 +13,13 @@
 namespace {
 class MockGameState : public IGameState {
 public:
-    MOCK_METHOD(bool, KeepPlaying, (), (const, override));                  // NOLINT(*-use-trailing-return-type)
-    MOCK_METHOD(int, GetInning, (), (const, override));                     // NOLINT(*-use-trailing-return-type)
-    MOCK_METHOD(int, GetOuts, (), (const, override));                       // NOLINT(*-use-trailing-return-type)
-    MOCK_METHOD(bool, IsBaseOccupied, (int base), (const, override));       // NOLINT(*-use-trailing-return-type)
-    MOCK_METHOD(int, GetBattingTeam, (), (const, override));                // NOLINT(*-use-trailing-return-type)
-    MOCK_METHOD(std::string, GetNextBatter, (int team), (const, override)); // NOLINT(*-use-trailing-return-type)
-    MOCK_METHOD(int, GetScore, (int team), (const, override));              // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(bool, KeepPlaying, (), (const, override));                    // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(int, GetInning, (), (const, override));                       // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(int, GetOuts, (), (const, override));                         // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(bool, IsBaseOccupied, (int base), (const, override));         // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(int, GetBattingTeam, (), (const, override));                  // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(std::string, GetNextBatter, (int team), (const, override));   // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(int, GetScore, (int team), (const, override));                // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(std::string, GetRunnerOnBase, (int base), (const, override)); // NOLINT(*-use-trailing-return-type)
 };
 
