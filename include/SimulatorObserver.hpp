@@ -25,12 +25,27 @@ public:
      * @param state The current state of the game.
      */
     virtual void OnPreEvent(const IGameState& state) {
-        std::cout << "Before: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
-                  << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
-                  << state.GetScore(1) << ", Batter=" << state.GetNextBatter(state.GetBattingTeam())
-                  << ", Bases=1:" << (state.IsBaseOccupied(1) ? state.GetRunnerOnBase(1) : "-")
-                  << ", 2:" << (state.IsBaseOccupied(2) ? state.GetRunnerOnBase(2) : "-")
-                  << ", 3:" << (state.IsBaseOccupied(3) ? state.GetRunnerOnBase(3) : "-") << ")\n";
+        auto outs = state.GetOuts();
+        auto inning = state.GetInning();
+        auto battingTeam = state.GetBattingTeam();
+        auto runnerOn1st = state.GetRunnerOnBase(1);
+        auto runnerOn2nd = state.GetRunnerOnBase(2);
+        auto runnerOn3rd = state.GetRunnerOnBase(3);
+        if (outs >= 3) {
+            outs = 0;
+            inning++;
+            battingTeam = battingTeam == 0 ? 1 : 0;
+            runnerOn1st = "";
+            runnerOn2nd = "";
+            runnerOn3rd = "";
+        }
+
+        std::cout << "Before: (State: Out=" << outs << ", Inning=" << inning << ", Batting team=" << battingTeam
+                  << ", Score=" << state.GetScore(0) << "-" << state.GetScore(1)
+                  << ", Batter=" << state.GetNextBatter(battingTeam)
+                  << ", Bases=1:" << (!runnerOn1st.empty() ? runnerOn1st : "-")
+                  << ", 2:" << (!runnerOn2nd.empty() ? runnerOn2nd : "-")
+                  << ", 3:" << (!runnerOn3rd.empty() ? runnerOn3rd : "-") << ")\n";
     }
 
     /**
