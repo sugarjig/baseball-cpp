@@ -1,8 +1,8 @@
 #ifndef BASEBALL_CPP_SIMULATOROBSERVER_HPP
 #define BASEBALL_CPP_SIMULATOROBSERVER_HPP
 
+#include "EventSource.hpp"
 #include "IGameState.hpp"
-#include "Records.hpp"
 #include <iostream>
 #include <string>
 
@@ -48,6 +48,49 @@ public:
                   << ", 3:" << (!runnerOn3rd.empty() ? runnerOn3rd : "-") << ")\n";
     }
 
+    /**
+     * @brief Called when a simulation event occurs.
+     * @param record The record containing the event data.
+     */
+    virtual void OnEvent(const Record& record) {
+        switch (record.type) {
+        case RecordType::Play:
+            OnPlay(std::get<PlayInfo>(record.data));
+            break;
+        case RecordType::Substitution:
+            OnSubstitution(std::get<SubstitutionInfo>(record.data));
+            break;
+        case RecordType::Comment:
+            OnComment(std::get<std::string>(record.data));
+            break;
+        case RecordType::RunnerAdjustment:
+            OnRunnerAdjustment(std::get<RunnerAdjustmentInfo>(record.data));
+            break;
+        case RecordType::BatterAdjustment:
+            OnBatterAdjustment(std::get<BatterAdjustmentInfo>(record.data));
+            break;
+        case RecordType::PitcherAdjustment:
+            OnPitcherAdjustment(std::get<PitcherAdjustmentInfo>(record.data));
+            break;
+        default:
+            break;
+        }
+    }
+
+    /**
+     * @brief Called after an event is processed.
+     * @param state The new state of the game.
+     */
+    virtual void OnPostEvent(const IGameState& state) {
+        std::cout << "After: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
+                  << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
+                  << state.GetScore(1) << ", Batter=" << state.GetNextBatter(state.GetBattingTeam())
+                  << ", Bases=1:" << (state.IsBaseOccupied(1) ? state.GetRunnerOnBase(1) : "-")
+                  << ", 2:" << (state.IsBaseOccupied(2) ? state.GetRunnerOnBase(2) : "-")
+                  << ", 3:" << (state.IsBaseOccupied(3) ? state.GetRunnerOnBase(3) : "-") << ")\n\n";
+    }
+
+private:
     /**
      * @brief Called when a play event occurs.
      * @param event The play information.
@@ -96,19 +139,6 @@ public:
      */
     virtual void OnPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
         std::cout << "Pitcher Adjustment: " << padj.playerId << " to hand " << padj.hand << "\n";
-    }
-
-    /**
-     * @brief Called after an event is processed.
-     * @param state The new state of the game.
-     */
-    virtual void OnPostEvent(const IGameState& state) {
-        std::cout << "After: (State: Out=" << state.GetOuts() << ", Inning=" << state.GetInning()
-                  << ", Batting team=" << state.GetBattingTeam() << ", Score=" << state.GetScore(0) << "-"
-                  << state.GetScore(1) << ", Batter=" << state.GetNextBatter(state.GetBattingTeam())
-                  << ", Bases=1:" << (state.IsBaseOccupied(1) ? state.GetRunnerOnBase(1) : "-")
-                  << ", 2:" << (state.IsBaseOccupied(2) ? state.GetRunnerOnBase(2) : "-")
-                  << ", 3:" << (state.IsBaseOccupied(3) ? state.GetRunnerOnBase(3) : "-") << ")\n\n";
     }
 };
 
