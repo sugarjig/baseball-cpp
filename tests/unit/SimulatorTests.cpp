@@ -71,8 +71,8 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddPlay(_)).Times(1);
         EXPECT_CALL(mockObserver, OnPlay(_)).Times(1);
+        EXPECT_CALL(mockGame, AddPlay(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -105,8 +105,8 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddSubstitution(_)).Times(1);
         EXPECT_CALL(mockObserver, OnSubstitution(_)).Times(1);
+        EXPECT_CALL(mockGame, AddSubstitution(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -135,8 +135,8 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddComment(_)).Times(1);
         EXPECT_CALL(mockObserver, OnComment(comment)).Times(1);
+        EXPECT_CALL(mockGame, AddComment(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -167,8 +167,8 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddRunnerAdjustment(_)).Times(1);
         EXPECT_CALL(mockObserver, OnRunnerAdjustment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddRunnerAdjustment(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -199,8 +199,8 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddBatterAdjustment(_)).Times(1);
         EXPECT_CALL(mockObserver, OnBatterAdjustment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddBatterAdjustment(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -231,8 +231,8 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddPitcherAdjustment(_)).Times(1);
         EXPECT_CALL(mockObserver, OnPitcherAdjustment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddPitcherAdjustment(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
