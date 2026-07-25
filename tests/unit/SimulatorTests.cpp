@@ -25,12 +25,14 @@ public:
 class MockSimulatorObserver : public SimulatorObserver {
 public:
     MOCK_METHOD(void, OnPreEvent, (const IGameState& state), (override));
+    // NOLINTBEGIN(misc-override-with-different-visibility)
     MOCK_METHOD(void, OnPlay, (const PlayInfo& event), (override));
     MOCK_METHOD(void, OnSubstitution, (const SubstitutionInfo& sub), (override));
     MOCK_METHOD(void, OnComment, (const std::string& comment), (override));
     MOCK_METHOD(void, OnRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
     MOCK_METHOD(void, OnBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
     MOCK_METHOD(void, OnPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
+    // NOLINTEND(misc-override-with-different-visibility)
     MOCK_METHOD(void, OnPostEvent, (const IGameState& state), (override));
 };
 
