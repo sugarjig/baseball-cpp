@@ -52,7 +52,7 @@ public:
      * @brief Called when a play event occurs.
      * @param event The play information.
      */
-    virtual void OnEvent(const PlayInfo& event) {
+    virtual void OnPlay(const PlayInfo& event) {
         std::cout << "Play: " << event.batter << " - " << event.text;
         if (auto dot = event.text.find('.'); dot != std::string::npos) {
             std::cout << " [Adv: " << event.text.substr(dot + 1) << "]";

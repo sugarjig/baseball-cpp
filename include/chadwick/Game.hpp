@@ -66,7 +66,7 @@ public:
     /// @inheritdoc
     void UpdateState() override;
     /// @inheritdoc
-    void AddEvent(const PlayInfo& play) override;
+    void AddPlay(const PlayInfo& play) override;
     /// @inheritdoc
     void AddSubstitution(const SubstitutionInfo& sub) override;
     /// @inheritdoc

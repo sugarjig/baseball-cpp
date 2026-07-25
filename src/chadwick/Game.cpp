@@ -142,7 +142,7 @@ void Game::UpdateState() {
     }
 }
 
-void Game::AddEvent(const PlayInfo& play) {
+void Game::AddPlay(const PlayInfo& play) {
     cw_game_event_append(game, play.inning, play.team, std::string(play.batter).data(),
                          std::string(play.pitchCount).data(), std::string(play.pitchSequence).data(),
                          std::string(play.text).data());
