@@ -32,8 +32,8 @@ auto GetTestData() -> MatrixData {
     return MatrixLoader::LoadMatrices(dataDir);
 }
 
-auto ValidateRecordTypeAndPlay(RecordType recordType, const PlayInfo& play) {
-    EXPECT_EQ(recordType, RecordType::Play);
+auto ValidateEventTypeAndPlay(EventType eventType, const PlayInfo& play) {
+    EXPECT_EQ(eventType, EventType::Play);
 
     EXPECT_EQ(play.inning, 1);
     EXPECT_EQ(play.team, 0);
@@ -64,7 +64,7 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
     auto record = source.Next(state);
     ASSERT_TRUE(record.has_value());
     if (record.has_value()) {
-        ValidateRecordTypeAndPlay(record->type, std::get<PlayInfo>(record->data));
+        ValidateEventTypeAndPlay(record->eventType, std::get<PlayInfo>(record->data));
     }
 }
 
@@ -84,7 +84,7 @@ TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
     auto record = source.Next(state);
     ASSERT_TRUE(record.has_value());
     if (record.has_value()) {
-        EXPECT_EQ(record->type, RecordType::Play);
+        EXPECT_EQ(record->eventType, EventType::Play);
     }
 }
 

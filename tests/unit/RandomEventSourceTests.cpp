@@ -36,7 +36,7 @@ TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
     auto record1HasValue = record1.has_value();
     ASSERT_TRUE(record1HasValue);
     if (record1HasValue) {
-        EXPECT_EQ(record1->type, RecordType::Play);
+        EXPECT_EQ(record1->eventType, EventType::Play);
     }
 
     auto record2 = source.Next(state);

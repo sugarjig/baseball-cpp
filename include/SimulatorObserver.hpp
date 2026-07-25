@@ -54,23 +54,23 @@ public:
      * @param record The record containing the event data.
      */
     virtual void OnEvent(const Record& record) {
-        switch (record.type) {
-        case RecordType::Play:
+        switch (record.eventType) {
+        case EventType::Play:
             OnPlay(std::get<PlayInfo>(record.data));
             break;
-        case RecordType::Substitution:
+        case EventType::Substitution:
             OnSubstitution(std::get<SubstitutionInfo>(record.data));
             break;
-        case RecordType::Comment:
+        case EventType::Comment:
             OnComment(std::get<std::string>(record.data));
             break;
-        case RecordType::RunnerAdjustment:
+        case EventType::RunnerAdjustment:
             OnRunnerAdjustment(std::get<RunnerAdjustmentInfo>(record.data));
             break;
-        case RecordType::BatterAdjustment:
+        case EventType::BatterAdjustment:
             OnBatterAdjustment(std::get<BatterAdjustmentInfo>(record.data));
             break;
-        case RecordType::PitcherAdjustment:
+        case EventType::PitcherAdjustment:
             OnPitcherAdjustment(std::get<PitcherAdjustmentInfo>(record.data));
             break;
         default:

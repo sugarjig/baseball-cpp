@@ -19,33 +19,33 @@ void Simulator::SimulateGame(IGame& game) const {
             observer->OnEvent(*record);
         }
 
-        switch (record->type) {
-        case RecordType::Play: {
+        switch (record->eventType) {
+        case EventType::Play: {
             const auto& play = std::get<PlayInfo>(record->data);
             game.AddPlay(play);
             break;
         }
-        case RecordType::Substitution: {
+        case EventType::Substitution: {
             const auto& sub = std::get<SubstitutionInfo>(record->data);
             game.AddSubstitution(sub);
             break;
         }
-        case RecordType::Comment: {
+        case EventType::Comment: {
             const auto& comment = std::get<std::string>(record->data);
             game.AddComment(comment);
             break;
         }
-        case RecordType::RunnerAdjustment: {
+        case EventType::RunnerAdjustment: {
             const auto& radj = std::get<RunnerAdjustmentInfo>(record->data);
             game.AddRunnerAdjustment(radj);
             break;
         }
-        case RecordType::BatterAdjustment: {
+        case EventType::BatterAdjustment: {
             const auto& badj = std::get<BatterAdjustmentInfo>(record->data);
             game.AddBatterAdjustment(badj);
             break;
         }
-        case RecordType::PitcherAdjustment: {
+        case EventType::PitcherAdjustment: {
             const auto& padj = std::get<PitcherAdjustmentInfo>(record->data);
             game.AddPitcherAdjustment(padj);
             break;

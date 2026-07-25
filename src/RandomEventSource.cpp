@@ -177,7 +177,7 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
     }
 
     Record record;
-    record.type = RecordType::Play;
+    record.eventType = EventType::Play;
     record.data = play;
     return record;
 }

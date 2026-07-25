@@ -8,10 +8,10 @@
 #include <variant>
 
 /**
- * @brief Represents a single record in an event stream.
+ * @brief Represents a single event in an event stream.
  */
 struct Record {
-    RecordType type = RecordType::Play; ///< The type of record.
+    EventType eventType = EventType::Play; ///< The type of event.
     /**
      * @brief The data associated with the record.
      */

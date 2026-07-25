@@ -56,7 +56,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     play.text = "K";
 
     Record record;
-    record.type = RecordType::Play;
+    record.eventType = EventType::Play;
     record.data = play;
 
     {
@@ -90,7 +90,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     sub.pos = 1;
 
     Record record;
-    record.type = RecordType::Substitution;
+    record.eventType = EventType::Substitution;
     record.data = sub;
 
     {
@@ -120,7 +120,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
     const std::string comment = "Test Comment";
 
     Record record;
-    record.type = RecordType::Comment;
+    record.eventType = EventType::Comment;
     record.data = comment;
 
     {
@@ -152,7 +152,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     radj.base = 2;
 
     Record record;
-    record.type = RecordType::RunnerAdjustment;
+    record.eventType = EventType::RunnerAdjustment;
     record.data = radj;
 
     {
@@ -184,7 +184,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     badj.hand = 'R';
 
     Record record;
-    record.type = RecordType::BatterAdjustment;
+    record.eventType = EventType::BatterAdjustment;
     record.data = badj;
 
     {
@@ -216,7 +216,7 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     padj.hand = 'L';
 
     Record record;
-    record.type = RecordType::PitcherAdjustment;
+    record.eventType = EventType::PitcherAdjustment;
     record.data = padj;
 
     {
