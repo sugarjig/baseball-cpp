@@ -3,6 +3,7 @@
 
 #include "EventSource.hpp"
 #include "IGameState.hpp"
+#include "Records.hpp"
 #include <iostream>
 #include <string>
 
