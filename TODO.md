@@ -3,6 +3,8 @@
 ## Simulator
 - [x] Use transition matrix for each starting state
 - [x] Refactor UpdateState (call UpdateState from Add methods)
+- [x] Rename AddEvent and OnEvent to AddPlay and OnPlay
+- [ ] Add OnEvent method to SimulatorObserver (replace calls to individual On* calls)
 - [ ] Move record processing from Simulator to Game (AddRecord)
 - [ ] Create GameIter class to mirror Chadwick structure (manage Chadwick GameState in GameIter)
 - [ ] Move KeepPlaying calls out of event source implementations (into Simulator?)

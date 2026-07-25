@@ -25,7 +25,7 @@ public:
 class MockSimulatorObserver : public SimulatorObserver {
 public:
     MOCK_METHOD(void, OnPreEvent, (const IGameState& state), (override));
-    MOCK_METHOD(void, OnEvent, (const PlayInfo& event), (override));
+    MOCK_METHOD(void, OnPlay, (const PlayInfo& event), (override));
     MOCK_METHOD(void, OnSubstitution, (const SubstitutionInfo& sub), (override));
     MOCK_METHOD(void, OnComment, (const std::string& comment), (override));
     MOCK_METHOD(void, OnRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
@@ -36,7 +36,7 @@ public:
 
 class MockGame : public IGame {
 public:
-    MOCK_METHOD(void, AddEvent, (const PlayInfo& play), (override));
+    MOCK_METHOD(void, AddPlay, (const PlayInfo& play), (override));
     MOCK_METHOD(void, AddSubstitution, (const SubstitutionInfo& sub), (override));
     MOCK_METHOD(void, AddComment, (std::string_view comment), (override));
     MOCK_METHOD(void, AddData, (const DataRecord& data), (override));
@@ -71,8 +71,8 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
-        EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
+        EXPECT_CALL(mockGame, AddPlay(_)).Times(1);
+        EXPECT_CALL(mockObserver, OnPlay(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));

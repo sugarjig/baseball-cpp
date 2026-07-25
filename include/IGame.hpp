@@ -21,7 +21,7 @@ public:
      * @brief Adds a play event to the game.
      * @param play The play information.
      */
-    virtual void AddEvent(const PlayInfo& play) = 0;
+    virtual void AddPlay(const PlayInfo& play) = 0;
 
     /**
      * @brief Adds a substitution to the game.

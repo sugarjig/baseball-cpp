@@ -21,9 +21,9 @@ void Simulator::SimulateGame(IGame& game) const {
         switch (record->type) {
         case RecordType::Play: {
             const auto& play = std::get<PlayInfo>(record->data);
-            game.AddEvent(play);
+            game.AddPlay(play);
             if (observer != nullptr) {
-                observer->OnEvent(play);
+                observer->OnPlay(play);
             }
             break;
         }
