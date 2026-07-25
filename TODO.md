@@ -2,13 +2,20 @@
 
 ## Simulator
 - [x] Use transition matrix for each starting state
-- [ ] Consider batter and pitcher handedness in matrices
-- [ ] Consider ballpark in matrices
-- [ ] Refactor UpdateState (call UpdateState from Add methods, manage iterator in GameState?)
-- [ ] Move KeepPlaying out of Chadwick GameState (into Simulator?)
+- [x] Refactor UpdateState (call UpdateState from Add methods)
+- [ ] Move record processing from Simulator to Game (AddRecord)
+- [ ] Create GameIter class to mirror Chadwick structure (manage Chadwick GameState in GameIter)
+- [ ] Move KeepPlaying calls out of event source implementations (into Simulator?)
 - [ ] Add abstraction over Retrosheet records
 - [ ] Simulate pitch sequences
-- [ ] Create transition matrices for batters, pitchers, fielders, umpires
+
+## Matrix Event Source
+- [ ] Consider batter and pitcher handedness in matrices
+- [ ] Consider ballpark in matrices
+- [ ] Create transition matrices for individual batters, pitchers, fielders, runners, umpires
+- [ ] Fix matrix simulator bugs
+  - [ ] Error advancements not handled correctly
+  - [ ] Error and fielder's choice codes
 
 ## Code Quality
 - [ ] Ask Junie for a code review
@@ -33,4 +40,3 @@
 
 ## Agent Usage
 - [ ] Include Retrosheet documentation as context
-- [ ] Run `/project-onboarding`

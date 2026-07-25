@@ -71,8 +71,6 @@ void Simulator::SimulateGame(IGame& game) const {
             break;
         }
 
-        game.UpdateState();
-
         if (observer != nullptr) {
             observer->OnPostEvent(game.GetGameState());
         }

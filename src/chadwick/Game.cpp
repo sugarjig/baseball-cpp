@@ -177,14 +177,19 @@ void Game::AddEvent(const PlayInfo& play) {
             pendingPitcherAdjustmentPlayerId.clear();
         }
     }
+    UpdateState();
 }
 
 void Game::AddSubstitution(const SubstitutionInfo& sub) {
     cw_game_substitute_append(game, std::string(sub.playerId).data(), std::string(sub.name).data(), sub.team, sub.slot,
                               sub.pos);
+    UpdateState();
 }
 
-void Game::AddComment(std::string_view comment) { cw_game_comment_append(game, std::string(comment).data()); }
+void Game::AddComment(std::string_view comment) {
+    cw_game_comment_append(game, std::string(comment).data());
+    UpdateState();
+}
 
 void Game::AddData(const DataRecord& data) {
     std::vector<std::string> copies(data.fields.begin(), data.fields.end());
@@ -194,21 +199,25 @@ void Game::AddData(const DataRecord& data) {
         cFields.push_back(field.data());
     }
     cw_game_data_append(game, static_cast<int>(cFields.size()), cFields.data());
+    UpdateState();
 }
 
 void Game::AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
     pendingAutoRunner = radj.playerId;
     pendingAutoBase = radj.base;
+    UpdateState();
 }
 
 void Game::AddBatterAdjustment(const BatterAdjustmentInfo& badj) {
     pendingBatterAdjustmentPlayerId = badj.playerId;
     pendingBatterAdjustmentHand = badj.hand;
+    UpdateState();
 }
 
 void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
     pendingPitcherAdjustmentPlayerId = padj.playerId;
     pendingPitcherAdjustmentHand = padj.hand;
+    UpdateState();
 }
 
 auto Game::GetGameState() const -> const IGameState& { return gameState; }
