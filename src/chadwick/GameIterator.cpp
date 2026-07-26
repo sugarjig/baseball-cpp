@@ -17,39 +17,39 @@ extern "C" {
 
 namespace chadwick {
 
-GameIterator::GameIterator(CWGame* game) : iter((game != nullptr) ? cw_gameiter_create(game) : nullptr) {
-    gameState.state = (iter != nullptr) ? iter->state : nullptr;
+GameIterator::GameIterator(CWGame* cwGame) : cwGameIterator((cwGame != nullptr) ? cw_gameiter_create(cwGame) : nullptr) {
+    gameState.cwGameState = (cwGameIterator != nullptr) ? cwGameIterator->state : nullptr;
 }
 
 GameIterator::~GameIterator() {
-    if (iter != nullptr) {
-        cw_gameiter_cleanup(iter);
-        free(iter); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
+    if (cwGameIterator != nullptr) {
+        cw_gameiter_cleanup(cwGameIterator);
+        free(cwGameIterator); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
     }
 }
 
-GameIterator::GameIterator(GameIterator&& other) noexcept : iter(other.iter), gameState(std::move(other.gameState)) {
-    other.iter = nullptr;
+GameIterator::GameIterator(GameIterator&& other) noexcept : cwGameIterator(other.cwGameIterator), gameState(std::move(other.gameState)) {
+    other.cwGameIterator = nullptr;
 }
 
 auto GameIterator::operator=(GameIterator&& other) noexcept -> GameIterator& {
     if (this != &other) {
-        if (iter != nullptr) {
-            cw_gameiter_cleanup(iter);
-            free(iter); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
+        if (cwGameIterator != nullptr) {
+            cw_gameiter_cleanup(cwGameIterator);
+            free(cwGameIterator); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
         }
-        iter = other.iter;
+        cwGameIterator = other.cwGameIterator;
         gameState = std::move(other.gameState);
-        other.iter = nullptr;
+        other.cwGameIterator = nullptr;
     }
     return *this;
 }
 
 void GameIterator::UpdateState() {
-    if (iter != nullptr) {
-        cw_gameiter_reset(iter);
-        while (iter->event != nullptr) {
-            CWEvent const* currentEvent = iter->event;
+    if (cwGameIterator != nullptr) {
+        cw_gameiter_reset(cwGameIterator);
+        while (cwGameIterator->event != nullptr) {
+            CWEvent const* currentEvent = cwGameIterator->event;
 
             // Save "suspended" comments that Chadwick's cw_gameiter_process_comments might mangle with strtok
             // May be able to remove in versions of Chadwick higher than 0.10.0
@@ -65,7 +65,7 @@ void GameIterator::UpdateState() {
                 }
             }
 
-            cw_gameiter_next(iter);
+            cw_gameiter_next(cwGameIterator);
 
             // Restore any mangled comments
             for (auto& [comment, originalText] : saved) {

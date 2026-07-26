@@ -72,11 +72,11 @@ public:
      * @brief Checks if the game was successfully initialized.
      * @return True if the underlying Chadwick game object exists.
      */
-    explicit operator bool() const { return game != nullptr; }
+    explicit operator bool() const { return cwGame != nullptr; }
 
 private:
     friend class Scorebook;
-    CWGame* game;
+    CWGame* cwGame;
     GameIterator iterator;
 
     std::string pendingAutoRunner;
