@@ -10,7 +10,6 @@
 #include <fstream>
 #include <gtest/gtest.h>
 #include <string>
-#include <utility>
 #include <vector>
 
 namespace fs = std::filesystem;
