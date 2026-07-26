@@ -66,21 +66,11 @@ public:
     /// @inheritdoc
     void UpdateState() override;
     /// @inheritdoc
-    void AddPlay(const PlayInfo& play) override;
+    [[nodiscard]] auto GetGameState() const -> const IGameState& override;
     /// @inheritdoc
-    void AddSubstitution(const SubstitutionInfo& sub) override;
-    /// @inheritdoc
-    void AddComment(std::string_view comment) override;
+    void AddEvent(const Event& event) override;
     /// @inheritdoc
     void AddData(const DataRecord& data) override;
-    /// @inheritdoc
-    void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) override;
-    /// @inheritdoc
-    void AddBatterAdjustment(const BatterAdjustmentInfo& badj) override;
-    /// @inheritdoc
-    void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) override;
-    /// @inheritdoc
-    [[nodiscard]] auto GetGameState() const -> const IGameState& override;
 
     /**
      * @brief Checks if the game was successfully initialized.
@@ -104,6 +94,13 @@ private:
     char pendingPitcherAdjustmentHand = ' ';
 
     static constexpr int suspendedTextSize = 10;
+
+    void AddPlay(const PlayInfo& play);
+    void AddSubstitution(const SubstitutionInfo& sub);
+    void AddComment(std::string_view comment);
+    void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj);
+    void AddBatterAdjustment(const BatterAdjustmentInfo& badj);
+    void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj);
 };
 
 } // namespace chadwick
