@@ -1,6 +1,6 @@
+#include "EventSource.hpp"
 #include "IGameState.hpp"
 #include "RandomEventSource.hpp"
-#include "Records.hpp"
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <string>
