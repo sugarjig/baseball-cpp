@@ -21,9 +21,9 @@ class GameIterator {
 public:
     /**
      * @brief Constructs a GameIterator for a given Chadwick game.
-     * @param game The Chadwick CWGame to iterate over.
+     * @param cwGame The Chadwick CWGame to iterate over.
      */
-    explicit GameIterator(CWGame* game);
+    explicit GameIterator(CWGame* cwGame);
     /**
      * @brief Destructor that ensures proper cleanup of the Chadwick iterator.
      */
@@ -64,7 +64,7 @@ public:
     [[nodiscard]] auto GetGameState() const -> const IGameState&;
 
 private:
-    CWGameIterator* iter;
+    CWGameIterator* cwGameIterator;
     GameState gameState;
     static constexpr int suspendedTextSize = 10;
 };

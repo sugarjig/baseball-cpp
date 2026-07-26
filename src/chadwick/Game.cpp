@@ -23,35 +23,35 @@ namespace chadwick {
 Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-parameters)
            const std::string_view version, const std::vector<InfoRecord>& infoRecords,
            const std::vector<StarterRecord>& starters)
-    : game(cw_game_create(std::string(gameId).data())), iterator(nullptr) {
-    if (game != nullptr) {
-        cw_game_set_version(game, std::string(version).data());
+    : cwGame(cw_game_create(std::string(gameId).data())), iterator(nullptr) {
+    if (cwGame != nullptr) {
+        cw_game_set_version(cwGame, std::string(version).data());
         for (const auto& info : infoRecords) {
-            cw_game_info_append(game, std::string(info.key).data(), std::string(info.value).data());
+            cw_game_info_append(cwGame, std::string(info.key).data(), std::string(info.value).data());
         }
         for (const auto& starter : starters) {
-            cw_game_starter_append(game, std::string(starter.id).data(), std::string(starter.name).data(),
+            cw_game_starter_append(cwGame, std::string(starter.id).data(), std::string(starter.name).data(),
                                    static_cast<int>(starter.isHome), starter.battingOrder, starter.position);
         }
     }
-    iterator = GameIterator(game);
+    iterator = GameIterator(cwGame);
 }
 
 Game::~Game() {
-    if (game != nullptr) {
-        cw_game_cleanup(game);
-        free(game); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
+    if (cwGame != nullptr) {
+        cw_game_cleanup(cwGame);
+        free(cwGame); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
     }
 }
 
 Game::Game(Game&& other) noexcept
-    : game(other.game), iterator(std::move(other.iterator)), pendingAutoRunner(std::move(other.pendingAutoRunner)),
+    : cwGame(other.cwGame), iterator(std::move(other.iterator)), pendingAutoRunner(std::move(other.pendingAutoRunner)),
       pendingAutoBase(other.pendingAutoBase),
       pendingBatterAdjustmentPlayerId(std::move(other.pendingBatterAdjustmentPlayerId)),
       pendingBatterAdjustmentHand(other.pendingBatterAdjustmentHand),
       pendingPitcherAdjustmentPlayerId(std::move(other.pendingPitcherAdjustmentPlayerId)),
       pendingPitcherAdjustmentHand(other.pendingPitcherAdjustmentHand) {
-    other.game = nullptr;
+    other.cwGame = nullptr;
     other.pendingAutoBase = 0;
     other.pendingBatterAdjustmentHand = ' ';
     other.pendingPitcherAdjustmentHand = ' ';
@@ -59,11 +59,11 @@ Game::Game(Game&& other) noexcept
 
 auto Game::operator=(Game&& other) noexcept -> Game& {
     if (this != &other) {
-        if (game != nullptr) {
-            cw_game_cleanup(game);
-            free(game); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
+        if (cwGame != nullptr) {
+            cw_game_cleanup(cwGame);
+            free(cwGame); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
         }
-        game = other.game;
+        cwGame = other.cwGame;
         iterator = std::move(other.iterator);
         pendingAutoRunner = std::move(other.pendingAutoRunner);
         pendingAutoBase = other.pendingAutoBase;
@@ -71,7 +71,7 @@ auto Game::operator=(Game&& other) noexcept -> Game& {
         pendingBatterAdjustmentHand = other.pendingBatterAdjustmentHand;
         pendingPitcherAdjustmentPlayerId = std::move(other.pendingPitcherAdjustmentPlayerId);
         pendingPitcherAdjustmentHand = other.pendingPitcherAdjustmentHand;
-        other.game = nullptr;
+        other.cwGame = nullptr;
         other.pendingAutoBase = 0;
         other.pendingBatterAdjustmentHand = ' ';
         other.pendingPitcherAdjustmentHand = ' ';
@@ -84,22 +84,22 @@ auto Game::Write(const std::filesystem::path& path) const -> bool {
     if (file == nullptr) {
         return false;
     }
-    cw_game_write(game, file);
+    cw_game_write(cwGame, file);
     fclose(file); // NOLINT(cppcoreguidelines-owning-memory)
     return true;
 }
 
 void Game::AddPlay(const PlayInfo& play) {
-    cw_game_event_append(game, play.inning, play.team, std::string(play.batter).data(),
+    cw_game_event_append(cwGame, play.inning, play.team, std::string(play.batter).data(),
                          std::string(play.pitchCount).data(), std::string(play.pitchSequence).data(),
                          std::string(play.text).data());
 
-    if (game->last_event != nullptr) {
+    if (cwGame->last_event != nullptr) {
         if (pendingAutoBase != 0) {
-            game->last_event->auto_base = pendingAutoBase;
-            game->last_event->auto_runner_id =                              // NOLINT(cppcoreguidelines-owning-memory)
+            cwGame->last_event->auto_base = pendingAutoBase;
+            cwGame->last_event->auto_runner_id =                              // NOLINT(cppcoreguidelines-owning-memory)
                 static_cast<char*>(malloc(pendingAutoRunner.length() + 1)); // NOLINT(cppcoreguidelines-no-malloc)
-            strcpy(game->last_event->auto_runner_id, pendingAutoRunner.c_str());
+            strcpy(cwGame->last_event->auto_runner_id, pendingAutoRunner.c_str());
 
             pendingAutoBase = 0;
             pendingAutoRunner.clear();
@@ -107,18 +107,18 @@ void Game::AddPlay(const PlayInfo& play) {
 
         if (pendingBatterAdjustmentHand != ' ') {
             if (pendingBatterAdjustmentPlayerId == play.batter) {
-                game->last_event->batter_hand = pendingBatterAdjustmentHand;
+                cwGame->last_event->batter_hand = pendingBatterAdjustmentHand;
             }
             pendingBatterAdjustmentHand = ' ';
             pendingBatterAdjustmentPlayerId.clear();
         }
 
         if (pendingPitcherAdjustmentHand != ' ') {
-            game->last_event->pitcher_hand = pendingPitcherAdjustmentHand;
-            game->last_event->pitcher_hand_id = // NOLINT(cppcoreguidelines-owning-memory)
+            cwGame->last_event->pitcher_hand = pendingPitcherAdjustmentHand;
+            cwGame->last_event->pitcher_hand_id = // NOLINT(cppcoreguidelines-owning-memory)
                 static_cast<char*>(
                     malloc(pendingPitcherAdjustmentPlayerId.length() + 1)); // NOLINT(cppcoreguidelines-no-malloc)
-            strcpy(game->last_event->pitcher_hand_id, pendingPitcherAdjustmentPlayerId.c_str());
+            strcpy(cwGame->last_event->pitcher_hand_id, pendingPitcherAdjustmentPlayerId.c_str());
 
             pendingPitcherAdjustmentHand = ' ';
             pendingPitcherAdjustmentPlayerId.clear();
@@ -127,11 +127,11 @@ void Game::AddPlay(const PlayInfo& play) {
 }
 
 void Game::AddSubstitution(const SubstitutionInfo& sub) const {
-    cw_game_substitute_append(game, std::string(sub.playerId).data(), std::string(sub.name).data(), sub.team, sub.slot,
+    cw_game_substitute_append(cwGame, std::string(sub.playerId).data(), std::string(sub.name).data(), sub.team, sub.slot,
                               sub.pos);
 }
 
-void Game::AddComment(std::string_view comment) const { cw_game_comment_append(game, std::string(comment).data()); }
+void Game::AddComment(std::string_view comment) const { cw_game_comment_append(cwGame, std::string(comment).data()); }
 
 void Game::AddData(const DataRecord& data) {
     std::vector<std::string> copies(data.fields.begin(), data.fields.end());
@@ -140,7 +140,7 @@ void Game::AddData(const DataRecord& data) {
     for (auto& field : copies) {
         cFields.push_back(field.data());
     }
-    cw_game_data_append(game, static_cast<int>(cFields.size()), cFields.data());
+    cw_game_data_append(cwGame, static_cast<int>(cFields.size()), cFields.data());
 }
 
 void Game::AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) {

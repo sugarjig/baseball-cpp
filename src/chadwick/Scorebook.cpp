@@ -16,35 +16,35 @@ extern "C" {
 
 namespace chadwick {
 
-Scorebook::Scorebook() : scorebook(cw_scorebook_create()) {}
+Scorebook::Scorebook() : cwScorebook(cw_scorebook_create()) {}
 
 Scorebook::~Scorebook() {
-    if (scorebook != nullptr) {
-        cw_scorebook_cleanup(scorebook);
-        free(scorebook); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
+    if (cwScorebook != nullptr) {
+        cw_scorebook_cleanup(cwScorebook);
+        free(cwScorebook); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
     }
 }
 
-Scorebook::Scorebook(Scorebook&& other) noexcept : scorebook(other.scorebook) { other.scorebook = nullptr; }
+Scorebook::Scorebook(Scorebook&& other) noexcept : cwScorebook(other.cwScorebook) { other.cwScorebook = nullptr; }
 
 auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
     if (this != &other) {
-        if (scorebook != nullptr) {
-            cw_scorebook_cleanup(scorebook);
-            free(scorebook); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
+        if (cwScorebook != nullptr) {
+            cw_scorebook_cleanup(cwScorebook);
+            free(cwScorebook); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
         }
-        scorebook = other.scorebook;
-        other.scorebook = nullptr;
+        cwScorebook = other.cwScorebook;
+        other.cwScorebook = nullptr;
     }
     return *this;
 }
 
 void Scorebook::AddGame(Game&& game) const {
-    if (game.game != nullptr) {
+    if (game.cwGame != nullptr) {
         // Transfer ownership of CWGame to the scorebook
         Game&& copy = std::move(game);
-        cw_scorebook_append_game(scorebook, copy.game);
-        game.game = nullptr;
+        cw_scorebook_append_game(cwScorebook, copy.cwGame);
+        game.cwGame = nullptr;
     }
 }
 
@@ -53,7 +53,7 @@ auto Scorebook::Read(const std::filesystem::path& path) const -> int {
     if (file == nullptr) {
         return -1;
     }
-    int const gamesRead = cw_scorebook_read(scorebook, file);
+    int const gamesRead = cw_scorebook_read(cwScorebook, file);
     fclose(file); // NOLINT(cppcoreguidelines-owning-memory)
     return gamesRead;
 }
@@ -63,7 +63,7 @@ auto Scorebook::Write(const std::filesystem::path& path) const -> bool {
     if (file == nullptr) {
         return false;
     }
-    cw_scorebook_write(scorebook, file);
+    cw_scorebook_write(cwScorebook, file);
     fclose(file); // NOLINT(cppcoreguidelines-owning-memory)
     return true;
 }

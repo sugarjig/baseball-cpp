@@ -17,7 +17,7 @@ public:
     /**
      * @brief Constructs an empty GameState.
      */
-    GameState() : state(nullptr) {}
+    GameState() : cwGameState(nullptr) {}
     ~GameState() override = default;
 
     // Disable copying
@@ -55,13 +55,13 @@ public:
 
     /**
      * @brief Constructs a GameState wrapping a Chadwick cw_game_state.
-     * @param state The Chadwick cw_game_state to wrap.
+     * @param cwGameState The Chadwick cw_game_state to wrap.
      */
-    explicit GameState(CWGameState* state);
+    explicit GameState(CWGameState* cwGameState);
 
 private:
     friend class GameIterator;
-    CWGameState* state;
+    CWGameState* cwGameState;
     static constexpr int numInningsInGame = 9;
 };
 

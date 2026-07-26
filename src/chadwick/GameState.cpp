@@ -12,24 +12,24 @@ extern "C" {
 
 namespace chadwick {
 
-GameState::GameState(CWGameState* state) : state(state) {}
+GameState::GameState(CWGameState* cwGameState) : cwGameState(cwGameState) {}
 
-GameState::GameState(GameState&& other) noexcept : state(other.state) { other.state = nullptr; }
+GameState::GameState(GameState&& other) noexcept : cwGameState(other.cwGameState) { other.cwGameState = nullptr; }
 
 auto GameState::operator=(GameState&& other) noexcept -> GameState& {
     if (this != &other) {
-        state = other.state;
-        other.state = nullptr;
+        cwGameState = other.cwGameState;
+        other.cwGameState = nullptr;
     }
     return *this;
 }
 
 auto GameState::GetNextBatter(int const team) const -> std::string {
-    if (state != nullptr && team >= 0 && team < 2) {
-        int const slot = state->next_batter[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
+    if (cwGameState != nullptr && team >= 0 && team < 2) {
+        int const slot = cwGameState->next_batter[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
         if (slot >= 1 && slot <= numInningsInGame) {
             char const* playerId =
-                state->lineups[slot][team].player_id; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
+                cwGameState->lineups[slot][team].player_id; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
             return (playerId != nullptr) ? playerId : "";
         }
     }
@@ -37,26 +37,26 @@ auto GameState::GetNextBatter(int const team) const -> std::string {
 }
 
 auto GameState::GetRunnerOnBase(int const base) const -> std::string {
-    if (state != nullptr && base >= 1 && base <= 3) {
+    if (cwGameState != nullptr && base >= 1 && base <= 3) {
         // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-array-to-pointer-decay,cppcoreguidelines-pro-bounds-constant-array-index)
-        return state->runners[base].runner;
+        return cwGameState->runners[base].runner;
     }
     return "";
 }
 
-auto GameState::GetInning() const -> int { return (state != nullptr) ? state->inning : 1; }
+auto GameState::GetInning() const -> int { return (cwGameState != nullptr) ? cwGameState->inning : 1; }
 
-auto GameState::GetBattingTeam() const -> int { return (state != nullptr) ? state->batting_team : 0; }
+auto GameState::GetBattingTeam() const -> int { return (cwGameState != nullptr) ? cwGameState->batting_team : 0; }
 
-auto GameState::GetOuts() const -> int { return (state != nullptr) ? state->outs : 0; }
+auto GameState::GetOuts() const -> int { return (cwGameState != nullptr) ? cwGameState->outs : 0; }
 
 auto GameState::IsBaseOccupied(int const base) const -> bool {
-    return (state != nullptr) && (cw_gamestate_base_occupied(state, base) != 0);
+    return (cwGameState != nullptr) && (cw_gamestate_base_occupied(cwGameState, base) != 0);
 }
 
 auto GameState::GetScore(const int team) const -> int {
-    if (state != nullptr && team >= 0 && team < 2) {
-        return state->score[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
+    if (cwGameState != nullptr && team >= 0 && team < 2) {
+        return cwGameState->score[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
     }
     return 0;
 }
