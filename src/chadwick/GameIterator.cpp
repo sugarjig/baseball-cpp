@@ -19,7 +19,17 @@ namespace chadwick {
 
 GameIterator::GameIterator(CWGame* cwGame)
     : cwGameIterator((cwGame != nullptr) ? cw_gameiter_create(cwGame) : nullptr),
-      gameState((cwGameIterator != nullptr) ? cwGameIterator->state : nullptr) {}
+      gameState((cwGameIterator != nullptr) ? cwGameIterator->state : nullptr) {
+    if (cwGame != nullptr) {
+        for (CWInfo* info = cwGame->first_info; info != nullptr; info = info->next) {
+            if (strcmp(info->label, "innings") == 0) {
+                gameState.SetNumInnings(std::stoi(info->data));
+            } else if (strcmp(info->label, "htbf") == 0) {
+                gameState.SetHomeBatsFirst(strcmp(info->data, "true") == 0);
+            }
+        }
+    }
+}
 
 GameIterator::~GameIterator() {
     if (cwGameIterator != nullptr) {

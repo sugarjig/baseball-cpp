@@ -19,12 +19,10 @@ public:
 };
 } // namespace
 
-TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
+TEST(RandomEventSourceTest, GeneratesEvent) {
     constexpr int seed = 12345;
     RandomEventSource source(seed);
     MockGameState const state;
-
-    EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true)).WillOnce(testing::Return(false));
 
     EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));
     EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
@@ -38,7 +36,4 @@ TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
     if (event1HasValue) {
         EXPECT_EQ(event1->type, EventType::Play);
     }
-
-    auto event2 = source.Next(state);
-    EXPECT_FALSE(event2.has_value());
 }

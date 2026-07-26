@@ -43,7 +43,7 @@ void RandomEventSource::ApplyAdvancements(PlayInfo& play, int bases) {
 }
 
 auto RandomEventSource::Next(const IGameState& state) -> std::optional<Event> {
-    if (outcomes.empty() || !state.KeepPlaying()) {
+    if (outcomes.empty()) {
         return std::nullopt;
     }
 
