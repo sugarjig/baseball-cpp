@@ -9,7 +9,6 @@
 #include <gtest/gtest.h>
 #include <optional>
 #include <string>
-#include <string_view>
 
 using ::testing::_; // NOLINT(bugprone-reserved-identifier)
 using ::testing::InSequence;
