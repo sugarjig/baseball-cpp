@@ -17,9 +17,9 @@ extern "C" {
 
 namespace chadwick {
 
-GameIterator::GameIterator(CWGame* cwGame) : cwGameIterator((cwGame != nullptr) ? cw_gameiter_create(cwGame) : nullptr) {
-    gameState.cwGameState = (cwGameIterator != nullptr) ? cwGameIterator->state : nullptr;
-}
+GameIterator::GameIterator(CWGame* cwGame)
+    : cwGameIterator((cwGame != nullptr) ? cw_gameiter_create(cwGame) : nullptr),
+      gameState((cwGameIterator != nullptr) ? cwGameIterator->state : nullptr) {}
 
 GameIterator::~GameIterator() {
     if (cwGameIterator != nullptr) {
@@ -49,27 +49,27 @@ void GameIterator::UpdateState() {
     if (cwGameIterator != nullptr) {
         cw_gameiter_reset(cwGameIterator);
         while (cwGameIterator->event != nullptr) {
-            CWEvent const* currentEvent = cwGameIterator->event;
+            CWEvent const* cwEventCurrent = cwGameIterator->event;
 
             // Save "suspended" comments that Chadwick's cw_gameiter_process_comments might mangle with strtok
             // May be able to remove in versions of Chadwick higher than 0.10.0
             struct SavedComment {
-                CWComment* comment;
+                CWComment* cwComment;
                 std::string originalText;
             };
             std::vector<SavedComment> saved;
 
-            for (CWComment* comment = currentEvent->first_comment; comment != nullptr; comment = comment->next) {
-                if (comment->text != nullptr && strncmp(comment->text, "suspended,", suspendedTextSize) == 0) {
-                    saved.push_back({.comment = comment, .originalText = comment->text});
+            for (CWComment* cwComment = cwEventCurrent->first_comment; cwComment != nullptr; cwComment = cwComment->next) {
+                if (cwComment->text != nullptr && strncmp(cwComment->text, "suspended,", suspendedTextSize) == 0) {
+                    saved.push_back({.cwComment = cwComment, .originalText = cwComment->text});
                 }
             }
 
             cw_gameiter_next(cwGameIterator);
 
             // Restore any mangled comments
-            for (auto& [comment, originalText] : saved) {
-                strcpy(comment->text, originalText.c_str());
+            for (auto& [cwComment, originalText] : saved) {
+                strcpy(cwComment->text, originalText.c_str());
             }
         }
     }
