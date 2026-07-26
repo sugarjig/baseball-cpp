@@ -94,6 +94,12 @@ private:
     void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj);
     void AddBatterAdjustment(const BatterAdjustmentInfo& badj);
     void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj);
+
+    static CWGame* InitializeCWGame(std::string_view gameId, std::string_view version,
+                                    const std::vector<InfoRecord>& infoRecords,
+                                    const std::vector<StarterRecord>& starters);
+
+    explicit Game(CWGame* cw);
 };
 
 } // namespace chadwick
