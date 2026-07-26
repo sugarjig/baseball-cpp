@@ -1,14 +1,12 @@
 #ifndef BASEBALL_CPP_GAMEITERATOR_HPP
 #define BASEBALL_CPP_GAMEITERATOR_HPP
 
-#include "chadwick/GameState.hpp"
+#include "GameState.hpp"
 
 struct cw_game_struct; // NOLINT(readability-identifier-naming)
 using CWGame = cw_game_struct;
 struct cw_gameiter_struct; // NOLINT(readability-identifier-naming)
 using CWGameIterator = cw_gameiter_struct;
-
-class IGameState;
 
 namespace chadwick {
 

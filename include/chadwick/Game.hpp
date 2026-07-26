@@ -2,10 +2,10 @@
 #define BASEBALL_CPP_GAME_HPP
 
 #include "EventSource.hpp"
+#include "GameIterator.hpp"
 #include "IGame.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
-#include "chadwick/GameIterator.hpp"
 #include <filesystem>
 #include <string>
 #include <string_view>
