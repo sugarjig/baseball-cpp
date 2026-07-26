@@ -32,13 +32,13 @@ TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
     EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
     EXPECT_CALL(state, GetNextBatter(testing::_)).WillRepeatedly(testing::Return("PLAYER1"));
 
-    auto record1 = source.Next(state);
-    auto record1HasValue = record1.has_value();
-    ASSERT_TRUE(record1HasValue);
-    if (record1HasValue) {
-        EXPECT_EQ(record1->type, RecordType::Play);
+    auto event1 = source.Next(state);
+    auto event1HasValue = event1.has_value();
+    ASSERT_TRUE(event1HasValue);
+    if (event1HasValue) {
+        EXPECT_EQ(event1->type, EventType::Play);
     }
 
-    auto record2 = source.Next(state);
-    EXPECT_FALSE(record2.has_value());
+    auto event2 = source.Next(state);
+    EXPECT_FALSE(event2.has_value());
 }

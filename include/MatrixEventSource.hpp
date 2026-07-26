@@ -34,7 +34,7 @@ public:
     auto operator=(MatrixEventSource&&) noexcept -> MatrixEventSource& = default;
 
     /// @inheritdoc
-    auto Next(const IGameState& state) -> std::optional<Record> override;
+    auto Next(const IGameState& state) -> std::optional<Event> override;
 
 private:
     [[nodiscard]] static auto GetMatrixKey(const IGameState& state) -> std::string;

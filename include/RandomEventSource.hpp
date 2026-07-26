@@ -36,7 +36,7 @@ public:
     auto operator=(RandomEventSource&&) noexcept -> RandomEventSource& = default;
 
     /// @inheritdoc
-    auto Next(const IGameState& state) -> std::optional<Record> override;
+    auto Next(const IGameState& state) -> std::optional<Event> override;
 
 private:
     auto GetOutcome(int stateId) -> std::string;

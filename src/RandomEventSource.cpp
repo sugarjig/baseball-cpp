@@ -42,7 +42,7 @@ void RandomEventSource::ApplyAdvancements(PlayInfo& play, int bases) {
     }
 }
 
-auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
+auto RandomEventSource::Next(const IGameState& state) -> std::optional<Event> {
     if (outcomes.empty() || !state.KeepPlaying()) {
         return std::nullopt;
     }
@@ -176,8 +176,8 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Record> {
         ApplyAdvancements(play, bases);
     }
 
-    Record record;
-    record.type = RecordType::Play;
-    record.data = play;
-    return record;
+    Event event;
+    event.type = EventType::Play;
+    event.data = play;
+    return event;
 }

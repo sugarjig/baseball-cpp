@@ -18,14 +18,14 @@ using ::testing::Return;
 namespace {
 class MockEventSource : public EventSource {
 public:
-    MOCK_METHOD(std::optional<Record>, Next, (const IGameState& state), // NOLINT(modernize-use-trailing-return-type)
+    MOCK_METHOD(std::optional<Event>, Next, (const IGameState& state), // NOLINT(modernize-use-trailing-return-type)
                 (override));
 };
 
 class MockSimulatorObserver : public SimulatorObserver {
 public:
     MOCK_METHOD(void, OnPreEvent, (const IGameState& state), (override));
-    MOCK_METHOD(void, OnEvent, (const Record& record), (override));
+    MOCK_METHOD(void, OnEvent, (const Event& event), (override));
     MOCK_METHOD(void, OnPostEvent, (const IGameState& state), (override));
 };
 
@@ -55,15 +55,15 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
     play.batter = "p1";
     play.text = "K";
 
-    Record record;
-    record.type = RecordType::Play;
-    record.data = play;
+    Event event;
+    event.type = EventType::Play;
+    event.data = play;
 
     {
         chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
-        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(event));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
@@ -89,15 +89,15 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
     sub.team = 0;
     sub.pos = 1;
 
-    Record record;
-    record.type = RecordType::Substitution;
-    record.data = sub;
+    Event event;
+    event.type = EventType::Substitution;
+    event.data = sub;
 
     {
         chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
-        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(event));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
@@ -119,15 +119,15 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
 
     const std::string comment = "Test Comment";
 
-    Record record;
-    record.type = RecordType::Comment;
-    record.data = comment;
+    Event event;
+    event.type = EventType::Comment;
+    event.data = comment;
 
     {
         chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
-        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(event));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
@@ -151,15 +151,15 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
     radj.playerId = "testp001";
     radj.base = 2;
 
-    Record record;
-    record.type = RecordType::RunnerAdjustment;
-    record.data = radj;
+    Event event;
+    event.type = EventType::RunnerAdjustment;
+    event.data = radj;
 
     {
         chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
-        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(event));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
@@ -183,15 +183,15 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
     badj.playerId = "testp001";
     badj.hand = 'R';
 
-    Record record;
-    record.type = RecordType::BatterAdjustment;
-    record.data = badj;
+    Event event;
+    event.type = EventType::BatterAdjustment;
+    event.data = badj;
 
     {
         chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
-        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(event));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
@@ -215,15 +215,15 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
     padj.playerId = "testp001";
     padj.hand = 'L';
 
-    Record record;
-    record.type = RecordType::PitcherAdjustment;
-    record.data = padj;
+    Event event;
+    event.type = EventType::PitcherAdjustment;
+    event.data = padj;
 
     {
         chadwick::GameState dummyState;
         InSequence seq;
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
-        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(record));
+        EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(event));
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);

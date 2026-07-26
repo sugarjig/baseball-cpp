@@ -5,11 +5,11 @@
 #include <utility>
 #include <vector>
 
-StaticEventSource::StaticEventSource(std::vector<Record> records) : records(std::move(records)) {}
+StaticEventSource::StaticEventSource(std::vector<Event> events) : events(std::move(events)) {}
 
-auto StaticEventSource::Next(const IGameState& /*state*/) -> std::optional<Record> {
-    if (currentIndex < records.size()) {
-        return records.at(currentIndex++);
+auto StaticEventSource::Next(const IGameState& /*state*/) -> std::optional<Event> {
+    if (currentIndex < events.size()) {
+        return events.at(currentIndex++);
     }
     return std::nullopt;
 }

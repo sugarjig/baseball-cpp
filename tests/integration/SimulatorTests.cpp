@@ -107,7 +107,7 @@ TEST_P(SimulatorTest, FullGameSimulation) {
     std::string version;
     std::vector<InfoRecord> infoRecords;
     std::vector<StarterInfo> starters;
-    std::vector<Record> events;
+    std::vector<Event> events;
     std::vector<DataRecord> dataRecords;
 
     chadwick::Scorebook scorebook;
@@ -164,7 +164,7 @@ TEST_P(SimulatorTest, FullGameSimulation) {
             play.pitchSequence =
                 fields.at(5);         // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
             play.text = fields.at(6); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-            events.push_back({.type = RecordType::Play, .data = play});
+            events.push_back({.type = EventType::Play, .data = play});
         } else if (type == "sub") {
             SubstitutionInfo sub;
             sub.playerId = fields.at(1);
@@ -173,24 +173,24 @@ TEST_P(SimulatorTest, FullGameSimulation) {
             sub.slot = std::stoi(fields.at(4));
             sub.pos =
                 std::stoi(fields.at(5)); // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-            events.push_back({.type = RecordType::Substitution, .data = sub});
+            events.push_back({.type = EventType::Substitution, .data = sub});
         } else if (type == "com") {
-            events.push_back({.type = RecordType::Comment, .data = fields.at(1)});
+            events.push_back({.type = EventType::Comment, .data = fields.at(1)});
         } else if (type == "radj") {
             RunnerAdjustmentInfo radj;
             radj.playerId = fields.at(1);
             radj.base = std::stoi(fields.at(2));
-            events.push_back({.type = RecordType::RunnerAdjustment, .data = radj});
+            events.push_back({.type = EventType::RunnerAdjustment, .data = radj});
         } else if (type == "badj") {
             BatterAdjustmentInfo badj;
             badj.playerId = fields.at(1);
             badj.hand = fields.at(2).at(0);
-            events.push_back({.type = RecordType::BatterAdjustment, .data = badj});
+            events.push_back({.type = EventType::BatterAdjustment, .data = badj});
         } else if (type == "padj") {
             PitcherAdjustmentInfo padj;
             padj.playerId = fields.at(1);
             padj.hand = fields.at(2).at(0);
-            events.push_back({.type = RecordType::PitcherAdjustment, .data = padj});
+            events.push_back({.type = EventType::PitcherAdjustment, .data = padj});
         } else if (type == "data") {
             DataRecord data;
             data.fields = std::vector<std::string>(fields.begin() + 1, fields.end());

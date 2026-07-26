@@ -13,40 +13,40 @@ Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)
     : eventSource(eventSource), observer(observer) {}
 
 void Simulator::SimulateGame(IGame& game) const {
-    while (const auto record = eventSource->Next(game.GetGameState())) {
+    while (const auto event = eventSource->Next(game.GetGameState())) {
         if (observer != nullptr) {
             observer->OnPreEvent(game.GetGameState());
-            observer->OnEvent(*record);
+            observer->OnEvent(*event);
         }
 
-        switch (record->type) {
-        case RecordType::Play: {
-            const auto& play = std::get<PlayInfo>(record->data);
+        switch (event->type) {
+        case EventType::Play: {
+            const auto& play = std::get<PlayInfo>(event->data);
             game.AddPlay(play);
             break;
         }
-        case RecordType::Substitution: {
-            const auto& sub = std::get<SubstitutionInfo>(record->data);
+        case EventType::Substitution: {
+            const auto& sub = std::get<SubstitutionInfo>(event->data);
             game.AddSubstitution(sub);
             break;
         }
-        case RecordType::Comment: {
-            const auto& comment = std::get<std::string>(record->data);
+        case EventType::Comment: {
+            const auto& comment = std::get<std::string>(event->data);
             game.AddComment(comment);
             break;
         }
-        case RecordType::RunnerAdjustment: {
-            const auto& radj = std::get<RunnerAdjustmentInfo>(record->data);
+        case EventType::RunnerAdjustment: {
+            const auto& radj = std::get<RunnerAdjustmentInfo>(event->data);
             game.AddRunnerAdjustment(radj);
             break;
         }
-        case RecordType::BatterAdjustment: {
-            const auto& badj = std::get<BatterAdjustmentInfo>(record->data);
+        case EventType::BatterAdjustment: {
+            const auto& badj = std::get<BatterAdjustmentInfo>(event->data);
             game.AddBatterAdjustment(badj);
             break;
         }
-        case RecordType::PitcherAdjustment: {
-            const auto& padj = std::get<PitcherAdjustmentInfo>(record->data);
+        case EventType::PitcherAdjustment: {
+            const auto& padj = std::get<PitcherAdjustmentInfo>(event->data);
             game.AddPitcherAdjustment(padj);
             break;
         }
