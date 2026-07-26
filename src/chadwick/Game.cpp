@@ -41,7 +41,7 @@ CWGame* Game::InitializeCWGame(const std::string_view gameId, const std::string_
     return cw;
 }
 
-Game::Game(CWGame* cw) : cwGame(cw), iterator(cw) {}
+Game::Game(CWGame* cwGame) : cwGame(cwGame), iterator(cwGame) {}
 
 Game::~Game() {
     if (cwGame != nullptr) {
@@ -93,6 +93,12 @@ auto Game::Write(const std::filesystem::path& path) const -> bool {
     cw_game_write(cwGame, file);
     fclose(file); // NOLINT(cppcoreguidelines-owning-memory)
     return true;
+}
+
+auto Game::ReleaseCWGame() -> CWGame* {
+    CWGame* temp = cwGame;
+    cwGame = nullptr;
+    return temp;
 }
 
 void Game::AddPlay(const PlayInfo& play) {

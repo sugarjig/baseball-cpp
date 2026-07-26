@@ -40,11 +40,9 @@ auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
 }
 
 void Scorebook::AddGame(Game&& game) const {
-    if (game.cwGame != nullptr) {
+    if (CWGame* cwGame = game.ReleaseCWGame(); cwGame != nullptr) {
         // Transfer ownership of CWGame to the scorebook
-        Game&& copy = std::move(game);
-        cw_scorebook_append_game(cwScorebook, copy.cwGame);
-        game.cwGame = nullptr;
+        cw_scorebook_append_game(cwScorebook, cwGame);
     }
 }
 
