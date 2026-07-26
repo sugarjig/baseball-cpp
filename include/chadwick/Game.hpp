@@ -33,7 +33,7 @@ public:
      * @param starters Starting lineups for both teams.
      */
     explicit Game(std::string_view gameId, std::string_view version, const std::vector<InfoRecord>& infoRecords,
-                  const std::vector<StarterInfo>& starters);
+                  const std::vector<StarterRecord>& starters);
 
     /**
      * @brief Destructor that ensures proper cleanup of Chadwick resources.

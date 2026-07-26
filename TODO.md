@@ -6,8 +6,8 @@
 - [x] Rename AddEvent and OnEvent to AddPlay and OnPlay
 - [x] Add OnEvent method to SimulatorObserver (replace calls to individual On* calls)
 - [x] Rename Record to Event
-- [ ] Move Record/Event struct to EventSource.hpp
-- [ ] Remove Starter from EventType
+- [x] Move Record/Event struct to EventSource.hpp
+- [x] Remove Starter from EventType
 - [ ] Move record processing from Simulator to Game (AddEvent)
 - [ ] Create GameIter class to mirror Chadwick structure (manage Chadwick GameState in GameIter)
 - [ ] Move KeepPlaying calls out of event source implementations (into Simulator?)

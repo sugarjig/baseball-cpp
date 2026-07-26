@@ -1,22 +1,8 @@
 #ifndef BASEBALL_CPP_RECORDS_HPP
 #define BASEBALL_CPP_RECORDS_HPP
 
-#include <cstdint>
 #include <string>
 #include <vector>
-
-/**
- * @brief Types of events that can be encountered in a baseball simulation.
- */
-enum class EventType : std::uint8_t {
-    Play,             ///< A play event (e.g., hit, out).
-    Substitution,     ///< A player substitution.
-    Comment,          ///< A comment event.
-    Starter,          ///< A starting lineup event.
-    RunnerAdjustment, ///< An adjustment to a runner's position.
-    BatterAdjustment, ///< An adjustment to the batter's hand.
-    PitcherAdjustment ///< An adjustment to a pitcher's hand.
-};
 
 /**
  * @brief Represents an 'info' record containing game metadata.
@@ -59,7 +45,7 @@ struct SubstitutionInfo {
 /**
  * @brief Represents a 'start' record, describing an initial lineup entry.
  */
-struct StarterInfo {
+struct StarterRecord {
     std::string id;       ///< The player ID.
     std::string name;     ///< The name of the player.
     bool isHome = false;  ///< True if home team, false if visitor.

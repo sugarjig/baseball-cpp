@@ -21,7 +21,7 @@ namespace chadwick {
 
 Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-parameters)
            const std::string_view version, const std::vector<InfoRecord>& infoRecords,
-           const std::vector<StarterInfo>& starters) {
+           const std::vector<StarterRecord>& starters) {
     game = cw_game_create(std::string(gameId).data());
     if (game != nullptr) {
         cw_game_set_version(game, std::string(version).data());
