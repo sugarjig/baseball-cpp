@@ -2,10 +2,10 @@
 #define BASEBALL_CPP_GAME_HPP
 
 #include "EventSource.hpp"
-#include "GameState.hpp"
 #include "IGame.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
+#include "chadwick/GameIterator.hpp"
 #include <filesystem>
 #include <string>
 #include <string_view>
@@ -13,9 +13,6 @@
 
 struct cw_game_struct; // NOLINT(readability-identifier-naming)
 using CWGame = cw_game_struct;
-struct cw_gameiter_struct; // NOLINT(readability-identifier-naming)
-using CWGameIterator = cw_gameiter_struct;
-
 namespace chadwick {
 
 /**
@@ -82,8 +79,7 @@ public:
 private:
     friend class Scorebook;
     CWGame* game;
-    CWGameIterator* iter;
-    GameState gameState;
+    GameIterator iterator;
 
     std::string pendingAutoRunner;
     int pendingAutoBase = 0;
@@ -93,8 +89,6 @@ private:
 
     std::string pendingPitcherAdjustmentPlayerId;
     char pendingPitcherAdjustmentHand = ' ';
-
-    static constexpr int suspendedTextSize = 10;
 
     void AddPlay(const PlayInfo& play);
     void AddSubstitution(const SubstitutionInfo& sub) const;
