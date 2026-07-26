@@ -106,7 +106,7 @@ TEST_P(SimulatorTest, FullGameSimulation) {
     std::string gameId;
     std::string version;
     std::vector<InfoRecord> infoRecords;
-    std::vector<StarterInfo> starters;
+    std::vector<StarterRecord> starters;
     std::vector<Event> events;
     std::vector<DataRecord> dataRecords;
 
@@ -147,7 +147,7 @@ TEST_P(SimulatorTest, FullGameSimulation) {
         } else if (type == "info") {
             infoRecords.push_back({.key = fields.at(1), .value = fields.at(2)});
         } else if (type == "start") {
-            StarterInfo starter;
+            StarterRecord starter;
             starter.id = fields.at(1);
             starter.name = fields.at(2);
             starter.isHome = fields.at(3) == "1";

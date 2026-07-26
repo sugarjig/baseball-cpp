@@ -23,7 +23,7 @@ auto main() -> int {
                                                  {.key = "hometeam", .value = "BAL"},
                                                  {.key = "visteam", .value = "BOS"}};
 
-    std::vector<StarterInfo> const starters = {
+    std::vector<StarterRecord> const starters = {
         {.id = "duraj001", .name = "Jarren Duran", .isHome = false, .battingOrder = 1, .position = 7},
         {.id = "dever001", .name = "Rafael Devers", .isHome = false, .battingOrder = 2, .position = 10},
         {.id = "brega001", .name = "Alex Bregman", .isHome = false, .battingOrder = 3, .position = 5},

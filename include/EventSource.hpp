@@ -3,9 +3,22 @@
 
 #include "IGameState.hpp"
 #include "Records.hpp"
+#include <cstdint>
 #include <optional>
 #include <string>
 #include <variant>
+
+/**
+ * @brief Types of events that can be encountered in a baseball simulation.
+ */
+enum class EventType : std::uint8_t {
+    Play,             ///< A play event (e.g., hit, out).
+    Substitution,     ///< A player substitution.
+    Comment,          ///< A comment event.
+    RunnerAdjustment, ///< An adjustment to a runner's position.
+    BatterAdjustment, ///< An adjustment to the batter's hand.
+    PitcherAdjustment ///< An adjustment to a pitcher's hand.
+};
 
 /**
  * @brief Represents a single event in a simulation stream.
@@ -15,7 +28,7 @@ struct Event {
     /**
      * @brief The data associated with the event.
      */
-    std::variant<PlayInfo, SubstitutionInfo, std::string, StarterInfo, RunnerAdjustmentInfo, BatterAdjustmentInfo,
+    std::variant<PlayInfo, SubstitutionInfo, std::string, RunnerAdjustmentInfo, BatterAdjustmentInfo,
                  PitcherAdjustmentInfo>
         data;
 };
