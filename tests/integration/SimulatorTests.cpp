@@ -112,7 +112,7 @@ TEST_P(SimulatorTest, FullGameSimulation) {
 
     chadwick::Scorebook scorebook;
 
-    auto processGame = [&]() -> void {
+    auto processGame = [&] -> void {
         if (gameId.empty()) {
             return;
         }
@@ -124,7 +124,7 @@ TEST_P(SimulatorTest, FullGameSimulation) {
         for (const auto& data : dataRecords) {
             game.AddData(data);
         }
-        scorebook.AddGame(std::move(game));
+        scorebook.AddGame(game);
     };
 
     while (std::getline(inputFile, line)) {
