@@ -1,4 +1,5 @@
 #include "chadwick/Game.hpp"
+#include "EventSource.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
 #include <cstdio>
@@ -7,6 +8,7 @@
 #include <filesystem>
 #include <string_view>
 #include <utility>
+#include <variant>
 #include <vector>
 extern "C" {
 // clang-format off
@@ -177,18 +179,15 @@ void Game::AddPlay(const PlayInfo& play) {
             pendingPitcherAdjustmentPlayerId.clear();
         }
     }
-    UpdateState();
 }
 
 void Game::AddSubstitution(const SubstitutionInfo& sub) {
     cw_game_substitute_append(game, std::string(sub.playerId).data(), std::string(sub.name).data(), sub.team, sub.slot,
                               sub.pos);
-    UpdateState();
 }
 
 void Game::AddComment(std::string_view comment) {
     cw_game_comment_append(game, std::string(comment).data());
-    UpdateState();
 }
 
 void Game::AddData(const DataRecord& data) {
@@ -199,27 +198,49 @@ void Game::AddData(const DataRecord& data) {
         cFields.push_back(field.data());
     }
     cw_game_data_append(game, static_cast<int>(cFields.size()), cFields.data());
-    UpdateState();
 }
 
 void Game::AddRunnerAdjustment(const RunnerAdjustmentInfo& radj) {
     pendingAutoRunner = radj.playerId;
     pendingAutoBase = radj.base;
-    UpdateState();
 }
 
 void Game::AddBatterAdjustment(const BatterAdjustmentInfo& badj) {
     pendingBatterAdjustmentPlayerId = badj.playerId;
     pendingBatterAdjustmentHand = badj.hand;
-    UpdateState();
 }
 
 void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
     pendingPitcherAdjustmentPlayerId = padj.playerId;
     pendingPitcherAdjustmentHand = padj.hand;
-    UpdateState();
 }
 
 auto Game::GetGameState() const -> const IGameState& { return gameState; }
+
+void Game::AddEvent(const Event& event) {
+    switch (event.type) {
+        case EventType::Play:
+            AddPlay(std::get<PlayInfo>(event.data));
+            break;
+        case EventType::Substitution:
+            AddSubstitution(std::get<SubstitutionInfo>(event.data));
+            break;
+        case EventType::Comment:
+            AddComment(std::get<std::string>(event.data));
+            break;
+        case EventType::RunnerAdjustment:
+            AddRunnerAdjustment(std::get<RunnerAdjustmentInfo>(event.data));
+            break;
+        case EventType::BatterAdjustment:
+            AddBatterAdjustment(std::get<BatterAdjustmentInfo>(event.data));
+            break;
+        case EventType::PitcherAdjustment:
+            AddPitcherAdjustment(std::get<PitcherAdjustmentInfo>(event.data));
+            break;
+        default:
+            break;
+    }
+    UpdateState();
+}
 
 } // namespace chadwick

@@ -31,13 +31,8 @@ public:
 
 class MockGame : public IGame {
 public:
-    MOCK_METHOD(void, AddPlay, (const PlayInfo& play), (override));
-    MOCK_METHOD(void, AddSubstitution, (const SubstitutionInfo& sub), (override));
-    MOCK_METHOD(void, AddComment, (std::string_view comment), (override));
+    MOCK_METHOD(void, AddEvent, (const Event& event), (override));
     MOCK_METHOD(void, AddData, (const DataRecord& data), (override));
-    MOCK_METHOD(void, AddRunnerAdjustment, (const RunnerAdjustmentInfo& radj), (override));
-    MOCK_METHOD(void, AddBatterAdjustment, (const BatterAdjustmentInfo& badj), (override));
-    MOCK_METHOD(void, AddPitcherAdjustment, (const PitcherAdjustmentInfo& padj), (override));
     MOCK_METHOD(void, UpdateState, (), (override));
     MOCK_METHOD(const IGameState&, GetGameState, (), (const, override)); // NOLINT(modernize-use-trailing-return-type)
 };
@@ -67,7 +62,7 @@ TEST(SimulatorTest, ProcessesPlayEvent) {
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddPlay(_)).Times(1);
+        EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -101,7 +96,7 @@ TEST(SimulatorTest, ProcessesSubstitutionEvent) {
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddSubstitution(_)).Times(1);
+        EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -131,7 +126,7 @@ TEST(SimulatorTest, ProcessesCommentEvent) {
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddComment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -163,7 +158,7 @@ TEST(SimulatorTest, ProcessesRunnerAdjustmentEvent) {
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddRunnerAdjustment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -195,7 +190,7 @@ TEST(SimulatorTest, ProcessesBatterAdjustmentEvent) {
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddBatterAdjustment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
@@ -227,7 +222,7 @@ TEST(SimulatorTest, ProcessesPitcherAdjustmentEvent) {
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, AddPitcherAdjustment(_)).Times(1);
+        EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
         EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
