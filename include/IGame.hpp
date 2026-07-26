@@ -4,7 +4,6 @@
 #include "EventSource.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
-#include <string_view>
 
 /**
  * @brief Interface for a baseball game that can process events.

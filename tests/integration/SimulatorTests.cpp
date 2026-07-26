@@ -122,7 +122,7 @@ TEST_P(SimulatorTest, FullGameSimulation) {
         simulator.SimulateGame(game);
 
         for (const auto& data : dataRecords) {
-           game.AddData(data);
+            game.AddData(data);
         }
         scorebook.AddGame(std::move(game));
     };

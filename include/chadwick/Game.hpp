@@ -1,10 +1,11 @@
 #ifndef BASEBALL_CPP_GAME_HPP
 #define BASEBALL_CPP_GAME_HPP
 
-#include "../IGame.hpp"
-#include "../Records.hpp"
+#include "EventSource.hpp"
+#include "IGame.hpp"
 #include "GameState.hpp"
 #include "IGameState.hpp"
+#include "Records.hpp"
 #include <filesystem>
 #include <string>
 #include <string_view>
@@ -96,8 +97,8 @@ private:
     static constexpr int suspendedTextSize = 10;
 
     void AddPlay(const PlayInfo& play);
-    void AddSubstitution(const SubstitutionInfo& sub);
-    void AddComment(std::string_view comment);
+    void AddSubstitution(const SubstitutionInfo& sub) const;
+    void AddComment(std::string_view comment) const;
     void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj);
     void AddBatterAdjustment(const BatterAdjustmentInfo& badj);
     void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj);
