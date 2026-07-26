@@ -28,7 +28,8 @@ GameIterator::~GameIterator() {
     }
 }
 
-GameIterator::GameIterator(GameIterator&& other) noexcept : cwGameIterator(other.cwGameIterator), gameState(std::move(other.gameState)) {
+GameIterator::GameIterator(GameIterator&& other) noexcept
+    : cwGameIterator(other.cwGameIterator), gameState(std::move(other.gameState)) {
     other.cwGameIterator = nullptr;
 }
 
@@ -59,7 +60,8 @@ void GameIterator::UpdateState() {
             };
             std::vector<SavedComment> saved;
 
-            for (CWComment* cwComment = cwEventCurrent->first_comment; cwComment != nullptr; cwComment = cwComment->next) {
+            for (CWComment* cwComment = cwEventCurrent->first_comment; cwComment != nullptr;
+                 cwComment = cwComment->next) {
                 if (cwComment->text != nullptr && strncmp(cwComment->text, "suspended,", suspendedTextSize) == 0) {
                     saved.push_back({.cwComment = cwComment, .originalText = cwComment->text});
                 }

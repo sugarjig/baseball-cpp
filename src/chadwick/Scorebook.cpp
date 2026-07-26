@@ -3,7 +3,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include <filesystem>
-#include <utility>
 
 extern "C" {
 // clang-format off
@@ -39,7 +38,7 @@ auto Scorebook::operator=(Scorebook&& other) noexcept -> Scorebook& {
     return *this;
 }
 
-void Scorebook::AddGame(Game&& game) const {
+void Scorebook::AddGame(Game& game) const {
     if (CWGame* cwGame = game.ReleaseCWGame(); cwGame != nullptr) {
         // Transfer ownership of CWGame to the scorebook
         cw_scorebook_append_game(cwScorebook, cwGame);

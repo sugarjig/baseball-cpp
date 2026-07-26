@@ -46,7 +46,7 @@ public:
      * @brief Adds a game to the scorebook.
      * @param game The game to add (transfers ownership).
      */
-    void AddGame(Game&& game) const;
+    void AddGame(Game& game) const;
 
     /**
      * @brief Reads Retrosheet data from a file into the scorebook.

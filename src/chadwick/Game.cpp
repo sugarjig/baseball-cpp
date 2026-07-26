@@ -103,7 +103,7 @@ void Game::AddPlay(const PlayInfo& play) {
     if (cwGame->last_event != nullptr) {
         if (pendingAutoBase != 0) {
             cwGame->last_event->auto_base = pendingAutoBase;
-            cwGame->last_event->auto_runner_id =                              // NOLINT(cppcoreguidelines-owning-memory)
+            cwGame->last_event->auto_runner_id =                            // NOLINT(cppcoreguidelines-owning-memory)
                 static_cast<char*>(malloc(pendingAutoRunner.length() + 1)); // NOLINT(cppcoreguidelines-no-malloc)
             strcpy(cwGame->last_event->auto_runner_id, pendingAutoRunner.c_str());
 
@@ -133,8 +133,8 @@ void Game::AddPlay(const PlayInfo& play) {
 }
 
 void Game::AddSubstitution(const SubstitutionInfo& sub) const {
-    cw_game_substitute_append(cwGame, std::string(sub.playerId).data(), std::string(sub.name).data(), sub.team, sub.slot,
-                              sub.pos);
+    cw_game_substitute_append(cwGame, std::string(sub.playerId).data(), std::string(sub.name).data(), sub.team,
+                              sub.slot, sub.pos);
 }
 
 void Game::AddComment(std::string_view comment) const { cw_game_comment_append(cwGame, std::string(comment).data()); }
