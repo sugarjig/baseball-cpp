@@ -2,8 +2,8 @@
 #define BASEBALL_CPP_GAME_HPP
 
 #include "EventSource.hpp"
-#include "IGame.hpp"
 #include "GameState.hpp"
+#include "IGame.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
 #include <filesystem>
