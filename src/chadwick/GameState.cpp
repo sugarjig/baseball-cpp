@@ -14,11 +14,16 @@ namespace chadwick {
 
 GameState::GameState(CWGameState* cwGameState) : cwGameState(cwGameState) {}
 
-GameState::GameState(GameState&& other) noexcept : cwGameState(other.cwGameState) { other.cwGameState = nullptr; }
+GameState::GameState(GameState&& other) noexcept
+    : cwGameState(other.cwGameState), numInningsInGame(other.numInningsInGame), homeBatsFirst(other.homeBatsFirst) {
+    other.cwGameState = nullptr;
+}
 
 auto GameState::operator=(GameState&& other) noexcept -> GameState& {
     if (this != &other) {
         cwGameState = other.cwGameState;
+        numInningsInGame = other.numInningsInGame;
+        homeBatsFirst = other.homeBatsFirst;
         other.cwGameState = nullptr;
     }
     return *this;
@@ -65,27 +70,30 @@ auto GameState::KeepPlaying() const -> bool {
     int inning = GetInning();
     int team = GetBattingTeam();
 
+    int const bottomTeam = homeBatsFirst ? 0 : 1;
+    int const topTeam = homeBatsFirst ? 1 : 0;
+
     // Check if half-inning is over
     if (GetOuts() >= 3) {
-        if (team == 0) {
-            team = 1;
+        if (team == topTeam) {
+            team = bottomTeam;
         } else {
-            team = 0;
+            team = topTeam;
             inning++;
         }
     }
 
-    int const visitorScore = GetScore(0);
-    int const homeScore = GetScore(1);
+    int const bottomScore = GetScore(bottomTeam);
+    int const topScore = GetScore(topTeam);
 
-    // If it's the bottom of the 9th inning or later, and the home team is ahead, the game is over.
-    if (inning >= numInningsInGame && team == 1 && homeScore > visitorScore) {
+    // If it's the bottom of the last inning or later, and the bottom team is ahead, the game is over.
+    if (inning >= numInningsInGame && team == bottomTeam && bottomScore > topScore) {
         return false;
     }
 
-    // If it's the end of the 9th or later (about to start top of next inning), and there is not a tie, the game is
-    // over.
-    if (GetOuts() >= 3 && inning > numInningsInGame && team == 0 && visitorScore != homeScore) {
+    // If it's the end of the last inning or later (about to start top of next inning), and there is not a tie,
+    // the game is over.
+    if (GetOuts() >= 3 && inning > numInningsInGame && team == topTeam && topScore != bottomScore) {
         return false;
     }
 

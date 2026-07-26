@@ -49,10 +49,6 @@ auto MatrixEventSource::GetMatrixKey(const IGameState& state) -> std::string {
 }
 
 auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Event> {
-    if (!state.KeepPlaying()) {
-        return std::nullopt;
-    }
-
     int currentInning = state.GetInning();
     int currentTeam = state.GetBattingTeam();
     int const currentOuts = state.GetOuts();

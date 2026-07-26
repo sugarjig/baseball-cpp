@@ -59,9 +59,22 @@ public:
      */
     explicit GameState(CWGameState* cwGameState);
 
+    /**
+     * @brief Sets the number of innings in a standard game.
+     * @param innings The number of innings (usually 9).
+     */
+    void SetNumInnings(int innings) { numInningsInGame = innings; }
+
+    /**
+     * @brief Sets whether the home team bats first.
+     * @param batsFirst True if home team bats first.
+     */
+    void SetHomeBatsFirst(bool batsFirst) { homeBatsFirst = batsFirst; }
+
 private:
     CWGameState* cwGameState;
-    static constexpr int numInningsInGame = 9;
+    int numInningsInGame = 9;
+    bool homeBatsFirst = false;
 };
 
 } // namespace chadwick
