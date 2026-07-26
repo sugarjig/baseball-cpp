@@ -1,4 +1,5 @@
 #include "chadwick/Game.hpp"
+#include "chadwick/GameIterator.hpp"
 #include "EventSource.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
@@ -22,8 +23,8 @@ namespace chadwick {
 
 Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-parameters)
            const std::string_view version, const std::vector<InfoRecord>& infoRecords,
-           const std::vector<StarterRecord>& starters) {
-    game = cw_game_create(std::string(gameId).data());
+           const std::vector<StarterRecord>& starters)
+    : game(cw_game_create(std::string(gameId).data())), iterator(nullptr) {
     if (game != nullptr) {
         cw_game_set_version(game, std::string(version).data());
         for (const auto& info : infoRecords) {
@@ -33,18 +34,11 @@ Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-pa
             cw_game_starter_append(game, std::string(starter.id).data(), std::string(starter.name).data(),
                                    static_cast<int>(starter.isHome), starter.battingOrder, starter.position);
         }
-        iter = cw_gameiter_create(game);
-    } else {
-        iter = nullptr;
     }
-    gameState.state = (iter != nullptr) ? iter->state : nullptr;
+    iterator = GameIterator(game);
 }
 
 Game::~Game() {
-    if (iter != nullptr) {
-        cw_gameiter_cleanup(iter);
-        free(iter); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
-    }
     if (game != nullptr) {
         cw_game_cleanup(game);
         free(game); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
@@ -52,14 +46,13 @@ Game::~Game() {
 }
 
 Game::Game(Game&& other) noexcept
-    : game(other.game), iter(other.iter), gameState(std::move(other.gameState)),
-      pendingAutoRunner(std::move(other.pendingAutoRunner)), pendingAutoBase(other.pendingAutoBase),
+    : game(other.game), iterator(std::move(other.iterator)), pendingAutoRunner(std::move(other.pendingAutoRunner)),
+      pendingAutoBase(other.pendingAutoBase),
       pendingBatterAdjustmentPlayerId(std::move(other.pendingBatterAdjustmentPlayerId)),
       pendingBatterAdjustmentHand(other.pendingBatterAdjustmentHand),
       pendingPitcherAdjustmentPlayerId(std::move(other.pendingPitcherAdjustmentPlayerId)),
       pendingPitcherAdjustmentHand(other.pendingPitcherAdjustmentHand) {
     other.game = nullptr;
-    other.iter = nullptr;
     other.pendingAutoBase = 0;
     other.pendingBatterAdjustmentHand = ' ';
     other.pendingPitcherAdjustmentHand = ' ';
@@ -67,17 +60,12 @@ Game::Game(Game&& other) noexcept
 
 auto Game::operator=(Game&& other) noexcept -> Game& {
     if (this != &other) {
-        if (iter != nullptr) {
-            cw_gameiter_cleanup(iter);
-            free(iter); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
-        }
         if (game != nullptr) {
             cw_game_cleanup(game);
             free(game); // NOLINT(cppcoreguidelines-no-malloc,cppcoreguidelines-owning-memory)
         }
         game = other.game;
-        iter = other.iter;
-        gameState = std::move(other.gameState);
+        iterator = std::move(other.iterator);
         pendingAutoRunner = std::move(other.pendingAutoRunner);
         pendingAutoBase = other.pendingAutoBase;
         pendingBatterAdjustmentPlayerId = std::move(other.pendingBatterAdjustmentPlayerId);
@@ -85,7 +73,6 @@ auto Game::operator=(Game&& other) noexcept -> Game& {
         pendingPitcherAdjustmentPlayerId = std::move(other.pendingPitcherAdjustmentPlayerId);
         pendingPitcherAdjustmentHand = other.pendingPitcherAdjustmentHand;
         other.game = nullptr;
-        other.iter = nullptr;
         other.pendingAutoBase = 0;
         other.pendingBatterAdjustmentHand = ' ';
         other.pendingPitcherAdjustmentHand = ' ';
@@ -113,35 +100,7 @@ auto Game::Write(const std::filesystem::path& path) const -> bool {
  * When called after every event (as in Simulator::SimulateGame), the total time complexity
  * for simulating a game with N events becomes O(N^2).
  */
-void Game::UpdateState() {
-    if (iter != nullptr) {
-        cw_gameiter_reset(iter);
-        while (iter->event != nullptr) {
-            CWEvent const* currentEvent = iter->event;
-
-            // Save "suspended" comments that Chadwick's cw_gameiter_process_comments might mangle with strtok
-            // May be able to remove in versions of Chadwick higher than 0.10.0
-            struct SavedComment {
-                CWComment* comment;
-                std::string originalText;
-            };
-            std::vector<SavedComment> saved;
-
-            for (CWComment* comment = currentEvent->first_comment; comment != nullptr; comment = comment->next) {
-                if (comment->text != nullptr && strncmp(comment->text, "suspended,", suspendedTextSize) == 0) {
-                    saved.push_back({.comment = comment, .originalText = comment->text});
-                }
-            }
-
-            cw_gameiter_next(iter);
-
-            // Restore any mangled comments
-            for (auto& [comment, originalText] : saved) {
-                strcpy(comment->text, originalText.c_str());
-            }
-        }
-    }
-}
+void Game::UpdateState() { iterator.UpdateState(); }
 
 void Game::AddPlay(const PlayInfo& play) {
     cw_game_event_append(game, play.inning, play.team, std::string(play.batter).data(),
@@ -212,7 +171,7 @@ void Game::AddPitcherAdjustment(const PitcherAdjustmentInfo& padj) {
     pendingPitcherAdjustmentHand = padj.hand;
 }
 
-auto Game::GetGameState() const -> const IGameState& { return gameState; }
+auto Game::GetGameState() const -> const IGameState& { return iterator.GetGameState(); }
 
 void Game::AddEvent(const Event& event) {
     switch (event.type) {

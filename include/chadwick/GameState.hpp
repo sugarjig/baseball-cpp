@@ -60,7 +60,7 @@ public:
     explicit GameState(CWGameState* state);
 
 private:
-    friend class Game;
+    friend class GameIterator;
     CWGameState* state;
     static constexpr int numInningsInGame = 9;
 };

@@ -1,5 +1,6 @@
 #include "chadwick/Scorebook.hpp"
 #include "chadwick/Game.hpp"
+#include "chadwick/GameIterator.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <filesystem>
@@ -12,7 +13,6 @@ extern "C" {
 #include "game.h" // NOLINT(misc-include-cleaner)
 // clang-format on
 #include "book.h"
-#include "gameiter.h"
 }
 
 namespace chadwick {
@@ -46,13 +46,6 @@ void Scorebook::AddGame(Game&& game) const {
         Game&& copy = std::move(game);
         cw_scorebook_append_game(scorebook, copy.game);
         game.game = nullptr;
-
-        // Clean up the iterator, as Scorebook only manages CWGame
-        if (game.iter != nullptr) {
-            cw_gameiter_cleanup(game.iter);
-            free(game.iter); // NOLINT(cppcoreguidelines-owning-memory,cppcoreguidelines-no-malloc)
-            game.iter = nullptr;
-        }
     }
 }
 
