@@ -1,8 +1,8 @@
 #include "chadwick/Game.hpp"
-#include "chadwick/GameIterator.hpp"
 #include "EventSource.hpp"
 #include "IGameState.hpp"
 #include "Records.hpp"
+#include "chadwick/GameIterator.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -16,7 +16,6 @@ extern "C" {
 #include "parse.h" // NOLINT(misc-include-cleaner)
 // clang-format on
 #include "game.h"
-#include "gameiter.h"
 }
 
 namespace chadwick {

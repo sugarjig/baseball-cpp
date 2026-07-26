@@ -1,6 +1,5 @@
 #include "chadwick/Scorebook.hpp"
 #include "chadwick/Game.hpp"
-#include "chadwick/GameIterator.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <filesystem>

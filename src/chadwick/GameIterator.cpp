@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <string>
+#include <utility>
 #include <vector>
 
 extern "C" {
@@ -15,8 +16,7 @@ extern "C" {
 
 namespace chadwick {
 
-GameIterator::GameIterator(CWGame* game) {
-    iter = (game != nullptr) ? cw_gameiter_create(game) : nullptr;
+GameIterator::GameIterator(CWGame* game) : iter((game != nullptr) ? cw_gameiter_create(game) : nullptr) {
     gameState.state = (iter != nullptr) ? iter->state : nullptr;
 }
 
