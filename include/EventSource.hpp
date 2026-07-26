@@ -8,12 +8,12 @@
 #include <variant>
 
 /**
- * @brief Represents a single record in an event stream.
+ * @brief Represents a single event in a simulation stream.
  */
-struct Record {
-    RecordType type = RecordType::Play; ///< The type of record.
+struct Event {
+    EventType type = EventType::Play; ///< The type of event.
     /**
-     * @brief The data associated with the record.
+     * @brief The data associated with the event.
      */
     std::variant<PlayInfo, SubstitutionInfo, std::string, StarterInfo, RunnerAdjustmentInfo, BatterAdjustmentInfo,
                  PitcherAdjustmentInfo>
@@ -33,11 +33,11 @@ public:
     auto operator=(EventSource&&) -> EventSource& = default;
 
     /**
-     * @brief Retrieves the next record from the event stream.
+     * @brief Retrieves the next event from the simulation stream.
      * @param state The current state of the game.
-     * @return An optional containing the next record, or std::nullopt if the end of the stream is reached.
+     * @return An optional containing the next event, or std::nullopt if the end of the stream is reached.
      */
-    virtual auto Next(const IGameState& state) -> std::optional<Record> = 0;
+    virtual auto Next(const IGameState& state) -> std::optional<Event> = 0;
 };
 
 #endif // BASEBALL_CPP_EVENTSOURCE_HPP

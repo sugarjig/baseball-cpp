@@ -32,8 +32,8 @@ auto GetTestData() -> MatrixData {
     return MatrixLoader::LoadMatrices(dataDir);
 }
 
-auto ValidateRecordTypeAndPlay(RecordType recordType, const PlayInfo& play) {
-    EXPECT_EQ(recordType, RecordType::Play);
+auto ValidateEventTypeAndPlay(EventType eventType, const PlayInfo& play) {
+    EXPECT_EQ(eventType, EventType::Play);
 
     EXPECT_EQ(play.inning, 1);
     EXPECT_EQ(play.team, 0);
@@ -50,7 +50,7 @@ TEST(MatrixLoaderTest, LoadsDataFromDirectory) {
     EXPECT_EQ(data.matrices.size(), data.distributions.size());
 }
 
-TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
+TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesEvent) {
     MatrixEventSource source(GetTestData(), seed123); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
@@ -61,10 +61,10 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesRecord) {
     EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, GetNextBatter(0)).WillRepeatedly(testing::Return("PLAYER1"));
 
-    auto record = source.Next(state);
-    ASSERT_TRUE(record.has_value());
-    if (record.has_value()) {
-        ValidateRecordTypeAndPlay(record->type, std::get<PlayInfo>(record->data));
+    auto event = source.Next(state);
+    ASSERT_TRUE(event.has_value());
+    if (event.has_value()) {
+        ValidateEventTypeAndPlay(event->type, std::get<PlayInfo>(event->data));
     }
 }
 
@@ -81,10 +81,10 @@ TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
     EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, GetNextBatter(0)).WillRepeatedly(testing::Return("PLAYER1"));
 
-    auto record = source.Next(state);
-    ASSERT_TRUE(record.has_value());
-    if (record.has_value()) {
-        EXPECT_EQ(record->type, RecordType::Play);
+    auto event = source.Next(state);
+    ASSERT_TRUE(event.has_value());
+    if (event.has_value()) {
+        EXPECT_EQ(event->type, EventType::Play);
     }
 }
 
@@ -94,8 +94,8 @@ TEST(MatrixEventSourceTest, ReturnsNulloptWhenGameEnds) {
 
     EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(false));
 
-    auto record = source.Next(state);
-    EXPECT_FALSE(record.has_value());
+    auto event = source.Next(state);
+    EXPECT_FALSE(event.has_value());
 }
 
 TEST(MatrixEventSourceTest, HandlesHalfInningTransition) {
@@ -110,10 +110,10 @@ TEST(MatrixEventSourceTest, HandlesHalfInningTransition) {
     EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, GetNextBatter(1)).WillRepeatedly(testing::Return("HOME_PLAYER1"));
 
-    auto record = source.Next(state);
-    ASSERT_TRUE(record.has_value());
-    if (record.has_value()) {
-        auto play = std::get<PlayInfo>(record->data);
+    auto event = source.Next(state);
+    ASSERT_TRUE(event.has_value());
+    if (event.has_value()) {
+        auto play = std::get<PlayInfo>(event->data);
 
         // Should have flipped to home team (1)
         EXPECT_EQ(play.team, 1);

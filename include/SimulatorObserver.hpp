@@ -51,27 +51,27 @@ public:
 
     /**
      * @brief Called when a simulation event occurs.
-     * @param record The record containing the event data.
+     * @param event The event data.
      */
-    virtual void OnEvent(const Record& record) {
-        switch (record.type) {
-        case RecordType::Play:
-            OnPlay(std::get<PlayInfo>(record.data));
+    virtual void OnEvent(const Event& event) {
+        switch (event.type) {
+        case EventType::Play:
+            OnPlay(std::get<PlayInfo>(event.data));
             break;
-        case RecordType::Substitution:
-            OnSubstitution(std::get<SubstitutionInfo>(record.data));
+        case EventType::Substitution:
+            OnSubstitution(std::get<SubstitutionInfo>(event.data));
             break;
-        case RecordType::Comment:
-            OnComment(std::get<std::string>(record.data));
+        case EventType::Comment:
+            OnComment(std::get<std::string>(event.data));
             break;
-        case RecordType::RunnerAdjustment:
-            OnRunnerAdjustment(std::get<RunnerAdjustmentInfo>(record.data));
+        case EventType::RunnerAdjustment:
+            OnRunnerAdjustment(std::get<RunnerAdjustmentInfo>(event.data));
             break;
-        case RecordType::BatterAdjustment:
-            OnBatterAdjustment(std::get<BatterAdjustmentInfo>(record.data));
+        case EventType::BatterAdjustment:
+            OnBatterAdjustment(std::get<BatterAdjustmentInfo>(event.data));
             break;
-        case RecordType::PitcherAdjustment:
-            OnPitcherAdjustment(std::get<PitcherAdjustmentInfo>(record.data));
+        case EventType::PitcherAdjustment:
+            OnPitcherAdjustment(std::get<PitcherAdjustmentInfo>(event.data));
             break;
         default:
             break;
@@ -113,7 +113,7 @@ private:
     }
 
     /**
-     * @brief Called when a comment record is encountered.
+     * @brief Called when a comment event is encountered.
      * @param comment The comment text.
      */
     virtual void OnComment(const std::string& comment) { std::cout << "Comment: " << comment << "\n"; }

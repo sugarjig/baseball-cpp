@@ -8,17 +8,17 @@
 #include <vector>
 
 /**
- * @brief An EventSource that provides events from a pre-defined list of records.
+ * @brief An EventSource that provides events from a pre-defined list.
  *
  * This is primarily used for testing or scenarios where the sequence of events is fixed.
  */
 class StaticEventSource : public EventSource {
 public:
     /**
-     * @brief Constructs a StaticEventSource with a vector of records.
-     * @param records The list of records to provide.
+     * @brief Constructs a StaticEventSource with a vector of events.
+     * @param events The list of events to provide.
      */
-    explicit StaticEventSource(std::vector<Record> records);
+    explicit StaticEventSource(std::vector<Event> events);
     ~StaticEventSource() override = default;
 
     // Disable copying
@@ -30,10 +30,10 @@ public:
     auto operator=(StaticEventSource&&) noexcept -> StaticEventSource& = default;
 
     /// @inheritdoc
-    auto Next(const IGameState& state) -> std::optional<Record> override;
+    auto Next(const IGameState& state) -> std::optional<Event> override;
 
 private:
-    std::vector<Record> records;
+    std::vector<Event> events;
     size_t currentIndex = 0;
 };
 

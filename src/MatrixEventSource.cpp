@@ -48,7 +48,7 @@ auto MatrixEventSource::GetMatrixKey(const IGameState& state) -> std::string {
     return key;
 }
 
-auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Record> {
+auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Event> {
     if (!state.KeepPlaying()) {
         return std::nullopt;
     }
@@ -84,7 +84,7 @@ auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Record> {
         .text = GenerateRetrosheetText(outcome, state),
     };
 
-    return Record{.type = RecordType::Play, .data = play};
+    return Event{.type = EventType::Play, .data = play};
 }
 
 auto MatrixEventSource::TranslateBaseAction(const MatrixOutcome& outcome) -> std::string {
