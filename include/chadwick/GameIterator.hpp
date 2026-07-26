@@ -46,7 +46,14 @@ public:
     auto operator=(GameIterator&& other) noexcept -> GameIterator&;
 
     /**
-     * @brief Updates the game state by re-processing all events.
+     * @brief Updates the game state by resetting the iterator and re-processing all events from the beginning.
+     *
+     * This implementation is necessary because Chadwick's internal state management relies on
+     * sequential iteration. However, it means this operation is O(N) where N is the number of
+     * events currently in the game.
+     *
+     * When called after every event (as in Simulator::SimulateGame), the total time complexity
+     * for simulating a game with N events becomes O(N^2).
      */
     void UpdateState();
 

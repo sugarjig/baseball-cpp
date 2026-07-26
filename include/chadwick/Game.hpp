@@ -62,8 +62,6 @@ public:
     [[nodiscard]] auto Write(const std::filesystem::path& path) const -> bool;
 
     /// @inheritdoc
-    void UpdateState() override;
-    /// @inheritdoc
     [[nodiscard]] auto GetGameState() const -> const IGameState& override;
     /// @inheritdoc
     void AddEvent(const Event& event) override;

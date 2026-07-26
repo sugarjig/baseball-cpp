@@ -30,11 +30,6 @@ public:
     virtual void AddData(const DataRecord& data) = 0;
 
     /**
-     * @brief Updates the internal state of the game based on added events.
-     */
-    virtual void UpdateState() = 0;
-
-    /**
      * @brief Gets the current state of the game.
      * @return A reference to the game state.
      */
