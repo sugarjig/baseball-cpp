@@ -61,6 +61,22 @@ public:
      */
     [[nodiscard]] auto Write(const std::filesystem::path& path) const -> bool;
 
+    /**
+     * @brief Gets the underlying Chadwick game object.
+     * @return A pointer to the CWGame structure.
+     */
+    [[nodiscard]] auto GetCWGame() const -> CWGame* { return cwGame; }
+
+    /**
+     * @brief Transfers ownership of the underlying Chadwick game object to the caller.
+     *
+     * After calling this, the internal pointer is set to nullptr, and the caller
+     * is responsible for managing the CWGame object.
+     *
+     * @return A pointer to the CWGame structure.
+     */
+    [[nodiscard]] auto ReleaseCWGame() -> CWGame*;
+
     /// @inheritdoc
     [[nodiscard]] auto GetGameState() const -> const IGameState& override;
     /// @inheritdoc
@@ -75,7 +91,6 @@ public:
     explicit operator bool() const { return cwGame != nullptr; }
 
 private:
-    friend class Scorebook;
     CWGame* cwGame;
     GameIterator iterator;
 
@@ -99,7 +114,7 @@ private:
                                     const std::vector<InfoRecord>& infoRecords,
                                     const std::vector<StarterRecord>& starters);
 
-    explicit Game(CWGame* cw);
+    explicit Game(CWGame* cwGame);
 };
 
 } // namespace chadwick
