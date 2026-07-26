@@ -32,7 +32,6 @@ class MockGame : public IGame {
 public:
     MOCK_METHOD(void, AddEvent, (const Event& event), (override));
     MOCK_METHOD(void, AddData, (const DataRecord& data), (override));
-    MOCK_METHOD(void, UpdateState, (), (override));
     MOCK_METHOD(const IGameState&, GetGameState, (), (const, override)); // NOLINT(modernize-use-trailing-return-type)
 };
 } // namespace

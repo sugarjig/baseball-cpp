@@ -10,7 +10,8 @@
 - [x] Remove Starter from EventType
 - [x] Move record processing from Simulator to Game (AddEvent)
 - [x] Create GameIter class to mirror Chadwick structure (manage Chadwick GameState in GameIter)
-- [ ] Make UpdateState private (move explaining comment in Game.cpp somewhere else)
+- [x] Make UpdateState private (move explaining comment in Game.cpp somewhere else)
+- [ ] Prefix Chadwick variables with cw
 - [ ] Move KeepPlaying calls out of event source implementations (into Simulator?)
 - [ ] Add abstraction over Retrosheet records
 - [ ] Simulate pitch sequences
