@@ -62,12 +62,6 @@ public:
     [[nodiscard]] auto Write(const std::filesystem::path& path) const -> bool;
 
     /**
-     * @brief Gets the underlying Chadwick game object.
-     * @return A pointer to the CWGame structure.
-     */
-    [[nodiscard]] auto GetCWGame() const -> CWGame* { return cwGame; }
-
-    /**
      * @brief Transfers ownership of the underlying Chadwick game object to the caller.
      *
      * After calling this, the internal pointer is set to nullptr, and the caller
@@ -109,12 +103,6 @@ private:
     void AddRunnerAdjustment(const RunnerAdjustmentInfo& radj);
     void AddBatterAdjustment(const BatterAdjustmentInfo& badj);
     void AddPitcherAdjustment(const PitcherAdjustmentInfo& padj);
-
-    static CWGame* InitializeCWGame(std::string_view gameId, std::string_view version,
-                                    const std::vector<InfoRecord>& infoRecords,
-                                    const std::vector<StarterRecord>& starters);
-
-    explicit Game(CWGame* cwGame);
 };
 
 } // namespace chadwick

@@ -23,25 +23,19 @@ namespace chadwick {
 Game::Game(const std::string_view gameId, // NOLINT(bugprone-easily-swappable-parameters)
            const std::string_view version, const std::vector<InfoRecord>& infoRecords,
            const std::vector<StarterRecord>& starters)
-    : Game(InitializeCWGame(gameId, version, infoRecords, starters)) {}
-
-CWGame* Game::InitializeCWGame(const std::string_view gameId, const std::string_view version,
-                               const std::vector<InfoRecord>& infoRecords, const std::vector<StarterRecord>& starters) {
-    CWGame* cw = cw_game_create(std::string(gameId).data());
-    if (cw != nullptr) {
-        cw_game_set_version(cw, std::string(version).data());
+    : cwGame(cw_game_create(std::string(gameId).data())), iterator(nullptr) {
+    if (cwGame != nullptr) {
+        cw_game_set_version(cwGame, std::string(version).data());
         for (const auto& info : infoRecords) {
-            cw_game_info_append(cw, std::string(info.key).data(), std::string(info.value).data());
+            cw_game_info_append(cwGame, std::string(info.key).data(), std::string(info.value).data());
         }
         for (const auto& starter : starters) {
-            cw_game_starter_append(cw, std::string(starter.id).data(), std::string(starter.name).data(),
+            cw_game_starter_append(cwGame, std::string(starter.id).data(), std::string(starter.name).data(),
                                    static_cast<int>(starter.isHome), starter.battingOrder, starter.position);
         }
     }
-    return cw;
+    iterator = GameIterator(cwGame);
 }
-
-Game::Game(CWGame* cwGame) : cwGame(cwGame), iterator(cwGame) {}
 
 Game::~Game() {
     if (cwGame != nullptr) {
