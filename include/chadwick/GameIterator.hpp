@@ -2,6 +2,7 @@
 #define BASEBALL_CPP_GAMEITERATOR_HPP
 
 #include "GameState.hpp"
+#include "IGameState.hpp"
 
 struct cw_game_struct; // NOLINT(readability-identifier-naming)
 using CWGame = cw_game_struct;

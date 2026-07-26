@@ -1,4 +1,5 @@
 #include "chadwick/GameIterator.hpp"
+#include "IGameState.hpp"
 #include <cstdlib>
 #include <cstring>
 #include <string>
