@@ -27,7 +27,7 @@ auto GameState::operator=(GameState&& other) noexcept -> GameState& {
 auto GameState::GetNextBatter(int const team) const -> std::string {
     if (cwGameState != nullptr && team >= 0 && team < 2) {
         int const slot = cwGameState->next_batter[team]; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
-        if (slot >= 1 && slot <= numInningsInGame) {
+        if (slot >= 1 && slot <= numLineupSlots) {
             char const* playerId =
                 cwGameState->lineups[slot][team].player_id; // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
             return (playerId != nullptr) ? playerId : "";
@@ -61,19 +61,11 @@ auto GameState::GetScore(const int team) const -> int {
     return 0;
 }
 
-auto GameState::KeepPlaying() const -> bool {
-    int inning = GetInning();
-    int team = GetBattingTeam();
-
-    // Check if half-inning is over
-    if (GetOuts() >= 3) {
-        if (team == 0) {
-            team = 1;
-        } else {
-            team = 0;
-            inning++;
-        }
-    }
+auto GameState::KeepPlaying(int const numInningsInGame) const -> bool {
+    int inning = 0;
+    int team = 0;
+    int outs = 0;
+    GetEffectiveState(inning, team, outs);
 
     int const visitorScore = GetScore(0);
     int const homeScore = GetScore(1);

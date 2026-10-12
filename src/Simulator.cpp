@@ -7,11 +7,16 @@
 #include "IGame.hpp"
 #include "SimulatorObserver.hpp"
 
-Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer)
-    : eventSource(eventSource), observer(observer) {}
+Simulator::Simulator(EventSource* eventSource, SimulatorObserver* observer, int numInningsInGame)
+    : eventSource(eventSource), observer(observer), numInningsInGame(numInningsInGame) {}
 
 void Simulator::SimulateGame(IGame& game) const {
-    while (const auto event = eventSource->Next(game.GetGameState())) {
+    while (true) {
+        const auto event = eventSource->Next(game.GetGameState());
+        if (!event.has_value()) {
+            break;
+        }
+
         if (observer != nullptr) {
             observer->OnPreEvent(game.GetGameState());
             observer->OnEvent(*event);
@@ -24,3 +29,4 @@ void Simulator::SimulateGame(IGame& game) const {
         }
     }
 }
+

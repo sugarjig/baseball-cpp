@@ -62,10 +62,32 @@ public:
     [[nodiscard]] virtual auto GetScore(int team) const -> int = 0;
 
     /**
-     * @brief Checks if the game should continue.
+     * @brief Gets the effective inning, team, and outs, accounting for half-inning transitions if 3 outs are reached.
+     * @param inning [out] The effective inning.
+     * @param team [out] The effective batting team.
+     * @param outs [out] The effective number of outs.
+     */
+    virtual void GetEffectiveState(int& inning, int& team, int& outs) const {
+        inning = GetInning();
+        team = GetBattingTeam();
+        outs = GetOuts();
+        if (outs >= 3) {
+            if (team == 0) {
+                team = 1;
+            } else {
+                team = 0;
+                inning++;
+            }
+            outs = 0;
+        }
+    }
+
+    /**
+     * @brief Checks if the game should continue based on the current state.
+     * @param numInningsInGame The standard number of innings in a game (usually 9).
      * @return True if the game is still in progress, false if it has ended.
      */
-    [[nodiscard]] virtual auto KeepPlaying() const -> bool = 0;
+    [[nodiscard]] virtual auto KeepPlaying(int numInningsInGame) const -> bool = 0;
 };
 
 #endif // BASEBALL_CPP_IGAMESTATE_HPP

@@ -54,16 +54,14 @@ TEST(SimulatorTest, ProcessesEvent) {
 
     {
         chadwick::GameState dummyState;
+        EXPECT_CALL(mockGame, GetGameState()).WillRepeatedly(::testing::ReturnRef(dummyState));
+
         InSequence seq;
-        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(event));
-        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPreEvent(_)).Times(1);
         EXPECT_CALL(mockObserver, OnEvent(_)).Times(1);
         EXPECT_CALL(mockGame, AddEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockObserver, OnPostEvent(_)).Times(1);
-        EXPECT_CALL(mockGame, GetGameState()).WillOnce(::testing::ReturnRef(dummyState));
         EXPECT_CALL(mockSource, Next(_)).WillOnce(Return(std::nullopt));
     }
 
