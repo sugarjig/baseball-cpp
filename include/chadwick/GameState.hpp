@@ -51,7 +51,7 @@ public:
     /// @inheritdoc
     [[nodiscard]] auto GetScore(int team) const -> int override;
     /// @inheritdoc
-    [[nodiscard]] auto KeepPlaying() const -> bool override;
+    [[nodiscard]] auto KeepPlaying(int numInningsInGame) const -> bool override;
 
     /**
      * @brief Constructs a GameState wrapping a Chadwick cw_game_state.
@@ -61,7 +61,7 @@ public:
 
 private:
     CWGameState* cwGameState;
-    static constexpr int numInningsInGame = 9;
+    static constexpr int numLineupSlots = 9;
 };
 
 } // namespace chadwick

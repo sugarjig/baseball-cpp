@@ -41,7 +41,7 @@ TEST_P(GameStateKeepPlayingTest, KeepPlaying) {
     state.score[1] = params.homeScore;
 
     chadwick::GameState const gameState(&state);
-    EXPECT_EQ(gameState.KeepPlaying(), params.expected) << "Failed for: " << params.label;
+    EXPECT_EQ(gameState.KeepPlaying(9), params.expected) << "Failed for: " << params.label;
 }
 
 INSTANTIATE_TEST_SUITE_P(GameStateTests, GameStateKeepPlayingTest,

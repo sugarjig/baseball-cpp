@@ -43,22 +43,14 @@ void RandomEventSource::ApplyAdvancements(PlayInfo& play, int bases) {
 }
 
 auto RandomEventSource::Next(const IGameState& state) -> std::optional<Event> {
-    if (outcomes.empty() || !state.KeepPlaying()) {
+    if (!state.KeepPlaying(9)) {
         return std::nullopt;
     }
 
-    int inning = state.GetInning();
-    int team = state.GetBattingTeam();
-
-    // Check if half-inning is over
-    if (state.GetOuts() >= 3) {
-        if (team == 0) {
-            team = 1;
-        } else {
-            team = 0;
-            inning++;
-        }
-    }
+    int inning = 0;
+    int team = 0;
+    int outs = 0;
+    state.GetEffectiveState(inning, team, outs);
 
     PlayInfo play;
     play.inning = inning;
@@ -67,7 +59,6 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Event> {
     play.pitchCount = "";
     play.pitchSequence = "";
 
-    int const outs = state.GetOuts();
     int const bases =
         (state.IsBaseOccupied(1) ? 1 : 0) | (state.IsBaseOccupied(2) ? 2 : 0) | (state.IsBaseOccupied(3) ? 4 : 0);
 

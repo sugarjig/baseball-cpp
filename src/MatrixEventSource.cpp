@@ -16,15 +16,18 @@ MatrixEventSource::MatrixEventSource(MatrixData data, unsigned int seed)
     : data(std::move(data)), rng(static_cast<std::mt19937::result_type>(seed)) {}
 
 auto MatrixEventSource::GetMatrixKey(const IGameState& state) -> std::string {
-    int currentOuts = state.GetOuts();
+    int currentInning = 0;
+    int currentTeam = 0;
+    int currentOuts = 0;
+    state.GetEffectiveState(currentInning, currentTeam, currentOuts);
+
+    if (state.GetOuts() >= 3) {
+        return "0_out_Empty";
+    }
+
     bool const occupied1 = state.IsBaseOccupied(1);
     bool const occupied2 = state.IsBaseOccupied(2);
     bool const occupied3 = state.IsBaseOccupied(3);
-
-    if (currentOuts >= 3) {
-        currentOuts = 0;
-        return "0_out_Empty";
-    }
 
     std::string key = std::to_string(currentOuts) + "_out_";
     if (!occupied1 && !occupied2 && !occupied3) {
@@ -49,22 +52,14 @@ auto MatrixEventSource::GetMatrixKey(const IGameState& state) -> std::string {
 }
 
 auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Event> {
-    if (!state.KeepPlaying()) {
+    if (!state.KeepPlaying(9)) {
         return std::nullopt;
     }
 
-    int currentInning = state.GetInning();
-    int currentTeam = state.GetBattingTeam();
-    int const currentOuts = state.GetOuts();
-
-    if (currentOuts >= 3) {
-        if (currentTeam == 0) {
-            currentTeam = 1;
-        } else {
-            currentTeam = 0;
-            currentInning++;
-        }
-    }
+    int currentInning = 0;
+    int currentTeam = 0;
+    int currentOuts = 0;
+    state.GetEffectiveState(currentInning, currentTeam, currentOuts);
 
     std::string const key = GetMatrixKey(state);
     auto const itMatrix = data.matrices.find(key);

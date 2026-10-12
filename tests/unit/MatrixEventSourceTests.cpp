@@ -13,7 +13,7 @@
 namespace {
 class MockGameState : public IGameState {
 public:
-    MOCK_METHOD(bool, KeepPlaying, (), (const, override));                    // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(bool, KeepPlaying, (int numInningsInGame), (const, override)); // Updated
     MOCK_METHOD(int, GetInning, (), (const, override));                       // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetOuts, (), (const, override));                         // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(bool, IsBaseOccupied, (int base), (const, override));         // NOLINT(*-use-trailing-return-type)
@@ -54,7 +54,7 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesEvent) {
     MatrixEventSource source(GetTestData(), seed123); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
-    EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true));
+    EXPECT_CALL(state, KeepPlaying(testing::_)).WillOnce(testing::Return(true));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
     EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));
@@ -72,7 +72,7 @@ TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
     MatrixEventSource source(GetTestData(), seed456); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
-    EXPECT_CALL(state, KeepPlaying()).WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(state, KeepPlaying(testing::_)).WillRepeatedly(testing::Return(true));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, IsBaseOccupied(1)).WillRepeatedly(testing::Return(true));
     EXPECT_CALL(state, IsBaseOccupied(2)).WillRepeatedly(testing::Return(true));
@@ -92,7 +92,7 @@ TEST(MatrixEventSourceTest, ReturnsNulloptWhenGameEnds) {
     MatrixEventSource source(GetTestData()); // NOLINT(misc-const-correctness)
     MockGameState const state;
 
-    EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(false));
+    EXPECT_CALL(state, KeepPlaying(testing::_)).WillOnce(testing::Return(false));
 
     auto event = source.Next(state);
     EXPECT_FALSE(event.has_value());
@@ -103,7 +103,7 @@ TEST(MatrixEventSourceTest, HandlesHalfInningTransition) {
     MockGameState const state;
 
     // Simulate state after 3rd out of top 1st
-    EXPECT_CALL(state, KeepPlaying()).WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(state, KeepPlaying(testing::_)).WillRepeatedly(testing::Return(true));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(3));
     EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
     EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));

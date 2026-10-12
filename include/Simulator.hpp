@@ -25,20 +25,25 @@ public:
      * @brief Constructs a Simulator with an event source and an optional observer.
      * @param eventSource The source of baseball events to simulate.
      * @param observer An optional observer to hook into simulation events.
+     * @param numInningsInGame The number of innings in a game. Defaults to 9.
      */
-    explicit Simulator(EventSource* eventSource, SimulatorObserver* observer = nullptr);
+    explicit Simulator(EventSource* eventSource, SimulatorObserver* observer = nullptr, int numInningsInGame = defaultNumInningsInGame);
 
     ~Simulator() = default;
     Simulator(const Simulator&) = delete;
     auto operator=(const Simulator&) -> Simulator& = delete;
     Simulator(Simulator&&) = default;
-    auto operator=(Simulator&&) -> Simulator& = default;
+    auto operator=(Simulator&&) -> Simulator& = delete;
 
     /**
      * @brief Simulates a game by processing all events from the event source.
      * @param game The game object to which events will be applied.
      */
     void SimulateGame(IGame& game) const;
+
+private:
+    static constexpr int defaultNumInningsInGame = 9;
+    const int numInningsInGame;
 };
 
 #endif // BASEBALL_CPP_SIMULATOR_HPP

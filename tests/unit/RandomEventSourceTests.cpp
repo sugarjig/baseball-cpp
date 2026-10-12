@@ -8,7 +8,7 @@
 namespace {
 class MockGameState : public IGameState {
 public:
-    MOCK_METHOD(bool, KeepPlaying, (), (const, override));                    // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(bool, KeepPlaying, (int numInningsInGame), (const, override)); // Updated
     MOCK_METHOD(int, GetInning, (), (const, override));                       // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetOuts, (), (const, override));                         // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(bool, IsBaseOccupied, (int base), (const, override));         // NOLINT(*-use-trailing-return-type)
@@ -24,7 +24,7 @@ TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
     RandomEventSource source(seed);
     MockGameState const state;
 
-    EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true)).WillOnce(testing::Return(false));
+    EXPECT_CALL(state, KeepPlaying(testing::_)).WillOnce(testing::Return(true)).WillOnce(testing::Return(false));
 
     EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));
     EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
