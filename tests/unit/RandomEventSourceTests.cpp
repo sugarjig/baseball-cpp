@@ -27,8 +27,7 @@ TEST(RandomEventSourceTest, GeneratesEventsUntilStopped) {
 
     EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true)).WillOnce(testing::Return(false));
 
-    EXPECT_CALL(state, GetUpcomingHalfInning())
-        .WillRepeatedly(testing::Return(HalfInning{.inning = 1, .team = 0}));
+    EXPECT_CALL(state, GetUpcomingHalfInning()).WillRepeatedly(testing::Return(HalfInning{.inning = 1, .team = 0}));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
     EXPECT_CALL(state, GetNextBatter(testing::_)).WillRepeatedly(testing::Return("PLAYER1"));
@@ -50,8 +49,7 @@ TEST(RandomEventSourceTest, HandlesHalfInningTransition) {
     MockGameState const state;
 
     EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true));
-    EXPECT_CALL(state, GetUpcomingHalfInning())
-        .WillRepeatedly(testing::Return(HalfInning{.inning = 1, .team = 1}));
+    EXPECT_CALL(state, GetUpcomingHalfInning()).WillRepeatedly(testing::Return(HalfInning{.inning = 1, .team = 1}));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(3));
     EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
     EXPECT_CALL(state, GetNextBatter(1)).WillRepeatedly(testing::Return("HOME_PLAYER1"));
