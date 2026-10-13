@@ -7,7 +7,9 @@
  * @brief Represents a half-inning in a baseball game.
  */
 struct HalfInning {
+    //NOLINTNEXTLINE(*-non-private-member-variables-in-classes)
     int inning = 1; ///< The inning number (1-based).
+    //NOLINTNEXTLINE(*-non-private-member-variables-in-classes)
     int team = 0;   ///< The team at bat (0 for visitor, 1 for home).
 
     auto operator<=>(const HalfInning&) const = default;

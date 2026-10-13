@@ -1,4 +1,5 @@
 #include "chadwick/GameState.hpp"
+#include "IGameState.hpp"
 // ReSharper disable once CppUnusedIncludeDirective
 #include <cstdio> // NOLINT(misc-include-cleaner)
 #include <string>
