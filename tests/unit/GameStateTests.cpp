@@ -1,5 +1,5 @@
-#include "chadwick/GameState.hpp"
 #include "IGameState.hpp"
+#include "chadwick/GameState.hpp"
 #include <cstring>
 #include <gtest/gtest.h>
 #include <string>
