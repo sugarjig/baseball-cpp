@@ -16,6 +16,7 @@ public:
     MOCK_METHOD(bool, KeepPlaying, (), (const, override));                    // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetInning, (), (const, override));                       // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetOuts, (), (const, override));                         // NOLINT(*-use-trailing-return-type)
+    MOCK_METHOD(HalfInning, GetUpcomingHalfInning, (), (const, override));    // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(bool, IsBaseOccupied, (int base), (const, override));         // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(int, GetBattingTeam, (), (const, override));                  // NOLINT(*-use-trailing-return-type)
     MOCK_METHOD(std::string, GetNextBatter, (int team), (const, override));   // NOLINT(*-use-trailing-return-type)
@@ -55,10 +56,9 @@ TEST(MatrixEventSourceTest, LoadsMatricesAndGeneratesEvent) {
     MockGameState const state;
 
     EXPECT_CALL(state, KeepPlaying()).WillOnce(testing::Return(true));
+    EXPECT_CALL(state, GetUpcomingHalfInning()).WillRepeatedly(testing::Return(HalfInning{.inning = 1, .team = 0}));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
-    EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));
-    EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, GetNextBatter(0)).WillRepeatedly(testing::Return("PLAYER1"));
 
     auto event = source.Next(state);
@@ -73,12 +73,11 @@ TEST(MatrixEventSourceTest, HandlesBasesLoaded) {
     MockGameState const state;
 
     EXPECT_CALL(state, KeepPlaying()).WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(state, GetUpcomingHalfInning()).WillRepeatedly(testing::Return(HalfInning{.inning = 1, .team = 0}));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, IsBaseOccupied(1)).WillRepeatedly(testing::Return(true));
     EXPECT_CALL(state, IsBaseOccupied(2)).WillRepeatedly(testing::Return(true));
     EXPECT_CALL(state, IsBaseOccupied(3)).WillRepeatedly(testing::Return(true));
-    EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));
-    EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, GetNextBatter(0)).WillRepeatedly(testing::Return("PLAYER1"));
 
     auto event = source.Next(state);
@@ -104,10 +103,9 @@ TEST(MatrixEventSourceTest, HandlesHalfInningTransition) {
 
     // Simulate state after 3rd out of top 1st
     EXPECT_CALL(state, KeepPlaying()).WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(state, GetUpcomingHalfInning()).WillRepeatedly(testing::Return(HalfInning{.inning = 1, .team = 1}));
     EXPECT_CALL(state, GetOuts()).WillRepeatedly(testing::Return(3));
     EXPECT_CALL(state, IsBaseOccupied(testing::_)).WillRepeatedly(testing::Return(false));
-    EXPECT_CALL(state, GetInning()).WillRepeatedly(testing::Return(1));
-    EXPECT_CALL(state, GetBattingTeam()).WillRepeatedly(testing::Return(0));
     EXPECT_CALL(state, GetNextBatter(1)).WillRepeatedly(testing::Return("HOME_PLAYER1"));
 
     auto event = source.Next(state);

@@ -14,7 +14,9 @@
 - [x] Remove usage of friend classes
 - [x] Prefix Chadwick variables with cw
 - [ ] Move KeepPlaying calls out of event source implementations (into Simulator?)
+- [x] Remove duplication at beginning of MatrixEventSource.Next and RandomEventSource.Next
 - [ ] Add abstraction over Retrosheet records
+- [ ] Create enum for team (away/home)
 - [ ] Simulate pitch sequences
 
 ## Matrix Event Source

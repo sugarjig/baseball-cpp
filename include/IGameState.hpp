@@ -4,6 +4,18 @@
 #include <string>
 
 /**
+ * @brief Represents a half-inning in a baseball game.
+ */
+struct HalfInning {
+    // NOLINTNEXTLINE(*-non-private-member-variables-in-classes)
+    int inning = 1; ///< The inning number (1-based).
+    // NOLINTNEXTLINE(*-non-private-member-variables-in-classes)
+    int team = 0; ///< The team at bat (0 for visitor, 1 for home).
+
+    auto operator<=>(const HalfInning&) const = default;
+};
+
+/**
  * @brief Interface for the current state of a baseball game.
  */
 class IGameState {
@@ -46,6 +58,12 @@ public:
      * @return The number of outs (0, 1, or 2).
      */
     [[nodiscard]] virtual auto GetOuts() const -> int = 0;
+
+    /**
+     * @brief Gets the upcoming half-inning, accounting for 3 outs.
+     * @return The upcoming HalfInning (inning and batting team).
+     */
+    [[nodiscard]] virtual auto GetUpcomingHalfInning() const -> HalfInning = 0;
 
     /**
      * @brief Checks if a specific base is occupied.

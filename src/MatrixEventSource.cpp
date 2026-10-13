@@ -53,18 +53,7 @@ auto MatrixEventSource::Next(const IGameState& state) -> std::optional<Event> {
         return std::nullopt;
     }
 
-    int currentInning = state.GetInning();
-    int currentTeam = state.GetBattingTeam();
-    int const currentOuts = state.GetOuts();
-
-    if (currentOuts >= 3) {
-        if (currentTeam == 0) {
-            currentTeam = 1;
-        } else {
-            currentTeam = 0;
-            currentInning++;
-        }
-    }
+    auto const [currentInning, currentTeam] = state.GetUpcomingHalfInning();
 
     std::string const key = GetMatrixKey(state);
     auto const itMatrix = data.matrices.find(key);

@@ -1,3 +1,4 @@
+#include "IGameState.hpp"
 #include "chadwick/GameState.hpp"
 #include <cstring>
 #include <gtest/gtest.h>
@@ -115,6 +116,50 @@ TEST(GameStateTest, GetRunnerOnBase) {
     EXPECT_EQ(gameState.GetRunnerOnBase(1), "runner1");
     EXPECT_EQ(gameState.GetRunnerOnBase(2), "runner2");
     EXPECT_EQ(gameState.GetRunnerOnBase(3), "");
+
+    cw_gamestate_cleanup(&state);
+}
+
+TEST(GameStateTest, GetUpcomingHalfInning) {
+    CWGameState state{};
+    cw_gamestate_initialize(&state);
+
+    // Top 1st, 0 outs -> upcoming is Top 1st
+    state.inning = 1;
+    state.batting_team = 0;
+    state.outs = 0;
+    {
+        chadwick::GameState const gameState(&state);
+        EXPECT_EQ(gameState.GetUpcomingHalfInning(), (HalfInning{.inning = 1, .team = 0}));
+    }
+
+    // Top 1st, 3 outs -> upcoming is Bottom 1st
+    state.outs = 3;
+    {
+        chadwick::GameState const gameState(&state);
+        EXPECT_EQ(gameState.GetUpcomingHalfInning(), (HalfInning{.inning = 1, .team = 1}));
+    }
+
+    // Bottom 1st, 2 outs -> upcoming is Bottom 1st
+    state.batting_team = 1;
+    state.outs = 2;
+    {
+        chadwick::GameState const gameState(&state);
+        EXPECT_EQ(gameState.GetUpcomingHalfInning(), (HalfInning{.inning = 1, .team = 1}));
+    }
+
+    // Bottom 1st, 3 outs -> upcoming is Top 2nd
+    state.outs = 3;
+    {
+        chadwick::GameState const gameState(&state);
+        EXPECT_EQ(gameState.GetUpcomingHalfInning(), (HalfInning{.inning = 2, .team = 0}));
+    }
+
+    // Empty / null CWGameState
+    {
+        chadwick::GameState const emptyState(nullptr);
+        EXPECT_EQ(emptyState.GetUpcomingHalfInning(), (HalfInning{.inning = 1, .team = 0}));
+    }
 
     cw_gamestate_cleanup(&state);
 }

@@ -47,18 +47,7 @@ auto RandomEventSource::Next(const IGameState& state) -> std::optional<Event> {
         return std::nullopt;
     }
 
-    int inning = state.GetInning();
-    int team = state.GetBattingTeam();
-
-    // Check if half-inning is over
-    if (state.GetOuts() >= 3) {
-        if (team == 0) {
-            team = 1;
-        } else {
-            team = 0;
-            inning++;
-        }
-    }
+    auto const [inning, team] = state.GetUpcomingHalfInning();
 
     PlayInfo play;
     play.inning = inning;

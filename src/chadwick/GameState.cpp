@@ -1,4 +1,5 @@
 #include "chadwick/GameState.hpp"
+#include "IGameState.hpp"
 // ReSharper disable once CppUnusedIncludeDirective
 #include <cstdio> // NOLINT(misc-include-cleaner)
 #include <string>
@@ -50,6 +51,22 @@ auto GameState::GetBattingTeam() const -> int { return (cwGameState != nullptr) 
 
 auto GameState::GetOuts() const -> int { return (cwGameState != nullptr) ? cwGameState->outs : 0; }
 
+auto GameState::GetUpcomingHalfInning() const -> HalfInning {
+    int inning = GetInning();
+    int team = GetBattingTeam();
+
+    if (GetOuts() >= 3) {
+        if (team == 0) {
+            team = 1;
+        } else {
+            team = 0;
+            inning++;
+        }
+    }
+
+    return HalfInning{.inning = inning, .team = team};
+}
+
 auto GameState::IsBaseOccupied(int const base) const -> bool {
     return (cwGameState != nullptr) && (cw_gamestate_base_occupied(cwGameState, base) != 0);
 }
@@ -62,18 +79,7 @@ auto GameState::GetScore(const int team) const -> int {
 }
 
 auto GameState::KeepPlaying() const -> bool {
-    int inning = GetInning();
-    int team = GetBattingTeam();
-
-    // Check if half-inning is over
-    if (GetOuts() >= 3) {
-        if (team == 0) {
-            team = 1;
-        } else {
-            team = 0;
-            inning++;
-        }
-    }
+    auto const [inning, team] = GetUpcomingHalfInning();
 
     int const visitorScore = GetScore(0);
     int const homeScore = GetScore(1);
