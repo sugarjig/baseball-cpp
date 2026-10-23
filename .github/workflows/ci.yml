@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
+      - name: Update vcpkg baseline
+        run: git -C "${VCPKG_INSTALLATION_ROOT}" fetch
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -35,6 +37,8 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
+      - name: Update vcpkg baseline
+        run: git -C "${VCPKG_INSTALLATION_ROOT}" fetch
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -52,6 +56,8 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
+      - name: Update vcpkg baseline
+        run: git -C "${VCPKG_INSTALLATION_ROOT}" fetch
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -68,6 +74,8 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
+      - name: Update vcpkg baseline
+        run: git -C "${VCPKG_INSTALLATION_ROOT}" fetch
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
