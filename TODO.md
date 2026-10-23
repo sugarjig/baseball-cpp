@@ -45,7 +45,7 @@
 - [ ] Use [run-vcpkg](https://github.com/lukka/run-vcpkg) in GitHub Actions to cache packages
   - [ ] Or use [handrolled solution](https://learn.microsoft.com/en-us/vcpkg/consume/binary-caching-github-packages?pivots=windows-runner)
 - [x] Update Chadwick to 0.11.0 - https://github.com/chadwickbureau/chadwick/releases/tag/v0.11.0
-- [ ] Publish Chadwick to vcpkg
+- [x] Publish Chadwick to vcpkg
   - https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-packaging?pivots=shell-bash
   - https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-adding-to-registry?pivots=shell-powershell
 

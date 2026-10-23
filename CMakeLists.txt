@@ -14,7 +14,8 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg_installed")
     endforeach()
 endif()
 
-add_subdirectory(lib)
+find_path(CHADWICK_INCLUDE_DIR "chadwick/chadwick.h")
+find_library(CHADWICK_LIBRARY NAMES chadwick)
 
 add_library(baseball_lib STATIC
         src/Simulator.cpp
@@ -42,9 +43,9 @@ add_library(baseball_lib STATIC
         include/IGame.hpp
         include/IGameState.hpp
 )
-target_include_directories(baseball_lib PUBLIC include)
+target_include_directories(baseball_lib PUBLIC include "${CHADWICK_INCLUDE_DIR}")
 target_compile_definitions(baseball_lib PUBLIC PROJECT_ROOT="${CMAKE_SOURCE_DIR}")
-target_link_libraries(baseball_lib PUBLIC chadwick)
+target_link_libraries(baseball_lib PUBLIC "${CHADWICK_LIBRARY}")
 
 add_executable(baseball_cpp src/main.cpp)
 target_link_libraries(baseball_cpp PRIVATE baseball_lib)
