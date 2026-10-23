@@ -43,7 +43,8 @@ add_library(baseball_lib STATIC
         include/IGame.hpp
         include/IGameState.hpp
 )
-target_include_directories(baseball_lib PUBLIC include "${CHADWICK_INCLUDE_DIR}")
+target_include_directories(baseball_lib PUBLIC include)
+target_include_directories(baseball_lib SYSTEM PUBLIC "${CHADWICK_INCLUDE_DIR}")
 target_compile_definitions(baseball_lib PUBLIC PROJECT_ROOT="${CMAKE_SOURCE_DIR}")
 target_link_libraries(baseball_lib PUBLIC "${CHADWICK_LIBRARY}")
 

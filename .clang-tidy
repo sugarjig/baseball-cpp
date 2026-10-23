@@ -8,7 +8,7 @@ Checks: 'bugprone-*,
 
 WarningsAsErrors: '*'
 
-HeaderFilterRegex: 'include/.*'
+HeaderFilterRegex: 'include/.*\.hpp'
 
 CheckOptions:
   - { key: readability-identifier-naming.ClassCase,           value: CamelCase }
