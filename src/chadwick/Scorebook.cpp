@@ -7,10 +7,10 @@
 extern "C" {
 // clang-format off
 // ReSharper disable once CppUnusedIncludeDirective
-#include "parse.h" // NOLINT(misc-include-cleaner)
-#include "game.h" // NOLINT(misc-include-cleaner)
+#include <chadwick/parse.h> // NOLINT(misc-include-cleaner)
+#include <chadwick/game.h> // NOLINT(misc-include-cleaner)
 // clang-format on
-#include "book.h"
+#include <chadwick/book.h>
 }
 
 namespace chadwick {

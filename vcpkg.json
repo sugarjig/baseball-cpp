@@ -1,8 +1,9 @@
 {
   "name": "baseball-cpp",
   "version-string": "1.0.0",
-  "builtin-baseline": "9e593bb18ea69cc5095e012465dcd675a822ed0d",
+  "builtin-baseline": "40a678a192636131f04b3af79ba118d869effade",
   "dependencies": [
+    "chadwick",
     {
       "name": "gtest",
       "version>=": "1.18.0"

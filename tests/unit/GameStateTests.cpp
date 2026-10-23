@@ -7,8 +7,8 @@
 extern "C" {
 // clang-format off
  // ReSharper disable once CppUnusedIncludeDirective
-#include "parse.h" // NOLINT(misc-include-cleaner)
-#include "gameiter.h"
+#include <chadwick/parse.h> // NOLINT(misc-include-cleaner)
+#include <chadwick/gameiter.h>
 // clang-format on
 }
 
