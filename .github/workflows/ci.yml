@@ -24,7 +24,7 @@ jobs:
       - name: Update vcpkg
         run: |
           git -C "${VCPKG_INSTALLATION_ROOT}" fetch origin master
-          git -C "${VCPKG_INSTALLATION_ROOT}" checkout origin/master
+          git -C "${VCPKG_INSTALLATION_ROOT}" checkout -f origin/master
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -42,7 +42,7 @@ jobs:
       - name: Update vcpkg
         run: |
           git -C "${VCPKG_INSTALLATION_ROOT}" fetch origin master
-          git -C "${VCPKG_INSTALLATION_ROOT}" checkout origin/master
+          git -C "${VCPKG_INSTALLATION_ROOT}" checkout -f origin/master
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -63,7 +63,7 @@ jobs:
       - name: Update vcpkg
         run: |
           git -C "${VCPKG_INSTALLATION_ROOT}" fetch origin master
-          git -C "${VCPKG_INSTALLATION_ROOT}" checkout origin/master
+          git -C "${VCPKG_INSTALLATION_ROOT}" checkout -f origin/master
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
@@ -83,7 +83,7 @@ jobs:
       - name: Update vcpkg
         run: |
           git -C "${VCPKG_INSTALLATION_ROOT}" fetch origin master
-          git -C "${VCPKG_INSTALLATION_ROOT}" checkout origin/master
+          git -C "${VCPKG_INSTALLATION_ROOT}" checkout -f origin/master
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
